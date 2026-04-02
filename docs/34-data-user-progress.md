@@ -58,3 +58,5 @@ Foundation data for weighted review of weak cards.
   "unlock_reason": "complete_quizzes"
 }
 ```
+
+The `unlock_reason` field records which UnlockCondition `type` was satisfied to unlock the node. Valid values match the UnlockCondition types defined in [31-data-entities.md](31-data-entities.md) (Section 2.5): `complete_quizzes`, `complete_node`, `attempts`, `hint_clear`.

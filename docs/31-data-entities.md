@@ -30,7 +30,7 @@ The root of the tree.
 | label | string | Display name |
 | emoji | string | Icon |
 | color | string | Accent color for the region |
-| era_colors | object | Era band (時代帯) color definitions. Used for visual tags on cards |
+| era_colors | object | Era band (時代帯) color definitions. Used for visual tags on cards. When exporting, entries from all regions are flattened into a top-level `era_bands` array |
 
 ## 2.2 Card
 

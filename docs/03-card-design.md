@@ -59,7 +59,7 @@ A color bar is displayed on the left edge of each card. Colors are assigned per 
 Cards in the same era band share the same color, so it is visually apparent that "the Jōei Code (indigo) and the Ōnin War (indigo) belong to the same Medieval era band." If they are in different era bands, the colors differ, making it easier to avoid confusing "the Jōei Code (indigo / Medieval) and the Laws for Military Houses (purple / Early Modern)."
 
 **Axis 2: Category Icon**
-A small icon is displayed on each card. Initially limited to 5–6 types.
+A small icon is displayed on each card. There are 7 types.
 
 | Category | Icon Example | Includes |
 |----------|-------------|----------|

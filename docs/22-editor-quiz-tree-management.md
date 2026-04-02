@@ -83,7 +83,7 @@ Clicking a quiz opens the quiz edit panel.
 │  Card Type:    [Term Card ▼]                       │
 │  Region:       [Japanese History ▼]                │
 │  Difficulty:   [1 ▼]                               │
-│  Modes:        ☑ Deliberate  ☑ Challenge           │
+│  Modes:        ☑ Careful  ☑ Challenge              │
 │                                                    │
 │  ── Card Composition ──                            │
 │  Order  Card                   Year    Status      │

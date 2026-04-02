@@ -58,7 +58,7 @@ A data integrity check is run before import, and the results are displayed in a 
 |-------|-------------|
 | Schema validation | Required fields exist and types match |
 | Duplicate IDs | No duplicate IDs within the same entity type |
-| Referential integrity | Card's `region` and `era_color_key` exist in `regions` and `era_colors` |
+| Referential integrity | Card's `region` exists in `regions`, and `era_color_key` is a valid key in the corresponding Region's `era_colors` object |
 | Referential integrity | All card IDs in a quiz's `card_ids` exist |
 | Parent-child integrity | Node's `parent_id` exists and there are no circular references |
 | Quiz-Node integrity | All quiz IDs in a node's `quiz_ids` exist |
