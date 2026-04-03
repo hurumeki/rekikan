@@ -1,0 +1,41 @@
+[
+  {
+    "id": "japan",
+    "label": "日本史",
+    "emoji": "🇯🇵",
+    "color": "#e85d75",
+    "era_colors": {
+      "prehistoric_ancient": { "label": "先史・古代", "color": "#4ade80" },
+      "medieval": { "label": "中世", "color": "#60a5fa" },
+      "early_modern": { "label": "近世", "color": "#a78bfa" },
+      "modern": { "label": "近代", "color": "#fb923c" },
+      "contemporary": { "label": "現代", "color": "#f87171" }
+    }
+  },
+  {
+    "id": "europe",
+    "label": "ヨーロッパ史",
+    "emoji": "🏰",
+    "color": "#3b82f6",
+    "era_colors": {
+      "ancient": { "label": "古代", "color": "#4ade80" },
+      "medieval": { "label": "中世", "color": "#60a5fa" },
+      "early_modern": { "label": "近世", "color": "#a78bfa" },
+      "modern": { "label": "近代", "color": "#fb923c" },
+      "contemporary": { "label": "現代", "color": "#f87171" }
+    }
+  },
+  {
+    "id": "china",
+    "label": "中国史",
+    "emoji": "🐉",
+    "color": "#eab308",
+    "era_colors": {
+      "ancient": { "label": "古代", "color": "#4ade80" },
+      "medieval": { "label": "中世", "color": "#60a5fa" },
+      "early_modern": { "label": "近世", "color": "#a78bfa" },
+      "modern": { "label": "近代", "color": "#fb923c" },
+      "contemporary": { "label": "現代", "color": "#f87171" }
+    }
+  }
+]

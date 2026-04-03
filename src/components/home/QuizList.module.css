@@ -1,0 +1,71 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+.backButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: var(--badge-bg);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 4px 0;
+}
+.regionHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border);
+}
+.regionEmoji {
+  font-size: 2rem;
+}
+.regionLabel {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.nodeSection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.nodeLabel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.quizItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+  text-align: left;
+}
+.quizItem:hover:not(.locked) {
+  background: var(--surface-hover);
+  border-color: var(--state-selected-border);
+}
+.locked {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.quizTitle {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.quizStatus {
+  font-size: 1.2rem;
+}

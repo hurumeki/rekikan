@@ -1,0 +1,81 @@
+.container {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 480px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.confirmedArea {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--border);
+}
+
+.confirmedLabel {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.prompt {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 8px 0;
+}
+
+.remainingArea {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.feedbackOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.feedbackCard {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  max-width: 320px;
+  width: 90%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.feedbackCorrect {
+  color: #22c55e;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.feedbackIncorrect {
+  color: #ef4444;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.feedbackButton {
+  background: var(--badge-bg);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}

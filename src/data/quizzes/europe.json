@@ -1,0 +1,62 @@
+[
+  {
+    "id": "quiz_europe_intro_desc",
+    "region": "europe",
+    "title": "ヨーロッパ史の大きな流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_europe_desc_intro_1",
+      "card_europe_desc_intro_2",
+      "card_europe_desc_intro_3",
+      "card_europe_desc_intro_4",
+      "card_europe_desc_intro_5"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_europe_ancient",
+    "region": "europe",
+    "title": "古代ヨーロッパ",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_greece",
+      "card_europe_roman_republic",
+      "card_europe_roman_empire",
+      "card_europe_migration",
+      "card_europe_franks"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_europe_medieval",
+    "region": "europe",
+    "title": "中世・近世ヨーロッパ",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_feudal",
+      "card_europe_crusades",
+      "card_europe_renaissance",
+      "card_europe_exploration",
+      "card_europe_reformation"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_europe_modern",
+    "region": "europe",
+    "title": "近代・現代ヨーロッパ",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_industrial",
+      "card_europe_french_revolution",
+      "card_europe_nationalism",
+      "card_europe_ww1",
+      "card_europe_ww2"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 1
+  }
+]

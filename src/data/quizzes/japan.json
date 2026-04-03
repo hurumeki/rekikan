@@ -1,0 +1,68 @@
+[
+  {
+    "id": "quiz_japan_intro_desc",
+    "region": "japan",
+    "title": "日本の歴史の大きな流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_japan_desc_intro_1",
+      "card_japan_desc_intro_2",
+      "card_japan_desc_intro_3",
+      "card_japan_desc_intro_4",
+      "card_japan_desc_intro_5",
+      "card_japan_desc_intro_6",
+      "card_japan_desc_intro_7"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_japan_prehistoric_ancient",
+    "region": "japan",
+    "title": "先史・古代の時代",
+    "card_type": "term",
+    "card_ids": [
+      "card_japan_jomon",
+      "card_japan_yayoi",
+      "card_japan_kofun",
+      "card_japan_asuka",
+      "card_japan_nara",
+      "card_japan_heian",
+      "card_japan_insei"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_japan_medieval",
+    "region": "japan",
+    "title": "中世・近世の時代",
+    "card_type": "term",
+    "card_ids": [
+      "card_japan_kamakura",
+      "card_japan_nanbokucho",
+      "card_japan_muromachi",
+      "card_japan_sengoku",
+      "card_japan_azuchimomoyama",
+      "card_japan_edo"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_japan_modern",
+    "region": "japan",
+    "title": "近代・現代の時代",
+    "card_type": "term",
+    "card_ids": [
+      "card_japan_meiji",
+      "card_japan_taisho",
+      "card_japan_showa_prewar",
+      "card_japan_showa_postwar",
+      "card_japan_heisei",
+      "card_japan_reiwa"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 1
+  }
+]
