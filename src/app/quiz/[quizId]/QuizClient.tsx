@@ -81,8 +81,31 @@ export default function QuizClient() {
     );
   }
 
+  const handleBackToList = () => {
+    router.push('/');
+  };
+
   return (
     <div style={{ maxWidth: 480, margin: '0 auto', padding: '16px', width: '100%' }}>
+      <button
+        onClick={handleBackToList}
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: 4,
+          background: 'none',
+          border: 'none',
+          color: 'var(--badge-bg)',
+          fontSize: '0.9rem',
+          fontWeight: 600,
+          padding: '4px 0',
+          marginBottom: 12,
+          cursor: 'pointer',
+        }}
+      >
+        ← クイズ一覧
+      </button>
+
       {phase === 'mode-select' && (
         <ModeSelector quizTitle={quiz.title} modes={quiz.modes} onSelect={handleModeSelect} />
       )}

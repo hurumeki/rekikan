@@ -60,7 +60,7 @@ export default function ResultScreen({
           もう一度
         </button>
         <button className={styles.homeButton} onClick={onHome}>
-          ホームに戻る
+          クイズ一覧に戻る
         </button>
       </div>
     </div>

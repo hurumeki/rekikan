@@ -6,67 +6,56 @@ import { shuffleArray } from '@/lib/quiz-engine';
 
 interface CarefulModeState {
   remainingCards: Card[];
-  confirmedCards: { card: Card; correct: boolean }[];
-  currentCorrectCard: Card | null;
-  feedback: { type: 'correct' | 'incorrect'; correctCard: Card } | null;
+  confirmedCards: Card[];
+  mistakeCardIds: Set<string>; // cards where user made at least one mistake
+  wrongCardId: string | null; // currently shaking card
   isComplete: boolean;
   score: number;
   total: number;
-  results: CardResult[];
 }
 
 export function useCarefulMode(cards: Card[], correctOrder: string[]) {
-  // Initialize: shuffle the cards
   const [state, setState] = useState<CarefulModeState>(() => ({
     remainingCards: shuffleArray(cards),
     confirmedCards: [],
-    currentCorrectCard: null,
-    feedback: null,
+    mistakeCardIds: new Set(),
+    wrongCardId: null,
     isComplete: false,
     score: 0,
     total: cards.length,
-    results: [],
   }));
 
   const selectCard = useCallback(
     (cardId: string) => {
       setState((prev) => {
-        if (prev.feedback || prev.isComplete) return prev;
+        if (prev.isComplete) return prev;
 
         const selectedCard = prev.remainingCards.find((c) => c.id === cardId);
         if (!selectedCard) return prev;
 
         const expectedId = correctOrder[prev.confirmedCards.length];
         if (!expectedId) return prev;
-        const isCorrect = cardId === expectedId;
-        const correctCard = prev.remainingCards.find((c) => c.id === expectedId);
-        if (!correctCard) return prev;
 
-        const newResult: CardResult = {
-          cardId,
-          correct: isCorrect,
-          correctPosition: prev.confirmedCards.length,
-          userPosition: prev.confirmedCards.length,
-        };
+        const isCorrect = cardId === expectedId;
 
         if (isCorrect) {
-          const newConfirmed = [...prev.confirmedCards, { card: selectedCard, correct: true }];
+          const newConfirmed = [...prev.confirmedCards, selectedCard];
           const newRemaining = prev.remainingCards.filter((c) => c.id !== cardId);
-          const newResults = [...prev.results, newResult];
           return {
             ...prev,
             confirmedCards: newConfirmed,
             remainingCards: newRemaining,
-            feedback: { type: 'correct' as const, correctCard: selectedCard },
+            wrongCardId: null,
             isComplete: newRemaining.length === 0,
-            score: prev.score + 1,
-            results: newResults,
+            score: prev.mistakeCardIds.has(expectedId) ? prev.score : prev.score + 1,
           };
         } else {
+          const newMistakes = new Set(prev.mistakeCardIds);
+          newMistakes.add(expectedId);
           return {
             ...prev,
-            feedback: { type: 'incorrect' as const, correctCard },
-            results: [...prev.results, newResult],
+            wrongCardId: cardId,
+            mistakeCardIds: newMistakes,
           };
         }
       });
@@ -74,23 +63,27 @@ export function useCarefulMode(cards: Card[], correctOrder: string[]) {
     [correctOrder],
   );
 
-  const dismissFeedback = useCallback(() => {
-    setState((prev) => {
-      if (!prev.feedback) return prev;
-      // If incorrect, move the correct card to confirmed and remove from remaining
-      if (prev.feedback.type === 'incorrect') {
-        const correctCard = prev.feedback.correctCard;
-        return {
-          ...prev,
-          confirmedCards: [...prev.confirmedCards, { card: correctCard, correct: false }],
-          remainingCards: prev.remainingCards.filter((c) => c.id !== correctCard.id),
-          feedback: null,
-          isComplete: prev.remainingCards.filter((c) => c.id !== correctCard.id).length === 0,
-        };
-      }
-      return { ...prev, feedback: null };
-    });
+  const clearWrong = useCallback(() => {
+    setState((prev) => ({ ...prev, wrongCardId: null }));
   }, []);
 
-  return { ...state, selectCard, dismissFeedback };
+  const results: CardResult[] = state.confirmedCards.map((card, i) => ({
+    cardId: card.id,
+    correct: !state.mistakeCardIds.has(card.id),
+    correctPosition: i,
+    userPosition: i,
+  }));
+
+  return {
+    remainingCards: state.remainingCards,
+    confirmedCards: state.confirmedCards,
+    mistakeCardIds: state.mistakeCardIds,
+    wrongCardId: state.wrongCardId,
+    isComplete: state.isComplete,
+    score: state.score,
+    total: state.total,
+    results,
+    selectCard,
+    clearWrong,
+  };
 }

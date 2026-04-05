@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import type { Card as CardType, CardResult } from '@/lib/types';
 import { useCarefulMode } from '@/hooks/useCarefulMode';
 import Card from '@/components/card/Card';
-import { formatYearRange } from '@/lib/quiz-engine';
 import styles from './CarefulMode.module.css';
 
 interface CarefulModeProps {
@@ -25,31 +24,39 @@ export default function CarefulMode({
   const {
     remainingCards,
     confirmedCards,
-    feedback,
+    wrongCardId,
     isComplete,
     score,
     total,
     results,
     selectCard,
-    dismissFeedback,
+    clearWrong,
   } = useCarefulMode(cards, correctOrder);
 
   useEffect(() => {
-    if (isComplete && !feedback) {
+    if (isComplete) {
       onComplete(results, score, total);
     }
-  }, [isComplete, feedback, results, score, total, onComplete]);
+  }, [isComplete, results, score, total, onComplete]);
+
+  // Auto-clear shake animation after 500ms
+  useEffect(() => {
+    if (wrongCardId) {
+      const timer = setTimeout(clearWrong, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [wrongCardId, clearWrong]);
 
   return (
     <div className={styles.container}>
       {confirmedCards.length > 0 && (
         <div className={styles.confirmedArea}>
           <div className={styles.confirmedLabel}>確定エリア</div>
-          {confirmedCards.map(({ card, correct }) => (
+          {confirmedCards.map((card) => (
             <Card
               key={card.id}
               card={card}
-              state={correct ? 'correct' : 'incorrect'}
+              state="correct"
               eraColor={eraColors[card.era_color_key] ?? '#888'}
               showYear
               showDescription
@@ -63,37 +70,16 @@ export default function CarefulMode({
       {remainingCards.length > 0 && (
         <div className={styles.remainingArea}>
           {remainingCards.map((card) => (
-            <Card
-              key={card.id}
-              card={card}
-              state="unselected"
-              eraColor={eraColors[card.era_color_key] ?? '#888'}
-              showHint={hintEnabled}
-              onClick={() => selectCard(card.id)}
-            />
+            <div key={card.id} className={wrongCardId === card.id ? styles.shake : undefined}>
+              <Card
+                card={card}
+                state={wrongCardId === card.id ? 'incorrect' : 'unselected'}
+                eraColor={eraColors[card.era_color_key] ?? '#888'}
+                showHint={hintEnabled}
+                onClick={() => selectCard(card.id)}
+              />
+            </div>
           ))}
-        </div>
-      )}
-
-      {feedback && (
-        <div className={styles.feedbackOverlay}>
-          <div className={styles.feedbackCard}>
-            <div
-              className={
-                feedback.type === 'correct' ? styles.feedbackCorrect : styles.feedbackIncorrect
-              }
-            >
-              {feedback.type === 'correct' ? '正解！' : '不正解'}
-            </div>
-            <div>
-              {feedback.correctCard.name && <strong>{feedback.correctCard.name}</strong>}
-              <div>{feedback.correctCard.description}</div>
-              <div>{formatYearRange(feedback.correctCard.year, feedback.correctCard.year_end)}</div>
-            </div>
-            <button className={styles.feedbackButton} onClick={dismissFeedback}>
-              次へ
-            </button>
-          </div>
         </div>
       )}
     </div>
