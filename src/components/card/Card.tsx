@@ -34,6 +34,8 @@ export default function Card({
   const longPressTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const longPressTriggered = useRef(false);
   const touchHandled = useRef(false);
+  const touchMoved = useRef(false);
+  const touchStartPos = useRef<{ x: number; y: number } | null>(null);
 
   const clearTimer = useCallback(() => {
     if (longPressTimer.current) {
@@ -42,20 +44,45 @@ export default function Card({
     }
   }, []);
 
-  const handleTouchStart = useCallback(() => {
-    longPressTriggered.current = false;
-    touchHandled.current = true;
-    if (onLongPress) {
-      longPressTimer.current = setTimeout(() => {
-        longPressTriggered.current = true;
-        onLongPress();
-      }, 500);
-    }
-  }, [onLongPress]);
+  const handleTouchStart = useCallback(
+    (e: React.TouchEvent) => {
+      longPressTriggered.current = false;
+      touchHandled.current = true;
+      touchMoved.current = false;
+      const touch = e.touches[0];
+      touchStartPos.current = { x: touch.clientX, y: touch.clientY };
+      if (onLongPress) {
+        longPressTimer.current = setTimeout(() => {
+          if (!touchMoved.current) {
+            longPressTriggered.current = true;
+            onLongPress();
+          }
+        }, 500);
+      }
+    },
+    [onLongPress],
+  );
+
+  const handleTouchMove = useCallback(
+    (e: React.TouchEvent) => {
+      if (touchMoved.current) return;
+      const touch = e.touches[0];
+      const start = touchStartPos.current;
+      if (start) {
+        const dx = Math.abs(touch.clientX - start.x);
+        const dy = Math.abs(touch.clientY - start.y);
+        if (dx > 10 || dy > 10) {
+          touchMoved.current = true;
+          clearTimer();
+        }
+      }
+    },
+    [clearTimer],
+  );
 
   const handleTouchEnd = useCallback(() => {
     clearTimer();
-    if (!longPressTriggered.current) {
+    if (!touchMoved.current && !longPressTriggered.current) {
       onClick?.();
     }
   }, [clearTimer, onClick]);
@@ -108,6 +135,7 @@ export default function Card({
       data-testid="quiz-card"
       onClick={handleClick}
       onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
       onMouseDown={onLongPress ? handleMouseDown : undefined}
       onMouseUp={onLongPress ? handleMouseUp : undefined}
