@@ -1,0 +1,35 @@
+[
+  {
+    "id": "node_china_root",
+    "region": "china",
+    "parent_id": null,
+    "label": "中国史",
+    "sort_order": 0,
+    "quiz_ids": ["quiz_china_intro_desc"],
+    "unlock_condition": null
+  },
+  {
+    "id": "node_china_ancient",
+    "region": "china",
+    "parent_id": "node_china_root",
+    "label": "古代",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_china_ancient"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_china_intro_desc"]
+    }
+  },
+  {
+    "id": "node_china_medieval",
+    "region": "china",
+    "parent_id": "node_china_root",
+    "label": "中世・近世",
+    "sort_order": 2,
+    "quiz_ids": ["quiz_china_medieval"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_china_intro_desc"]
+    }
+  }
+]

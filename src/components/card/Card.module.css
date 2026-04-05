@@ -1,0 +1,114 @@
+.card {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 2px solid var(--state-unselected-border);
+  background: var(--state-unselected-bg);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  min-height: 64px;
+  align-items: stretch;
+}
+
+.card:active {
+  transform: scale(0.98);
+}
+
+.selected {
+  border-color: var(--state-selected-border);
+  background: var(--state-selected-bg);
+}
+
+.locked {
+  border-color: var(--state-locked-border);
+  background: var(--state-locked-bg);
+}
+
+.correct {
+  border-color: var(--state-correct-border);
+  background: var(--state-correct-bg);
+}
+
+.incorrect {
+  border-color: var(--state-incorrect-border);
+  background: var(--state-incorrect-bg);
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--foreground);
+}
+
+.hint {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.description {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--foreground);
+}
+
+.yearLabel {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.mark {
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+}
+
+.correctMark {
+  background-color: #22c55e;
+}
+
+.incorrectMark {
+  background-color: #ef4444;
+}
+
+.lockIcon {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  font-size: 14px;
+}

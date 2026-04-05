@@ -1,0 +1,49 @@
+[
+  {
+    "id": "quiz_china_intro_desc",
+    "region": "china",
+    "title": "中国史の大きな流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_china_desc_intro_1",
+      "card_china_desc_intro_2",
+      "card_china_desc_intro_3",
+      "card_china_desc_intro_4",
+      "card_china_desc_intro_5"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_china_ancient",
+    "region": "china",
+    "title": "古代中国の王朝",
+    "card_type": "term",
+    "card_ids": [
+      "card_china_shang",
+      "card_china_zhou",
+      "card_china_qin",
+      "card_china_han",
+      "card_china_three_kingdoms",
+      "card_china_sui"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_china_medieval",
+    "region": "china",
+    "title": "中世・近世の王朝",
+    "card_type": "term",
+    "card_ids": [
+      "card_china_tang",
+      "card_china_song",
+      "card_china_yuan",
+      "card_china_ming",
+      "card_china_qing",
+      "card_china_roc"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 1
+  }
+]
