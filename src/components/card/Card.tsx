@@ -42,7 +42,7 @@ export default function Card({
     }
   }, []);
 
-  const startPress = useCallback(() => {
+  const handleTouchStart = useCallback(() => {
     longPressTriggered.current = false;
     touchHandled.current = true;
     if (onLongPress) {
@@ -53,7 +53,27 @@ export default function Card({
     }
   }, [onLongPress]);
 
-  const endPress = useCallback(() => {
+  const handleTouchEnd = useCallback(() => {
+    clearTimer();
+    if (!longPressTriggered.current) {
+      onClick?.();
+    }
+  }, [clearTimer, onClick]);
+
+  const handleMouseDown = useCallback(() => {
+    // Skip synthetic mouse events fired after touch
+    if (touchHandled.current) return;
+    longPressTriggered.current = false;
+    if (onLongPress) {
+      longPressTimer.current = setTimeout(() => {
+        longPressTriggered.current = true;
+        onLongPress();
+      }, 500);
+    }
+  }, [onLongPress]);
+
+  const handleMouseUp = useCallback(() => {
+    if (touchHandled.current) return;
     clearTimer();
     if (!longPressTriggered.current) {
       onClick?.();
@@ -62,15 +82,13 @@ export default function Card({
 
   const handleClick = useCallback(
     (e: React.MouseEvent) => {
-      // Ignore synthetic click after touch — already handled in onTouchEnd
+      // After touch or when long-press is active, always suppress click
       if (touchHandled.current) {
         touchHandled.current = false;
-        e.preventDefault();
         return;
       }
       if (onLongPress) {
-        // Desktop: long-press handled via mouseDown/mouseUp, skip click
-        e.preventDefault();
+        // Desktop: handled via mouseDown/mouseUp
         return;
       }
       onClick?.();
@@ -89,10 +107,10 @@ export default function Card({
       className={classNames}
       data-testid="quiz-card"
       onClick={handleClick}
-      onTouchStart={startPress}
-      onTouchEnd={endPress}
-      onMouseDown={onLongPress ? startPress : undefined}
-      onMouseUp={onLongPress ? endPress : undefined}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+      onMouseDown={onLongPress ? handleMouseDown : undefined}
+      onMouseUp={onLongPress ? handleMouseUp : undefined}
       onMouseLeave={onLongPress ? clearTimer : undefined}
     >
       <EraBadge color={eraColor} />
