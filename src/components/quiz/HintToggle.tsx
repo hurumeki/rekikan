@@ -9,7 +9,11 @@ interface HintToggleProps {
 
 export default function HintToggle({ enabled, onToggle }: HintToggleProps) {
   return (
-    <button className={`${styles.toggle} ${enabled ? styles.active : ''}`} onClick={onToggle}>
+    <button
+      className={`${styles.toggle} ${enabled ? styles.active : ''}`}
+      onClick={onToggle}
+      aria-pressed={enabled}
+    >
       {enabled ? 'ヒント ON' : 'ヒント OFF'}
     </button>
   );

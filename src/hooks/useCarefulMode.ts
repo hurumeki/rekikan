@@ -36,10 +36,11 @@ export function useCarefulMode(cards: Card[], correctOrder: string[]) {
         const selectedCard = prev.remainingCards.find((c) => c.id === cardId);
         if (!selectedCard) return prev;
 
-        const isCorrect = cardId === correctOrder[prev.confirmedCards.length];
-        const correctCard = prev.remainingCards.find(
-          (c) => c.id === correctOrder[prev.confirmedCards.length],
-        )!;
+        const expectedId = correctOrder[prev.confirmedCards.length];
+        if (!expectedId) return prev;
+        const isCorrect = cardId === expectedId;
+        const correctCard = prev.remainingCards.find((c) => c.id === expectedId);
+        if (!correctCard) return prev;
 
         const newResult: CardResult = {
           cardId,

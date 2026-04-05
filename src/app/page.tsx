@@ -13,10 +13,7 @@ export default function Home() {
   const router = useRouter();
   const regions = getRegions();
   const [selectedRegion, setSelectedRegion] = useState<Region | null>(null);
-  const [progress] = useState<Record<string, QuizProgress>>(() => {
-    if (typeof window === 'undefined') return {};
-    return getAllProgress();
-  });
+  const [progress] = useState<Record<string, QuizProgress>>(getAllProgress);
 
   const handleSelectRegion = (regionId: string) => {
     const region = getRegion(regionId);
@@ -39,6 +36,7 @@ export default function Home() {
           region={selectedRegion}
           nodes={getNodesForRegion(selectedRegion.id)}
           onSelectQuiz={handleSelectQuiz}
+          onBack={() => setSelectedRegion(null)}
           progress={progress}
         />
       ) : (

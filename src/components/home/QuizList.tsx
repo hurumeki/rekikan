@@ -2,13 +2,13 @@
 
 import type { Region, Node, QuizProgress, UnlockCondition } from '@/lib/types';
 import { getQuiz, getRootNode, getChildNodes } from '@/lib/data-loader';
-import { isQuizCleared } from '@/lib/progress';
 import styles from './QuizList.module.css';
 
 interface QuizListProps {
   region: Region;
   nodes: Node[];
   onSelectQuiz: (quizId: string) => void;
+  onBack: () => void;
   progress: Record<string, QuizProgress>;
 }
 
@@ -28,7 +28,7 @@ function isNodeUnlocked(node: Node, progress: Record<string, QuizProgress>): boo
   });
 }
 
-export default function QuizList({ region, nodes, onSelectQuiz, progress }: QuizListProps) {
+export default function QuizList({ region, nodes, onSelectQuiz, onBack, progress }: QuizListProps) {
   const rootNode = getRootNode(region.id);
 
   const renderNode = (node: Node) => {
@@ -41,7 +41,7 @@ export default function QuizList({ region, nodes, onSelectQuiz, progress }: Quiz
         {node.quiz_ids.map((quizId) => {
           const quiz = getQuiz(quizId);
           if (!quiz) return null;
-          const cleared = isQuizCleared(quizId);
+          const cleared = progress[quizId]?.cleared ?? false;
           const isLocked = !unlocked;
 
           return (
@@ -65,7 +65,7 @@ export default function QuizList({ region, nodes, onSelectQuiz, progress }: Quiz
 
   return (
     <div className={styles.container}>
-      <button className={styles.backButton} onClick={() => window.history.back()}>
+      <button className={styles.backButton} onClick={onBack}>
         ← 戻る
       </button>
       <div className={styles.regionHeader}>
