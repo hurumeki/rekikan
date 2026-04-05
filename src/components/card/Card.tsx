@@ -5,6 +5,7 @@ import type { Card as CardType, CardState } from '@/lib/types';
 import EraBadge from '@/components/ui/EraBadge';
 import CategoryIcon from '@/components/ui/CategoryIcon';
 import NumberBadge from '@/components/ui/NumberBadge';
+import { formatYearRange } from '@/lib/quiz-engine';
 import styles from './Card.module.css';
 
 interface CardProps {
@@ -72,7 +73,7 @@ export default function Card({
     .filter(Boolean)
     .join(' ');
 
-  const yearLabel = card.year_end ? `${card.year}–${card.year_end}` : `${card.year}`;
+  const yearLabel = formatYearRange(card.year, card.year_end);
 
   return (
     <div

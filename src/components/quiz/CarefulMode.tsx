@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import type { Card as CardType, CardResult } from '@/lib/types';
 import { useCarefulMode } from '@/hooks/useCarefulMode';
 import Card from '@/components/card/Card';
+import { formatYearRange } from '@/lib/quiz-engine';
 import styles from './CarefulMode.module.css';
 
 interface CarefulModeProps {
@@ -87,11 +88,7 @@ export default function CarefulMode({
             <div>
               {feedback.correctCard.name && <strong>{feedback.correctCard.name}</strong>}
               <div>{feedback.correctCard.description}</div>
-              <div>
-                {feedback.correctCard.year_end
-                  ? `${feedback.correctCard.year}–${feedback.correctCard.year_end}`
-                  : `${feedback.correctCard.year}`}
-              </div>
+              <div>{formatYearRange(feedback.correctCard.year, feedback.correctCard.year_end)}</div>
             </div>
             <button className={styles.feedbackButton} onClick={dismissFeedback}>
               次へ

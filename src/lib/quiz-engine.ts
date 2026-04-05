@@ -29,3 +29,14 @@ export function calculateScore(results: CardResult[]): { correct: number; total:
 export function isPerfect(results: CardResult[]): boolean {
   return results.every((r) => r.correct);
 }
+
+function formatYear(year: number): string {
+  return year < 0 ? `前${Math.abs(year)}年` : `${year}年`;
+}
+
+export function formatYearRange(year: number, yearEnd: number | null): string {
+  if (yearEnd != null) {
+    return `${formatYear(year)}–${formatYear(yearEnd)}`;
+  }
+  return formatYear(year);
+}
