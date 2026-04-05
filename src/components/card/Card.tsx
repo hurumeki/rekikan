@@ -77,6 +77,7 @@ export default function Card({
   return (
     <div
       className={classNames}
+      data-testid="quiz-card"
       onClick={handleClick}
       onTouchStart={startPress}
       onTouchEnd={endPress}
