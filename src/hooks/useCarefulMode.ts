@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import type { Card, CardResult } from '@/lib/types';
 import { shuffleArray } from '@/lib/quiz-engine';
 
@@ -15,6 +15,8 @@ interface CarefulModeState {
 }
 
 export function useCarefulMode(cards: Card[], correctOrder: string[]) {
+  const cooldownUntil = useRef(0);
+
   const [state, setState] = useState<CarefulModeState>(() => ({
     remainingCards: shuffleArray(cards),
     confirmedCards: [],
@@ -27,6 +29,8 @@ export function useCarefulMode(cards: Card[], correctOrder: string[]) {
 
   const selectCard = useCallback(
     (cardId: string) => {
+      if (Date.now() < cooldownUntil.current) return;
+
       setState((prev) => {
         if (prev.isComplete) return prev;
 
@@ -39,6 +43,7 @@ export function useCarefulMode(cards: Card[], correctOrder: string[]) {
         const isCorrect = cardId === expectedId;
 
         if (isCorrect) {
+          cooldownUntil.current = Date.now() + 300;
           const newConfirmed = [...prev.confirmedCards, selectedCard];
           const newRemaining = prev.remainingCards.filter((c) => c.id !== cardId);
           return {

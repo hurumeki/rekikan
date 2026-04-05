@@ -68,22 +68,18 @@ export default function QuizClient() {
     setPhase('playing');
   };
 
-  const handleHome = () => {
-    router.push('/');
+  const handleBackToList = () => {
+    router.push(quiz ? `/?region=${quiz.region}` : '/');
   };
 
   if (!quiz || cards.length === 0) {
     return (
       <div style={{ padding: 24, textAlign: 'center' }}>
         <p>クイズが見つかりませんでした</p>
-        <button onClick={handleHome}>ホームに戻る</button>
+        <button onClick={() => router.push('/')}>ホームに戻る</button>
       </div>
     );
   }
-
-  const handleBackToList = () => {
-    router.push('/');
-  };
 
   return (
     <div style={{ maxWidth: 480, margin: '0 auto', padding: '16px', width: '100%' }}>
@@ -154,7 +150,7 @@ export default function QuizClient() {
           total={resultData.total}
           eraColors={eraColors}
           onRetry={handleRetry}
-          onHome={handleHome}
+          onHome={handleBackToList}
         />
       )}
     </div>

@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { Suspense, useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { getRegions, getRegion, getNodesForRegion } from '@/lib/data-loader';
 import { getAllProgress } from '@/lib/progress';
 import type { Region, QuizProgress } from '@/lib/types';
@@ -9,10 +9,13 @@ import RegionSelector from '@/components/home/RegionSelector';
 import QuizList from '@/components/home/QuizList';
 import styles from './page.module.css';
 
-export default function Home() {
+function HomeContent() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const regions = getRegions();
-  const [selectedRegion, setSelectedRegion] = useState<Region | null>(null);
+  const initialRegionId = searchParams.get('region');
+  const initialRegion = initialRegionId ? (getRegion(initialRegionId) ?? null) : null;
+  const [selectedRegion, setSelectedRegion] = useState<Region | null>(initialRegion);
   const [progress] = useState<Record<string, QuizProgress>>(getAllProgress);
 
   const handleSelectRegion = (regionId: string) => {
@@ -43,5 +46,13 @@ export default function Home() {
         <RegionSelector regions={regions} onSelect={handleSelectRegion} />
       )}
     </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense>
+      <HomeContent />
+    </Suspense>
   );
 }
