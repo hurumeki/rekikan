@@ -33,6 +33,7 @@ export default function Card({
 }: CardProps) {
   const longPressTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const longPressTriggered = useRef(false);
+  const touchHandled = useRef(false);
 
   const clearTimer = useCallback(() => {
     if (longPressTimer.current) {
@@ -43,6 +44,7 @@ export default function Card({
 
   const startPress = useCallback(() => {
     longPressTriggered.current = false;
+    touchHandled.current = true;
     if (onLongPress) {
       longPressTimer.current = setTimeout(() => {
         longPressTriggered.current = true;
@@ -60,7 +62,14 @@ export default function Card({
 
   const handleClick = useCallback(
     (e: React.MouseEvent) => {
+      // Ignore synthetic click after touch — already handled in onTouchEnd
+      if (touchHandled.current) {
+        touchHandled.current = false;
+        e.preventDefault();
+        return;
+      }
       if (onLongPress) {
+        // Desktop: long-press handled via mouseDown/mouseUp, skip click
         e.preventDefault();
         return;
       }
