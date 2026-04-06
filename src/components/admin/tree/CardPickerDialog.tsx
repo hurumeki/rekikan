@@ -42,7 +42,7 @@ export function CardPickerDialog({ open, onOpenChange, excludeIds = [], onSelect
     return state.cards.filter((c) => {
       if (exclude.has(c.id)) return false;
       if (regionId && c.region !== regionId) return false;
-      if (status && c.status !== status) return false;
+      if (status && (c.status ?? 'draft') !== status) return false;
       if (search) {
         const q = search.toLowerCase();
         const inName = c.name?.toLowerCase().includes(q) ?? false;

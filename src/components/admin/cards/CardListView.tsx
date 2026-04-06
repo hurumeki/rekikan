@@ -73,7 +73,8 @@ export function CardListView() {
       if (filters.eraColorKey && c.era_color_key !== filters.eraColorKey) return false;
       if (filters.category && c.category !== filters.category) return false;
       if (filters.cardType && c.type !== filters.cardType) return false;
-      if (filters.status && c.status !== filters.status) return false;
+      // Cards without a status field are treated as 'draft'
+      if (filters.status && (c.status ?? 'draft') !== filters.status) return false;
       if (filters.search) {
         const q = filters.search.toLowerCase();
         const inName = c.name?.toLowerCase().includes(q) ?? false;
@@ -244,10 +245,10 @@ export function CardListView() {
                   <td className="px-3 py-2 text-xs whitespace-nowrap">{card.year}</td>
                   <td className="px-3 py-2">
                     <Badge
-                      variant={card.status as 'draft' | 'ai_generated' | 'reviewed' | 'approved'}
+                      variant={(card.status ?? 'draft') as 'draft' | 'ai_generated' | 'reviewed' | 'approved'}
                       className="text-xs"
                     >
-                      {STATUS_LABELS[card.status ?? 'draft'] ?? card.status}
+                      {STATUS_LABELS[card.status ?? 'draft']}
                     </Badge>
                   </td>
                   <td className="px-3 py-2 text-xs text-center">{usage}</td>

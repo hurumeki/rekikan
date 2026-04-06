@@ -2,53 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-#admin-root {
-  --admin-background: 0 0% 100%;
-  --admin-foreground: 222.2 84% 4.9%;
-  --admin-card: 0 0% 100%;
-  --admin-card-foreground: 222.2 84% 4.9%;
-  --admin-popover: 0 0% 100%;
-  --admin-popover-foreground: 222.2 84% 4.9%;
-  --admin-primary: 221.2 83.2% 53.3%;
-  --admin-primary-foreground: 210 40% 98%;
-  --admin-secondary: 210 40% 96.1%;
-  --admin-secondary-foreground: 222.2 47.4% 11.2%;
-  --admin-muted: 210 40% 96.1%;
-  --admin-muted-foreground: 215.4 16.3% 46.9%;
-  --admin-accent: 210 40% 96.1%;
-  --admin-accent-foreground: 222.2 47.4% 11.2%;
-  --admin-destructive: 0 84.2% 60.2%;
-  --admin-destructive-foreground: 210 40% 98%;
-  --admin-border: 214.3 31.8% 91.4%;
-  --admin-input: 214.3 31.8% 91.4%;
-  --admin-ring: 221.2 83.2% 53.3%;
-  --admin-radius: 0.5rem;
+/*
+ * Admin CSS variables — defined at :root so that Radix UI portals
+ * (Select, Dialog, Sheet etc.) rendered outside #admin-root can
+ * still access them. This CSS is only loaded on /admin pages via
+ * the admin layout, so it does not affect the student app.
+ */
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 221.2 83.2% 53.3%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 221.2 83.2% 53.3%;
+  --radius: 0.5rem;
 }
 
 #admin-root * {
   box-sizing: border-box;
-}
-
-/* Map admin CSS variables to the Tailwind theme variable names */
-#admin-root {
-  --background: var(--admin-background);
-  --foreground: var(--admin-foreground);
-  --card: var(--admin-card);
-  --card-foreground: var(--admin-card-foreground);
-  --popover: var(--admin-popover);
-  --popover-foreground: var(--admin-popover-foreground);
-  --primary: var(--admin-primary);
-  --primary-foreground: var(--admin-primary-foreground);
-  --secondary: var(--admin-secondary);
-  --secondary-foreground: var(--admin-secondary-foreground);
-  --muted: var(--admin-muted);
-  --muted-foreground: var(--admin-muted-foreground);
-  --accent: var(--admin-accent);
-  --accent-foreground: var(--admin-accent-foreground);
-  --destructive: var(--admin-destructive);
-  --destructive-foreground: var(--admin-destructive-foreground);
-  --border: var(--admin-border);
-  --input: var(--admin-input);
-  --ring: var(--admin-ring);
-  --radius: var(--admin-radius);
 }
