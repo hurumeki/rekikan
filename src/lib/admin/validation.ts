@@ -89,10 +89,13 @@ function validateQuiz(quiz: Quiz, cards: Card[]): ValidationError[] {
   if (!quiz.card_type) errors.push({ level: 'error', entity: 'quiz', id: quiz.id, field: 'card_type', message: 'カードタイプは必須です' });
   if (!quiz.region) errors.push({ level: 'error', entity: 'quiz', id: quiz.id, field: 'region', message: 'リージョンは必須です' });
 
-  // Card existence
+  // Card existence and region consistency
   for (const cardId of quiz.card_ids) {
-    if (!cardMap.has(cardId)) {
+    const card = cardMap.get(cardId);
+    if (!card) {
       errors.push({ level: 'error', entity: 'quiz', id: quiz.id, field: 'card_ids', message: `カード "${cardId}" が存在しません` });
+    } else if (quiz.region && card.region !== quiz.region) {
+      errors.push({ level: 'warning', entity: 'quiz', id: quiz.id, field: 'card_ids', message: `カード "${cardId}" のリージョン(${card.region})がクイズのリージョン(${quiz.region})と異なります` });
     }
   }
 
@@ -125,9 +128,14 @@ function validateNode(node: Node, nodes: Node[], quizzes: Quiz[]): ValidationErr
   if (!node.label) errors.push({ level: 'error', entity: 'node', id: node.id, field: 'label', message: 'ラベルは必須です' });
   if (!node.region) errors.push({ level: 'error', entity: 'node', id: node.id, field: 'region', message: 'リージョンは必須です' });
 
-  // Parent existence
-  if (node.parent_id && !nodeMap.has(node.parent_id)) {
-    errors.push({ level: 'error', entity: 'node', id: node.id, field: 'parent_id', message: `親ノード "${node.parent_id}" が存在しません` });
+  // Parent existence and region consistency
+  if (node.parent_id) {
+    const parentNode = nodeMap.get(node.parent_id);
+    if (!parentNode) {
+      errors.push({ level: 'error', entity: 'node', id: node.id, field: 'parent_id', message: `親ノード "${node.parent_id}" が存在しません` });
+    } else if (node.region && parentNode.region !== node.region) {
+      errors.push({ level: 'warning', entity: 'node', id: node.id, field: 'parent_id', message: `親ノード "${node.parent_id}" のリージョン(${parentNode.region})と異なります` });
+    }
   }
 
   // Quiz existence

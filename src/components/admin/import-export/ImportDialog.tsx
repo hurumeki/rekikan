@@ -34,7 +34,11 @@ export function ImportDialog({ open, onOpenChange }: Props) {
     const reader = new FileReader();
     reader.onload = (ev) => {
       try {
-        const data = JSON.parse(ev.target?.result as string);
+        const raw = ev.target?.result;
+        if (typeof raw !== 'string') {
+          throw new Error('ファイルの読み込みに失敗しました');
+        }
+        const data = JSON.parse(raw);
         const result = validateImport(data);
         setReport(result);
         setParsed(data);

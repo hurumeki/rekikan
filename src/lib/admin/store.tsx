@@ -225,6 +225,9 @@ const AdminContext = createContext<AdminContextValue | null>(null);
 export function AdminStoreProvider({ children }: { children: React.ReactNode }) {
   const [state, dispatch] = useReducer(adminReducer, emptyState);
   const hydrated = useRef(false);
+  // Always holds the latest state for use in async callbacks (avoids stale closure)
+  const stateRef = useRef(state);
+  useEffect(() => { stateRef.current = state; }, [state]);
 
   // Hydrate from IndexedDB or JSON on first mount
   useEffect(() => {
@@ -243,19 +246,21 @@ export function AdminStoreProvider({ children }: { children: React.ReactNode }) 
     })();
   }, []);
 
-  // Auto-save with debounce
+  // Auto-save with debounce — uses stateRef to save the latest state at callback time
   const saveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   useEffect(() => {
     if (!state.isDirty) return;
     if (saveTimer.current) clearTimeout(saveTimer.current);
     saveTimer.current = setTimeout(async () => {
-      await saveAdminState(state);
+      // Read from ref so we always persist the most recent state, not the
+      // captured closure value from when the timer was scheduled.
+      await saveAdminState(stateRef.current);
       dispatch({ type: 'MARK_SAVED', at: new Date().toISOString() });
     }, 500);
     return () => {
       if (saveTimer.current) clearTimeout(saveTimer.current);
     };
-  }, [state]);
+  }, [state.isDirty]);
 
   return <AdminContext.Provider value={{ state, dispatch }}>{children}</AdminContext.Provider>;
 }

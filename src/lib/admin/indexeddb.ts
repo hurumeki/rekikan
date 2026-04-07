@@ -32,7 +32,8 @@ export async function loadAdminState(): Promise<StorableState | null> {
       req.onsuccess = () => resolve(req.result ?? null);
       req.onerror = () => reject(req.error);
     });
-  } catch {
+  } catch (err) {
+    console.error('[rekikan-admin] IndexedDB load failed:', err);
     return null;
   }
 }
@@ -51,8 +52,8 @@ export async function saveAdminState(state: AdminState): Promise<void> {
       req.onsuccess = () => resolve();
       req.onerror = () => reject(req.error);
     });
-  } catch {
-    // Silently fail — auto-save is best-effort
+  } catch (err) {
+    console.error('[rekikan-admin] IndexedDB save failed:', err);
   }
 }
 
@@ -67,7 +68,7 @@ export async function clearAdminState(): Promise<void> {
       req.onsuccess = () => resolve();
       req.onerror = () => reject(req.error);
     });
-  } catch {
-    // Silently fail
+  } catch (err) {
+    console.error('[rekikan-admin] IndexedDB clear failed:', err);
   }
 }

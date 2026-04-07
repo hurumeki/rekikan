@@ -41,10 +41,12 @@ export function buildExport(state: AdminState, opts: ExportOptions): ExportForma
   if (opts.scope === 'approved_only') {
     cards = cards.filter((c) => c.status === 'approved');
     const approvedIds = new Set(cards.map((c) => c.id));
-    quizzes = quizzes.map((q) => ({
-      ...q,
-      card_ids: q.card_ids.filter((id) => approvedIds.has(id)),
-    }));
+    quizzes = quizzes
+      .map((q) => ({
+        ...q,
+        card_ids: q.card_ids.filter((id) => approvedIds.has(id)),
+      }))
+      .filter((q) => q.card_ids.length > 0);
   } else if (opts.scope === 'by_region' && opts.regionId) {
     regions = regions.filter((r) => r.id === opts.regionId);
     cards = cards.filter((c) => c.region === opts.regionId);
