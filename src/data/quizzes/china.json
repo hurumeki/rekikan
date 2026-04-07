@@ -31,19 +31,66 @@
     "difficulty": 1
   },
   {
-    "id": "quiz_china_medieval",
+    "id": "quiz_china_ancient_detailed",
     "region": "china",
-    "title": "中世・近世の王朝",
+    "title": "古代・三国時代の出来事",
     "card_type": "term",
     "card_ids": [
+      "card_china_confucius",
+      "card_china_qin_shi_huang",
+      "card_china_emperor_wu_han",
+      "card_china_cao_cao"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_china_medieval_detailed",
+    "region": "china",
+    "title": "隋・唐・宋の出来事",
+    "card_type": "term",
+    "card_ids": [
+      "card_china_emperor_taizong_tang",
+      "card_china_wu_zetian",
       "card_china_tang",
-      "card_china_song",
+      "card_china_song"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_china_early_modern_detailed",
+    "region": "china",
+    "title": "元・明・清の出来事",
+    "card_type": "term",
+    "card_ids": ["card_china_kublai_khan", "card_china_zheng_he", "card_china_kangxi"],
+    "modes": ["careful", "challenge"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_china_modern_detailed",
+    "region": "china",
+    "title": "近代中国の動乱",
+    "card_type": "term",
+    "card_ids": ["card_china_opium_war", "card_china_xinhai_revolution", "card_china_roc"],
+    "modes": ["careful", "challenge"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_china_all_eras_term",
+    "region": "china",
+    "title": "中国王朝通史",
+    "card_type": "term",
+    "card_ids": [
+      "card_china_shang",
+      "card_china_qin",
+      "card_china_tang",
       "card_china_yuan",
       "card_china_ming",
       "card_china_qing",
       "card_china_roc"
     ],
     "modes": ["careful", "challenge"],
-    "difficulty": 1
+    "difficulty": 3
   }
 ]

@@ -21,12 +21,48 @@
     }
   },
   {
+    "id": "node_europe_ancient_detailed",
+    "region": "europe",
+    "parent_id": "node_europe_ancient",
+    "label": "ギリシア・ローマの出来事",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_europe_ancient_detailed"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_europe_ancient"]
+    }
+  },
+  {
     "id": "node_europe_medieval",
     "region": "europe",
     "parent_id": "node_europe_root",
-    "label": "中世・近世",
+    "label": "中世",
     "sort_order": 2,
     "quiz_ids": ["quiz_europe_medieval"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_europe_intro_desc"]
+    }
+  },
+  {
+    "id": "node_europe_medieval_detailed",
+    "region": "europe",
+    "parent_id": "node_europe_medieval",
+    "label": "中世ヨーロッパの出来事",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_europe_medieval_detailed"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_europe_medieval"]
+    }
+  },
+  {
+    "id": "node_europe_early_modern",
+    "region": "europe",
+    "parent_id": "node_europe_root",
+    "label": "近世",
+    "sort_order": 3,
+    "quiz_ids": ["quiz_europe_early_modern_detailed"],
     "unlock_condition": {
       "type": "complete_quizzes",
       "quiz_ids": ["quiz_europe_intro_desc"]
@@ -36,12 +72,48 @@
     "id": "node_europe_modern",
     "region": "europe",
     "parent_id": "node_europe_root",
-    "label": "近代・現代",
-    "sort_order": 3,
+    "label": "近代",
+    "sort_order": 4,
     "quiz_ids": ["quiz_europe_modern"],
     "unlock_condition": {
       "type": "complete_quizzes",
       "quiz_ids": ["quiz_europe_intro_desc"]
+    }
+  },
+  {
+    "id": "node_europe_modern_detailed",
+    "region": "europe",
+    "parent_id": "node_europe_modern",
+    "label": "市民革命と国家統一",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_europe_modern_detailed"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_europe_modern"]
+    }
+  },
+  {
+    "id": "node_europe_world_wars",
+    "region": "europe",
+    "parent_id": "node_europe_root",
+    "label": "世界大戦の世紀",
+    "sort_order": 5,
+    "quiz_ids": ["quiz_europe_world_wars"],
+    "unlock_condition": {
+      "type": "complete_node",
+      "node_ids": ["node_europe_modern"]
+    }
+  },
+  {
+    "id": "node_europe_all_eras",
+    "region": "europe",
+    "parent_id": "node_europe_root",
+    "label": "全時代通し",
+    "sort_order": 6,
+    "quiz_ids": ["quiz_europe_all_eras_term"],
+    "unlock_condition": {
+      "type": "complete_node",
+      "node_ids": ["node_europe_ancient", "node_europe_medieval", "node_europe_modern"]
     }
   }
 ]

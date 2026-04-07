@@ -21,15 +21,63 @@
     }
   },
   {
+    "id": "node_china_ancient_detailed",
+    "region": "china",
+    "parent_id": "node_china_ancient",
+    "label": "古代・三国時代の出来事",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_china_ancient_detailed"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_china_ancient"]
+    }
+  },
+  {
     "id": "node_china_medieval",
     "region": "china",
     "parent_id": "node_china_root",
-    "label": "中世・近世",
+    "label": "中世",
     "sort_order": 2,
-    "quiz_ids": ["quiz_china_medieval"],
+    "quiz_ids": ["quiz_china_medieval_detailed"],
     "unlock_condition": {
       "type": "complete_quizzes",
       "quiz_ids": ["quiz_china_intro_desc"]
+    }
+  },
+  {
+    "id": "node_china_early_modern",
+    "region": "china",
+    "parent_id": "node_china_root",
+    "label": "近世",
+    "sort_order": 3,
+    "quiz_ids": ["quiz_china_early_modern_detailed"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_china_intro_desc"]
+    }
+  },
+  {
+    "id": "node_china_modern",
+    "region": "china",
+    "parent_id": "node_china_root",
+    "label": "近代",
+    "sort_order": 4,
+    "quiz_ids": ["quiz_china_modern_detailed"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_china_intro_desc"]
+    }
+  },
+  {
+    "id": "node_china_all_eras",
+    "region": "china",
+    "parent_id": "node_china_root",
+    "label": "全王朝通し",
+    "sort_order": 5,
+    "quiz_ids": ["quiz_china_all_eras_term"],
+    "unlock_condition": {
+      "type": "complete_node",
+      "node_ids": ["node_china_ancient", "node_china_medieval", "node_china_early_modern"]
     }
   }
 ]
