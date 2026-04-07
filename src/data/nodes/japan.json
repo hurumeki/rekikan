@@ -5,7 +5,7 @@
     "parent_id": null,
     "label": "日本史",
     "sort_order": 0,
-    "quiz_ids": ["quiz_japan_intro_desc"],
+    "quiz_ids": ["quiz_japan_era_intro_desc"],
     "unlock_condition": null
   },
   {
@@ -14,10 +14,34 @@
     "parent_id": "node_japan_root",
     "label": "先史・古代",
     "sort_order": 1,
-    "quiz_ids": ["quiz_japan_prehistoric_ancient"],
+    "quiz_ids": ["quiz_japan_prehistoric_desc", "quiz_japan_prehistoric_term"],
     "unlock_condition": {
       "type": "complete_quizzes",
-      "quiz_ids": ["quiz_japan_intro_desc"]
+      "quiz_ids": ["quiz_japan_era_intro_desc"]
+    }
+  },
+  {
+    "id": "node_japan_asuka_nara",
+    "region": "japan",
+    "parent_id": "node_japan_prehistoric",
+    "label": "飛鳥・奈良の出来事",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_japan_asuka_nara_desc", "quiz_japan_asuka_nara_term"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_japan_prehistoric_term"]
+    }
+  },
+  {
+    "id": "node_japan_heian",
+    "region": "japan",
+    "parent_id": "node_japan_prehistoric",
+    "label": "平安時代の出来事",
+    "sort_order": 2,
+    "quiz_ids": ["quiz_japan_heian_desc", "quiz_japan_heian_term"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_japan_asuka_nara_term"]
     }
   },
   {
@@ -26,10 +50,51 @@
     "parent_id": "node_japan_root",
     "label": "中世・近世",
     "sort_order": 2,
-    "quiz_ids": ["quiz_japan_medieval"],
+    "quiz_ids": ["quiz_japan_medieval_desc", "quiz_japan_medieval_term"],
     "unlock_condition": {
       "type": "complete_quizzes",
-      "quiz_ids": ["quiz_japan_intro_desc"]
+      "quiz_ids": ["quiz_japan_era_intro_desc"]
+    }
+  },
+  {
+    "id": "node_japan_kamakura",
+    "region": "japan",
+    "parent_id": "node_japan_medieval",
+    "label": "鎌倉時代の出来事",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_japan_kamakura_term"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_japan_medieval_term"]
+    }
+  },
+  {
+    "id": "node_japan_muromachi",
+    "region": "japan",
+    "parent_id": "node_japan_medieval",
+    "label": "室町・戦国の出来事",
+    "sort_order": 2,
+    "quiz_ids": ["quiz_japan_muromachi_term"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_japan_kamakura_term"]
+    }
+  },
+  {
+    "id": "node_japan_edo",
+    "region": "japan",
+    "parent_id": "node_japan_medieval",
+    "label": "江戸時代",
+    "sort_order": 3,
+    "quiz_ids": [
+      "quiz_japan_edo_desc",
+      "quiz_japan_edo_shogun_early",
+      "quiz_japan_edo_shogun_late",
+      "quiz_japan_edo_events"
+    ],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_japan_muromachi_term"]
     }
   },
   {
@@ -38,10 +103,46 @@
     "parent_id": "node_japan_root",
     "label": "近代・現代",
     "sort_order": 3,
-    "quiz_ids": ["quiz_japan_modern"],
+    "quiz_ids": ["quiz_japan_modern_desc", "quiz_japan_modern_term"],
     "unlock_condition": {
       "type": "complete_quizzes",
-      "quiz_ids": ["quiz_japan_intro_desc"]
+      "quiz_ids": ["quiz_japan_era_intro_desc"]
+    }
+  },
+  {
+    "id": "node_japan_bakumatsu",
+    "region": "japan",
+    "parent_id": "node_japan_modern",
+    "label": "幕末〜明治の出来事",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_japan_bakumatsu_desc", "quiz_japan_bakumatsu_term"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_japan_modern_term"]
+    }
+  },
+  {
+    "id": "node_japan_taisho_showa",
+    "region": "japan",
+    "parent_id": "node_japan_modern",
+    "label": "大正〜昭和の出来事",
+    "sort_order": 2,
+    "quiz_ids": ["quiz_japan_taisho_showa_term"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_japan_bakumatsu_term"]
+    }
+  },
+  {
+    "id": "node_japan_all_eras",
+    "region": "japan",
+    "parent_id": "node_japan_root",
+    "label": "全時代通し",
+    "sort_order": 4,
+    "quiz_ids": ["quiz_japan_all_eras_term"],
+    "unlock_condition": {
+      "type": "complete_node",
+      "node_ids": ["node_japan_prehistoric", "node_japan_medieval", "node_japan_modern"]
     }
   }
 ]
