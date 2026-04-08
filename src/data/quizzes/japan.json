@@ -189,18 +189,27 @@
   {
     "id": "quiz_japan_edo_shogun_early",
     "region": "japan",
-    "title": "将軍: 前半",
+    "title": "江戸前期〜中期の政治",
     "card_type": "term",
-    "card_ids": ["card_japan_shogun_ieyasu", "card_japan_shogun_iemitsu"],
+    "card_ids": [
+      "card_japan_shogun_ieyasu",
+      "card_japan_shogun_iemitsu",
+      "card_japan_shogun_tsunayoshi",
+      "card_japan_shogun_yoshimune"
+    ],
     "modes": ["careful", "challenge"],
     "difficulty": 2
   },
   {
     "id": "quiz_japan_edo_shogun_late",
     "region": "japan",
-    "title": "将軍: 後半",
+    "title": "江戸後期の政治と改革",
     "card_type": "term",
-    "card_ids": ["card_japan_shogun_yoshimune", "card_japan_shogun_yoshinobu"],
+    "card_ids": [
+      "card_japan_matsudaira_sadanobu",
+      "card_japan_mizuno_tadakuni",
+      "card_japan_shogun_yoshinobu"
+    ],
     "modes": ["careful", "challenge"],
     "difficulty": 2
   },
@@ -209,7 +218,13 @@
     "region": "japan",
     "title": "江戸時代の出来事",
     "card_type": "term",
-    "card_ids": ["card_japan_sekigahara", "card_japan_sakoku", "card_japan_perry_arrival"],
+    "card_ids": [
+      "card_japan_sekigahara",
+      "card_japan_sankin_kotai",
+      "card_japan_shimabara_rebellion",
+      "card_japan_sakoku",
+      "card_japan_perry_arrival"
+    ],
     "modes": ["careful", "challenge"],
     "difficulty": 2
   },

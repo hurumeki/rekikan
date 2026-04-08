@@ -63,7 +63,13 @@
     "region": "china",
     "title": "元・明・清の出来事",
     "card_type": "term",
-    "card_ids": ["card_china_kublai_khan", "card_china_zheng_he", "card_china_kangxi"],
+    "card_ids": [
+      "card_china_kublai_khan",
+      "card_china_hongwu_emperor",
+      "card_china_zheng_he",
+      "card_china_kangxi",
+      "card_china_qianlong"
+    ],
     "modes": ["careful", "challenge"],
     "difficulty": 2
   },
@@ -72,7 +78,13 @@
     "region": "china",
     "title": "近代中国の動乱",
     "card_type": "term",
-    "card_ids": ["card_china_opium_war", "card_china_xinhai_revolution", "card_china_roc"],
+    "card_ids": [
+      "card_china_opium_war",
+      "card_china_taiping_rebellion",
+      "card_china_xinhai_revolution",
+      "card_china_roc",
+      "card_china_prc_established"
+    ],
     "modes": ["careful", "challenge"],
     "difficulty": 2
   },

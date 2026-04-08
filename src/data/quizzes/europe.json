@@ -49,7 +49,13 @@
     "region": "europe",
     "title": "中世の変化",
     "card_type": "term",
-    "card_ids": ["card_europe_feudal", "card_europe_crusades", "card_europe_renaissance"],
+    "card_ids": [
+      "card_europe_feudal",
+      "card_europe_crusades",
+      "card_europe_hundred_years_war",
+      "card_europe_black_death",
+      "card_europe_renaissance"
+    ],
     "modes": ["careful", "challenge"],
     "difficulty": 1
   },
@@ -58,7 +64,13 @@
     "region": "europe",
     "title": "中世ヨーロッパの出来事",
     "card_type": "term",
-    "card_ids": ["card_europe_charlemagne", "card_europe_magna_carta", "card_europe_joan_of_arc"],
+    "card_ids": [
+      "card_europe_justinian",
+      "card_europe_charlemagne",
+      "card_europe_canossa",
+      "card_europe_magna_carta",
+      "card_europe_joan_of_arc"
+    ],
     "modes": ["careful", "challenge"],
     "difficulty": 2
   },
@@ -82,9 +94,11 @@
     "title": "近代・現代の流れ",
     "card_type": "term",
     "card_ids": [
+      "card_europe_enlightenment",
       "card_europe_industrial",
       "card_europe_french_revolution",
-      "card_europe_nationalism"
+      "card_europe_nationalism",
+      "card_europe_imperialism"
     ],
     "modes": ["careful", "challenge"],
     "difficulty": 1
@@ -94,7 +108,13 @@
     "region": "europe",
     "title": "市民革命と国家統一",
     "card_type": "term",
-    "card_ids": ["card_europe_napoleon", "card_europe_bismarck", "card_europe_sarajevo"],
+    "card_ids": [
+      "card_europe_napoleon",
+      "card_europe_victoria",
+      "card_europe_bismarck",
+      "card_europe_sarajevo",
+      "card_europe_russian_revolution"
+    ],
     "modes": ["careful", "challenge"],
     "difficulty": 2
   },
@@ -103,7 +123,12 @@
     "region": "europe",
     "title": "二つの世界大戦",
     "card_type": "term",
-    "card_ids": ["card_europe_ww1", "card_europe_ww2"],
+    "card_ids": [
+      "card_europe_ww1",
+      "card_europe_great_depression",
+      "card_europe_ww2",
+      "card_europe_cold_war"
+    ],
     "modes": ["careful", "challenge"],
     "difficulty": 2
   },

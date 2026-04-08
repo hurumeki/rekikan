@@ -334,5 +334,53 @@
     "category": "event",
     "hint": "清の滅亡・孫文・中華民国誕生",
     "description": "清朝を打倒し、2000年以上続いた皇帝政治に終止符を打つ革命が始まった。"
+  },
+  {
+    "id": "card_china_hongwu_emperor",
+    "region": "china",
+    "type": "term",
+    "name": "洪武帝の即位",
+    "year": 1368,
+    "year_end": null,
+    "era_color_key": "early_modern",
+    "category": "person",
+    "hint": "朱元璋・明の建国・漢民族の復興",
+    "description": "元を北へ追いやり、漢民族による統一王朝である明を建国した。"
+  },
+  {
+    "id": "card_china_qianlong",
+    "region": "china",
+    "type": "term",
+    "name": "乾隆帝の即位",
+    "year": 1735,
+    "year_end": null,
+    "era_color_key": "early_modern",
+    "category": "person",
+    "hint": "清の全盛期・最大領域・四庫全書",
+    "description": "清の第6代皇帝。外征を繰り返し、中国史上最大の領域を支配した。"
+  },
+  {
+    "id": "card_china_taiping_rebellion",
+    "region": "china",
+    "type": "term",
+    "name": "太平天国の乱の勃発",
+    "year": 1851,
+    "year_end": null,
+    "era_color_key": "modern",
+    "category": "war",
+    "hint": "洪秀全・滅満興漢・キリスト教的",
+    "description": "清朝打倒と平等な社会を目指して起きた、中国史上最大規模の農民反乱。"
+  },
+  {
+    "id": "card_china_prc_established",
+    "region": "china",
+    "type": "term",
+    "name": "中華人民共和国の成立",
+    "year": 1949,
+    "year_end": null,
+    "era_color_key": "contemporary",
+    "category": "event",
+    "hint": "毛沢東・共産党・北京",
+    "description": "国共内戦に勝利した中国共産党が、毛沢東を国家主席として新しい国を建国した。"
   }
 ]

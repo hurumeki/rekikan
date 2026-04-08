@@ -934,5 +934,65 @@
     "category": "law",
     "hint": "日本国憲法・農地改革・財閥解体",
     "description": "連合国（GHQ）の指導のもと、日本の民主化を目指した大規模な改革が始まった。"
+  },
+  {
+    "id": "card_japan_shogun_tsunayoshi",
+    "region": "japan",
+    "type": "term",
+    "name": "徳川綱吉（生類憐れみの令）",
+    "year": 1685,
+    "year_end": null,
+    "era_color_key": "early_modern",
+    "category": "person",
+    "hint": "五代将軍・犬公方・文治政治",
+    "description": "極端な動物愛護令を出したことで有名な第五代将軍。"
+  },
+  {
+    "id": "card_japan_matsudaira_sadanobu",
+    "region": "japan",
+    "type": "term",
+    "name": "松平定信の老中就任",
+    "year": 1787,
+    "year_end": null,
+    "era_color_key": "early_modern",
+    "category": "person",
+    "hint": "寛政の改革・棄捐令・白河藩主",
+    "description": "祖父である徳川吉宗の政治を理想とし、厳しい寛政の改革を行った。"
+  },
+  {
+    "id": "card_japan_mizuno_tadakuni",
+    "region": "japan",
+    "type": "term",
+    "name": "水野忠邦の老中就任",
+    "year": 1841,
+    "year_end": null,
+    "era_color_key": "early_modern",
+    "category": "person",
+    "hint": "天保の改革・株仲間の解散・上知令",
+    "description": "幕府の権威を回復するため、株仲間を解散させるなどの天保の改革を行った。"
+  },
+  {
+    "id": "card_japan_shimabara_rebellion",
+    "region": "japan",
+    "type": "term",
+    "name": "島原・天草一揆の勃発",
+    "year": 1637,
+    "year_end": null,
+    "era_color_key": "early_modern",
+    "category": "war",
+    "hint": "天草四郎・キリシタン弾圧・重税",
+    "description": "キリスト教への弾圧や重い年貢に苦しむ人々が起こした大規模な一揆。"
+  },
+  {
+    "id": "card_japan_sankin_kotai",
+    "region": "japan",
+    "type": "term",
+    "name": "参勤交代の制度化",
+    "year": 1635,
+    "year_end": null,
+    "era_color_key": "early_modern",
+    "category": "law",
+    "hint": "大名行列・武家諸法度・三代将軍",
+    "description": "大名を一年交替で江戸に住まわせ、財力を削いで反乱を防ぐ制度。"
   }
 ]
