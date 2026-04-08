@@ -98,6 +98,7 @@
     "card_type": "term",
     "card_ids": [
       "card_japan_heiankyo",
+      "card_japan_kento_shi_end",
       "card_japan_sekkan_seiji",
       "card_japan_kokufu_culture",
       "card_japan_tale_of_genji",
@@ -145,9 +146,11 @@
     "card_type": "term",
     "card_ids": [
       "card_japan_gempei_war",
+      "card_japan_heishi_fall",
       "card_japan_kamakura",
       "card_japan_jokyu_war",
-      "card_japan_genko"
+      "card_japan_genko",
+      "card_japan_genko_koan"
     ],
     "modes": ["careful", "challenge"],
     "difficulty": 2

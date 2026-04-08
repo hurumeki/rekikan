@@ -387,9 +387,9 @@
     "id": "card_japan_shotoku_taishi",
     "region": "japan",
     "type": "term",
-    "name": "聖徳太子の政治",
+    "name": "聖徳太子の摂政就任",
     "year": 593,
-    "year_end": 622,
+    "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "law",
     "hint": "冠位十二階・十七条の憲法",
@@ -447,13 +447,25 @@
     "id": "card_japan_kento_shi",
     "region": "japan",
     "type": "term",
-    "name": "遣唐使の派遣",
+    "name": "第一回遣唐使の派遣",
     "year": 630,
-    "year_end": 894,
+    "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "war",
     "hint": "唐の文化・最澄・空海",
     "description": "中国の進んだ制度や文化、仏教を学ぶために送られた使節。"
+  },
+  {
+    "id": "card_japan_kento_shi_end",
+    "region": "japan",
+    "type": "term",
+    "name": "遣唐使の白紙撤回（廃止）",
+    "year": 894,
+    "year_end": null,
+    "era_color_key": "prehistoric_ancient",
+    "category": "event",
+    "hint": "菅原道真・白紙に戻す",
+    "description": "菅原道真の建議により、長く続いた遣唐使が停止・廃止された。"
   },
   {
     "id": "card_japan_heiankyo",
@@ -579,13 +591,25 @@
     "id": "card_japan_gempei_war",
     "region": "japan",
     "type": "term",
-    "name": "源平の合戦",
+    "name": "源平の合戦の始まり",
     "year": 1180,
-    "year_end": 1185,
+    "year_end": null,
     "era_color_key": "medieval",
     "category": "war",
-    "hint": "源氏vs平氏・壇ノ浦の戦い",
-    "description": "源氏と平氏が各地で戦い、最終的に平氏が滅亡した争い。"
+    "hint": "源氏vs平氏・以仁王の令旨",
+    "description": "源氏が平氏打倒の兵を挙げ、約5年にわたる全国的な内乱が始まった。"
+  },
+  {
+    "id": "card_japan_heishi_fall",
+    "region": "japan",
+    "type": "term",
+    "name": "壇ノ浦の戦い（平氏滅亡）",
+    "year": 1185,
+    "year_end": null,
+    "era_color_key": "medieval",
+    "category": "war",
+    "hint": "源義経・安徳天皇",
+    "description": "源平の合戦の最後の戦い。平氏が敗れて滅亡した。"
   },
   {
     "id": "card_japan_jokyu_war",
@@ -603,25 +627,37 @@
     "id": "card_japan_genko",
     "region": "japan",
     "type": "term",
-    "name": "元寇",
+    "name": "元寇（文永の役）",
     "year": 1274,
-    "year_end": 1281,
+    "year_end": null,
     "era_color_key": "medieval",
     "category": "war",
-    "hint": "モンゴル帝国・北条時宗・神風",
-    "description": "モンゴル帝国（元）が二度にわたり日本に攻めてきた重大な危機。"
+    "hint": "最初のモンゴル襲来・てつはう",
+    "description": "モンゴル帝国（元）が軍事力と新兵器で日本に初めて攻めてきた戦い。"
+  },
+  {
+    "id": "card_japan_genko_koan",
+    "region": "japan",
+    "type": "term",
+    "name": "元寇（弘安の役）",
+    "year": 1281,
+    "year_end": null,
+    "era_color_key": "medieval",
+    "category": "war",
+    "hint": "二度目のモンゴル襲来・神風",
+    "description": "モンゴル帝国（元）の二度目の襲来。防塁や暴風雨によって退けた。"
   },
   {
     "id": "card_japan_onin_war",
     "region": "japan",
     "type": "term",
-    "name": "応仁の乱",
+    "name": "応仁の乱の勃発",
     "year": 1467,
-    "year_end": 1477,
+    "year_end": null,
     "era_color_key": "medieval",
     "category": "war",
     "hint": "足利義政・京都の荒廃・戦国のはじまり",
-    "description": "将軍の跡継ぎ争いから始まり、11年も続いた大きな内乱。"
+    "description": "将軍の跡継ぎ争いから始まり、11年も続く大きな内乱が起きた。"
   },
   {
     "id": "card_japan_gunpowder_intro",
@@ -819,13 +855,13 @@
     "id": "card_japan_boshin_war",
     "region": "japan",
     "type": "term",
-    "name": "戊辰戦争",
+    "name": "戊辰戦争の開戦",
     "year": 1868,
-    "year_end": 1869,
+    "year_end": null,
     "era_color_key": "modern",
     "category": "war",
-    "hint": "新政府軍vs旧幕府軍・五稜郭の戦い",
-    "description": "新政府軍と旧幕府軍の間で起きた、日本の命運を決めた内戦。"
+    "hint": "新政府軍vs旧幕府軍・鳥羽伏見の戦い",
+    "description": "新政府軍と旧幕府軍の間で起きた、日本の命運を決める内戦が始まった。"
   },
   {
     "id": "card_japan_meiji_constitution",
@@ -843,25 +879,25 @@
     "id": "card_japan_sino_japanese_war",
     "region": "japan",
     "type": "term",
-    "name": "日清戦争",
+    "name": "日清戦争の開戦",
     "year": 1894,
-    "year_end": 1895,
+    "year_end": null,
     "era_color_key": "modern",
     "category": "war",
-    "hint": "下関条約・対外進出のはじまり",
-    "description": "朝鮮の支配権をめぐって清（中国）と戦い、日本が勝利した最初の対外戦争。"
+    "hint": "甲午農民戦争・対外進出のはじまり",
+    "description": "朝鮮の支配権をめぐって清（中国）と戦い、日本が勝利した最初の対外戦争が始まった。"
   },
   {
     "id": "card_japan_russo_japanese_war",
     "region": "japan",
     "type": "term",
-    "name": "日露戦争",
+    "name": "日露戦争の開戦",
     "year": 1904,
-    "year_end": 1905,
+    "year_end": null,
     "era_color_key": "modern",
     "category": "war",
-    "hint": "ポーツマス条約・満州をめぐる争い",
-    "description": "大国ロシアと戦い、辛勝したことで日本の国際的地位を決定づけた戦争。"
+    "hint": "日英同盟・満州をめぐる争い",
+    "description": "大国ロシアと戦い、日本の国際的地位を決定づけた戦争が始まった。"
   },
   {
     "id": "card_japan_taisho_democracy",
@@ -891,12 +927,12 @@
     "id": "card_japan_showa_postwar_reform",
     "region": "japan",
     "type": "term",
-    "name": "戦後改革",
+    "name": "戦後改革の開始",
     "year": 1945,
-    "year_end": 1952,
+    "year_end": null,
     "era_color_key": "contemporary",
     "category": "law",
     "hint": "日本国憲法・農地改革・財閥解体",
-    "description": "連合国（GHQ）の指導のもと、日本の民主化を目指した大規模な改革。"
+    "description": "連合国（GHQ）の指導のもと、日本の民主化を目指した大規模な改革が始まった。"
   }
 ]
