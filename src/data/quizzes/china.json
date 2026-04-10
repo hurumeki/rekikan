@@ -52,8 +52,8 @@
     "card_ids": [
       "card_china_emperor_taizong_tang",
       "card_china_wu_zetian",
-      "card_china_tang",
-      "card_china_song"
+      "card_china_an_lushan",
+      "card_china_wang_anshi"
     ],
     "modes": ["careful", "challenge"],
     "difficulty": 2
@@ -82,7 +82,6 @@
       "card_china_opium_war",
       "card_china_taiping_rebellion",
       "card_china_xinhai_revolution",
-      "card_china_roc",
       "card_china_prc_established"
     ],
     "modes": ["careful", "challenge"],

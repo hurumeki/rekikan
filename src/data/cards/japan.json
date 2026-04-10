@@ -994,5 +994,41 @@
     "category": "law",
     "hint": "大名行列・武家諸法度・三代将軍",
     "description": "大名を一年交替で江戸に住まわせ、財力を削いで反乱を防ぐ制度。"
+  },
+  {
+    "id": "card_japan_kenmu_restoration",
+    "region": "japan",
+    "type": "term",
+    "name": "建武の新政",
+    "year": 1334,
+    "year_end": null,
+    "era_color_key": "medieval",
+    "category": "event",
+    "hint": "後醍醐天皇・天皇中心の政治・短命",
+    "description": "鎌倉幕府滅亡後、後醍醐天皇が自ら行なった天皇中心の新しい政治。"
+  },
+  {
+    "id": "card_japan_kinkakuji",
+    "region": "japan",
+    "type": "term",
+    "name": "金閣の建立",
+    "year": 1397,
+    "year_end": null,
+    "era_color_key": "medieval",
+    "category": "culture",
+    "hint": "足利義満・北山文化・金箔",
+    "description": "室町幕府の第三代将軍が京都に建てた、豪華絢爛な別荘建築。"
+  },
+  {
+    "id": "card_japan_pacific_war",
+    "region": "japan",
+    "type": "term",
+    "name": "太平洋戦争の開戦",
+    "year": 1941,
+    "year_end": null,
+    "era_color_key": "contemporary",
+    "category": "war",
+    "hint": "真珠湾攻撃・連合国との戦い",
+    "description": "ハワイの真珠湾を奇襲攻撃したことで始まった、第二次世界大戦における最大の海上戦。"
   }
 ]

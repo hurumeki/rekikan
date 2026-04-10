@@ -69,10 +69,10 @@
     "card_type": "term",
     "card_ids": [
       "card_japan_shotoku_taishi",
+      "card_japan_kento_shi",
       "card_japan_taika_reform",
       "card_japan_taisho_ritsuryo",
       "card_japan_heijokyo",
-      "card_japan_kento_shi",
       "card_japan_todaiji"
     ],
     "modes": ["careful", "challenge"],
@@ -102,8 +102,7 @@
       "card_japan_sekkan_seiji",
       "card_japan_kokufu_culture",
       "card_japan_tale_of_genji",
-      "card_japan_samurai_rise",
-      "card_japan_insei"
+      "card_japan_samurai_rise"
     ],
     "modes": ["careful", "challenge"],
     "difficulty": 2
@@ -147,7 +146,6 @@
     "card_ids": [
       "card_japan_gempei_war",
       "card_japan_heishi_fall",
-      "card_japan_kamakura",
       "card_japan_jokyu_war",
       "card_japan_genko",
       "card_japan_genko_koan"
@@ -161,12 +159,11 @@
     "title": "室町・戦国の出来事",
     "card_type": "term",
     "card_ids": [
-      "card_japan_nanbokucho",
-      "card_japan_muromachi",
+      "card_japan_kenmu_restoration",
+      "card_japan_kinkakuji",
       "card_japan_onin_war",
       "card_japan_gunpowder_intro",
-      "card_japan_christianity_intro",
-      "card_japan_azuchimomoyama"
+      "card_japan_christianity_intro"
     ],
     "modes": ["careful", "challenge"],
     "difficulty": 2
@@ -289,7 +286,7 @@
     "card_ids": [
       "card_japan_taisho_democracy",
       "card_japan_kanto_earthquake",
-      "card_japan_showa_prewar",
+      "card_japan_pacific_war",
       "card_japan_showa_postwar_reform"
     ],
     "modes": ["careful", "challenge"],

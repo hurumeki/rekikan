@@ -514,5 +514,53 @@
     "category": "event",
     "hint": "鉄のカーテン・米ソ対立",
     "description": "第二次世界大戦後、アメリカを中心とする資本主義陣営とソ連の社会主義陣営が激しく対立した。"
+  },
+  {
+    "id": "card_europe_columbus",
+    "region": "europe",
+    "type": "term",
+    "name": "コロンブスの新大陸到達",
+    "year": 1492,
+    "year_end": null,
+    "era_color_key": "early_modern",
+    "category": "event",
+    "hint": "スペイン支援・サンサルバドル島",
+    "description": "スペインの支援を受けて大西洋を横断し、アメリカ大陸（西インド諸島）に到達した。"
+  },
+  {
+    "id": "card_europe_vasco_da_gama",
+    "region": "europe",
+    "type": "term",
+    "name": "バスコ・ダ・ガマのインド到達",
+    "year": 1498,
+    "year_end": null,
+    "era_color_key": "early_modern",
+    "category": "event",
+    "hint": "ポルトガル・喜望峰・カリカット",
+    "description": "アフリカ南端の喜望峰を回り、ヨーロッパからインドへの直接航路を開拓した。"
+  },
+  {
+    "id": "card_europe_american_independence",
+    "region": "europe",
+    "type": "term",
+    "name": "アメリカ独立戦争の勃発",
+    "year": 1775,
+    "year_end": null,
+    "era_color_key": "modern",
+    "category": "war",
+    "hint": "13植民地・イギリスからの離脱・ワシントン",
+    "description": "本国の重税に反発した北米の植民地が、独立を目指してイギリスとの戦争を始めた。"
+  },
+  {
+    "id": "card_europe_vienna_congress",
+    "region": "europe",
+    "type": "term",
+    "name": "ウィーン会議",
+    "year": 1814,
+    "year_end": null,
+    "era_color_key": "modern",
+    "category": "event",
+    "hint": "会議は踊る・メッテルニヒ・復古主義",
+    "description": "ナポレオン戦争後のヨーロッパの秩序を再建するため、各国の代表が集まった会議。"
   }
 ]

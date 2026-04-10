@@ -382,5 +382,29 @@
     "category": "event",
     "hint": "毛沢東・共産党・北京",
     "description": "国共内戦に勝利した中国共産党が、毛沢東を国家主席として新しい国を建国した。"
+  },
+  {
+    "id": "card_china_an_lushan",
+    "region": "china",
+    "type": "term",
+    "name": "安史の乱",
+    "year": 755,
+    "year_end": null,
+    "era_color_key": "medieval",
+    "category": "war",
+    "hint": "楊貴妃・節度使・唐の衰退",
+    "description": "唐の玄宗の時代に起きた大反乱。これを機に唐の力は大きく衰退した。"
+  },
+  {
+    "id": "card_china_wang_anshi",
+    "region": "china",
+    "type": "term",
+    "name": "王安石の改革（新法）",
+    "year": 1069,
+    "year_end": null,
+    "era_color_key": "medieval",
+    "category": "person",
+    "hint": "北宋・富国強兵・旧法党との対立",
+    "description": "北宋の財政立て直しや軍事力強化を目指して行われた大規模な改革。"
   }
 ]

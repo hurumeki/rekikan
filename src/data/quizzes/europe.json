@@ -50,7 +50,6 @@
     "title": "中世の変化",
     "card_type": "term",
     "card_ids": [
-      "card_europe_feudal",
       "card_europe_crusades",
       "card_europe_hundred_years_war",
       "card_europe_black_death",
@@ -80,7 +79,8 @@
     "title": "大航海〜絶対王政の出来事",
     "card_type": "term",
     "card_ids": [
-      "card_europe_exploration",
+      "card_europe_columbus",
+      "card_europe_vasco_da_gama",
       "card_europe_reformation",
       "card_europe_luther",
       "card_europe_louis_xiv"
@@ -95,10 +95,10 @@
     "card_type": "term",
     "card_ids": [
       "card_europe_enlightenment",
-      "card_europe_industrial",
+      "card_europe_american_independence",
       "card_europe_french_revolution",
-      "card_europe_nationalism",
-      "card_europe_imperialism"
+      "card_europe_industrial",
+      "card_europe_vienna_congress"
     ],
     "modes": ["careful", "challenge"],
     "difficulty": 1
