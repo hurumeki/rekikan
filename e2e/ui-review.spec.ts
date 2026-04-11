@@ -39,7 +39,7 @@ test.describe('UI Review - Mobile', () => {
     await page.getByText('日本史').click();
     await page.getByText('日本の歴史の大きな流れ').click();
     await page.getByText('じっくりモード').click();
-    await expect(page.getByText('残りの中で1番古いのはどれ？')).toBeVisible();
+    await expect(page.getByText('この中で1番古いのはどれ？')).toBeVisible();
     await page.screenshot({ path: screenshotPath('04-careful-initial.png'), fullPage: true });
   });
 
@@ -48,7 +48,7 @@ test.describe('UI Review - Mobile', () => {
     await page.getByText('日本史').click();
     await page.getByText('日本の歴史の大きな流れ').click();
     await page.getByText('じっくりモード').click();
-    await expect(page.getByText('残りの中で1番古いのはどれ？')).toBeVisible();
+    await expect(page.getByText('この中で1番古いのはどれ？')).toBeVisible();
 
     // Tap a card — it either moves to confirmed area (correct) or shakes red (incorrect)
     const firstCard = page.getByTestId('quiz-card').first();
