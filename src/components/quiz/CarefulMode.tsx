@@ -53,14 +53,15 @@ export default function CarefulMode({
         <div className={styles.confirmedArea}>
           <div className={styles.confirmedLabel}>確定エリア</div>
           {confirmedCards.map((card) => (
-            <Card
-              key={card.id}
-              card={card}
-              state="correct"
-              eraColor={eraColors[card.era_color_key] ?? '#888'}
-              showYear
-              showDescription
-            />
+            <div key={card.id} className={styles.cardSlideIn}>
+              <Card
+                card={card}
+                state="correct"
+                eraColor={eraColors[card.era_color_key] ?? '#888'}
+                showYear
+                showDescription
+              />
+            </div>
           ))}
         </div>
       )}

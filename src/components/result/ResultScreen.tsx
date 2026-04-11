@@ -1,5 +1,6 @@
 'use client';
 
+import type React from 'react';
 import type { Card as CardType, CardResult } from '@/lib/types';
 import Card from '@/components/card/Card';
 import styles from './ResultScreen.module.css';
@@ -38,19 +39,24 @@ export default function ResultScreen({
       </div>
 
       <div className={styles.cardList}>
-        {correctOrder.map((cardId) => {
+        {correctOrder.map((cardId, index) => {
           const card = cards.find((c) => c.id === cardId);
           const result = results.find((r) => r.cardId === cardId);
           if (!card) return null;
           return (
-            <Card
+            <div
               key={card.id}
-              card={card}
-              state={result?.correct ? 'correct' : 'incorrect'}
-              eraColor={eraColors[card.era_color_key] || '#888'}
-              showYear={true}
-              showDescription={card.type === 'term'}
-            />
+              className={styles.cardSlideIn}
+              style={{ '--delay': `${index * 0.06}s` } as React.CSSProperties}
+            >
+              <Card
+                card={card}
+                state={result?.correct ? 'correct' : 'incorrect'}
+                eraColor={eraColors[card.era_color_key] || '#888'}
+                showYear={true}
+                showDescription={card.type === 'term'}
+              />
+            </div>
           );
         })}
       </div>

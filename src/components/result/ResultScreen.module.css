@@ -25,6 +25,21 @@
   color: var(--perfect-color);
   margin-top: 8px;
 }
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cardSlideIn {
+  animation: slideIn 0.35s ease-out var(--delay, 0s) both;
+}
+
 .cardList {
   display: flex;
   flex-direction: column;
