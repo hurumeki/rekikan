@@ -1,0 +1,138 @@
+.container {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 480px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.progress {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.prompt {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 4px 0;
+}
+
+.timelineWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  user-select: none;
+}
+
+.timeline {
+  position: relative;
+  height: 48px;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: crosshair;
+  touch-action: none;
+  border: 2px solid var(--border);
+}
+
+.eraBand {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  opacity: 0.55;
+  transition: opacity 0.2s;
+}
+
+.timeline:hover .eraBand {
+  opacity: 0.7;
+}
+
+.marker {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  width: 4px;
+  border-radius: 2px;
+  transform: translateX(-50%);
+  pointer-events: none;
+  transition: left 0.1s ease-out;
+}
+
+.markerSelected {
+  background: white;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.4);
+}
+
+.markerCorrect {
+  background: #22c55e;
+  box-shadow: 0 0 0 2px #16a34a;
+}
+
+.markerWrong {
+  background: #ef4444;
+  box-shadow: 0 0 0 2px #dc2626;
+}
+
+.markerCorrectAnswer {
+  background: #22c55e;
+  box-shadow: 0 0 0 2px #16a34a;
+  width: 4px;
+}
+
+.yearLabels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  padding: 0 2px;
+}
+
+.selectedLabel {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.feedback {
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.feedbackCorrect {
+  background: color-mix(in srgb, #22c55e 15%, var(--card-bg));
+  color: #16a34a;
+}
+
+.feedbackWrong {
+  background: color-mix(in srgb, #ef4444 15%, var(--card-bg));
+  color: #dc2626;
+}
+
+.confirmButton,
+.nextButton {
+  background: var(--badge-bg);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  width: 100%;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.confirmButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.nextButton {
+  background: var(--text-secondary);
+}

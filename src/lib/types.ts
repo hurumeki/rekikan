@@ -1,6 +1,6 @@
 export type CardType = 'term' | 'description';
 export type Category = 'era' | 'law' | 'war' | 'culture' | 'economy' | 'person' | 'event';
-export type GameMode = 'careful' | 'challenge';
+export type GameMode = 'careful' | 'challenge' | 'timeline' | 'era_band' | 'cross_region';
 export type ReviewStatus = 'draft' | 'ai_generated' | 'reviewed' | 'approved';
 export type CardState = 'unselected' | 'selected' | 'correct' | 'incorrect';
 
@@ -41,6 +41,7 @@ export interface Quiz {
   modes: GameMode[];
   difficulty: number;
   regions?: string[] | null;
+  timeline_range?: { start: number; end: number };
 }
 
 export interface Node {

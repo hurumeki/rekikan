@@ -1,0 +1,93 @@
+.container {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 480px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.progress {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.prompt {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 4px 0;
+}
+
+.yearReveal {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.eraButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.eraButton {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  background: var(--card-bg);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    border-color 0.15s,
+    background 0.15s,
+    opacity 0.2s;
+  text-align: left;
+}
+
+.eraButton:hover:not(:disabled) {
+  border-color: var(--era-color, #888);
+  background: color-mix(in srgb, var(--era-color, #888) 10%, var(--card-bg));
+}
+
+.eraButton.correct {
+  border-color: #22c55e;
+  background: color-mix(in srgb, #22c55e 15%, var(--card-bg));
+}
+
+.eraButton.incorrect {
+  border-color: #ef4444;
+  background: color-mix(in srgb, #ef4444 15%, var(--card-bg));
+}
+
+.eraButton.dimmed {
+  opacity: 0.4;
+}
+
+.eraButton:disabled {
+  cursor: default;
+}
+
+.eraColorDot {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.feedback {
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 4px 0;
+  color: var(--text-secondary);
+}

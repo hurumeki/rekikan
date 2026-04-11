@@ -217,5 +217,17 @@
       "type": "complete_node",
       "node_ids": ["node_japan_prehistoric", "node_japan_medieval", "node_japan_modern"]
     }
+  },
+  {
+    "id": "node_cross_region",
+    "region": "japan",
+    "parent_id": "node_japan_root",
+    "label": "同時代の世界",
+    "sort_order": 5,
+    "quiz_ids": ["quiz_cross_medieval", "quiz_cross_early_modern", "quiz_cross_modern"],
+    "unlock_condition": {
+      "type": "complete_node",
+      "node_ids": ["node_japan_medieval"]
+    }
   }
 ]

@@ -18,6 +18,18 @@ const modeInfo: Record<GameMode, { name: string; desc: string }> = {
     name: 'チャレンジモード',
     desc: '全カードを並べて一括判定',
   },
+  timeline: {
+    name: 'タイムラインモード',
+    desc: '年表のどこに位置するか感じとる',
+  },
+  era_band: {
+    name: '時代帯当てモード',
+    desc: 'どの時代に属するかを当てる',
+  },
+  cross_region: {
+    name: '同時代モード',
+    desc: '世界各地の出来事を時系列で並べる',
+  },
 };
 
 export default function ModeSelector({ quizTitle, modes, onSelect }: ModeSelectorProps) {
