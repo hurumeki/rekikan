@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import type { Card as CardType, CardResult } from '@/lib/types';
 import { useChallengeMode } from '@/hooks/useChallengeMode';
 import Card from '@/components/card/Card';
@@ -34,6 +34,11 @@ export default function ChallengeMode({
     getSelectionNumber,
   } = useChallengeMode(cards, correctOrder);
 
+  const cardClickHandlers = useMemo(
+    () => new Map(shuffledCards.map((card) => [card.id, () => toggleSelect(card.id)])),
+    [shuffledCards, toggleSelect],
+  );
+
   useEffect(() => {
     if (isConfirmed && results) {
       onComplete(results, score, total);
@@ -63,7 +68,7 @@ export default function ChallengeMode({
               showHint={hintEnabled}
               showYear={isConfirmed}
               showDescription={isConfirmed}
-              onClick={() => toggleSelect(card.id)}
+              onClick={cardClickHandlers.get(card.id)}
             />
           );
         })}

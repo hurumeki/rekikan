@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { getQuiz, getCardsForQuiz, getRegion } from '@/lib/data-loader';
 import { saveQuizResult } from '@/lib/progress';
@@ -23,12 +23,14 @@ export default function QuizClient() {
   const region = quiz ? getRegion(quiz.region) : undefined;
 
   const correctOrder = quiz?.card_ids ?? [];
-  const eraColors: Record<string, string> = {};
-  if (region) {
+  const eraColors = useMemo<Record<string, string>>(() => {
+    if (!region) return {};
+    const colors: Record<string, string> = {};
     for (const [key, ec] of Object.entries(region.era_colors)) {
-      eraColors[key] = ec.color;
+      colors[key] = ec.color;
     }
-  }
+    return colors;
+  }, [region]);
 
   const [phase, setPhase] = useState<Phase>('mode-select');
   const [selectedMode, setSelectedMode] = useState<GameMode | null>(null);
@@ -40,10 +42,10 @@ export default function QuizClient() {
     mode: GameMode;
   } | null>(null);
 
-  const handleModeSelect = (mode: GameMode) => {
+  const handleModeSelect = useCallback((mode: GameMode) => {
     setSelectedMode(mode);
     setPhase('playing');
-  };
+  }, []);
 
   const handleComplete = useCallback(
     (results: CardResult[], score: number, total: number) => {
@@ -64,14 +66,14 @@ export default function QuizClient() {
     [quiz, selectedMode, hintEnabled],
   );
 
-  const handleRetry = () => {
+  const handleRetry = useCallback(() => {
     setResultData(null);
     setPhase('playing');
-  };
+  }, []);
 
-  const handleBackToList = () => {
+  const handleBackToList = useCallback(() => {
     router.push(quiz ? `/?region=${quiz.region}` : '/');
-  };
+  }, [router, quiz]);
 
   if (!quiz || cards.length === 0) {
     return (

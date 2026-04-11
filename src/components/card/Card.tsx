@@ -1,5 +1,6 @@
 'use client';
 
+import { memo } from 'react';
 import type { Card as CardType, CardState } from '@/lib/types';
 import EraBadge from '@/components/ui/EraBadge';
 import CategoryIcon from '@/components/ui/CategoryIcon';
@@ -18,7 +19,7 @@ interface CardProps {
   onClick?: () => void;
 }
 
-export default function Card({
+const Card = memo(function Card({
   card,
   state,
   eraColor,
@@ -35,11 +36,7 @@ export default function Card({
   const yearLabel = formatYearRange(card.year, card.year_end);
 
   return (
-    <div
-      className={classNames}
-      data-testid="quiz-card"
-      onClick={onClick}
-    >
+    <div className={classNames} data-testid="quiz-card" onClick={onClick}>
       {(showHint || showYear) && <EraBadge color={eraColor} />}
 
       <div className={styles.content}>
@@ -70,4 +67,6 @@ export default function Card({
       {state === 'incorrect' && <div className={`${styles.mark} ${styles.incorrectMark}`}>✗</div>}
     </div>
   );
-}
+});
+
+export default Card;
