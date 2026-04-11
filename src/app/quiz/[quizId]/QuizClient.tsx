@@ -37,6 +37,7 @@ export default function QuizClient() {
     results: CardResult[];
     score: number;
     total: number;
+    mode: GameMode;
   } | null>(null);
 
   const handleModeSelect = (mode: GameMode) => {
@@ -46,7 +47,7 @@ export default function QuizClient() {
 
   const handleComplete = useCallback(
     (results: CardResult[], score: number, total: number) => {
-      setResultData({ results, score, total });
+      setResultData({ results, score, total, mode: selectedMode! });
       if (quiz) {
         saveQuizResult({
           quizId: quiz.id,
@@ -149,6 +150,7 @@ export default function QuizClient() {
           score={resultData.score}
           total={resultData.total}
           eraColors={eraColors}
+          mode={resultData.mode}
           onRetry={handleRetry}
           onHome={handleBackToList}
         />

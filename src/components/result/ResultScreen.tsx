@@ -1,7 +1,7 @@
 'use client';
 
 import type React from 'react';
-import type { Card as CardType, CardResult } from '@/lib/types';
+import type { Card as CardType, CardResult, GameMode } from '@/lib/types';
 import Card from '@/components/card/Card';
 import styles from './ResultScreen.module.css';
 
@@ -12,6 +12,7 @@ interface ResultScreenProps {
   score: number;
   total: number;
   eraColors: Record<string, string>;
+  mode: GameMode;
   onRetry: () => void;
   onHome: () => void;
 }
@@ -23,10 +24,12 @@ export default function ResultScreen({
   score,
   total,
   eraColors,
+  mode,
   onRetry,
   onHome,
 }: ResultScreenProps) {
   const isPerfect = score === total;
+  const isChallenge = mode === 'challenge';
 
   return (
     <div className={styles.container}>
@@ -39,23 +42,36 @@ export default function ResultScreen({
       </div>
 
       <div className={styles.cardList}>
-        {correctOrder.map((cardId, index) => {
+        {correctOrder.map((cardId, correctIndex) => {
           const card = cards.find((c) => c.id === cardId);
           const result = results.find((r) => r.cardId === cardId);
           if (!card) return null;
+          const isCorrect = result?.correct ?? false;
+          const userPos = result?.userPosition ?? correctIndex;
+
           return (
             <div
               key={card.id}
-              className={styles.cardSlideIn}
-              style={{ '--delay': `${index * 0.06}s` } as React.CSSProperties}
+              className={`${styles.cardSlideIn} ${isChallenge ? styles.comparisonRow : ''}`}
+              style={{ '--delay': `${correctIndex * 0.06}s` } as React.CSSProperties}
             >
-              <Card
-                card={card}
-                state={result?.correct ? 'correct' : 'incorrect'}
-                eraColor={eraColors[card.era_color_key] || '#888'}
-                showYear={true}
-                showDescription={card.type === 'term'}
-              />
+              {isChallenge && (
+                <div className={styles.positionCol}>
+                  <div className={styles.correctPos}>{correctIndex + 1}</div>
+                  <div className={`${styles.userPos} ${isCorrect ? styles.posCorrect : styles.posWrong}`}>
+                    {userPos + 1}
+                  </div>
+                </div>
+              )}
+              <div className={isChallenge ? styles.comparisonCard : undefined}>
+                <Card
+                  card={card}
+                  state={isCorrect ? 'correct' : 'incorrect'}
+                  eraColor={eraColors[card.era_color_key] || '#888'}
+                  showYear={true}
+                  showDescription={card.type === 'term'}
+                />
+              </div>
             </div>
           );
         })}

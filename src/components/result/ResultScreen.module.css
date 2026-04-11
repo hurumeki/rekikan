@@ -45,6 +45,63 @@
   flex-direction: column;
   gap: 8px;
 }
+
+.comparisonRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.positionCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  flex-shrink: 0;
+  width: 32px;
+}
+
+.correctPos {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.userPos {
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 6px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.posCorrect {
+  background: var(--state-correct-bg);
+  border: 1px solid var(--state-correct-border);
+  color: #16a34a;
+}
+
+.posWrong {
+  background: var(--state-incorrect-bg);
+  border: 1px solid var(--state-incorrect-border);
+  color: #dc2626;
+}
+
+.comparisonCard {
+  flex: 1;
+  min-width: 0;
+}
 .buttons {
   display: flex;
   gap: 12px;
