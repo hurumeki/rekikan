@@ -135,7 +135,7 @@ export default function CarefulMode({
 
   return (
     <div className={styles.container}>
-      {!isComplete && <div className={styles.prompt}>この中で1番古いのはどれ？</div>}
+      {!isComplete && <div className={styles.prompt}>残りの中で1番古いのはどれ？</div>}
 
       {remainingCards.length > 0 && (
         <div className={styles.remainingArea}>

@@ -31,7 +31,7 @@
 システムにインストール済みの Chromium を使うために、環境変数を設定してテストを実行してください。
 
 ```bash
-PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/root/.cache/ms-playwright/chromium-1194/chrome-linux/chrome npx playwright test
+PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/opt/pw-browsers/chromium-1194/chrome-linux/chrome npx playwright test
 ```
 
 ## 作業中のルール
