@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect } from 'react';
 import type { Card as CardType, CardResult } from '@/lib/types';
 import { useChallengeMode } from '@/hooks/useChallengeMode';
 import Card from '@/components/card/Card';
@@ -23,6 +22,7 @@ export default function ChallengeMode({
 }: ChallengeModeProps) {
   const {
     cards: shuffledCards,
+    selectionOrder,
     isConfirmed,
     results,
     score,
@@ -34,24 +34,56 @@ export default function ChallengeMode({
     getSelectionNumber,
   } = useChallengeMode(cards, correctOrder);
 
-  useEffect(() => {
-    if (isConfirmed && results) {
-      const timer = setTimeout(() => {
-        onComplete(results, score, total);
-      }, 500);
-      return () => clearTimeout(timer);
-    }
-  }, [isConfirmed, results, score, total, onComplete]);
+  if (isConfirmed && results) {
+    return (
+      <div className={styles.container}>
+        <div className={styles.resultHeader}>
+          <div className={styles.resultScore}>{score} / {total} 正解</div>
+          <div className={styles.resultSubLabel}>正解の順番と比較</div>
+        </div>
+
+        <div className={styles.comparison}>
+          {correctOrder.map((cardId, correctIndex) => {
+            const card = cards.find((c) => c.id === cardId);
+            const result = results.find((r) => r.cardId === cardId);
+            const userIndex = selectionOrder.indexOf(cardId);
+            if (!card) return null;
+            const isCorrect = result?.correct ?? false;
+            return (
+              <div key={cardId} className={styles.comparisonRow}>
+                <div className={styles.positionCol}>
+                  <div className={styles.correctPos}>{correctIndex + 1}</div>
+                  <div className={`${styles.userPos} ${isCorrect ? styles.posCorrect : styles.posWrong}`}>
+                    {userIndex + 1}
+                  </div>
+                </div>
+                <div className={styles.comparisonCard}>
+                  <Card
+                    card={card}
+                    state={isCorrect ? 'correct' : 'incorrect'}
+                    eraColor={eraColors[card.era_color_key] ?? '#888'}
+                    showYear
+                    showDescription={card.type === 'term'}
+                  />
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        <button
+          className={styles.seeResultButton}
+          onClick={() => onComplete(results, score, total)}
+        >
+          結果を見る
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.container}>
       {!isConfirmed && <div className={styles.instruction}>古い順にカードをタップしてください</div>}
-
-      {isConfirmed && results && (
-        <div className={styles.resultInfo}>
-          {score} / {total} 正解
-        </div>
-      )}
 
       <div className={styles.cardList}>
         {shuffledCards.map((card) => {

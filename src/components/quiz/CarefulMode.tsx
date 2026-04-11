@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef, useLayoutEffect } from 'react';
 import type { Card as CardType, CardResult } from '@/lib/types';
 import { useCarefulMode } from '@/hooks/useCarefulMode';
 import Card from '@/components/card/Card';
@@ -33,6 +33,44 @@ export default function CarefulMode({
     clearWrong,
   } = useCarefulMode(cards, correctOrder);
 
+  // FLIP animation refs
+  const remainingCardRefs = useRef<Map<string, HTMLElement>>(new Map());
+  const confirmedCardRefs = useRef<Map<string, HTMLElement>>(new Map());
+  const pendingFlipRef = useRef<{ rect: DOMRect; cardId: string } | null>(null);
+
+  const handleCardClick = (cardId: string) => {
+    const el = remainingCardRefs.current.get(cardId);
+    if (el) {
+      pendingFlipRef.current = { rect: el.getBoundingClientRect(), cardId };
+    }
+    selectCard(cardId);
+  };
+
+  useLayoutEffect(() => {
+    const flip = pendingFlipRef.current;
+    if (!flip) return;
+
+    const destEl = confirmedCardRefs.current.get(flip.cardId);
+    if (!destEl) return;
+
+    const endRect = destEl.getBoundingClientRect();
+    const deltaY = flip.rect.top - endRect.top;
+    const deltaX = flip.rect.left - endRect.left;
+
+    // Invert: move element to its original visual position
+    destEl.style.transition = 'none';
+    destEl.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+
+    // Force reflow
+    destEl.getBoundingClientRect();
+
+    // Play: animate to final position
+    destEl.style.transition = 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+    destEl.style.transform = '';
+
+    pendingFlipRef.current = null;
+  }, [confirmedCards.length]);
+
   useEffect(() => {
     if (isComplete) {
       onComplete(results, score, total);
@@ -53,7 +91,13 @@ export default function CarefulMode({
         <div className={styles.confirmedArea}>
           <div className={styles.confirmedLabel}>確定エリア</div>
           {confirmedCards.map((card) => (
-            <div key={card.id} className={styles.cardSlideIn}>
+            <div
+              key={card.id}
+              ref={(el) => {
+                if (el) confirmedCardRefs.current.set(card.id, el);
+                else confirmedCardRefs.current.delete(card.id);
+              }}
+            >
               <Card
                 card={card}
                 state="correct"
@@ -71,13 +115,20 @@ export default function CarefulMode({
       {remainingCards.length > 0 && (
         <div className={styles.remainingArea}>
           {remainingCards.map((card) => (
-            <div key={card.id} className={wrongCardId === card.id ? styles.shake : undefined}>
+            <div
+              key={card.id}
+              ref={(el) => {
+                if (el) remainingCardRefs.current.set(card.id, el);
+                else remainingCardRefs.current.delete(card.id);
+              }}
+              className={wrongCardId === card.id ? styles.shake : undefined}
+            >
               <Card
                 card={card}
                 state={wrongCardId === card.id ? 'incorrect' : 'unselected'}
                 eraColor={eraColors[card.era_color_key] ?? '#888'}
                 showHint={hintEnabled}
-                onClick={() => selectCard(card.id)}
+                onClick={() => handleCardClick(card.id)}
               />
             </div>
           ))}
