@@ -3,7 +3,20 @@
 import { useState } from 'react';
 import type { Region, Node, QuizProgress, UnlockCondition } from '@/lib/types';
 import { getQuiz, getRootNode, getChildNodes, getNode } from '@/lib/data-loader';
+import { getHistoricalStars } from '@/lib/progress';
 import styles from './QuizList.module.css';
+
+function StarDisplay({ stars }: { stars: number }) {
+  return (
+    <span className={styles.stars} aria-label={`${stars}つ星`}>
+      {[1, 2, 3].map((i) => (
+        <span key={i} className={i <= stars ? styles.starFilled : styles.starEmpty}>
+          ★
+        </span>
+      ))}
+    </span>
+  );
+}
 
 interface QuizListProps {
   region: Region;
@@ -66,14 +79,30 @@ export default function QuizList({ region, nodes, onSelectQuiz, onBack, progress
     const unlocked = isNodeUnlocked(node, progress);
     const children = getChildNodes(node.id);
 
+    const clearedCount = node.quiz_ids.filter((qid) => progress[qid]?.cleared).length;
+    const totalCount = node.quiz_ids.length;
+    const progressPct = totalCount > 0 ? (clearedCount / totalCount) * 100 : 0;
+
     return (
       <div key={node.id} className={styles.nodeSection}>
-        <div className={styles.nodeLabel}>{node.label}</div>
+        <div className={styles.nodeHeader}>
+          <div className={styles.nodeLabel}>{node.label}</div>
+          {totalCount > 0 && (
+            <div className={styles.nodeProgress}>
+              <div className={styles.progressBar}>
+                <div className={styles.progressFill} style={{ width: `${progressPct}%` }} />
+              </div>
+              <span className={styles.progressLabel}>
+                {clearedCount} / {totalCount} クリア
+              </span>
+            </div>
+          )}
+        </div>
         {node.quiz_ids.map((quizId) => {
           const quiz = getQuiz(quizId);
           if (!quiz) return null;
-          const cleared = progress[quizId]?.cleared ?? false;
           const isLocked = !unlocked;
+          const stars = getHistoricalStars(progress[quizId], quiz.card_ids.length);
 
           return (
             <button
@@ -88,7 +117,9 @@ export default function QuizList({ region, nodes, onSelectQuiz, onBack, progress
               }}
             >
               <span className={styles.quizTitle}>{quiz.title}</span>
-              <span className={styles.quizStatus}>{isLocked ? '🔒' : cleared ? '✓' : ''}</span>
+              <span className={styles.quizStatus}>
+                {isLocked ? '🔒' : <StarDisplay stars={stars} />}
+              </span>
             </button>
           );
         })}

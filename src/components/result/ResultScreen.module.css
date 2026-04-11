@@ -19,11 +19,84 @@
   font-size: 0.9rem;
   color: var(--text-secondary);
 }
+
+/* Stars */
+@keyframes starPop {
+  0% {
+    transform: scale(0) rotate(-20deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.3) rotate(5deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+.starsRow {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 10px;
+}
+.starFilled {
+  font-size: 1.8rem;
+  color: #f59e0b;
+  animation: starPop 0.4s ease-out var(--star-delay, 0s) both;
+}
+.starEmpty {
+  font-size: 1.8rem;
+  color: #d1d5db;
+  animation: starPop 0.4s ease-out var(--star-delay, 0s) both;
+}
+
+/* Perfect celebration */
+@keyframes perfectBounce {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  55% {
+    transform: scale(1.2);
+  }
+  75% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 .perfect {
   font-size: 1.5rem;
   font-weight: 800;
   color: var(--perfect-color);
-  margin-top: 8px;
+  margin-top: 10px;
+  animation: perfectBounce 0.55s ease-out both;
+}
+
+/* New best badge */
+@keyframes badgeFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.newBestBadge {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 4px 14px;
+  border-radius: 999px;
+  background: #fef3c7;
+  color: #92400e;
+  font-size: 0.9rem;
+  font-weight: 700;
+  animation: badgeFadeIn 0.4s ease-out 0.5s both;
 }
 @keyframes slideIn {
   from {

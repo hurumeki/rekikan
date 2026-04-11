@@ -3,7 +3,7 @@
 import { useState, useCallback, useMemo } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { getQuiz, getCardsForQuiz, getRegion } from '@/lib/data-loader';
-import { saveQuizResult } from '@/lib/progress';
+import { saveQuizResult, getQuizProgress } from '@/lib/progress';
 import type { GameMode, CardResult } from '@/lib/types';
 import ModeSelector from '@/components/quiz/ModeSelector';
 import CarefulMode from '@/components/quiz/CarefulMode';
@@ -40,6 +40,7 @@ export default function QuizClient() {
     score: number;
     total: number;
     mode: GameMode;
+    previousBest: number | null;
   } | null>(null);
 
   const handleModeSelect = useCallback((mode: GameMode) => {
@@ -49,7 +50,8 @@ export default function QuizClient() {
 
   const handleComplete = useCallback(
     (results: CardResult[], score: number, total: number) => {
-      setResultData({ results, score, total, mode: selectedMode! });
+      const previousBest = quiz ? (getQuizProgress(quiz.id)?.bestScore ?? null) : null;
+      setResultData({ results, score, total, mode: selectedMode!, previousBest });
       if (quiz) {
         saveQuizResult({
           quizId: quiz.id,
@@ -153,6 +155,7 @@ export default function QuizClient() {
           total={resultData.total}
           eraColors={eraColors}
           mode={resultData.mode}
+          previousBest={resultData.previousBest}
           onRetry={handleRetry}
           onHome={handleBackToList}
         />
