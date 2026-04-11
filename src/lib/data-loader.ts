@@ -64,6 +64,10 @@ export function getRootNode(regionId: string): Node | undefined {
   return allNodes.find((n) => n.region === regionId && n.parent_id === null);
 }
 
+export function getNode(nodeId: string): Node | undefined {
+  return allNodes.find((n) => n.id === nodeId);
+}
+
 export function getChildNodes(parentId: string): Node[] {
   return allNodes
     .filter((n) => n.parent_id === parentId)

@@ -5,7 +5,7 @@
     "parent_id": null,
     "label": "日本史",
     "sort_order": 0,
-    "quiz_ids": ["quiz_japan_intro_desc"],
+    "quiz_ids": ["quiz_japan_era_intro_desc"],
     "unlock_condition": null
   },
   {
@@ -14,10 +14,61 @@
     "parent_id": "node_japan_root",
     "label": "先史・古代",
     "sort_order": 1,
-    "quiz_ids": ["quiz_japan_prehistoric_ancient"],
+    "quiz_ids": ["quiz_japan_prehistoric_desc", "quiz_japan_prehistoric_term"],
     "unlock_condition": {
       "type": "complete_quizzes",
-      "quiz_ids": ["quiz_japan_intro_desc"]
+      "quiz_ids": ["quiz_japan_era_intro_desc"]
+    }
+  },
+  {
+    "id": "node_japan_jomon_yayoi_kofun",
+    "region": "japan",
+    "parent_id": "node_japan_prehistoric",
+    "label": "ヤマト王権の成立",
+    "sort_order": 1,
+    "quiz_ids": [
+      "quiz_japan_jomon_yayoi_kofun_desc",
+      "quiz_japan_jomon_yayoi",
+      "quiz_japan_kofun_politics"
+    ],
+    "unlock_condition": {
+      "type": "complete_node",
+      "node_ids": ["node_japan_prehistoric"]
+    }
+  },
+  {
+    "id": "node_japan_asuka_nara",
+    "region": "japan",
+    "parent_id": "node_japan_prehistoric",
+    "label": "律令国家の形成",
+    "sort_order": 2,
+    "quiz_ids": [
+      "quiz_japan_asuka_nara_desc",
+      "quiz_japan_asuka_politics",
+      "quiz_japan_nara_politics",
+      "quiz_japan_asuka_nara_culture"
+    ],
+    "unlock_condition": {
+      "type": "complete_node",
+      "node_ids": ["node_japan_prehistoric"]
+    }
+  },
+  {
+    "id": "node_japan_heian",
+    "region": "japan",
+    "parent_id": "node_japan_prehistoric",
+    "label": "貴族政治の展開",
+    "sort_order": 3,
+    "quiz_ids": [
+      "quiz_japan_heian_desc",
+      "quiz_japan_heian_early",
+      "quiz_japan_heian_sekkan",
+      "quiz_japan_heian_insei",
+      "quiz_japan_heian_culture"
+    ],
+    "unlock_condition": {
+      "type": "complete_node",
+      "node_ids": ["node_japan_prehistoric"]
     }
   },
   {
@@ -26,10 +77,64 @@
     "parent_id": "node_japan_root",
     "label": "中世・近世",
     "sort_order": 2,
-    "quiz_ids": ["quiz_japan_medieval"],
+    "quiz_ids": ["quiz_japan_medieval_desc", "quiz_japan_medieval_term"],
     "unlock_condition": {
       "type": "complete_quizzes",
-      "quiz_ids": ["quiz_japan_intro_desc"]
+      "quiz_ids": ["quiz_japan_era_intro_desc"]
+    }
+  },
+  {
+    "id": "node_japan_kamakura",
+    "region": "japan",
+    "parent_id": "node_japan_medieval",
+    "label": "鎌倉幕府と武士",
+    "sort_order": 1,
+    "quiz_ids": [
+      "quiz_japan_kamakura_desc",
+      "quiz_japan_kamakura_establishment",
+      "quiz_japan_kamakura_regent",
+      "quiz_japan_kamakura_culture"
+    ],
+    "unlock_condition": {
+      "type": "complete_node",
+      "node_ids": ["node_japan_medieval"]
+    }
+  },
+  {
+    "id": "node_japan_muromachi_sengoku",
+    "region": "japan",
+    "parent_id": "node_japan_medieval",
+    "label": "室町幕府と下克上",
+    "sort_order": 2,
+    "quiz_ids": [
+      "quiz_japan_muromachi_desc",
+      "quiz_japan_nanboku_muromachi",
+      "quiz_japan_sengoku",
+      "quiz_japan_muromachi_culture",
+      "quiz_japan_shokuho"
+    ],
+    "unlock_condition": {
+      "type": "complete_node",
+      "node_ids": ["node_japan_medieval"]
+    }
+  },
+  {
+    "id": "node_japan_edo",
+    "region": "japan",
+    "parent_id": "node_japan_medieval",
+    "label": "幕藩体制の展開",
+    "sort_order": 3,
+    "quiz_ids": [
+      "quiz_japan_edo_desc",
+      "quiz_japan_edo_early",
+      "quiz_japan_edo_genroku",
+      "quiz_japan_edo_reforms",
+      "quiz_japan_edo_foreign",
+      "quiz_japan_edo_culture"
+    ],
+    "unlock_condition": {
+      "type": "complete_node",
+      "node_ids": ["node_japan_medieval"]
     }
   },
   {
@@ -38,10 +143,79 @@
     "parent_id": "node_japan_root",
     "label": "近代・現代",
     "sort_order": 3,
-    "quiz_ids": ["quiz_japan_modern"],
+    "quiz_ids": ["quiz_japan_modern_desc", "quiz_japan_modern_term"],
     "unlock_condition": {
       "type": "complete_quizzes",
-      "quiz_ids": ["quiz_japan_intro_desc"]
+      "quiz_ids": ["quiz_japan_era_intro_desc"]
+    }
+  },
+  {
+    "id": "node_japan_bakumatsu_meiji",
+    "region": "japan",
+    "parent_id": "node_japan_modern",
+    "label": "開国と明治維新",
+    "sort_order": 1,
+    "quiz_ids": [
+      "quiz_japan_bakumatsu_meiji_desc",
+      "quiz_japan_bakumatsu",
+      "quiz_japan_meiji_restoration",
+      "quiz_japan_minken_diet",
+      "quiz_japan_meiji_treaties_wars"
+    ],
+    "unlock_condition": {
+      "type": "complete_node",
+      "node_ids": ["node_japan_modern"]
+    }
+  },
+  {
+    "id": "node_japan_taisho_showa_prewar",
+    "region": "japan",
+    "parent_id": "node_japan_modern",
+    "label": "政党政治と戦争",
+    "sort_order": 2,
+    "quiz_ids": [
+      "quiz_japan_taisho_showa_prewar_desc",
+      "quiz_japan_taisho_democracy",
+      "quiz_japan_showa_depression",
+      "quiz_japan_showa_war"
+    ],
+    "unlock_condition": {
+      "type": "complete_node",
+      "node_ids": ["node_japan_modern"]
+    }
+  },
+  {
+    "id": "node_japan_postwar",
+    "region": "japan",
+    "parent_id": "node_japan_modern",
+    "label": "戦後・現代",
+    "sort_order": 3,
+    "quiz_ids": [
+      "quiz_japan_postwar_desc",
+      "quiz_japan_postwar_occupation",
+      "quiz_japan_postwar_independence",
+      "quiz_japan_postwar_economy"
+    ],
+    "unlock_condition": {
+      "type": "complete_node",
+      "node_ids": ["node_japan_modern"]
+    }
+  },
+  {
+    "id": "node_japan_all_eras",
+    "region": "japan",
+    "parent_id": "node_japan_root",
+    "label": "全時代通し・テーマ史",
+    "sort_order": 4,
+    "quiz_ids": [
+      "quiz_japan_all_eras_term",
+      "quiz_japan_theme_land",
+      "quiz_japan_theme_foreign",
+      "quiz_japan_theme_capital"
+    ],
+    "unlock_condition": {
+      "type": "complete_node",
+      "node_ids": ["node_japan_prehistoric", "node_japan_medieval", "node_japan_modern"]
     }
   }
 ]

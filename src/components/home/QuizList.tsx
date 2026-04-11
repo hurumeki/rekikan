@@ -1,7 +1,7 @@
 'use client';
 
 import type { Region, Node, QuizProgress, UnlockCondition } from '@/lib/types';
-import { getQuiz, getRootNode, getChildNodes } from '@/lib/data-loader';
+import { getQuiz, getRootNode, getChildNodes, getNode } from '@/lib/data-loader';
 import styles from './QuizList.module.css';
 
 interface QuizListProps {
@@ -23,6 +23,13 @@ function isNodeUnlocked(node: Node, progress: Record<string, QuizProgress>): boo
   return conditions.every((condition) => {
     if (condition.type === 'complete_quizzes') {
       return condition.quiz_ids.every((qid) => progress[qid]?.cleared === true);
+    }
+    if (condition.type === 'complete_node') {
+      return condition.node_ids.every((nid) => {
+        const targetNode = getNode(nid);
+        if (!targetNode) return false;
+        return targetNode.quiz_ids.every((qid) => progress[qid]?.cleared === true);
+      });
     }
     return false;
   });

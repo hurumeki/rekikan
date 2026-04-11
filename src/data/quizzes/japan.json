@@ -1,68 +1,669 @@
 [
   {
-    "id": "quiz_japan_intro_desc",
+    "id": "quiz_japan_era_intro_desc",
     "region": "japan",
     "title": "日本の歴史の大きな流れ",
     "card_type": "description",
+    "card_ids": ["card_jp_1", "card_jp_2", "card_jp_3", "card_jp_4", "card_jp_5", "card_jp_6"],
+    "modes": ["careful", "challenge"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_japan_prehistoric_desc",
+    "region": "japan",
+    "title": "古代の社会変化の概要",
+    "card_type": "description",
+    "card_ids": ["card_jp_7", "card_jp_8", "card_jp_9", "card_jp_10"],
+    "modes": ["careful", "challenge"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_japan_prehistoric_term",
+    "region": "japan",
+    "title": "旧石器〜平安の時代区分",
+    "card_type": "term",
     "card_ids": [
-      "card_japan_desc_intro_1",
-      "card_japan_desc_intro_2",
-      "card_japan_desc_intro_3",
-      "card_japan_desc_intro_4",
-      "card_japan_desc_intro_5",
-      "card_japan_desc_intro_6",
-      "card_japan_desc_intro_7"
+      "card_jp_11",
+      "card_jp_12",
+      "card_jp_13",
+      "card_jp_14",
+      "card_jp_15",
+      "card_jp_16",
+      "card_jp_17"
     ],
     "modes": ["careful", "challenge"],
     "difficulty": 1
   },
   {
-    "id": "quiz_japan_prehistoric_ancient",
+    "id": "quiz_japan_jomon_yayoi_kofun_desc",
     "region": "japan",
-    "title": "先史・古代の時代",
-    "card_type": "term",
+    "title": "先史からヤマト王権までの流れ",
+    "card_type": "description",
     "card_ids": [
-      "card_japan_jomon",
-      "card_japan_yayoi",
-      "card_japan_kofun",
-      "card_japan_asuka",
-      "card_japan_nara",
-      "card_japan_heian",
-      "card_japan_insei"
+      "card_jp_18",
+      "card_jp_19",
+      "card_jp_20",
+      "card_jp_21",
+      "card_jp_22",
+      "card_jp_23"
     ],
     "modes": ["careful", "challenge"],
     "difficulty": 1
   },
   {
-    "id": "quiz_japan_medieval",
+    "id": "quiz_japan_jomon_yayoi",
     "region": "japan",
-    "title": "中世・近世の時代",
+    "title": "旧石器・縄文・弥生の生活と社会",
+    "card_type": "term",
+    "card_ids": ["card_jp_24", "card_jp_25", "card_jp_26", "card_jp_27", "card_jp_28"],
+    "modes": ["careful", "challenge"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_japan_kofun_politics",
+    "region": "japan",
+    "title": "ヤマト王権と古墳の変遷",
+    "card_type": "term",
+    "card_ids": ["card_jp_29", "card_jp_30", "card_jp_31", "card_jp_32", "card_jp_33"],
+    "modes": ["careful", "challenge"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_japan_asuka_nara_desc",
+    "region": "japan",
+    "title": "律令国家形成までの流れ",
+    "card_type": "description",
+    "card_ids": ["card_jp_34", "card_jp_35", "card_jp_36", "card_jp_37", "card_jp_38"],
+    "modes": ["careful", "challenge"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_japan_asuka_politics",
+    "region": "japan",
+    "title": "推古朝から大化の改新・壬申の乱",
     "card_type": "term",
     "card_ids": [
-      "card_japan_kamakura",
-      "card_japan_nanbokucho",
-      "card_japan_muromachi",
-      "card_japan_sengoku",
-      "card_japan_azuchimomoyama",
-      "card_japan_edo"
+      "card_jp_39",
+      "card_jp_40",
+      "card_jp_41",
+      "card_jp_42",
+      "card_jp_43",
+      "card_jp_44",
+      "card_jp_45"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_japan_nara_politics",
+    "region": "japan",
+    "title": "平城京遷都と奈良時代の政争",
+    "card_type": "term",
+    "card_ids": [
+      "card_jp_46",
+      "card_jp_47",
+      "card_jp_48",
+      "card_jp_49",
+      "card_jp_50",
+      "card_jp_51"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_japan_asuka_nara_culture",
+    "region": "japan",
+    "title": "飛鳥・白鳳・天平文化",
+    "card_type": "term",
+    "card_ids": [
+      "card_jp_52",
+      "card_jp_53",
+      "card_jp_54",
+      "card_jp_55",
+      "card_jp_56",
+      "card_jp_57"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_japan_heian_desc",
+    "region": "japan",
+    "title": "平安時代の政治変遷の流れ",
+    "card_type": "description",
+    "card_ids": ["card_jp_58", "card_jp_59", "card_jp_60", "card_jp_61", "card_jp_62"],
+    "modes": ["careful", "challenge"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_japan_heian_early",
+    "region": "japan",
+    "title": "平安初期の政治と蝦夷征討",
+    "card_type": "term",
+    "card_ids": ["card_jp_63", "card_jp_64", "card_jp_65", "card_jp_66", "card_jp_67"],
+    "modes": ["careful", "challenge"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_japan_heian_sekkan",
+    "region": "japan",
+    "title": "藤原氏の北家台頭と摂関政治",
+    "card_type": "term",
+    "card_ids": [
+      "card_jp_68",
+      "card_jp_69",
+      "card_jp_70",
+      "card_jp_71",
+      "card_jp_72",
+      "card_jp_73",
+      "card_jp_74"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_japan_heian_insei",
+    "region": "japan",
+    "title": "院政の開始と平氏政権",
+    "card_type": "term",
+    "card_ids": ["card_jp_75", "card_jp_76", "card_jp_77", "card_jp_78", "card_jp_79"],
+    "modes": ["careful", "challenge"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_japan_heian_culture",
+    "region": "japan",
+    "title": "国風文化と仏教",
+    "card_type": "term",
+    "card_ids": ["card_jp_80", "card_jp_81", "card_jp_82", "card_jp_83", "card_jp_84"],
+    "modes": ["careful", "challenge"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_japan_medieval_desc",
+    "region": "japan",
+    "title": "武家社会の成立と成熟の概要",
+    "card_type": "description",
+    "card_ids": [
+      "card_jp_85",
+      "card_jp_86",
+      "card_jp_87",
+      "card_jp_88",
+      "card_jp_89",
+      "card_jp_90"
     ],
     "modes": ["careful", "challenge"],
     "difficulty": 1
   },
   {
-    "id": "quiz_japan_modern",
+    "id": "quiz_japan_medieval_term",
     "region": "japan",
-    "title": "近代・現代の時代",
+    "title": "鎌倉〜江戸の時代区分",
     "card_type": "term",
     "card_ids": [
-      "card_japan_meiji",
-      "card_japan_taisho",
-      "card_japan_showa_prewar",
-      "card_japan_showa_postwar",
-      "card_japan_heisei",
-      "card_japan_reiwa"
+      "card_jp_91",
+      "card_jp_92",
+      "card_jp_93",
+      "card_jp_94",
+      "card_jp_95",
+      "card_jp_96"
     ],
     "modes": ["careful", "challenge"],
     "difficulty": 1
+  },
+  {
+    "id": "quiz_japan_kamakura_desc",
+    "region": "japan",
+    "title": "鎌倉幕府の成立・展開・滅亡の流れ",
+    "card_type": "description",
+    "card_ids": ["card_jp_97", "card_jp_98", "card_jp_99", "card_jp_100", "card_jp_101"],
+    "modes": ["careful", "challenge"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_japan_kamakura_establishment",
+    "region": "japan",
+    "title": "源平の争乱から承久の乱",
+    "card_type": "term",
+    "card_ids": [
+      "card_jp_102",
+      "card_jp_103",
+      "card_jp_104",
+      "card_jp_105",
+      "card_jp_106",
+      "card_jp_107"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_japan_kamakura_regent",
+    "region": "japan",
+    "title": "執権政治の展開と蒙古襲来",
+    "card_type": "term",
+    "card_ids": ["card_jp_108", "card_jp_109", "card_jp_110", "card_jp_111", "card_jp_112"],
+    "modes": ["careful", "challenge"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_japan_kamakura_culture",
+    "region": "japan",
+    "title": "鎌倉新仏教と中世文化",
+    "card_type": "term",
+    "card_ids": [
+      "card_jp_113",
+      "card_jp_114",
+      "card_jp_115",
+      "card_jp_116",
+      "card_jp_117",
+      "card_jp_118"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_japan_muromachi_desc",
+    "region": "japan",
+    "title": "室町政権と下剋上の流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_jp_119",
+      "card_jp_120",
+      "card_jp_121",
+      "card_jp_122",
+      "card_jp_123",
+      "card_jp_124"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_japan_nanboku_muromachi",
+    "region": "japan",
+    "title": "建武の新政と室町幕府の成立",
+    "card_type": "term",
+    "card_ids": [
+      "card_jp_125",
+      "card_jp_126",
+      "card_jp_127",
+      "card_jp_128",
+      "card_jp_129",
+      "card_jp_130"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_japan_sengoku",
+    "region": "japan",
+    "title": "応仁の乱と戦国大名の台頭",
+    "card_type": "term",
+    "card_ids": ["card_jp_131", "card_jp_132", "card_jp_133", "card_jp_134", "card_jp_135"],
+    "modes": ["careful", "challenge"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_japan_muromachi_culture",
+    "region": "japan",
+    "title": "北山文化・東山文化",
+    "card_type": "term",
+    "card_ids": ["card_jp_136", "card_jp_137", "card_jp_138", "card_jp_139", "card_jp_140"],
+    "modes": ["careful", "challenge"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_japan_shokuho",
+    "region": "japan",
+    "title": "織豊政権と天下統一",
+    "card_type": "term",
+    "card_ids": [
+      "card_jp_141",
+      "card_jp_142",
+      "card_jp_143",
+      "card_jp_144",
+      "card_jp_145",
+      "card_jp_146"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_japan_edo_desc",
+    "region": "japan",
+    "title": "江戸時代の260年の大まかな流れ",
+    "card_type": "description",
+    "card_ids": ["card_jp_147", "card_jp_148", "card_jp_149", "card_jp_150", "card_jp_151"],
+    "modes": ["careful", "challenge"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_japan_edo_early",
+    "region": "japan",
+    "title": "江戸幕府の成立と武断政治",
+    "card_type": "term",
+    "card_ids": [
+      "card_jp_152",
+      "card_jp_153",
+      "card_jp_154",
+      "card_jp_155",
+      "card_jp_156",
+      "card_jp_157"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_japan_edo_genroku",
+    "region": "japan",
+    "title": "文治政治の展開と元禄時代",
+    "card_type": "term",
+    "card_ids": ["card_jp_158", "card_jp_159", "card_jp_160", "card_jp_161", "card_jp_162"],
+    "modes": ["careful", "challenge"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_japan_edo_reforms",
+    "region": "japan",
+    "title": "三大改革と田沼時代",
+    "card_type": "term",
+    "card_ids": ["card_jp_163", "card_jp_164", "card_jp_165", "card_jp_166", "card_jp_167"],
+    "modes": ["careful", "challenge"],
+    "difficulty": 3
+  },
+  {
+    "id": "quiz_japan_edo_foreign",
+    "region": "japan",
+    "title": "鎖国体制と対外関係の変遷",
+    "card_type": "term",
+    "card_ids": ["card_jp_168", "card_jp_169", "card_jp_170", "card_jp_171", "card_jp_172"],
+    "modes": ["careful", "challenge"],
+    "difficulty": 3
+  },
+  {
+    "id": "quiz_japan_edo_culture",
+    "region": "japan",
+    "title": "寛永・元禄・化政文化",
+    "card_type": "term",
+    "card_ids": ["card_jp_173", "card_jp_174", "card_jp_175", "card_jp_176", "card_jp_177"],
+    "modes": ["careful", "challenge"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_japan_modern_desc",
+    "region": "japan",
+    "title": "近代国家の形成から現代の概要",
+    "card_type": "description",
+    "card_ids": [
+      "card_jp_178",
+      "card_jp_179",
+      "card_jp_180",
+      "card_jp_181",
+      "card_jp_182",
+      "card_jp_183"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_japan_modern_term",
+    "region": "japan",
+    "title": "幕末〜令和の時代区分",
+    "card_type": "term",
+    "card_ids": [
+      "card_jp_184",
+      "card_jp_185",
+      "card_jp_186",
+      "card_jp_187",
+      "card_jp_188",
+      "card_jp_189",
+      "card_jp_190"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_japan_bakumatsu_meiji_desc",
+    "region": "japan",
+    "title": "幕末開国から明治国家成立の流れ",
+    "card_type": "description",
+    "card_ids": ["card_jp_191", "card_jp_192", "card_jp_193", "card_jp_194", "card_jp_195"],
+    "modes": ["careful", "challenge"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_japan_bakumatsu",
+    "region": "japan",
+    "title": "ペリー来航から大政奉還",
+    "card_type": "term",
+    "card_ids": [
+      "card_jp_196",
+      "card_jp_197",
+      "card_jp_198",
+      "card_jp_199",
+      "card_jp_200",
+      "card_jp_201"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_japan_meiji_restoration",
+    "region": "japan",
+    "title": "明治新政府の成立と富国強兵",
+    "card_type": "term",
+    "card_ids": ["card_jp_202", "card_jp_203", "card_jp_204", "card_jp_205", "card_jp_206"],
+    "modes": ["careful", "challenge"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_japan_minken_diet",
+    "region": "japan",
+    "title": "自由民権運動と初期議会",
+    "card_type": "term",
+    "card_ids": [
+      "card_jp_207",
+      "card_jp_208",
+      "card_jp_209",
+      "card_jp_210",
+      "card_jp_211",
+      "card_jp_212"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_japan_meiji_treaties_wars",
+    "region": "japan",
+    "title": "条約改正と日清・日露戦争",
+    "card_type": "term",
+    "card_ids": [
+      "card_jp_213",
+      "card_jp_214",
+      "card_jp_215",
+      "card_jp_216",
+      "card_jp_217",
+      "card_jp_218"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 3
+  },
+  {
+    "id": "quiz_japan_taisho_showa_prewar_desc",
+    "region": "japan",
+    "title": "大正デモクラシーから戦争への流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_jp_219",
+      "card_jp_220",
+      "card_jp_221",
+      "card_jp_222",
+      "card_jp_223",
+      "card_jp_224"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_japan_taisho_democracy",
+    "region": "japan",
+    "title": "第一次世界大戦と大正デモクラシー",
+    "card_type": "term",
+    "card_ids": [
+      "card_jp_225",
+      "card_jp_226",
+      "card_jp_227",
+      "card_jp_228",
+      "card_jp_229",
+      "card_jp_230"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_japan_showa_depression",
+    "region": "japan",
+    "title": "昭和恐慌と政党内閣の崩壊",
+    "card_type": "term",
+    "card_ids": ["card_jp_231", "card_jp_232", "card_jp_233", "card_jp_234", "card_jp_235"],
+    "modes": ["careful", "challenge"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_japan_showa_war",
+    "region": "japan",
+    "title": "満州事変から太平洋戦争",
+    "card_type": "term",
+    "card_ids": [
+      "card_jp_236",
+      "card_jp_237",
+      "card_jp_238",
+      "card_jp_239",
+      "card_jp_240",
+      "card_jp_241"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_japan_postwar_desc",
+    "region": "japan",
+    "title": "戦後復興から経済大国・現代への流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_jp_242",
+      "card_jp_243",
+      "card_jp_244",
+      "card_jp_245",
+      "card_jp_246",
+      "card_jp_247"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_japan_postwar_occupation",
+    "region": "japan",
+    "title": "GHQの占領政策と日本国憲法",
+    "card_type": "term",
+    "card_ids": ["card_jp_248", "card_jp_249", "card_jp_250", "card_jp_251", "card_jp_252"],
+    "modes": ["careful", "challenge"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_japan_postwar_independence",
+    "region": "japan",
+    "title": "サンフランシスコ平和条約と55年体制",
+    "card_type": "term",
+    "card_ids": ["card_jp_253", "card_jp_254", "card_jp_255", "card_jp_256", "card_jp_257"],
+    "modes": ["careful", "challenge"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_japan_postwar_economy",
+    "region": "japan",
+    "title": "高度経済成長と冷戦後の日本",
+    "card_type": "term",
+    "card_ids": [
+      "card_jp_258",
+      "card_jp_259",
+      "card_jp_260",
+      "card_jp_261",
+      "card_jp_262",
+      "card_jp_263"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_japan_all_eras_term",
+    "region": "japan",
+    "title": "旧石器から令和までの全時代",
+    "card_type": "term",
+    "card_ids": [
+      "card_jp_264",
+      "card_jp_265",
+      "card_jp_266",
+      "card_jp_267",
+      "card_jp_268",
+      "card_jp_269",
+      "card_jp_270",
+      "card_jp_271",
+      "card_jp_272",
+      "card_jp_273",
+      "card_jp_274",
+      "card_jp_275"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 3
+  },
+  {
+    "id": "quiz_japan_theme_land",
+    "region": "japan",
+    "title": "土地制度の変遷：班田収授から地租改正",
+    "card_type": "term",
+    "card_ids": [
+      "card_jp_276",
+      "card_jp_277",
+      "card_jp_278",
+      "card_jp_279",
+      "card_jp_280",
+      "card_jp_281",
+      "card_jp_282"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 3
+  },
+  {
+    "id": "quiz_japan_theme_foreign",
+    "region": "japan",
+    "title": "日中関係史の変遷",
+    "card_type": "term",
+    "card_ids": [
+      "card_jp_283",
+      "card_jp_284",
+      "card_jp_285",
+      "card_jp_286",
+      "card_jp_287",
+      "card_jp_288",
+      "card_jp_289"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 3
+  },
+  {
+    "id": "quiz_japan_theme_capital",
+    "region": "japan",
+    "title": "都と幕府所在地の変遷",
+    "card_type": "term",
+    "card_ids": [
+      "card_jp_290",
+      "card_jp_291",
+      "card_jp_292",
+      "card_jp_293",
+      "card_jp_294",
+      "card_jp_295"
+    ],
+    "modes": ["careful", "challenge"],
+    "difficulty": 3
   }
 ]
