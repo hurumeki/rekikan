@@ -37,7 +37,6 @@ export default function ResultScreen({
         <div className={styles.score}>
           {score} / {total} 正解
         </div>
-        <div className={styles.scoreLabel}>{isPerfect ? '' : `${total - score}問不正解`}</div>
         {isPerfect && <div className={styles.perfect}>パーフェクト！</div>}
       </div>
 
