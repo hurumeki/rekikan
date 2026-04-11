@@ -12,8 +12,8 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding-bottom: 12px;
-  border-bottom: 2px solid var(--border);
+  padding-top: 12px;
+  border-top: 2px solid var(--border);
 }
 
 .confirmedLabel {

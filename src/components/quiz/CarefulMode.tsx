@@ -87,31 +87,6 @@ export default function CarefulMode({
 
   return (
     <div className={styles.container}>
-      {confirmedCards.length > 0 && (
-        <div className={styles.confirmedArea}>
-          <div className={styles.confirmedLabel}>確定エリア</div>
-          {confirmedCards.map((card) => (
-            <div
-              key={card.id}
-              ref={(el) => {
-                if (el) confirmedCardRefs.current.set(card.id, el);
-                else confirmedCardRefs.current.delete(card.id);
-              }}
-            >
-              <Card
-                card={card}
-                state="correct"
-                eraColor={eraColors[card.era_color_key] ?? '#888'}
-                showYear
-                showDescription
-              />
-            </div>
-          ))}
-        </div>
-      )}
-
-      {!isComplete && <div className={styles.prompt}>残りの中で1番古いのはどれ？</div>}
-
       {remainingCards.length > 0 && (
         <div className={styles.remainingArea}>
           {remainingCards.map((card) => (
@@ -129,6 +104,31 @@ export default function CarefulMode({
                 eraColor={eraColors[card.era_color_key] ?? '#888'}
                 showHint={hintEnabled}
                 onClick={() => handleCardClick(card.id)}
+              />
+            </div>
+          ))}
+        </div>
+      )}
+
+      {!isComplete && <div className={styles.prompt}>残りの中で1番古いのはどれ？</div>}
+
+      {confirmedCards.length > 0 && (
+        <div className={styles.confirmedArea}>
+          <div className={styles.confirmedLabel}>確定エリア</div>
+          {confirmedCards.map((card) => (
+            <div
+              key={card.id}
+              ref={(el) => {
+                if (el) confirmedCardRefs.current.set(card.id, el);
+                else confirmedCardRefs.current.delete(card.id);
+              }}
+            >
+              <Card
+                card={card}
+                state="correct"
+                eraColor={eraColors[card.era_color_key] ?? '#888'}
+                showYear
+                showDescription
               />
             </div>
           ))}
