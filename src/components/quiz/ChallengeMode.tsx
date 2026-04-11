@@ -29,7 +29,6 @@ export default function ChallengeMode({
     total,
     allSelected,
     toggleSelect,
-    toggleLock,
     confirm,
     getCardState,
     getSelectionNumber,
@@ -68,7 +67,6 @@ export default function ChallengeMode({
               showYear={isConfirmed}
               showDescription={isConfirmed}
               onClick={() => toggleSelect(card.id)}
-              onLongPress={() => toggleLock(card.id)}
             />
           );
         })}

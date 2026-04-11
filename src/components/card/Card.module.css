@@ -23,11 +23,6 @@
   background: var(--state-selected-bg);
 }
 
-.locked {
-  border-color: var(--state-locked-border);
-  background: var(--state-locked-bg);
-}
-
 .correct {
   border-color: var(--state-correct-border);
   background: var(--state-correct-bg);
@@ -104,11 +99,4 @@
 
 .incorrectMark {
   background-color: #ef4444;
-}
-
-.lockIcon {
-  position: absolute;
-  top: -6px;
-  right: -6px;
-  font-size: 14px;
 }
