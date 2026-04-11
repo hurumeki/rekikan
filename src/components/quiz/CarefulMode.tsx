@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useLayoutEffect } from 'react';
+import { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import type { Card as CardType, CardResult } from '@/lib/types';
 import { useCarefulMode } from '@/hooks/useCarefulMode';
 import Card from '@/components/card/Card';
@@ -38,10 +38,21 @@ export default function CarefulMode({
   const confirmedCardRefs = useRef<Map<string, HTMLElement>>(new Map());
   const pendingFlipRef = useRef<{ rect: DOMRect; cardId: string } | null>(null);
 
+  // Placeholder state for gap-filling animation
+  const [departingId, setDepartingId] = useState<string | null>(null);
+  const prevRemainingRef = useRef<CardType[]>([]);
+  const placeholderRef = useRef<HTMLDivElement | null>(null);
+  const collapseT1 = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const collapseT2 = useRef<ReturnType<typeof setTimeout> | null>(null);
+
   const handleCardClick = (cardId: string) => {
+    if (collapseT1.current) clearTimeout(collapseT1.current);
+    if (collapseT2.current) clearTimeout(collapseT2.current);
     const el = remainingCardRefs.current.get(cardId);
     if (el) {
       pendingFlipRef.current = { rect: el.getBoundingClientRect(), cardId };
+      prevRemainingRef.current = [...remainingCards];
+      setDepartingId(cardId);
     }
     selectCard(cardId);
   };
@@ -69,7 +80,33 @@ export default function CarefulMode({
     destEl.style.transform = '';
 
     pendingFlipRef.current = null;
+
+    // After FLIP completes (400ms), collapse the placeholder
+    collapseT1.current = setTimeout(() => {
+      const ph = placeholderRef.current;
+      if (!ph) {
+        setDepartingId(null);
+        return;
+      }
+      const fullHeight = ph.offsetHeight;
+      ph.style.height = `${fullHeight}px`;
+      ph.style.overflow = 'hidden';
+      // Force reflow before starting transition
+      ph.getBoundingClientRect();
+      ph.style.transition = 'height 0.25s ease, margin-top 0.25s ease';
+      ph.style.height = '0px';
+      ph.style.marginTop = '-8px'; // cancel flex gap above
+      collapseT2.current = setTimeout(() => setDepartingId(null), 250);
+    }, 400);
   }, [confirmedCards.length]);
+
+  // Cleanup timers on unmount
+  useEffect(() => {
+    return () => {
+      if (collapseT1.current) clearTimeout(collapseT1.current);
+      if (collapseT2.current) clearTimeout(collapseT2.current);
+    };
+  }, []);
 
   useEffect(() => {
     if (isComplete) {
@@ -85,30 +122,43 @@ export default function CarefulMode({
     }
   }, [wrongCardId, clearWrong]);
 
+  // While animating, show the previous card list (with departing card as placeholder)
+  const displayRemaining = departingId ? prevRemainingRef.current : remainingCards;
+
   return (
     <div className={styles.container}>
-      {!isComplete && <div className={styles.prompt}>残りの中で1番古いのはどれ？</div>}
+      {!isComplete && <div className={styles.prompt}>この中で1番古いのはどれ？</div>}
 
-      {remainingCards.length > 0 && (
+      {displayRemaining.length > 0 && (
         <div className={styles.remainingArea}>
-          {remainingCards.map((card) => (
-            <div
-              key={card.id}
-              ref={(el) => {
-                if (el) remainingCardRefs.current.set(card.id, el);
-                else remainingCardRefs.current.delete(card.id);
-              }}
-              className={wrongCardId === card.id ? styles.shake : undefined}
-            >
-              <Card
-                card={card}
-                state={wrongCardId === card.id ? 'incorrect' : 'unselected'}
-                eraColor={eraColors[card.era_color_key] ?? '#888'}
-                showHint={hintEnabled}
-                onClick={() => handleCardClick(card.id)}
-              />
-            </div>
-          ))}
+          {displayRemaining.map((card) => {
+            const isDeparting = card.id === departingId;
+            return (
+              <div
+                key={card.id}
+                ref={(el) => {
+                  if (isDeparting) {
+                    placeholderRef.current = el;
+                  } else {
+                    if (el) remainingCardRefs.current.set(card.id, el);
+                    else remainingCardRefs.current.delete(card.id);
+                  }
+                }}
+                style={isDeparting ? { visibility: 'hidden', pointerEvents: 'none' } : undefined}
+                className={!isDeparting && wrongCardId === card.id ? styles.shake : undefined}
+              >
+                {!isDeparting && (
+                  <Card
+                    card={card}
+                    state={wrongCardId === card.id ? 'incorrect' : 'unselected'}
+                    eraColor={eraColors[card.era_color_key] ?? '#888'}
+                    showHint={hintEnabled}
+                    onClick={() => handleCardClick(card.id)}
+                  />
+                )}
+              </div>
+            );
+          })}
         </div>
       )}
 
