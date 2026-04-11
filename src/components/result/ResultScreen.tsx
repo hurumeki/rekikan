@@ -3,6 +3,7 @@
 import type React from 'react';
 import { useMemo } from 'react';
 import type { Card as CardType, CardResult, GameMode } from '@/lib/types';
+import { computeStars } from '@/lib/progress';
 import Card from '@/components/card/Card';
 import styles from './ResultScreen.module.css';
 
@@ -14,6 +15,7 @@ interface ResultScreenProps {
   total: number;
   eraColors: Record<string, string>;
   mode: GameMode;
+  previousBest: number | null;
   onRetry: () => void;
   onHome: () => void;
 }
@@ -26,11 +28,15 @@ export default function ResultScreen({
   total,
   eraColors,
   mode,
+  previousBest,
   onRetry,
   onHome,
 }: ResultScreenProps) {
   const isPerfect = score === total;
   const isChallenge = mode === 'challenge';
+  const stars = computeStars(score, total);
+  const isNewBest = previousBest !== null && score > previousBest;
+  const isFirstAttempt = previousBest === null;
 
   const cardMap = useMemo(() => new Map(cards.map((c) => [c.id, c])), [cards]);
   const resultMap = useMemo(() => new Map(results.map((r) => [r.cardId, r])), [results]);
@@ -41,7 +47,26 @@ export default function ResultScreen({
         <div className={styles.score}>
           {score} / {total} 正解
         </div>
+
+        <div className={styles.starsRow}>
+          {[1, 2, 3].map((i) => (
+            <span
+              key={i}
+              className={i <= stars ? styles.starFilled : styles.starEmpty}
+              style={{ '--star-delay': `${(i - 1) * 0.12}s` } as React.CSSProperties}
+            >
+              ★
+            </span>
+          ))}
+        </div>
+
         {isPerfect && <div className={styles.perfect}>パーフェクト！</div>}
+
+        {(isNewBest || isFirstAttempt) && (
+          <div className={styles.newBestBadge}>
+            {isPerfect && isFirstAttempt ? '初クリア！🎉' : isNewBest ? `自己ベスト更新！🎉` : null}
+          </div>
+        )}
       </div>
 
       <div className={styles.cardList}>

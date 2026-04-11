@@ -34,12 +34,41 @@
   flex-direction: column;
   gap: 8px;
 }
+.nodeHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
 .nodeLabel {
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+}
+.nodeProgress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.progressBar {
+  flex: 1;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.progressFill {
+  height: 100%;
+  background: var(--badge-bg);
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+.progressLabel {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 .quizItem {
   display: flex;
@@ -124,4 +153,17 @@
 }
 .quizStatus {
   font-size: 1.2rem;
+  flex-shrink: 0;
+}
+.stars {
+  display: inline-flex;
+  gap: 1px;
+}
+.starFilled {
+  color: #f59e0b;
+  font-size: 1rem;
+}
+.starEmpty {
+  color: #d1d5db;
+  font-size: 1rem;
 }

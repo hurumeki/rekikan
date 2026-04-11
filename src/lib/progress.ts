@@ -1,5 +1,24 @@
 import type { QuizProgress, QuizResult } from './types';
 
+/** スコアから星数を計算（1〜3）。total が 0 のときは 0 を返す。 */
+export function computeStars(score: number, total: number): number {
+  if (total === 0) return 0;
+  if (score === total) return 3;
+  if (score / total >= 0.7) return 2;
+  return 1;
+}
+
+/** 過去のベストスコアに基づく星数（クイズ一覧の表示用）。未プレイなら 0。 */
+export function getHistoricalStars(
+  progress: QuizProgress | null | undefined,
+  total: number,
+): number {
+  if (!progress || progress.attemptCount === 0) return 0;
+  // cleared === true なら過去に全問正解が達成済み → 3星確定
+  const effectiveScore = progress.cleared ? total : progress.bestScore;
+  return computeStars(effectiveScore, total);
+}
+
 const STORAGE_KEY = 'rekikan_progress';
 
 function loadAll(): Record<string, QuizProgress> {
