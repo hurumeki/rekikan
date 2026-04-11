@@ -16,8 +16,8 @@ The target spans elementary school students to adults, so avoid tones that appea
 **Principle 2: Visual tags must function as learning tools**
 Era band colors and category icons are not decoration — they serve the learning function of "intuitive category recognition." Color schemes must maintain visibility in both light and dark themes, ensuring sufficient contrast so they are not lost against background colors.
 
-**Principle 3: Five card states must be clearly distinguishable**
-Express the five states — unselected, selected, locked, correct, incorrect — using color. Keep the base neutral and assign color variations to state changes.
+**Principle 3: Four card states must be clearly distinguishable**
+Express the four states — unselected, selected, correct, incorrect — using color. Keep the base neutral and assign color variations to state changes.
 
 **Principle 4: Description card readability**
 Description cards feature 2–3 lines of text as their primary content, so font size, line height, and contrast must be generous. Visual distinction from term cards is also needed (differentiated by card shape or label display).
@@ -72,7 +72,6 @@ Define approximately 5 levels of color per region. Ensure sufficient contrast in
 |-------|-------|-------|
 | Unselected | Neutral (gray-based) | Base state |
 | Selected | Blue-based | Take care not to confuse with region colors |
-| Locked | Teal-based + lock icon | Clearly distinct from selected |
 | Correct | Green | Universal "correct" color |
 | Incorrect | Red | Universal "incorrect" color |
 
@@ -89,11 +88,12 @@ Define approximately 5 levels of color per region. Ensure sufficient contrast in
 
 | Screen | Content |
 |--------|---------|
-| Home screen | Region selection → hierarchy tree display. A map-like UI showing unlock states |
+| Home screen (region selection) | Region selector. The "れきかん" title and subtitle are displayed. |
+| Home screen (quiz list) | Hierarchy tree for the selected region. Title is hidden; region name and emoji are shown instead. Tapping a locked quiz shows the unlock conditions in a modal. |
 | Mode selection | After selecting a stage, choose "Careful" or "Challenge" |
 | Quiz screen (Careful) | "Which is the oldest?" prompt + remaining card list + confirmed area |
 | Quiz screen (Challenge) | Shuffled card list + tap-to-order interaction + confirm button |
-| Results screen | Score + all cards' dates and explanations + "Try Again" / "Next Stage" buttons |
+| Results screen | Score + all cards in correct order with dates and explanations + position comparison (Challenge Mode only) + "Try Again" / "Back to list" buttons |
 
 ---
 

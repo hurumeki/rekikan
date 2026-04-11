@@ -29,10 +29,12 @@ function HomeContent() {
 
   return (
     <div className={styles.main}>
-      <div className={styles.header}>
-        <div className={styles.title}>れきかん</div>
-        <div className={styles.subtitle}>歴史の感覚をつかむ</div>
-      </div>
+      {!selectedRegion && (
+        <div className={styles.header}>
+          <div className={styles.title}>れきかん</div>
+          <div className={styles.subtitle}>歴史の感覚をつかむ</div>
+        </div>
+      )}
 
       {selectedRegion ? (
         <QuizList

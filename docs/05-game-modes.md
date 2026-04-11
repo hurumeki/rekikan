@@ -19,9 +19,12 @@ A format where users answer by tapping a card in response to the prompt "Which o
 
 - Only one card needs to be selected from the remaining cards, keeping the interaction simple
 - Each step requires an active judgment, leading to higher learning effectiveness
-- A correct answer moves the card to the "confirmed area" at the top of the screen, building the sequence
-- On an incorrect answer, the correct card is highlighted and a brief explanation is displayed
+- A correct answer moves the card to the "confirmed area" at the top of the screen with a slide animation from its original position
+- On an incorrect answer, the card shakes and remains in the pool of choices
 
 ## 5.3 Challenge Mode
 
 A format where users arrange all cards in their chosen order and then check answers all at once. Uses the "tap-to-order" interaction (described later).
+
+- After pressing "Confirm this order," the results screen is displayed immediately with no delay
+- On the results screen, a position-comparison view shows the correct order alongside the user's chosen order (see Section 7)

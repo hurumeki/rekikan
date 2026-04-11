@@ -58,6 +58,11 @@ A color bar is displayed on the left edge of each card. Colors are assigned per 
 
 Cards in the same era band share the same color, so it is visually apparent that "the Jōei Code (indigo) and the Ōnin War (indigo) belong to the same Medieval era band." If they are in different era bands, the colors differ, making it easier to avoid confusing "the Jōei Code (indigo / Medieval) and the Laws for Military Houses (purple / Early Modern)."
 
+**Era-band color visibility is linked to the hint toggle:**
+- When hints are **OFF**: the era-band color bar is hidden. This prevents the color from serving as an unintended spatial hint.
+- When hints are **ON**: the era-band color bar is displayed.
+- After the answer is confirmed (correct/incorrect revealed) or on the results screen: the color bar is always displayed regardless of hint state.
+
 **Axis 2: Category Icon**
 A small icon is displayed on each card. There are 7 types.
 

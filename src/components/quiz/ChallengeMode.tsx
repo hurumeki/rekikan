@@ -29,7 +29,6 @@ export default function ChallengeMode({
     total,
     allSelected,
     toggleSelect,
-    toggleLock,
     confirm,
     getCardState,
     getSelectionNumber,
@@ -37,10 +36,7 @@ export default function ChallengeMode({
 
   useEffect(() => {
     if (isConfirmed && results) {
-      const timer = setTimeout(() => {
-        onComplete(results, score, total);
-      }, 500);
-      return () => clearTimeout(timer);
+      onComplete(results, score, total);
     }
   }, [isConfirmed, results, score, total, onComplete]);
 
@@ -68,7 +64,6 @@ export default function ChallengeMode({
               showYear={isConfirmed}
               showDescription={isConfirmed}
               onClick={() => toggleSelect(card.id)}
-              onLongPress={() => toggleLock(card.id)}
             />
           );
         })}

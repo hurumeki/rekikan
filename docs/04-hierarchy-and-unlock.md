@@ -43,3 +43,14 @@ Japanese History
 - Clearing Lv.1 in multiple regions unlocks "Cross-region questions"
 
 **Safety net:** The next stage also unlocks if the user attempts the same stage a certain number of times (e.g., 3 times) or clears it with hints ON. This prevents the frustration of being stuck and unable to progress.
+
+## 4.5 Locked Quiz Interaction
+
+Locked quizzes are displayed in the quiz list with a 🔒 icon. Tapping a locked quiz displays a modal explaining the unlock conditions in plain language, such as:
+
+- `complete_quizzes` → "Clear「○○」"
+- `complete_node` → "Clear all quizzes in「○○」"
+- `attempts` → "Play「○○」N times"
+- `hint_clear` → "Clear「○○」with hints ON"
+
+The modal can be dismissed by tapping the overlay or the close button.

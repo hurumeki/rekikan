@@ -7,7 +7,6 @@ import { shuffleArray, checkAnswers } from '@/lib/quiz-engine';
 interface ChallengeModeState {
   cards: Card[];
   selectionOrder: string[]; // card IDs in user-selected order
-  lockedCards: Set<string>;
   isConfirmed: boolean;
   results: CardResult[] | null;
   score: number;
@@ -18,7 +17,6 @@ export function useChallengeMode(cards: Card[], correctOrder: string[]) {
   const [state, setState] = useState<ChallengeModeState>(() => ({
     cards: shuffleArray(cards),
     selectionOrder: [],
-    lockedCards: new Set(),
     isConfirmed: false,
     results: null,
     score: 0,
@@ -28,7 +26,6 @@ export function useChallengeMode(cards: Card[], correctOrder: string[]) {
   const toggleSelect = useCallback((cardId: string) => {
     setState((prev) => {
       if (prev.isConfirmed) return prev;
-      if (prev.lockedCards.has(cardId)) return prev;
 
       const idx = prev.selectionOrder.indexOf(cardId);
       if (idx >= 0) {
@@ -38,19 +35,6 @@ export function useChallengeMode(cards: Card[], correctOrder: string[]) {
       } else {
         return { ...prev, selectionOrder: [...prev.selectionOrder, cardId] };
       }
-    });
-  }, []);
-
-  const toggleLock = useCallback((cardId: string) => {
-    setState((prev) => {
-      if (prev.isConfirmed) return prev;
-      const newLocked = new Set(prev.lockedCards);
-      if (newLocked.has(cardId)) {
-        newLocked.delete(cardId);
-      } else {
-        newLocked.add(cardId);
-      }
-      return { ...prev, lockedCards: newLocked };
     });
   }, []);
 
@@ -69,11 +53,10 @@ export function useChallengeMode(cards: Card[], correctOrder: string[]) {
         const result = state.results.find((r) => r.cardId === cardId);
         return result?.correct ? 'correct' : 'incorrect';
       }
-      if (state.lockedCards.has(cardId)) return 'locked';
       if (state.selectionOrder.includes(cardId)) return 'selected';
       return 'unselected';
     },
-    [state.isConfirmed, state.results, state.lockedCards, state.selectionOrder],
+    [state.isConfirmed, state.results, state.selectionOrder],
   );
 
   const getSelectionNumber = useCallback(
@@ -90,7 +73,6 @@ export function useChallengeMode(cards: Card[], correctOrder: string[]) {
     ...state,
     allSelected,
     toggleSelect,
-    toggleLock,
     confirm,
     getCardState,
     getSelectionNumber,
