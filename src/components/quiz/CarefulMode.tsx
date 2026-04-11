@@ -87,6 +87,8 @@ export default function CarefulMode({
 
   return (
     <div className={styles.container}>
+      {!isComplete && <div className={styles.prompt}>残りの中で1番古いのはどれ？</div>}
+
       {remainingCards.length > 0 && (
         <div className={styles.remainingArea}>
           {remainingCards.map((card) => (
@@ -110,11 +112,8 @@ export default function CarefulMode({
         </div>
       )}
 
-      {!isComplete && <div className={styles.prompt}>残りの中で1番古いのはどれ？</div>}
-
       {confirmedCards.length > 0 && (
         <div className={styles.confirmedArea}>
-          <div className={styles.confirmedLabel}>確定エリア</div>
           {confirmedCards.map((card) => (
             <div
               key={card.id}

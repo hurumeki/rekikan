@@ -8,20 +8,6 @@
   width: 100%;
 }
 
-.confirmedArea {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding-top: 12px;
-  border-top: 2px solid var(--border);
-}
-
-.confirmedLabel {
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-  font-weight: 600;
-}
-
 .prompt {
   text-align: center;
   font-size: 1rem;
@@ -33,6 +19,14 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+.confirmedArea {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 2px solid var(--border);
 }
 
 @keyframes shake {
