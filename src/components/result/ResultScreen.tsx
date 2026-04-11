@@ -1,6 +1,7 @@
 'use client';
 
 import type React from 'react';
+import { useMemo } from 'react';
 import type { Card as CardType, CardResult, GameMode } from '@/lib/types';
 import Card from '@/components/card/Card';
 import styles from './ResultScreen.module.css';
@@ -31,6 +32,9 @@ export default function ResultScreen({
   const isPerfect = score === total;
   const isChallenge = mode === 'challenge';
 
+  const cardMap = useMemo(() => new Map(cards.map((c) => [c.id, c])), [cards]);
+  const resultMap = useMemo(() => new Map(results.map((r) => [r.cardId, r])), [results]);
+
   return (
     <div className={styles.container}>
       <div className={styles.scoreSection}>
@@ -42,8 +46,8 @@ export default function ResultScreen({
 
       <div className={styles.cardList}>
         {correctOrder.map((cardId, correctIndex) => {
-          const card = cards.find((c) => c.id === cardId);
-          const result = results.find((r) => r.cardId === cardId);
+          const card = cardMap.get(cardId);
+          const result = resultMap.get(cardId);
           if (!card) return null;
           const isCorrect = result?.correct ?? false;
           const userPos = result?.userPosition ?? correctIndex;
@@ -57,7 +61,9 @@ export default function ResultScreen({
               {isChallenge && (
                 <div className={styles.positionCol}>
                   <div className={styles.correctPos}>{correctIndex + 1}</div>
-                  <div className={`${styles.userPos} ${isCorrect ? styles.posCorrect : styles.posWrong}`}>
+                  <div
+                    className={`${styles.userPos} ${isCorrect ? styles.posCorrect : styles.posWrong}`}
+                  >
                     {userPos + 1}
                   </div>
                 </div>

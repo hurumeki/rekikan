@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useLayoutEffect } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useLayoutEffect } from 'react';
 import type { Card as CardType, CardResult } from '@/lib/types';
 import { useCarefulMode } from '@/hooks/useCarefulMode';
 import Card from '@/components/card/Card';
@@ -39,42 +39,46 @@ export default function CarefulMode({
   const pendingFlipRef = useRef<{ cardId: string } | null>(null);
   const prevRectsRef = useRef<Map<string, DOMRect>>(new Map());
 
-  const handleCardClick = (cardId: string) => {
-    // Record current positions of all visible cards before state update
-    const rects = new Map<string, DOMRect>();
-    for (const [id, el] of remainingCardRefs.current) {
-      rects.set(id, el.getBoundingClientRect());
-    }
-    for (const [id, el] of confirmedCardRefs.current) {
-      rects.set(id, el.getBoundingClientRect());
-    }
-    prevRectsRef.current = rects;
-    pendingFlipRef.current = { cardId };
-    selectCard(cardId);
-  };
+  const handleCardClick = useCallback(
+    (cardId: string) => {
+      // Record current positions of all visible cards before state update
+      const rects = new Map<string, DOMRect>();
+      for (const [id, el] of remainingCardRefs.current) {
+        rects.set(id, el.getBoundingClientRect());
+      }
+      for (const [id, el] of confirmedCardRefs.current) {
+        rects.set(id, el.getBoundingClientRect());
+      }
+      prevRectsRef.current = rects;
+      pendingFlipRef.current = { cardId };
+      selectCard(cardId);
+    },
+    [selectCard],
+  );
 
   useLayoutEffect(() => {
     const flip = pendingFlipRef.current;
     if (!flip) return;
 
     const prevRects = prevRectsRef.current;
-    const animatedEls: HTMLElement[] = [];
+    type AnimStep = { el: HTMLElement; deltaX: number; deltaY: number };
 
-    // Animate selected card: FLIP from old remaining position to new confirmed position
+    // Phase 1 (Read): collect new positions and compute deltas — no DOM writes, no forced reflows
+    const toAnimate: AnimStep[] = [];
+
     const destEl = confirmedCardRefs.current.get(flip.cardId);
     if (destEl) {
       const prevRect = prevRects.get(flip.cardId);
       if (prevRect) {
         const newRect = destEl.getBoundingClientRect();
-        const deltaY = prevRect.top - newRect.top;
-        const deltaX = prevRect.left - newRect.left;
-        destEl.style.transition = 'none';
-        destEl.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
-        animatedEls.push(destEl);
+        toAnimate.push({
+          el: destEl,
+          deltaX: prevRect.left - newRect.left,
+          deltaY: prevRect.top - newRect.top,
+        });
       }
     }
 
-    // Animate remaining cards that shifted upward to fill the gap
     for (const [cardId, el] of remainingCardRefs.current) {
       const prevRect = prevRects.get(cardId);
       if (!prevRect) continue;
@@ -82,16 +86,24 @@ export default function CarefulMode({
       const deltaY = prevRect.top - newRect.top;
       const deltaX = prevRect.left - newRect.left;
       if (Math.abs(deltaY) > 0.5 || Math.abs(deltaX) > 0.5) {
-        el.style.transition = 'none';
-        el.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
-        animatedEls.push(el);
+        toAnimate.push({ el, deltaX, deltaY });
       }
     }
 
-    // Force reflow to ensure inverted transforms are applied before animation
-    if (animatedEls.length > 0) {
-      animatedEls[0].getBoundingClientRect();
+    if (toAnimate.length === 0) {
+      pendingFlipRef.current = null;
+      return;
     }
+
+    // Phase 2 (Write): apply inverted transforms from local array in one batch (single reflow trigger below)
+    const animatedEls = toAnimate.map(({ el, deltaX, deltaY }) => {
+      el.style.transition = 'none';
+      el.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+      return el;
+    });
+
+    // Force reflow to ensure inverted transforms are applied before animation
+    animatedEls[0].getBoundingClientRect();
 
     // Play: animate all elements to their final positions simultaneously
     for (const el of animatedEls) {
@@ -101,6 +113,11 @@ export default function CarefulMode({
 
     pendingFlipRef.current = null;
   }, [confirmedCards.length]);
+
+  const cardClickHandlers = useMemo(
+    () => new Map(remainingCards.map((card) => [card.id, () => handleCardClick(card.id)])),
+    [remainingCards, handleCardClick],
+  );
 
   useEffect(() => {
     if (isComplete) {
@@ -136,7 +153,7 @@ export default function CarefulMode({
                 state={wrongCardId === card.id ? 'incorrect' : 'unselected'}
                 eraColor={eraColors[card.era_color_key] ?? '#888'}
                 showHint={hintEnabled}
-                onClick={() => handleCardClick(card.id)}
+                onClick={cardClickHandlers.get(card.id)}
               />
             </div>
           ))}
