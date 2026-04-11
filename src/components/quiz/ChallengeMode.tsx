@@ -36,10 +36,7 @@ export default function ChallengeMode({
 
   useEffect(() => {
     if (isConfirmed && results) {
-      const timer = setTimeout(() => {
-        onComplete(results, score, total);
-      }, 600);
-      return () => clearTimeout(timer);
+      onComplete(results, score, total);
     }
   }, [isConfirmed, results, score, total, onComplete]);
 
