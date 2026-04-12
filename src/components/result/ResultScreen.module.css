@@ -175,6 +175,24 @@
   flex: 1;
   min-width: 0;
 }
+
+.regionBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px 2px 6px;
+  border: 1.5px solid;
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--card-bg);
+  color: var(--text-primary);
+}
+
+.regionLabel {
+  font-size: 0.75rem;
+}
 .buttons {
   display: flex;
   gap: 12px;

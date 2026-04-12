@@ -27,7 +27,7 @@
       "card_china_three_kingdoms",
       "card_china_sui"
     ],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 1
   },
   {
@@ -41,7 +41,7 @@
       "card_china_emperor_wu_han",
       "card_china_cao_cao"
     ],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
   {
@@ -55,7 +55,7 @@
       "card_china_an_lushan",
       "card_china_wang_anshi"
     ],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
   {
@@ -70,7 +70,7 @@
       "card_china_kangxi",
       "card_china_qianlong"
     ],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
   {

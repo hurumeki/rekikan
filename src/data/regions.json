@@ -37,5 +37,12 @@
       "modern": { "label": "近代", "color": "#fb923c" },
       "contemporary": { "label": "現代", "color": "#f87171" }
     }
+  },
+  {
+    "id": "world",
+    "label": "同時代の世界",
+    "emoji": "🌏",
+    "color": "#6366f1",
+    "era_colors": {}
   }
 ]

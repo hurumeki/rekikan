@@ -62,7 +62,9 @@ export default function QuizClient() {
     const min = Math.min(...years);
     const max = Math.max(...years);
     const padding = Math.round((max - min) * 0.15) || 50;
-    return { start: min - padding, end: max + padding };
+    const currentYear = new Date().getFullYear();
+    // Don't extend timeline into the future beyond current year
+    return { start: min - padding, end: Math.min(max + padding, Math.max(max + 10, currentYear)) };
   }, [quiz, cards]);
 
   const [phase, setPhase] = useState<Phase>('mode-select');
@@ -226,6 +228,7 @@ export default function QuizClient() {
           previousBest={resultData.previousBest}
           onRetry={handleRetry}
           onHome={handleBackToList}
+          regions={resultData.mode === 'cross_region' ? allRegions : undefined}
         />
       )}
     </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useCallback, useRef } from 'react';
+import { useEffect, useCallback, useRef, useMemo } from 'react';
 import type { Card as CardType, CardResult, EraColor } from '@/lib/types';
 import { useTimelineMode } from '@/hooks/useTimelineMode';
 import Card from '@/components/card/Card';
@@ -40,6 +40,7 @@ export default function TimelinePlacementQuiz({
     results,
     isComplete,
     selectPosition,
+    adjustYear,
     confirmAnswer,
     advance,
     yearToPercent,
@@ -78,6 +79,36 @@ export default function TimelinePlacementQuiz({
     [handleTimelineInteraction],
   );
 
+  // Sorted era boundary years for jump buttons
+  const eraBoundaryYears = useMemo(() => {
+    const eraKeys = Object.keys(eraConfig);
+    return eraKeys
+      .map((key) => {
+        const ys = cards
+          .filter((c) => c.era_color_key === key)
+          .map((c) => c.year)
+          .sort((a, b) => a - b);
+        return ys[0] ?? null;
+      })
+      .filter((y): y is number => y !== null)
+      .sort((a, b) => a - b);
+  }, [cards, eraConfig]);
+
+  const handleJumpEra = useCallback(
+    (direction: 'prev' | 'next') => {
+      if (answeredYear !== null) return;
+      const base = selectedYear ?? Math.round((timelineRange.start + timelineRange.end) / 2);
+      if (direction === 'prev') {
+        const target = [...eraBoundaryYears].reverse().find((y) => y < base);
+        if (target !== undefined) adjustYear(target - base);
+      } else {
+        const target = eraBoundaryYears.find((y) => y > base);
+        if (target !== undefined) adjustYear(target - base);
+      }
+    },
+    [answeredYear, selectedYear, timelineRange, eraBoundaryYears, adjustYear],
+  );
+
   if (!currentCard) return null;
 
   const eraKeys = Object.keys(eraConfig);
@@ -86,18 +117,12 @@ export default function TimelinePlacementQuiz({
   // Build era band segments for visual timeline
   const eraBands = eraKeys.map((key, i) => {
     const nextKey = eraKeys[i + 1];
-    // Estimate era range from the cards data
-    const eraCards = cards.filter((c) => c.era_color_key === key);
-    const allCards = cards;
-
-    // Use sorted card years in this era and the adjacent era to estimate boundaries
-    const eraYears = allCards
+    const eraYears = cards
       .filter((c) => c.era_color_key === key)
       .map((c) => c.year)
       .sort((a, b) => a - b);
-
     const nextEraYears = nextKey
-      ? allCards
+      ? cards
           .filter((c) => c.era_color_key === nextKey)
           .map((c) => c.year)
           .sort((a, b) => a - b)
@@ -115,8 +140,6 @@ export default function TimelinePlacementQuiz({
     const left = Math.max(0, ((eraStart - timelineRange.start) / totalSpan) * 100);
     const width = Math.max(1, ((eraEnd - eraStart) / totalSpan) * 100);
 
-    void eraCards; // suppress unused warning
-
     return { key, color: eraConfig[key]!.color, label: eraConfig[key]!.label, left, width };
   });
 
@@ -124,6 +147,8 @@ export default function TimelinePlacementQuiz({
   const correctPct = answeredYear !== null ? yearToPercent(currentCard.year) : null;
   const isCorrect =
     answeredYear !== null && results.at(-1)?.cardId === currentCard.id && results.at(-1)?.correct;
+
+  const navDisabled = answeredYear !== null;
 
   return (
     <div className={styles.container}>
@@ -186,6 +211,50 @@ export default function TimelinePlacementQuiz({
           <span>{formatTimelineYear(timelineRange.start)}</span>
           <span>{formatTimelineYear(timelineRange.end)}</span>
         </div>
+      </div>
+
+      {/* Navigation buttons */}
+      <div className={styles.navButtons}>
+        <button
+          className={`${styles.navBtn} ${styles.navBtnEra}`}
+          onClick={() => handleJumpEra('prev')}
+          disabled={navDisabled}
+          title="前の時代帯へ"
+          aria-label="前の時代帯へジャンプ"
+        >
+          ⏮
+        </button>
+        {([-100, -10, -1] as const).map((d) => (
+          <button
+            key={d}
+            className={styles.navBtn}
+            onClick={() => adjustYear(d)}
+            disabled={navDisabled}
+            title={`${Math.abs(d)}年前へ`}
+          >
+            ◀{Math.abs(d)}
+          </button>
+        ))}
+        {([1, 10, 100] as const).map((d) => (
+          <button
+            key={d}
+            className={styles.navBtn}
+            onClick={() => adjustYear(d)}
+            disabled={navDisabled}
+            title={`${d}年後へ`}
+          >
+            {d}▶
+          </button>
+        ))}
+        <button
+          className={`${styles.navBtn} ${styles.navBtnEra}`}
+          onClick={() => handleJumpEra('next')}
+          disabled={navDisabled}
+          title="次の時代帯へ"
+          aria-label="次の時代帯へジャンプ"
+        >
+          ⏭
+        </button>
       </div>
 
       {/* Show selected year */}

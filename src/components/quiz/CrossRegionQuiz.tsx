@@ -43,6 +43,9 @@ export default function CrossRegionQuiz({
     [shuffledCards, toggleSelect],
   );
 
+  // Show region badge only with hint enabled (before answer) or always after confirmation
+  const showRegionBadge = hintEnabled || isConfirmed;
+
   useEffect(() => {
     if (isConfirmed && results) {
       onComplete(results, score, total);
@@ -65,7 +68,7 @@ export default function CrossRegionQuiz({
           const region = regionMap.get(card.region);
           return (
             <div key={card.id} className={styles.cardWrapper}>
-              {region && (
+              {region && showRegionBadge && (
                 <div className={styles.regionBadge} style={{ borderColor: region.color }}>
                   <span>{region.emoji}</span>
                   <span className={styles.regionLabel}>{region.label}</span>

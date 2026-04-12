@@ -1,0 +1,52 @@
+[
+  {
+    "id": "quiz_cross_medieval",
+    "region": "world",
+    "regions": ["japan", "europe", "china"],
+    "title": "中世の世界：日本・ヨーロッパ・中国",
+    "card_type": "term",
+    "card_ids": [
+      "card_china_song",
+      "card_europe_crusades",
+      "card_jp_91",
+      "card_europe_magna_carta",
+      "card_china_kublai_khan"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_cross_early_modern",
+    "region": "world",
+    "regions": ["japan", "europe", "china"],
+    "title": "大航海時代：日本・ヨーロッパ・中国",
+    "card_type": "term",
+    "card_ids": [
+      "card_china_zheng_he",
+      "card_europe_columbus",
+      "card_europe_luther",
+      "card_jp_133",
+      "card_jp_152",
+      "card_china_qing"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_cross_modern",
+    "region": "world",
+    "regions": ["japan", "europe", "china"],
+    "title": "近代の激動：日本・ヨーロッパ・中国",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_napoleon",
+      "card_europe_vienna_congress",
+      "card_china_opium_war",
+      "card_china_taiping_rebellion",
+      "card_jp_196",
+      "card_europe_bismarck"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 2
+  }
+]

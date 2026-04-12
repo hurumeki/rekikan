@@ -21,13 +21,6 @@
   padding: 4px 0;
 }
 
-.yearReveal {
-  text-align: center;
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  font-weight: 500;
-}
-
 .eraButtons {
   display: flex;
   flex-direction: column;
@@ -89,5 +82,24 @@
   font-size: 0.9rem;
   font-weight: 600;
   padding: 4px 0;
-  color: var(--text-secondary);
+}
+
+.feedbackCorrect {
+  color: #22c55e;
+}
+
+.feedbackWrong {
+  color: #ef4444;
+}
+
+.nextButton {
+  padding: 12px 24px;
+  background: var(--badge-bg, #6366f1);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
 }

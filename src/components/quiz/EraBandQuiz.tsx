@@ -42,17 +42,10 @@ export default function EraBandQuiz({
     }
   }, [isComplete, results, score, total, onComplete]);
 
-  // Auto-advance after showing correct answer
-  useEffect(() => {
-    if (answeredEraKey !== null && !isComplete) {
-      const timer = setTimeout(advance, 1200);
-      return () => clearTimeout(timer);
-    }
-  }, [answeredEraKey, isComplete, advance]);
-
   if (!currentCard) return null;
 
   const eraKeys = Object.keys(eraConfig);
+  const isCorrect = answeredEraKey !== null && wrongEraKey === null;
 
   return (
     <div className={styles.container}>
@@ -67,15 +60,10 @@ export default function EraBandQuiz({
         state="unselected"
         eraColor={eraColors[currentCard.era_color_key] ?? '#888'}
         showHint={hintEnabled}
-        showYear={answeredEraKey !== null}
+        showYear={false}
         showDescription={answeredEraKey !== null}
+        hideEraBadge={true}
       />
-
-      {answeredEraKey !== null && (
-        <div className={styles.yearReveal}>
-          {formatYearRange(currentCard.year, currentCard.year_end)}
-        </div>
-      )}
 
       <div className={styles.eraButtons}>
         {eraKeys.map((key) => {
@@ -108,10 +96,20 @@ export default function EraBandQuiz({
         })}
       </div>
 
-      {answeredEraKey !== null && !isComplete && (
-        <div className={styles.feedback}>
-          {wrongEraKey ? `不正解 — 正解は「${eraConfig[answeredEraKey]?.label}」` : '正解！'}
+      {answeredEraKey !== null && (
+        <div
+          className={`${styles.feedback} ${isCorrect ? styles.feedbackCorrect : styles.feedbackWrong}`}
+        >
+          {isCorrect
+            ? `正解！ ${formatYearRange(currentCard.year, currentCard.year_end)}`
+            : `不正解 — 正解は「${eraConfig[answeredEraKey]?.label}」（${formatYearRange(currentCard.year, currentCard.year_end)}）`}
         </div>
+      )}
+
+      {answeredEraKey !== null && !isComplete && (
+        <button className={styles.nextButton} onClick={advance}>
+          次へ
+        </button>
       )}
     </div>
   );

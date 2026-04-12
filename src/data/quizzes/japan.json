@@ -14,7 +14,7 @@
     "title": "古代の社会変化の概要",
     "card_type": "description",
     "card_ids": ["card_jp_7", "card_jp_8", "card_jp_9", "card_jp_10"],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 1
   },
   {
@@ -31,7 +31,7 @@
       "card_jp_16",
       "card_jp_17"
     ],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 1
   },
   {
@@ -47,7 +47,7 @@
       "card_jp_22",
       "card_jp_23"
     ],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 1
   },
   {
@@ -56,7 +56,7 @@
     "title": "旧石器・縄文・弥生の生活と社会",
     "card_type": "term",
     "card_ids": ["card_jp_24", "card_jp_25", "card_jp_26", "card_jp_27", "card_jp_28"],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
   {
@@ -65,7 +65,7 @@
     "title": "ヤマト王権と古墳の変遷",
     "card_type": "term",
     "card_ids": ["card_jp_29", "card_jp_30", "card_jp_31", "card_jp_32", "card_jp_33"],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
   {
@@ -74,7 +74,7 @@
     "title": "律令国家形成までの流れ",
     "card_type": "description",
     "card_ids": ["card_jp_34", "card_jp_35", "card_jp_36", "card_jp_37", "card_jp_38"],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 1
   },
   {
@@ -91,7 +91,7 @@
       "card_jp_44",
       "card_jp_45"
     ],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
   {
@@ -107,7 +107,7 @@
       "card_jp_50",
       "card_jp_51"
     ],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
   {
@@ -123,7 +123,7 @@
       "card_jp_56",
       "card_jp_57"
     ],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
   {
@@ -132,7 +132,7 @@
     "title": "平安時代の政治変遷の流れ",
     "card_type": "description",
     "card_ids": ["card_jp_58", "card_jp_59", "card_jp_60", "card_jp_61", "card_jp_62"],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 1
   },
   {
@@ -141,7 +141,7 @@
     "title": "平安初期の政治と蝦夷征討",
     "card_type": "term",
     "card_ids": ["card_jp_63", "card_jp_64", "card_jp_65", "card_jp_66", "card_jp_67"],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
   {
@@ -158,7 +158,7 @@
       "card_jp_73",
       "card_jp_74"
     ],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
   {
@@ -167,7 +167,7 @@
     "title": "院政の開始と平氏政権",
     "card_type": "term",
     "card_ids": ["card_jp_75", "card_jp_76", "card_jp_77", "card_jp_78", "card_jp_79"],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
   {
@@ -176,7 +176,7 @@
     "title": "国風文化と仏教",
     "card_type": "term",
     "card_ids": ["card_jp_80", "card_jp_81", "card_jp_82", "card_jp_83", "card_jp_84"],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
   {
@@ -233,7 +233,7 @@
       "card_jp_106",
       "card_jp_107"
     ],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
   {
@@ -242,7 +242,7 @@
     "title": "執権政治の展開と蒙古襲来",
     "card_type": "term",
     "card_ids": ["card_jp_108", "card_jp_109", "card_jp_110", "card_jp_111", "card_jp_112"],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
   {
@@ -274,7 +274,7 @@
       "card_jp_123",
       "card_jp_124"
     ],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 1
   },
   {
@@ -290,7 +290,7 @@
       "card_jp_129",
       "card_jp_130"
     ],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
   {
@@ -299,7 +299,7 @@
     "title": "応仁の乱と戦国大名の台頭",
     "card_type": "term",
     "card_ids": ["card_jp_131", "card_jp_132", "card_jp_133", "card_jp_134", "card_jp_135"],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
   {
@@ -308,7 +308,7 @@
     "title": "北山文化・東山文化",
     "card_type": "term",
     "card_ids": ["card_jp_136", "card_jp_137", "card_jp_138", "card_jp_139", "card_jp_140"],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
   {
@@ -324,7 +324,7 @@
       "card_jp_145",
       "card_jp_146"
     ],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
   {
@@ -333,7 +333,7 @@
     "title": "江戸時代の260年の大まかな流れ",
     "card_type": "description",
     "card_ids": ["card_jp_147", "card_jp_148", "card_jp_149", "card_jp_150", "card_jp_151"],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 1
   },
   {
@@ -358,7 +358,7 @@
     "title": "文治政治の展開と元禄時代",
     "card_type": "term",
     "card_ids": ["card_jp_158", "card_jp_159", "card_jp_160", "card_jp_161", "card_jp_162"],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
   {
@@ -367,7 +367,7 @@
     "title": "三大改革と田沼時代",
     "card_type": "term",
     "card_ids": ["card_jp_163", "card_jp_164", "card_jp_165", "card_jp_166", "card_jp_167"],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 3
   },
   {
@@ -376,7 +376,7 @@
     "title": "鎖国体制と対外関係の変遷",
     "card_type": "term",
     "card_ids": ["card_jp_168", "card_jp_169", "card_jp_170", "card_jp_171", "card_jp_172"],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 3
   },
   {
@@ -385,7 +385,7 @@
     "title": "寛永・元禄・化政文化",
     "card_type": "term",
     "card_ids": ["card_jp_173", "card_jp_174", "card_jp_175", "card_jp_176", "card_jp_177"],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
   {
@@ -452,7 +452,7 @@
     "title": "明治新政府の成立と富国強兵",
     "card_type": "term",
     "card_ids": ["card_jp_202", "card_jp_203", "card_jp_204", "card_jp_205", "card_jp_206"],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
   {
@@ -468,7 +468,7 @@
       "card_jp_211",
       "card_jp_212"
     ],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
   {
@@ -484,7 +484,7 @@
       "card_jp_217",
       "card_jp_218"
     ],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 3
   },
   {
@@ -516,7 +516,7 @@
       "card_jp_229",
       "card_jp_230"
     ],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
   {
@@ -541,7 +541,7 @@
       "card_jp_240",
       "card_jp_241"
     ],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
   {
@@ -557,7 +557,7 @@
       "card_jp_246",
       "card_jp_247"
     ],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 1
   },
   {
@@ -566,7 +566,7 @@
     "title": "GHQの占領政策と日本国憲法",
     "card_type": "term",
     "card_ids": ["card_jp_248", "card_jp_249", "card_jp_250", "card_jp_251", "card_jp_252"],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
   {
@@ -575,7 +575,7 @@
     "title": "サンフランシスコ平和条約と55年体制",
     "card_type": "term",
     "card_ids": ["card_jp_253", "card_jp_254", "card_jp_255", "card_jp_256", "card_jp_257"],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
   {
@@ -591,7 +591,7 @@
       "card_jp_262",
       "card_jp_263"
     ],
-    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
   {
@@ -665,55 +665,5 @@
     ],
     "modes": ["careful", "challenge", "timeline", "era_band"],
     "difficulty": 3
-  },
-  {
-    "id": "quiz_cross_medieval",
-    "region": "japan",
-    "regions": ["japan", "europe", "china"],
-    "title": "中世の世界：日本・ヨーロッパ・中国",
-    "card_type": "term",
-    "card_ids": [
-      "card_china_song",
-      "card_europe_crusades",
-      "card_jp_91",
-      "card_europe_magna_carta",
-      "card_china_kublai_khan"
-    ],
-    "modes": ["cross_region"],
-    "difficulty": 2
-  },
-  {
-    "id": "quiz_cross_early_modern",
-    "region": "japan",
-    "regions": ["japan", "europe", "china"],
-    "title": "大航海時代：日本・ヨーロッパ・中国",
-    "card_type": "term",
-    "card_ids": [
-      "card_china_zheng_he",
-      "card_europe_columbus",
-      "card_europe_luther",
-      "card_jp_133",
-      "card_jp_152",
-      "card_china_qing"
-    ],
-    "modes": ["cross_region"],
-    "difficulty": 2
-  },
-  {
-    "id": "quiz_cross_modern",
-    "region": "japan",
-    "regions": ["japan", "europe", "china"],
-    "title": "近代の激動：日本・ヨーロッパ・中国",
-    "card_type": "term",
-    "card_ids": [
-      "card_europe_napoleon",
-      "card_europe_vienna_congress",
-      "card_china_opium_war",
-      "card_china_taiping_rebellion",
-      "card_jp_196",
-      "card_europe_bismarck"
-    ],
-    "modes": ["cross_region"],
-    "difficulty": 2
   }
 ]

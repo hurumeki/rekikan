@@ -48,6 +48,19 @@ export function useTimelineMode(cards: Card[], rangeStart: number, rangeEnd: num
     [rangeStart, rangeEnd],
   );
 
+  /** Move selected year by delta years (positive = forward, negative = backward) */
+  const adjustYear = useCallback(
+    (delta: number) => {
+      setState((prev) => {
+        if (prev.answeredYear !== null) return prev;
+        const base = prev.selectedYear ?? Math.round((rangeStart + rangeEnd) / 2);
+        const newYear = Math.max(rangeStart, Math.min(rangeEnd, base + delta));
+        return { ...prev, selectedYear: newYear };
+      });
+    },
+    [rangeStart, rangeEnd],
+  );
+
   /** User confirms their selected position */
   const confirmAnswer = useCallback(() => {
     setState((prev) => {
@@ -114,6 +127,7 @@ export function useTimelineMode(cards: Card[], rangeStart: number, rangeEnd: num
     isComplete: state.isComplete,
     threshold,
     selectPosition,
+    adjustYear,
     confirmAnswer,
     advance,
     yearToPercent,
