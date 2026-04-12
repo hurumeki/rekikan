@@ -16,6 +16,7 @@ interface CardProps {
   showHint?: boolean;
   showYear?: boolean;
   showDescription?: boolean;
+  hideEraBadge?: boolean;
   onClick?: () => void;
 }
 
@@ -27,6 +28,7 @@ const Card = memo(function Card({
   showHint,
   showYear,
   showDescription,
+  hideEraBadge,
   onClick,
 }: CardProps) {
   const classNames = [styles.card, state !== 'unselected' ? styles[state] : '']
@@ -37,7 +39,7 @@ const Card = memo(function Card({
 
   return (
     <div className={classNames} data-testid="quiz-card" onClick={onClick}>
-      {(showHint || showYear) && <EraBadge color={eraColor} />}
+      {!hideEraBadge && (showHint || showYear) && <EraBadge color={eraColor} />}
 
       <div className={styles.content}>
         {card.type === 'term' ? (

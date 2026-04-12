@@ -2,7 +2,7 @@
 
 import type React from 'react';
 import { useMemo } from 'react';
-import type { Card as CardType, CardResult, GameMode } from '@/lib/types';
+import type { Card as CardType, CardResult, GameMode, Region } from '@/lib/types';
 import { computeStars } from '@/lib/progress';
 import Card from '@/components/card/Card';
 import styles from './ResultScreen.module.css';
@@ -18,6 +18,7 @@ interface ResultScreenProps {
   previousBest: number | null;
   onRetry: () => void;
   onHome: () => void;
+  regions?: Region[];
 }
 
 export default function ResultScreen({
@@ -31,15 +32,21 @@ export default function ResultScreen({
   previousBest,
   onRetry,
   onHome,
+  regions,
 }: ResultScreenProps) {
   const isPerfect = score === total;
-  const isChallenge = mode === 'challenge';
+  const isChallenge = mode === 'challenge' || mode === 'cross_region';
+  const isCrossRegion = mode === 'cross_region';
   const stars = computeStars(score, total);
   const isNewBest = previousBest !== null && score > previousBest;
   const isFirstAttempt = previousBest === null;
 
   const cardMap = useMemo(() => new Map(cards.map((c) => [c.id, c])), [cards]);
   const resultMap = useMemo(() => new Map(results.map((r) => [r.cardId, r])), [results]);
+  const regionMap = useMemo(
+    () => (regions ? new Map(regions.map((r) => [r.id, r])) : null),
+    [regions],
+  );
 
   return (
     <div className={styles.container}>
@@ -76,31 +83,40 @@ export default function ResultScreen({
           if (!card) return null;
           const isCorrect = result?.correct ?? false;
           const userPos = result?.userPosition ?? correctIndex;
+          const region = isCrossRegion && regionMap ? regionMap.get(card.region) : null;
 
           return (
             <div
               key={card.id}
-              className={`${styles.cardSlideIn} ${isChallenge ? styles.comparisonRow : ''}`}
+              className={styles.cardSlideIn}
               style={{ '--delay': `${correctIndex * 0.06}s` } as React.CSSProperties}
             >
-              {isChallenge && (
-                <div className={styles.positionCol}>
-                  <div className={styles.correctPos}>{correctIndex + 1}</div>
-                  <div
-                    className={`${styles.userPos} ${isCorrect ? styles.posCorrect : styles.posWrong}`}
-                  >
-                    {userPos + 1}
-                  </div>
+              {region && (
+                <div className={styles.regionBadge} style={{ borderColor: region.color }}>
+                  <span>{region.emoji}</span>
+                  <span className={styles.regionLabel}>{region.label}</span>
                 </div>
               )}
-              <div className={isChallenge ? styles.comparisonCard : undefined}>
-                <Card
-                  card={card}
-                  state={isCorrect ? 'correct' : 'incorrect'}
-                  eraColor={eraColors[card.era_color_key] || '#888'}
-                  showYear={true}
-                  showDescription={card.type === 'term'}
-                />
+              <div className={isChallenge ? styles.comparisonRow : undefined}>
+                {isChallenge && (
+                  <div className={styles.positionCol}>
+                    <div className={styles.correctPos}>{correctIndex + 1}</div>
+                    <div
+                      className={`${styles.userPos} ${isCorrect ? styles.posCorrect : styles.posWrong}`}
+                    >
+                      {userPos + 1}
+                    </div>
+                  </div>
+                )}
+                <div className={isChallenge ? styles.comparisonCard : undefined}>
+                  <Card
+                    card={card}
+                    state={isCorrect ? 'correct' : 'incorrect'}
+                    eraColor={eraColors[card.era_color_key] || '#888'}
+                    showYear={true}
+                    showDescription={card.type === 'term'}
+                  />
+                </div>
               </div>
             </div>
           );

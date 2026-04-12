@@ -12,9 +12,11 @@ import chinaCards from '@/data/cards/china.json';
 import japanQuizzes from '@/data/quizzes/japan.json';
 import europeQuizzes from '@/data/quizzes/europe.json';
 import chinaQuizzes from '@/data/quizzes/china.json';
+import worldQuizzes from '@/data/quizzes/world.json';
 import japanNodes from '@/data/nodes/japan.json';
 import europeNodes from '@/data/nodes/europe.json';
 import chinaNodes from '@/data/nodes/china.json';
+import worldNodes from '@/data/nodes/world.json';
 
 const regions: Region[] = typed<Region>(regionsData);
 const allCards: Card[] = [
@@ -26,11 +28,13 @@ const allQuizzes: Quiz[] = [
   ...typed<Quiz>(japanQuizzes),
   ...typed<Quiz>(europeQuizzes),
   ...typed<Quiz>(chinaQuizzes),
+  ...typed<Quiz>(worldQuizzes),
 ];
 const allNodes: Node[] = [
   ...typed<Node>(japanNodes),
   ...typed<Node>(europeNodes),
   ...typed<Node>(chinaNodes),
+  ...typed<Node>(worldNodes),
 ];
 
 const cardMap = new Map<string, Card>(allCards.map((c) => [c.id, c]));

@@ -11,7 +11,7 @@
       "card_china_desc_intro_4",
       "card_china_desc_intro_5"
     ],
-    "modes": ["careful", "challenge"],
+    "modes": ["careful", "challenge", "timeline", "era_band"],
     "difficulty": 1
   },
   {
@@ -27,7 +27,7 @@
       "card_china_three_kingdoms",
       "card_china_sui"
     ],
-    "modes": ["careful", "challenge"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 1
   },
   {
@@ -41,7 +41,7 @@
       "card_china_emperor_wu_han",
       "card_china_cao_cao"
     ],
-    "modes": ["careful", "challenge"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
   {
@@ -55,7 +55,7 @@
       "card_china_an_lushan",
       "card_china_wang_anshi"
     ],
-    "modes": ["careful", "challenge"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
   {
@@ -70,7 +70,7 @@
       "card_china_kangxi",
       "card_china_qianlong"
     ],
-    "modes": ["careful", "challenge"],
+    "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
   {
@@ -84,7 +84,7 @@
       "card_china_xinhai_revolution",
       "card_china_prc_established"
     ],
-    "modes": ["careful", "challenge"],
+    "modes": ["careful", "challenge", "timeline", "era_band"],
     "difficulty": 2
   },
   {
@@ -101,7 +101,7 @@
       "card_china_qing",
       "card_china_roc"
     ],
-    "modes": ["careful", "challenge"],
+    "modes": ["careful", "challenge", "timeline", "era_band"],
     "difficulty": 3
   }
 ]

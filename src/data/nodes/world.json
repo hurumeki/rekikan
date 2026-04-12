@@ -1,0 +1,11 @@
+[
+  {
+    "id": "node_world_root",
+    "region": "world",
+    "parent_id": null,
+    "label": "同時代の世界",
+    "sort_order": 0,
+    "quiz_ids": ["quiz_cross_medieval", "quiz_cross_early_modern", "quiz_cross_modern"],
+    "unlock_condition": null
+  }
+]

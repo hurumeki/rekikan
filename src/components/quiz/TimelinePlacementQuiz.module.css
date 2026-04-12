@@ -1,0 +1,204 @@
+.container {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 480px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.progress {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.prompt {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 4px 0;
+}
+
+.timelineWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  user-select: none;
+}
+
+.timeline {
+  position: relative;
+  height: 48px;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+  cursor: crosshair;
+  touch-action: none;
+  border: 2px solid var(--border);
+  border-bottom: none;
+}
+
+.eraBand {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.eraBandLabel {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.65);
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 0 4px;
+  pointer-events: none;
+}
+
+.timeline:hover .eraBand {
+  opacity: 0.75;
+}
+
+.marker {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  width: 4px;
+  border-radius: 2px;
+  transform: translateX(-50%);
+  pointer-events: none;
+  transition: left 0.1s ease-out;
+}
+
+.markerSelected {
+  background: white;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.4);
+}
+
+.markerCorrect {
+  background: #22c55e;
+  box-shadow: 0 0 0 2px #16a34a;
+}
+
+.markerWrong {
+  background: #ef4444;
+  box-shadow: 0 0 0 2px #dc2626;
+}
+
+.markerCorrectAnswer {
+  background: #22c55e;
+  box-shadow: 0 0 0 2px #16a34a;
+  width: 4px;
+}
+
+/* Era boundary year labels below the timeline bar */
+.eraYearLabels {
+  position: relative;
+  height: 20px;
+  border: 2px solid var(--border);
+  border-top: 1px solid var(--border);
+  border-radius: 0 0 8px 8px;
+  background: var(--surface, var(--card-bg));
+}
+
+.eraYearLabel {
+  position: absolute;
+  font-size: 0.6rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  transform: translateX(-50%);
+  top: 50%;
+  margin-top: -0.45rem;
+  line-height: 1;
+}
+
+.selectedLabel {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.navButtons {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+}
+
+.navBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 0;
+  width: 36px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card-bg);
+  color: var(--text-primary);
+  font-size: 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+  flex-shrink: 0;
+  line-height: 1;
+  transition: background 0.12s;
+  user-select: none;
+}
+
+.navBtn:hover:not(:disabled) {
+  background: var(--border);
+}
+
+.navBtn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.navBtnEra {
+  font-size: 0.95rem;
+  width: 36px;
+}
+
+.feedback {
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.feedbackCorrect {
+  background: color-mix(in srgb, #22c55e 15%, var(--card-bg));
+  color: #16a34a;
+}
+
+.feedbackWrong {
+  background: color-mix(in srgb, #ef4444 15%, var(--card-bg));
+  color: #dc2626;
+}
+
+.confirmButton,
+.nextButton {
+  background: var(--badge-bg);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  width: 100%;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.confirmButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.nextButton {
+  background: var(--text-secondary);
+}
