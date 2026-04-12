@@ -18,8 +18,17 @@ interface TimelinePlacementQuizProps {
 }
 
 function formatTimelineYear(year: number): string {
-  if (year < 0) return `前${Math.abs(year)}年`;
-  return `${year}年`;
+  if (year < 0) return `前${Math.abs(year).toLocaleString()}年`;
+  return `${year.toLocaleString()}年`;
+}
+
+/** Choose navigation step sizes based on the total span */
+function calcNavSteps(span: number): [number, number, number] {
+  if (span > 20000) return [5000, 1000, 100];
+  if (span > 5000) return [1000, 200, 20];
+  if (span > 1000) return [500, 100, 10];
+  if (span > 200) return [100, 20, 5];
+  return [50, 10, 1];
 }
 
 export default function TimelinePlacementQuiz({
@@ -79,20 +88,75 @@ export default function TimelinePlacementQuiz({
     [handleTimelineInteraction],
   );
 
-  // Sorted era boundary years for jump buttons
-  const eraBoundaryYears = useMemo(() => {
+  const totalSpan = timelineRange.end - timelineRange.start;
+  const navSteps = useMemo(() => calcNavSteps(totalSpan), [totalSpan]);
+
+  // Era bands: use defined year_start from eraConfig when available,
+  // otherwise fall back to min card year in that era
+  const eraBands = useMemo(() => {
     const eraKeys = Object.keys(eraConfig);
-    return eraKeys
-      .map((key) => {
-        const ys = cards
-          .filter((c) => c.era_color_key === key)
-          .map((c) => c.year)
-          .sort((a, b) => a - b);
-        return ys[0] ?? null;
-      })
-      .filter((y): y is number => y !== null)
-      .sort((a, b) => a - b);
-  }, [cards, eraConfig]);
+    return eraKeys.map((key, i) => {
+      const cfg = eraConfig[key]!;
+      const nextKey = eraKeys[i + 1];
+      const nextCfg = nextKey ? eraConfig[nextKey] : undefined;
+
+      // Use defined year_start if available, otherwise derive from cards
+      const eraYears = cards
+        .filter((c) => c.era_color_key === key)
+        .map((c) => c.year)
+        .sort((a, b) => a - b);
+
+      const eraStart =
+        cfg.year_start !== undefined
+          ? cfg.year_start
+          : eraYears.length > 0
+            ? eraYears[0]!
+            : timelineRange.start + (i / eraKeys.length) * totalSpan;
+
+      const nextEraStart =
+        nextCfg?.year_start !== undefined
+          ? nextCfg.year_start
+          : nextKey
+            ? (() => {
+                const ny = cards
+                  .filter((c) => c.era_color_key === nextKey)
+                  .map((c) => c.year)
+                  .sort((a, b) => a - b);
+                return ny.length > 0
+                  ? ny[0]!
+                  : timelineRange.start + ((i + 1) / eraKeys.length) * totalSpan;
+              })()
+            : timelineRange.end;
+
+      const eraEnd = nextKey ? nextEraStart : timelineRange.end;
+
+      // Clamp to timeline range
+      const clampedStart = Math.max(timelineRange.start, eraStart);
+      const clampedEnd = Math.min(timelineRange.end, eraEnd);
+
+      const left = Math.max(0, ((clampedStart - timelineRange.start) / totalSpan) * 100);
+      const width = Math.max(0, ((clampedEnd - clampedStart) / totalSpan) * 100);
+
+      return {
+        key,
+        color: cfg.color,
+        label: cfg.label,
+        left,
+        width,
+        yearStart: clampedStart,
+      };
+    });
+  }, [eraConfig, cards, timelineRange, totalSpan]);
+
+  // Boundary years for the era-jump buttons
+  const eraBoundaryYears = useMemo(
+    () =>
+      eraBands
+        .map((b) => b.yearStart)
+        .filter((y) => y > timelineRange.start)
+        .sort((a, b) => a - b),
+    [eraBands, timelineRange.start],
+  );
 
   const handleJumpEra = useCallback(
     (direction: 'prev' | 'next') => {
@@ -101,47 +165,17 @@ export default function TimelinePlacementQuiz({
       if (direction === 'prev') {
         const target = [...eraBoundaryYears].reverse().find((y) => y < base);
         if (target !== undefined) adjustYear(target - base);
+        else adjustYear(timelineRange.start - base);
       } else {
         const target = eraBoundaryYears.find((y) => y > base);
         if (target !== undefined) adjustYear(target - base);
+        else adjustYear(timelineRange.end - base);
       }
     },
     [answeredYear, selectedYear, timelineRange, eraBoundaryYears, adjustYear],
   );
 
   if (!currentCard) return null;
-
-  const eraKeys = Object.keys(eraConfig);
-  const totalSpan = timelineRange.end - timelineRange.start;
-
-  // Build era band segments for visual timeline
-  const eraBands = eraKeys.map((key, i) => {
-    const nextKey = eraKeys[i + 1];
-    const eraYears = cards
-      .filter((c) => c.era_color_key === key)
-      .map((c) => c.year)
-      .sort((a, b) => a - b);
-    const nextEraYears = nextKey
-      ? cards
-          .filter((c) => c.era_color_key === nextKey)
-          .map((c) => c.year)
-          .sort((a, b) => a - b)
-      : [];
-
-    const eraStart =
-      eraYears.length > 0 ? eraYears[0]! : timelineRange.start + (i / eraKeys.length) * totalSpan;
-    const eraEnd =
-      nextEraYears.length > 0
-        ? nextEraYears[0]!
-        : i === eraKeys.length - 1
-          ? timelineRange.end
-          : timelineRange.start + ((i + 1) / eraKeys.length) * totalSpan;
-
-    const left = Math.max(0, ((eraStart - timelineRange.start) / totalSpan) * 100);
-    const width = Math.max(1, ((eraEnd - eraStart) / totalSpan) * 100);
-
-    return { key, color: eraConfig[key]!.color, label: eraConfig[key]!.label, left, width };
-  });
 
   const selectedPct = selectedYear !== null ? yearToPercent(selectedYear) : null;
   const correctPct = answeredYear !== null ? yearToPercent(currentCard.year) : null;
@@ -176,18 +210,22 @@ export default function TimelinePlacementQuiz({
           onTouchStart={handleTouchStart}
         >
           {/* Era band segments */}
-          {eraBands.map((band) => (
-            <div
-              key={band.key}
-              className={styles.eraBand}
-              style={{
-                left: `${band.left}%`,
-                width: `${band.width}%`,
-                background: band.color,
-              }}
-              title={band.label}
-            />
-          ))}
+          {eraBands.map((band) =>
+            band.width > 0 ? (
+              <div
+                key={band.key}
+                className={styles.eraBand}
+                style={{
+                  left: `${band.left}%`,
+                  width: `${band.width}%`,
+                  background: band.color,
+                }}
+              >
+                {/* Era label inside band (only if wide enough) */}
+                {band.width > 8 && <span className={styles.eraBandLabel}>{band.label}</span>}
+              </div>
+            ) : null,
+          )}
 
           {/* User selection marker */}
           {selectedPct !== null && (
@@ -206,10 +244,28 @@ export default function TimelinePlacementQuiz({
           )}
         </div>
 
-        {/* Year labels */}
-        <div className={styles.yearLabels}>
-          <span>{formatTimelineYear(timelineRange.start)}</span>
-          <span>{formatTimelineYear(timelineRange.end)}</span>
+        {/* Era boundary year labels below timeline */}
+        <div className={styles.eraYearLabels}>
+          <span className={styles.eraYearLabel} style={{ left: '0%' }}>
+            {formatTimelineYear(timelineRange.start)}
+          </span>
+          {eraBands.slice(1).map((band) =>
+            band.left > 5 && band.left < 95 ? (
+              <span
+                key={band.key}
+                className={styles.eraYearLabel}
+                style={{ left: `${band.left}%` }}
+              >
+                {formatTimelineYear(band.yearStart)}
+              </span>
+            ) : null,
+          )}
+          <span
+            className={styles.eraYearLabel}
+            style={{ left: '100%', transform: 'translateX(-100%)' }}
+          >
+            {formatTimelineYear(timelineRange.end)}
+          </span>
         </div>
       </div>
 
@@ -224,7 +280,7 @@ export default function TimelinePlacementQuiz({
         >
           ⏮
         </button>
-        {([-100, -10, -1] as const).map((d) => (
+        {([-navSteps[0], -navSteps[1], -navSteps[2]] as const).map((d) => (
           <button
             key={d}
             className={styles.navBtn}
@@ -235,7 +291,7 @@ export default function TimelinePlacementQuiz({
             ◀{Math.abs(d)}
           </button>
         ))}
-        {([1, 10, 100] as const).map((d) => (
+        {([navSteps[2], navSteps[1], navSteps[0]] as const).map((d) => (
           <button
             key={d}
             className={styles.navBtn}

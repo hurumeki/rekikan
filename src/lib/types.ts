@@ -7,6 +7,7 @@ export type CardState = 'unselected' | 'selected' | 'correct' | 'incorrect';
 export interface EraColor {
   label: string;
   color: string;
+  year_start?: number; // explicit start year for timeline era band display
 }
 
 export interface Region {
