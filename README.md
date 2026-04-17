@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# れきかん (Rekikan)
 
-## Getting Started
+歴史カードを時代順に並べるパズルゲームで、歴史の流れを自然に身につける学習アプリです。
 
-First, run the development server:
+**大きな時代区分から細かい区分へ**と段階的にズームインしていく階層構造により、「なんとなくの歴史の流れ」を先に身につけてから詳細へと進む学習を実現します。
+
+## デモ
+
+**GitHub Pages:** https://hurumeki.github.io/rekikan/
+
+## 特徴
+
+- 説明カードで時代のイメージを掴んでから、用語カードへと段階的に進む
+- 地域・時代帯・カテゴリのビジュアルタグで「どんな知識か」を直感的に認識
+- 広い区分をクリアすると細かい区分がアンロックされる階層構造
+- 対応地域：日本史・ヨーロッパ史・中国史
+
+## 対象ユーザー
+
+- 小学校高学年〜中学生（授業の予習・復習）
+- 高校生（受験対策の土台作り）
+- 大人の歴史学び直し
+
+## 開発
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[http://localhost:3000](http://localhost:3000) で動作確認できます。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 仕様書
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+詳細な仕様は [`docs/`](docs/index.md) を参照してください。
