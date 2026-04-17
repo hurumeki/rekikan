@@ -1,0 +1,175 @@
+[
+  {
+    "id": "quiz_westasia_intro_desc",
+    "region": "westasia",
+    "title": "西アジア史の大きな流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_westasia_desc_intro_1",
+      "card_westasia_desc_intro_2",
+      "card_westasia_desc_intro_3",
+      "card_westasia_desc_intro_4",
+      "card_westasia_desc_intro_5"
+    ],
+    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_westasia_ancient",
+    "region": "westasia",
+    "title": "古代オリエントの流れ",
+    "card_type": "term",
+    "card_ids": [
+      "card_westasia_mesopotamia",
+      "card_westasia_egypt",
+      "card_westasia_hammurabi",
+      "card_westasia_assyria",
+      "card_westasia_persia",
+      "card_westasia_alexander_conquest"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_westasia_mesopotamia_desc",
+    "region": "westasia",
+    "title": "メソポタミア・古代オリエントの流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_westasia_desc_mesopotamia_1",
+      "card_westasia_desc_mesopotamia_2",
+      "card_westasia_desc_mesopotamia_3",
+      "card_westasia_desc_mesopotamia_4",
+      "card_westasia_desc_mesopotamia_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_westasia_mesopotamia_term",
+    "region": "westasia",
+    "title": "古代オリエントの出来事",
+    "card_type": "term",
+    "card_ids": [
+      "card_westasia_mesopotamia",
+      "card_westasia_egypt",
+      "card_westasia_hammurabi",
+      "card_westasia_assyria",
+      "card_westasia_persia",
+      "card_westasia_darius",
+      "card_westasia_sassanid"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_westasia_islam",
+    "region": "westasia",
+    "title": "イスラーム世界の成立と発展",
+    "card_type": "term",
+    "card_ids": [
+      "card_westasia_muhammad",
+      "card_westasia_hijra",
+      "card_westasia_arab_expansion",
+      "card_westasia_abbasid",
+      "card_westasia_golden_age"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_westasia_islam_desc",
+    "region": "westasia",
+    "title": "イスラームの成立と拡大の流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_westasia_desc_islam_1",
+      "card_westasia_desc_islam_2",
+      "card_westasia_desc_islam_3",
+      "card_westasia_desc_islam_4",
+      "card_westasia_desc_islam_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_westasia_islam_term",
+    "region": "westasia",
+    "title": "イスラーム世界の詳細",
+    "card_type": "term",
+    "card_ids": [
+      "card_westasia_muhammad",
+      "card_westasia_hijra",
+      "card_westasia_sunni_shia",
+      "card_westasia_abbasid",
+      "card_westasia_baghdad",
+      "card_westasia_golden_age",
+      "card_westasia_mongol_baghdad"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_westasia_ottoman",
+    "region": "westasia",
+    "title": "オスマン帝国の流れ",
+    "card_type": "term",
+    "card_ids": [
+      "card_westasia_ottoman_found",
+      "card_westasia_constantinople",
+      "card_westasia_suleiman",
+      "card_westasia_tanzimat",
+      "card_westasia_suez"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_westasia_ottoman_term",
+    "region": "westasia",
+    "title": "オスマン帝国の詳細",
+    "card_type": "term",
+    "card_ids": [
+      "card_westasia_ottoman_found",
+      "card_westasia_constantinople",
+      "card_westasia_suleiman",
+      "card_westasia_tanzimat",
+      "card_westasia_ottoman_partition",
+      "card_westasia_turkey_republic"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_westasia_modern_term",
+    "region": "westasia",
+    "title": "近現代の中東",
+    "card_type": "term",
+    "card_ids": [
+      "card_westasia_ottoman_partition",
+      "card_westasia_turkey_republic",
+      "card_westasia_israel",
+      "card_westasia_oil_crisis",
+      "card_westasia_iran_revolution"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_westasia_all_eras_term",
+    "region": "westasia",
+    "title": "西アジア史全般",
+    "card_type": "term",
+    "card_ids": [
+      "card_westasia_mesopotamia",
+      "card_westasia_persia",
+      "card_westasia_muhammad",
+      "card_westasia_abbasid",
+      "card_westasia_ottoman_found",
+      "card_westasia_constantinople",
+      "card_westasia_israel"
+    ],
+    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "difficulty": 3
+  }
+]

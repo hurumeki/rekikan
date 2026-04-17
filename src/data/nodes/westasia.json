@@ -1,0 +1,107 @@
+[
+  {
+    "id": "node_westasia_root",
+    "region": "westasia",
+    "parent_id": null,
+    "label": "西アジア史",
+    "sort_order": 0,
+    "quiz_ids": ["quiz_westasia_intro_desc"],
+    "unlock_condition": null
+  },
+  {
+    "id": "node_westasia_ancient",
+    "region": "westasia",
+    "parent_id": "node_westasia_root",
+    "label": "古代オリエント",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_westasia_ancient"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_westasia_intro_desc"]
+    }
+  },
+  {
+    "id": "node_westasia_mesopotamia",
+    "region": "westasia",
+    "parent_id": "node_westasia_ancient",
+    "label": "メソポタミアと古代帝国",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_westasia_mesopotamia_desc", "quiz_westasia_mesopotamia_term"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_westasia_ancient"]
+    }
+  },
+  {
+    "id": "node_westasia_islam",
+    "region": "westasia",
+    "parent_id": "node_westasia_root",
+    "label": "イスラーム世界",
+    "sort_order": 2,
+    "quiz_ids": ["quiz_westasia_islam"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_westasia_intro_desc"]
+    }
+  },
+  {
+    "id": "node_westasia_early_islam",
+    "region": "westasia",
+    "parent_id": "node_westasia_islam",
+    "label": "イスラームの成立と発展",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_westasia_islam_desc", "quiz_westasia_islam_term"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_westasia_islam"]
+    }
+  },
+  {
+    "id": "node_westasia_ottoman",
+    "region": "westasia",
+    "parent_id": "node_westasia_root",
+    "label": "オスマン帝国",
+    "sort_order": 3,
+    "quiz_ids": ["quiz_westasia_ottoman"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_westasia_intro_desc"]
+    }
+  },
+  {
+    "id": "node_westasia_ottoman_detail",
+    "region": "westasia",
+    "parent_id": "node_westasia_ottoman",
+    "label": "帝国の発展と衰退",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_westasia_ottoman_term"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_westasia_ottoman"]
+    }
+  },
+  {
+    "id": "node_westasia_modern",
+    "region": "westasia",
+    "parent_id": "node_westasia_ottoman",
+    "label": "近現代の中東",
+    "sort_order": 2,
+    "quiz_ids": ["quiz_westasia_modern_term"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_westasia_ottoman"]
+    }
+  },
+  {
+    "id": "node_westasia_all_eras",
+    "region": "westasia",
+    "parent_id": "node_westasia_root",
+    "label": "全時代通し",
+    "sort_order": 4,
+    "quiz_ids": ["quiz_westasia_all_eras_term"],
+    "unlock_condition": {
+      "type": "complete_node",
+      "node_ids": ["node_westasia_ancient", "node_westasia_islam", "node_westasia_ottoman"]
+    }
+  }
+]

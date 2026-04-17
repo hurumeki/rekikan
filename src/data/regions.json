@@ -39,6 +39,18 @@
     }
   },
   {
+    "id": "westasia",
+    "label": "西アジア史",
+    "emoji": "🕌",
+    "color": "#f59e0b",
+    "era_colors": {
+      "ancient": { "label": "古代オリエント", "color": "#4ade80", "year_start": -3500 },
+      "islamic": { "label": "イスラーム世界", "color": "#60a5fa", "year_start": 622 },
+      "ottoman": { "label": "オスマン帝国", "color": "#fb923c", "year_start": 1299 },
+      "modern": { "label": "近現代", "color": "#f87171", "year_start": 1919 }
+    }
+  },
+  {
     "id": "world",
     "label": "同時代の世界",
     "emoji": "🌏",
