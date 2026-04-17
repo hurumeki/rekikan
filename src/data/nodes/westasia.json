@@ -93,15 +93,27 @@
     }
   },
   {
+    "id": "node_westasia_northafrica",
+    "region": "westasia",
+    "parent_id": "node_westasia_root",
+    "label": "北アフリカの歴史",
+    "sort_order": 4,
+    "quiz_ids": ["quiz_westasia_northafrica_desc", "quiz_westasia_northafrica_term"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_westasia_intro_desc"]
+    }
+  },
+  {
     "id": "node_westasia_all_eras",
     "region": "westasia",
     "parent_id": "node_westasia_root",
     "label": "全時代通し",
-    "sort_order": 4,
+    "sort_order": 5,
     "quiz_ids": ["quiz_westasia_all_eras_term"],
     "unlock_condition": {
       "type": "complete_node",
-      "node_ids": ["node_westasia_ancient", "node_westasia_islam", "node_westasia_ottoman"]
+      "node_ids": ["node_westasia_ancient", "node_westasia_islam", "node_westasia_ottoman", "node_westasia_northafrica"]
     }
   }
 ]

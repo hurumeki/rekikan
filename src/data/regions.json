@@ -40,8 +40,8 @@
   },
   {
     "id": "westasia",
-    "label": "西アジア史",
-    "emoji": "🕌",
+    "label": "西アジア・北アフリカ史",
+    "emoji": "🌙",
     "color": "#f59e0b",
     "era_colors": {
       "ancient": { "label": "古代オリエント", "color": "#4ade80", "year_start": -3500 },

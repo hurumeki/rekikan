@@ -158,18 +158,50 @@
   {
     "id": "quiz_westasia_all_eras_term",
     "region": "westasia",
-    "title": "西アジア史全般",
+    "title": "西アジア・北アフリカ史全般",
     "card_type": "term",
     "card_ids": [
       "card_westasia_mesopotamia",
-      "card_westasia_persia",
+      "card_westasia_carthage",
       "card_westasia_muhammad",
       "card_westasia_abbasid",
       "card_westasia_ottoman_found",
-      "card_westasia_constantinople",
+      "card_westasia_egypt_revolution",
       "card_westasia_israel"
     ],
     "modes": ["careful", "challenge", "timeline", "era_band"],
     "difficulty": 3
+  },
+  {
+    "id": "quiz_westasia_northafrica_desc",
+    "region": "westasia",
+    "title": "北アフリカの歴史の流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_westasia_desc_northafrica_1",
+      "card_westasia_desc_northafrica_2",
+      "card_westasia_desc_northafrica_3",
+      "card_westasia_desc_northafrica_4",
+      "card_westasia_desc_northafrica_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_westasia_northafrica_term",
+    "region": "westasia",
+    "title": "北アフリカの出来事",
+    "card_type": "term",
+    "card_ids": [
+      "card_westasia_phoenicia",
+      "card_westasia_carthage",
+      "card_westasia_ptolemy",
+      "card_westasia_fatimid",
+      "card_westasia_france_algeria",
+      "card_westasia_egypt_revolution",
+      "card_westasia_algeria_independence"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
   }
 ]
