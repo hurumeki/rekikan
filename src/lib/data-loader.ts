@@ -9,13 +9,19 @@ import regionsData from '@/data/regions.json';
 import japanCards from '@/data/cards/japan.json';
 import europeCards from '@/data/cards/europe.json';
 import chinaCards from '@/data/cards/china.json';
+import westasiaCards from '@/data/cards/westasia.json';
+import southasiaCards from '@/data/cards/southasia.json';
 import japanQuizzes from '@/data/quizzes/japan.json';
 import europeQuizzes from '@/data/quizzes/europe.json';
 import chinaQuizzes from '@/data/quizzes/china.json';
+import westasiaQuizzes from '@/data/quizzes/westasia.json';
+import southasiaQuizzes from '@/data/quizzes/southasia.json';
 import worldQuizzes from '@/data/quizzes/world.json';
 import japanNodes from '@/data/nodes/japan.json';
 import europeNodes from '@/data/nodes/europe.json';
 import chinaNodes from '@/data/nodes/china.json';
+import westasiaNodes from '@/data/nodes/westasia.json';
+import southasiaNodes from '@/data/nodes/southasia.json';
 import worldNodes from '@/data/nodes/world.json';
 
 const regions: Region[] = typed<Region>(regionsData);
@@ -23,17 +29,23 @@ const allCards: Card[] = [
   ...typed<Card>(japanCards),
   ...typed<Card>(europeCards),
   ...typed<Card>(chinaCards),
+  ...typed<Card>(westasiaCards),
+  ...typed<Card>(southasiaCards),
 ];
 const allQuizzes: Quiz[] = [
   ...typed<Quiz>(japanQuizzes),
   ...typed<Quiz>(europeQuizzes),
   ...typed<Quiz>(chinaQuizzes),
+  ...typed<Quiz>(westasiaQuizzes),
+  ...typed<Quiz>(southasiaQuizzes),
   ...typed<Quiz>(worldQuizzes),
 ];
 const allNodes: Node[] = [
   ...typed<Node>(japanNodes),
   ...typed<Node>(europeNodes),
   ...typed<Node>(chinaNodes),
+  ...typed<Node>(westasiaNodes),
+  ...typed<Node>(southasiaNodes),
   ...typed<Node>(worldNodes),
 ];
 
