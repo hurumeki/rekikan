@@ -1,0 +1,119 @@
+[
+  {
+    "id": "node_southasia_root",
+    "region": "southasia",
+    "parent_id": null,
+    "label": "南アジア史",
+    "sort_order": 0,
+    "quiz_ids": ["quiz_southasia_intro_desc"],
+    "unlock_condition": null
+  },
+  {
+    "id": "node_southasia_ancient",
+    "region": "southasia",
+    "parent_id": "node_southasia_root",
+    "label": "古代インド",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_southasia_ancient_flow"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_southasia_intro_desc"]
+    }
+  },
+  {
+    "id": "node_southasia_indus_vedic",
+    "region": "southasia",
+    "parent_id": "node_southasia_ancient",
+    "label": "インダス・ヴェーダ時代",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_southasia_ancient_desc", "quiz_southasia_indus_term"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_southasia_ancient_flow"]
+    }
+  },
+  {
+    "id": "node_southasia_empires",
+    "region": "southasia",
+    "parent_id": "node_southasia_ancient",
+    "label": "古典王朝",
+    "sort_order": 2,
+    "quiz_ids": ["quiz_southasia_empires_desc", "quiz_southasia_empires_term"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_southasia_ancient_flow"]
+    }
+  },
+  {
+    "id": "node_southasia_medieval",
+    "region": "southasia",
+    "parent_id": "node_southasia_root",
+    "label": "中世インドとイスラーム化",
+    "sort_order": 2,
+    "quiz_ids": ["quiz_southasia_medieval_term"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_southasia_intro_desc"]
+    }
+  },
+  {
+    "id": "node_southasia_mughal",
+    "region": "southasia",
+    "parent_id": "node_southasia_root",
+    "label": "ムガル帝国",
+    "sort_order": 3,
+    "quiz_ids": ["quiz_southasia_mughal_flow"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_southasia_intro_desc"]
+    }
+  },
+  {
+    "id": "node_southasia_mughal_detail",
+    "region": "southasia",
+    "parent_id": "node_southasia_mughal",
+    "label": "帝国の発展と衰退",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_southasia_mughal_desc", "quiz_southasia_mughal_detail_term"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_southasia_mughal_flow"]
+    }
+  },
+  {
+    "id": "node_southasia_modern",
+    "region": "southasia",
+    "parent_id": "node_southasia_root",
+    "label": "植民地支配と独立",
+    "sort_order": 4,
+    "quiz_ids": ["quiz_southasia_colonial_term"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_southasia_intro_desc"]
+    }
+  },
+  {
+    "id": "node_southasia_independence",
+    "region": "southasia",
+    "parent_id": "node_southasia_modern",
+    "label": "独立運動と現代",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_southasia_modern_desc", "quiz_southasia_independence_term"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_southasia_colonial_term"]
+    }
+  },
+  {
+    "id": "node_southasia_all_eras",
+    "region": "southasia",
+    "parent_id": "node_southasia_root",
+    "label": "全時代通し",
+    "sort_order": 5,
+    "quiz_ids": ["quiz_southasia_all_eras_term"],
+    "unlock_condition": {
+      "type": "complete_node",
+      "node_ids": ["node_southasia_ancient", "node_southasia_medieval", "node_southasia_mughal", "node_southasia_modern"]
+    }
+  }
+]

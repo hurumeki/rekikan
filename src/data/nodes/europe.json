@@ -14,19 +14,31 @@
     "parent_id": "node_europe_root",
     "label": "古代",
     "sort_order": 1,
-    "quiz_ids": ["quiz_europe_ancient"],
+    "quiz_ids": ["quiz_europe_ancient", "quiz_europe_ancient_detailed"],
     "unlock_condition": {
       "type": "complete_quizzes",
       "quiz_ids": ["quiz_europe_intro_desc"]
     }
   },
   {
-    "id": "node_europe_ancient_detailed",
+    "id": "node_europe_greece",
     "region": "europe",
     "parent_id": "node_europe_ancient",
-    "label": "ギリシア・ローマの出来事",
+    "label": "ギリシアの世界",
     "sort_order": 1,
-    "quiz_ids": ["quiz_europe_ancient_detailed"],
+    "quiz_ids": ["quiz_europe_greece_desc", "quiz_europe_greece_term"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_europe_ancient"]
+    }
+  },
+  {
+    "id": "node_europe_rome",
+    "region": "europe",
+    "parent_id": "node_europe_ancient",
+    "label": "ローマの世界",
+    "sort_order": 2,
+    "quiz_ids": ["quiz_europe_rome_desc", "quiz_europe_rome_term"],
     "unlock_condition": {
       "type": "complete_quizzes",
       "quiz_ids": ["quiz_europe_ancient"]
@@ -45,12 +57,24 @@
     }
   },
   {
-    "id": "node_europe_medieval_detailed",
+    "id": "node_europe_church_feudal",
     "region": "europe",
     "parent_id": "node_europe_medieval",
-    "label": "中世ヨーロッパの出来事",
+    "label": "教会と封建社会",
     "sort_order": 1,
     "quiz_ids": ["quiz_europe_medieval_detailed"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_europe_medieval"]
+    }
+  },
+  {
+    "id": "node_europe_crusades_change",
+    "region": "europe",
+    "parent_id": "node_europe_medieval",
+    "label": "十字軍と中世末の変動",
+    "sort_order": 2,
+    "quiz_ids": ["quiz_europe_medieval_decline"],
     "unlock_condition": {
       "type": "complete_quizzes",
       "quiz_ids": ["quiz_europe_medieval"]
@@ -69,6 +93,18 @@
     }
   },
   {
+    "id": "node_europe_renaissance_reformation",
+    "region": "europe",
+    "parent_id": "node_europe_early_modern",
+    "label": "ルネサンスと宗教改革",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_europe_renaissance_reformation_desc", "quiz_europe_reformation_term"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_europe_early_modern_detailed"]
+    }
+  },
+  {
     "id": "node_europe_modern",
     "region": "europe",
     "parent_id": "node_europe_root",
@@ -81,12 +117,24 @@
     }
   },
   {
-    "id": "node_europe_modern_detailed",
+    "id": "node_europe_civic_industrial",
     "region": "europe",
     "parent_id": "node_europe_modern",
-    "label": "市民革命と国家統一",
+    "label": "市民革命と産業革命",
     "sort_order": 1,
-    "quiz_ids": ["quiz_europe_modern_detailed"],
+    "quiz_ids": ["quiz_europe_modern_revolution_desc", "quiz_europe_modern_detailed", "quiz_europe_science_enlightenment_term"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_europe_modern"]
+    }
+  },
+  {
+    "id": "node_europe_nationalism_imperialism",
+    "region": "europe",
+    "parent_id": "node_europe_modern",
+    "label": "国民国家と帝国主義",
+    "sort_order": 2,
+    "quiz_ids": ["quiz_europe_nationalism_imperialism_term"],
     "unlock_condition": {
       "type": "complete_quizzes",
       "quiz_ids": ["quiz_europe_modern"]
@@ -105,6 +153,18 @@
     }
   },
   {
+    "id": "node_europe_coldwar",
+    "region": "europe",
+    "parent_id": "node_europe_world_wars",
+    "label": "冷戦と現代ヨーロッパ",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_europe_coldwar_term"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_europe_world_wars"]
+    }
+  },
+  {
     "id": "node_europe_all_eras",
     "region": "europe",
     "parent_id": "node_europe_root",
@@ -113,7 +173,7 @@
     "quiz_ids": ["quiz_europe_all_eras_term"],
     "unlock_condition": {
       "type": "complete_node",
-      "node_ids": ["node_europe_ancient", "node_europe_medieval", "node_europe_modern"]
+      "node_ids": ["node_europe_ancient", "node_europe_medieval", "node_europe_modern", "node_europe_world_wars"]
     }
   }
 ]

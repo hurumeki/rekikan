@@ -1,0 +1,220 @@
+[
+  {
+    "id": "quiz_southasia_intro_desc",
+    "region": "southasia",
+    "title": "南アジア史の大きな流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_southasia_desc_intro_1",
+      "card_southasia_desc_intro_2",
+      "card_southasia_desc_intro_3",
+      "card_southasia_desc_intro_4",
+      "card_southasia_desc_intro_5"
+    ],
+    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_southasia_ancient_flow",
+    "region": "southasia",
+    "title": "古代インドの流れ",
+    "card_type": "term",
+    "card_ids": [
+      "card_southasia_indus",
+      "card_southasia_aryan",
+      "card_southasia_upanishad",
+      "card_southasia_buddha",
+      "card_southasia_maurya",
+      "card_southasia_ashoka"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_southasia_ancient_desc",
+    "region": "southasia",
+    "title": "インダス・ヴェーダ時代の流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_southasia_desc_ancient_1",
+      "card_southasia_desc_ancient_2",
+      "card_southasia_desc_ancient_3",
+      "card_southasia_desc_ancient_4",
+      "card_southasia_desc_ancient_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_southasia_indus_term",
+    "region": "southasia",
+    "title": "インダス文明から仏教の成立",
+    "card_type": "term",
+    "card_ids": [
+      "card_southasia_indus",
+      "card_southasia_aryan",
+      "card_southasia_upanishad",
+      "card_southasia_buddha",
+      "card_southasia_maurya",
+      "card_southasia_ashoka"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_southasia_empires_desc",
+    "region": "southasia",
+    "title": "古典王朝の流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_southasia_desc_empires_1",
+      "card_southasia_desc_empires_2",
+      "card_southasia_desc_empires_3",
+      "card_southasia_desc_empires_4",
+      "card_southasia_desc_empires_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_southasia_empires_term",
+    "region": "southasia",
+    "title": "マウリヤ朝からデリー・スルタン朝",
+    "card_type": "term",
+    "card_ids": [
+      "card_southasia_maurya",
+      "card_southasia_ashoka",
+      "card_southasia_gupta",
+      "card_southasia_islam_invasion",
+      "card_southasia_delhi",
+      "card_southasia_timur"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_southasia_medieval_term",
+    "region": "southasia",
+    "title": "中世インドのイスラーム化",
+    "card_type": "term",
+    "card_ids": [
+      "card_southasia_islam_invasion",
+      "card_southasia_ghaznavid",
+      "card_southasia_delhi",
+      "card_southasia_vijayanagara",
+      "card_southasia_timur",
+      "card_southasia_mughal_found"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_southasia_mughal_flow",
+    "region": "southasia",
+    "title": "ムガル帝国の流れ",
+    "card_type": "term",
+    "card_ids": [
+      "card_southasia_mughal_found",
+      "card_southasia_akbar",
+      "card_southasia_east_india",
+      "card_southasia_aurangzeb",
+      "card_southasia_plassey"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_southasia_mughal_desc",
+    "region": "southasia",
+    "title": "ムガル帝国の興亡の流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_southasia_desc_mughal_1",
+      "card_southasia_desc_mughal_2",
+      "card_southasia_desc_mughal_3",
+      "card_southasia_desc_mughal_4",
+      "card_southasia_desc_mughal_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_southasia_mughal_detail_term",
+    "region": "southasia",
+    "title": "ムガル帝国の詳細",
+    "card_type": "term",
+    "card_ids": [
+      "card_southasia_mughal_found",
+      "card_southasia_akbar",
+      "card_southasia_east_india",
+      "card_southasia_taj_mahal",
+      "card_southasia_aurangzeb",
+      "card_southasia_plassey"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_southasia_colonial_term",
+    "region": "southasia",
+    "title": "イギリス植民地支配の確立",
+    "card_type": "term",
+    "card_ids": [
+      "card_southasia_east_india",
+      "card_southasia_plassey",
+      "card_southasia_sepoy",
+      "card_southasia_british_raj",
+      "card_southasia_congress"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_southasia_modern_desc",
+    "region": "southasia",
+    "title": "独立運動から独立の流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_southasia_desc_modern_1",
+      "card_southasia_desc_modern_2",
+      "card_southasia_desc_modern_3",
+      "card_southasia_desc_modern_4",
+      "card_southasia_desc_modern_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_southasia_independence_term",
+    "region": "southasia",
+    "title": "独立運動と現代南アジア",
+    "card_type": "term",
+    "card_ids": [
+      "card_southasia_sepoy",
+      "card_southasia_british_raj",
+      "card_southasia_congress",
+      "card_southasia_gandhi",
+      "card_southasia_independence",
+      "card_southasia_bangladesh"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_southasia_all_eras_term",
+    "region": "southasia",
+    "title": "南アジア史全般",
+    "card_type": "term",
+    "card_ids": [
+      "card_southasia_indus",
+      "card_southasia_buddha",
+      "card_southasia_ashoka",
+      "card_southasia_delhi",
+      "card_southasia_mughal_found",
+      "card_southasia_sepoy",
+      "card_southasia_independence"
+    ],
+    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "difficulty": 3
+  }
+]

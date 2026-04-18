@@ -148,5 +148,174 @@
     ],
     "modes": ["careful", "challenge", "timeline", "era_band"],
     "difficulty": 3
+  },
+  {
+    "id": "quiz_europe_greece_desc",
+    "region": "europe",
+    "title": "ギリシア世界の流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_europe_desc_greece_1",
+      "card_europe_desc_greece_2",
+      "card_europe_desc_greece_3",
+      "card_europe_desc_greece_4",
+      "card_europe_desc_greece_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_europe_greece_term",
+    "region": "europe",
+    "title": "ギリシアの出来事と人物",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_polis",
+      "card_europe_persian_wars",
+      "card_europe_pericles",
+      "card_europe_peloponnesian_war",
+      "card_europe_alexander",
+      "card_europe_hellenism"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_europe_rome_desc",
+    "region": "europe",
+    "title": "ローマ世界の流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_europe_desc_rome_1",
+      "card_europe_desc_rome_2",
+      "card_europe_desc_rome_3",
+      "card_europe_desc_rome_4",
+      "card_europe_desc_rome_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_europe_rome_term",
+    "region": "europe",
+    "title": "ローマの盛衰",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_punic_wars",
+      "card_europe_caesar",
+      "card_europe_augustus",
+      "card_europe_constantine",
+      "card_europe_byzantine",
+      "card_europe_fall_of_rome"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_europe_medieval_decline",
+    "region": "europe",
+    "title": "十字軍から中世末の変動",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_crusades",
+      "card_europe_renaissance",
+      "card_europe_hundred_years_war",
+      "card_europe_black_death",
+      "card_europe_joan_of_arc"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_europe_renaissance_reformation_desc",
+    "region": "europe",
+    "title": "ルネサンスと宗教改革の流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_europe_desc_renaissance_1",
+      "card_europe_desc_renaissance_2",
+      "card_europe_desc_renaissance_3",
+      "card_europe_desc_renaissance_4",
+      "card_europe_desc_renaissance_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_europe_reformation_term",
+    "region": "europe",
+    "title": "宗教改革と主権国家の成立",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_renaissance",
+      "card_europe_luther",
+      "card_europe_calvin",
+      "card_europe_scientific_revolution",
+      "card_europe_westphalia",
+      "card_europe_glorious_revolution"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_europe_modern_revolution_desc",
+    "region": "europe",
+    "title": "科学革命から市民革命の流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_europe_desc_modern_1",
+      "card_europe_desc_modern_2",
+      "card_europe_desc_modern_3",
+      "card_europe_desc_modern_4",
+      "card_europe_desc_modern_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_europe_science_enlightenment_term",
+    "region": "europe",
+    "title": "科学革命と啓蒙思想",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_scientific_revolution",
+      "card_europe_locke",
+      "card_europe_enlightenment",
+      "card_europe_american_independence",
+      "card_europe_french_revolution"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_europe_nationalism_imperialism_term",
+    "region": "europe",
+    "title": "国民国家と帝国主義の展開",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_nationalism",
+      "card_europe_victoria",
+      "card_europe_italian_unification",
+      "card_europe_imperialism",
+      "card_europe_bismarck",
+      "card_europe_sarajevo"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_europe_coldwar_term",
+    "region": "europe",
+    "title": "冷戦と現代ヨーロッパ",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_versailles",
+      "card_europe_nazi",
+      "card_europe_cold_war",
+      "card_europe_berlin_wall_fall",
+      "card_europe_eu"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
   }
 ]
