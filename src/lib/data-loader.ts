@@ -32,7 +32,7 @@ const allCards: Card[] = [
   ...typed<Card>(westasiaCards),
   ...typed<Card>(southasiaCards),
 ];
-const allQuizzes: Quiz[] = [
+export const allQuizzes: Quiz[] = [
   ...typed<Quiz>(japanQuizzes),
   ...typed<Quiz>(europeQuizzes),
   ...typed<Quiz>(chinaQuizzes),
