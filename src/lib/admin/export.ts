@@ -47,6 +47,20 @@ export function buildExport(state: AdminState, opts: ExportOptions): ExportForma
         card_ids: q.card_ids.filter((id) => approvedIds.has(id)),
       }))
       .filter((q) => q.card_ids.length > 0);
+    // Drop regions/nodes that no longer have any referenced content,
+    // keeping the export size minimal and self-consistent.
+    const keptRegionIds = new Set<string>([
+      ...cards.map((c) => c.region),
+      ...quizzes.map((q) => q.region),
+    ]);
+    const keptQuizIds = new Set(quizzes.map((q) => q.id));
+    regions = regions.filter((r) => keptRegionIds.has(r.id));
+    nodes = nodes
+      .filter((n) => keptRegionIds.has(n.region))
+      .map((n) => ({
+        ...n,
+        quiz_ids: n.quiz_ids.filter((id) => keptQuizIds.has(id)),
+      }));
   } else if (opts.scope === 'by_region' && opts.regionId) {
     regions = regions.filter((r) => r.id === opts.regionId);
     cards = cards.filter((c) => c.region === opts.regionId);

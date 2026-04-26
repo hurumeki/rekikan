@@ -1,63 +1,49 @@
 import type { Region, Card, Quiz, Node } from './types';
+import { REGIONS, ALL_CARDS, ALL_QUIZZES, ALL_NODES } from './data-registry';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function typed<T>(data: any): T[] {
-  return data as T[];
+export const allQuizzes: Quiz[] = ALL_QUIZZES;
+
+const regionMap = new Map<string, Region>(REGIONS.map((r) => [r.id, r]));
+const cardMap = new Map<string, Card>(ALL_CARDS.map((c) => [c.id, c]));
+const quizMap = new Map<string, Quiz>(ALL_QUIZZES.map((q) => [q.id, q]));
+const nodeMap = new Map<string, Node>(ALL_NODES.map((n) => [n.id, n]));
+
+const nodesByRegion = new Map<string, Node[]>();
+for (const node of ALL_NODES) {
+  let list = nodesByRegion.get(node.region);
+  if (!list) {
+    list = [];
+    nodesByRegion.set(node.region, list);
+  }
+  list.push(node);
 }
 
-import regionsData from '@/data/regions.json';
-import japanCards from '@/data/cards/japan.json';
-import europeCards from '@/data/cards/europe.json';
-import chinaCards from '@/data/cards/china.json';
-import westasiaCards from '@/data/cards/westasia.json';
-import southasiaCards from '@/data/cards/southasia.json';
-import japanQuizzes from '@/data/quizzes/japan.json';
-import europeQuizzes from '@/data/quizzes/europe.json';
-import chinaQuizzes from '@/data/quizzes/china.json';
-import westasiaQuizzes from '@/data/quizzes/westasia.json';
-import southasiaQuizzes from '@/data/quizzes/southasia.json';
-import worldQuizzes from '@/data/quizzes/world.json';
-import japanNodes from '@/data/nodes/japan.json';
-import europeNodes from '@/data/nodes/europe.json';
-import chinaNodes from '@/data/nodes/china.json';
-import westasiaNodes from '@/data/nodes/westasia.json';
-import southasiaNodes from '@/data/nodes/southasia.json';
-import worldNodes from '@/data/nodes/world.json';
+const childrenByParent = new Map<string | null, Node[]>();
+for (const node of ALL_NODES) {
+  let list = childrenByParent.get(node.parent_id);
+  if (!list) {
+    list = [];
+    childrenByParent.set(node.parent_id, list);
+  }
+  list.push(node);
+}
+for (const list of childrenByParent.values()) {
+  list.sort((a, b) => a.sort_order - b.sort_order);
+}
 
-const regions: Region[] = typed<Region>(regionsData);
-const allCards: Card[] = [
-  ...typed<Card>(japanCards),
-  ...typed<Card>(europeCards),
-  ...typed<Card>(chinaCards),
-  ...typed<Card>(westasiaCards),
-  ...typed<Card>(southasiaCards),
-];
-export const allQuizzes: Quiz[] = [
-  ...typed<Quiz>(japanQuizzes),
-  ...typed<Quiz>(europeQuizzes),
-  ...typed<Quiz>(chinaQuizzes),
-  ...typed<Quiz>(westasiaQuizzes),
-  ...typed<Quiz>(southasiaQuizzes),
-  ...typed<Quiz>(worldQuizzes),
-];
-const allNodes: Node[] = [
-  ...typed<Node>(japanNodes),
-  ...typed<Node>(europeNodes),
-  ...typed<Node>(chinaNodes),
-  ...typed<Node>(westasiaNodes),
-  ...typed<Node>(southasiaNodes),
-  ...typed<Node>(worldNodes),
-];
-
-const cardMap = new Map<string, Card>(allCards.map((c) => [c.id, c]));
-const quizMap = new Map<string, Quiz>(allQuizzes.map((q) => [q.id, q]));
+const rootByRegion = new Map<string, Node>();
+for (const node of ALL_NODES) {
+  if (node.parent_id === null && !rootByRegion.has(node.region)) {
+    rootByRegion.set(node.region, node);
+  }
+}
 
 export function getRegions(): Region[] {
-  return regions;
+  return REGIONS;
 }
 
 export function getRegion(regionId: string): Region | undefined {
-  return regions.find((r) => r.id === regionId);
+  return regionMap.get(regionId);
 }
 
 export function getCard(cardId: string): Card | undefined {
@@ -73,19 +59,17 @@ export function getQuiz(quizId: string): Quiz | undefined {
 }
 
 export function getNodesForRegion(regionId: string): Node[] {
-  return allNodes.filter((n) => n.region === regionId);
+  return nodesByRegion.get(regionId) ?? [];
 }
 
 export function getRootNode(regionId: string): Node | undefined {
-  return allNodes.find((n) => n.region === regionId && n.parent_id === null);
+  return rootByRegion.get(regionId);
 }
 
 export function getNode(nodeId: string): Node | undefined {
-  return allNodes.find((n) => n.id === nodeId);
+  return nodeMap.get(nodeId);
 }
 
 export function getChildNodes(parentId: string): Node[] {
-  return allNodes
-    .filter((n) => n.parent_id === parentId)
-    .sort((a, b) => a.sort_order - b.sort_order);
+  return childrenByParent.get(parentId) ?? [];
 }

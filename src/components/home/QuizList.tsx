@@ -45,6 +45,12 @@ function isNodeUnlocked(node: Node, progress: Record<string, QuizProgress>): boo
         return targetNode.quiz_ids.every((qid) => progress[qid]?.cleared === true);
       });
     }
+    if (condition.type === 'attempts') {
+      return (progress[condition.quiz_id]?.attemptCount ?? 0) >= condition.count;
+    }
+    if (condition.type === 'hint_clear') {
+      return progress[condition.quiz_id]?.clearedWithHint === true;
+    }
     return false;
   });
 }

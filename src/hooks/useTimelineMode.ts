@@ -18,14 +18,14 @@ interface TimelineModeState {
  * Returns half-width of each era band in years, so clicking within
  * the correct era counts as correct.
  */
-function calcThreshold(cards: Card[], rangeStart: number, rangeEnd: number): number {
+function calcThreshold(rangeStart: number, rangeEnd: number): number {
   const span = rangeEnd - rangeStart;
   // Allow roughly 1/6 of the total range as the acceptable margin
   return Math.round(span / 6);
 }
 
 export function useTimelineMode(cards: Card[], rangeStart: number, rangeEnd: number) {
-  const threshold = calcThreshold(cards, rangeStart, rangeEnd);
+  const threshold = calcThreshold(rangeStart, rangeEnd);
 
   const [state, setState] = useState<TimelineModeState>(() => ({
     cards: shuffleArray(cards),

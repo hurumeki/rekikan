@@ -1,5 +1,7 @@
 import type { Card, Quiz, Node, Region } from '@/lib/types';
 import type { AdminState } from './store';
+import type { CategoryDef } from './categories';
+import { detectCircularRefs } from './selectors';
 
 export interface ValidationError {
   level: 'error' | 'warning';
@@ -32,34 +34,104 @@ export function isHintOrderRevealing(hint: string): boolean {
   return ORDER_REVEALING_PATTERNS.some((p) => p.test(hint));
 }
 
-export function validateCard(card: Card, state: Pick<AdminState, 'regions' | 'categories'>): ValidationError[] {
+export function validateCard(
+  card: Card,
+  state: Pick<AdminState, 'regions' | 'categories'>,
+): ValidationError[] {
   const errors: ValidationError[] = [];
 
   // Required fields
-  if (!card.id) errors.push({ level: 'error', entity: 'card', id: card.id ?? '?', field: 'id', message: 'IDは必須です' });
-  if (card.id && !ID_PATTERN.test(card.id)) errors.push({ level: 'error', entity: 'card', id: card.id, field: 'id', message: 'IDは英数字・アンダースコアのみ（最大64文字）' });
-  if (!card.region) errors.push({ level: 'error', entity: 'card', id: card.id, field: 'region', message: 'リージョンは必須です' });
-  if (!card.description) errors.push({ level: 'error', entity: 'card', id: card.id, field: 'description', message: '説明文は必須です' });
-  if (card.year == null) errors.push({ level: 'error', entity: 'card', id: card.id, field: 'year', message: '年は必須です' });
-  if (!card.era_color_key) errors.push({ level: 'error', entity: 'card', id: card.id, field: 'era_color_key', message: '時代帯は必須です' });
-  if (!card.status) errors.push({ level: 'error', entity: 'card', id: card.id, field: 'status', message: 'ステータスは必須です' });
+  if (!card.id)
+    errors.push({
+      level: 'error',
+      entity: 'card',
+      id: card.id ?? '?',
+      field: 'id',
+      message: 'IDは必須です',
+    });
+  if (card.id && !ID_PATTERN.test(card.id))
+    errors.push({
+      level: 'error',
+      entity: 'card',
+      id: card.id,
+      field: 'id',
+      message: 'IDは英数字・アンダースコアのみ（最大64文字）',
+    });
+  if (!card.region)
+    errors.push({
+      level: 'error',
+      entity: 'card',
+      id: card.id,
+      field: 'region',
+      message: 'リージョンは必須です',
+    });
+  if (!card.description)
+    errors.push({
+      level: 'error',
+      entity: 'card',
+      id: card.id,
+      field: 'description',
+      message: '説明文は必須です',
+    });
+  if (card.year == null)
+    errors.push({
+      level: 'error',
+      entity: 'card',
+      id: card.id,
+      field: 'year',
+      message: '年は必須です',
+    });
+  if (!card.era_color_key)
+    errors.push({
+      level: 'error',
+      entity: 'card',
+      id: card.id,
+      field: 'era_color_key',
+      message: '時代帯は必須です',
+    });
+  if (!card.status)
+    errors.push({
+      level: 'error',
+      entity: 'card',
+      id: card.id,
+      field: 'status',
+      message: 'ステータスは必須です',
+    });
 
   // Term cards require name
   if (card.type === 'term' && !card.name) {
-    errors.push({ level: 'error', entity: 'card', id: card.id, field: 'name', message: '用語カードには用語名が必要です' });
+    errors.push({
+      level: 'error',
+      entity: 'card',
+      id: card.id,
+      field: 'name',
+      message: '用語カードには用語名が必要です',
+    });
   }
 
   // Region existence
   const regionExists = state.regions.some((r) => r.id === card.region);
   if (card.region && !regionExists) {
-    errors.push({ level: 'error', entity: 'card', id: card.id, field: 'region', message: `リージョン "${card.region}" が存在しません` });
+    errors.push({
+      level: 'error',
+      entity: 'card',
+      id: card.id,
+      field: 'region',
+      message: `リージョン "${card.region}" が存在しません`,
+    });
   }
 
   // Era color key existence
   if (card.region && card.era_color_key && regionExists) {
     const region = state.regions.find((r) => r.id === card.region);
     if (region && !region.era_colors[card.era_color_key]) {
-      errors.push({ level: 'error', entity: 'card', id: card.id, field: 'era_color_key', message: `時代帯キー "${card.era_color_key}" がリージョン "${card.region}" に存在しません` });
+      errors.push({
+        level: 'error',
+        entity: 'card',
+        id: card.id,
+        field: 'era_color_key',
+        message: `時代帯キー "${card.era_color_key}" がリージョン "${card.region}" に存在しません`,
+      });
     }
   }
 
@@ -67,13 +139,25 @@ export function validateCard(card: Card, state: Pick<AdminState, 'regions' | 'ca
   if (card.category) {
     const catExists = state.categories.some((c) => c.value === card.category);
     if (!catExists) {
-      errors.push({ level: 'error', entity: 'card', id: card.id, field: 'category', message: `カテゴリ "${card.category}" が存在しません` });
+      errors.push({
+        level: 'error',
+        entity: 'card',
+        id: card.id,
+        field: 'category',
+        message: `カテゴリ "${card.category}" が存在しません`,
+      });
     }
   }
 
   // Hint order-revealing warning
   if (card.hint && isHintOrderRevealing(card.hint)) {
-    errors.push({ level: 'warning', entity: 'card', id: card.id, field: 'hint', message: 'ヒントに順序を示す情報が含まれている可能性があります' });
+    errors.push({
+      level: 'warning',
+      entity: 'card',
+      id: card.id,
+      field: 'hint',
+      message: 'ヒントに順序を示す情報が含まれている可能性があります',
+    });
   }
 
   return errors;
@@ -83,27 +167,86 @@ function validateQuiz(quiz: Quiz, cards: Card[]): ValidationError[] {
   const errors: ValidationError[] = [];
   const cardMap = new Map(cards.map((c) => [c.id, c]));
 
-  if (!quiz.id) errors.push({ level: 'error', entity: 'quiz', id: quiz.id ?? '?', field: 'id', message: 'IDは必須です' });
-  if (quiz.id && !ID_PATTERN.test(quiz.id)) errors.push({ level: 'error', entity: 'quiz', id: quiz.id, field: 'id', message: 'IDは英数字・アンダースコアのみ（最大64文字）' });
-  if (!quiz.title) errors.push({ level: 'error', entity: 'quiz', id: quiz.id, field: 'title', message: 'タイトルは必須です' });
-  if (!quiz.card_type) errors.push({ level: 'error', entity: 'quiz', id: quiz.id, field: 'card_type', message: 'カードタイプは必須です' });
-  if (!quiz.region) errors.push({ level: 'error', entity: 'quiz', id: quiz.id, field: 'region', message: 'リージョンは必須です' });
+  if (!quiz.id)
+    errors.push({
+      level: 'error',
+      entity: 'quiz',
+      id: quiz.id ?? '?',
+      field: 'id',
+      message: 'IDは必須です',
+    });
+  if (quiz.id && !ID_PATTERN.test(quiz.id))
+    errors.push({
+      level: 'error',
+      entity: 'quiz',
+      id: quiz.id,
+      field: 'id',
+      message: 'IDは英数字・アンダースコアのみ（最大64文字）',
+    });
+  if (!quiz.title)
+    errors.push({
+      level: 'error',
+      entity: 'quiz',
+      id: quiz.id,
+      field: 'title',
+      message: 'タイトルは必須です',
+    });
+  if (!quiz.card_type)
+    errors.push({
+      level: 'error',
+      entity: 'quiz',
+      id: quiz.id,
+      field: 'card_type',
+      message: 'カードタイプは必須です',
+    });
+  if (!quiz.region)
+    errors.push({
+      level: 'error',
+      entity: 'quiz',
+      id: quiz.id,
+      field: 'region',
+      message: 'リージョンは必須です',
+    });
 
   // Card existence and region consistency
   for (const cardId of quiz.card_ids) {
     const card = cardMap.get(cardId);
     if (!card) {
-      errors.push({ level: 'error', entity: 'quiz', id: quiz.id, field: 'card_ids', message: `カード "${cardId}" が存在しません` });
+      errors.push({
+        level: 'error',
+        entity: 'quiz',
+        id: quiz.id,
+        field: 'card_ids',
+        message: `カード "${cardId}" が存在しません`,
+      });
     } else if (quiz.region && card.region !== quiz.region) {
-      errors.push({ level: 'warning', entity: 'quiz', id: quiz.id, field: 'card_ids', message: `カード "${cardId}" のリージョン(${card.region})がクイズのリージョン(${quiz.region})と異なります` });
+      errors.push({
+        level: 'warning',
+        entity: 'quiz',
+        id: quiz.id,
+        field: 'card_ids',
+        message: `カード "${cardId}" のリージョン(${card.region})がクイズのリージョン(${quiz.region})と異なります`,
+      });
     }
   }
 
   // Card count
   if (quiz.card_ids.length < 5) {
-    errors.push({ level: 'warning', entity: 'quiz', id: quiz.id, field: 'card_ids', message: `カード数が少なすぎます（${quiz.card_ids.length}枚、推奨5〜8枚）` });
+    errors.push({
+      level: 'warning',
+      entity: 'quiz',
+      id: quiz.id,
+      field: 'card_ids',
+      message: `カード数が少なすぎます（${quiz.card_ids.length}枚、推奨5〜8枚）`,
+    });
   } else if (quiz.card_ids.length > 8) {
-    errors.push({ level: 'warning', entity: 'quiz', id: quiz.id, field: 'card_ids', message: `カード数が多すぎます（${quiz.card_ids.length}枚、推奨5〜8枚）` });
+    errors.push({
+      level: 'warning',
+      entity: 'quiz',
+      id: quiz.id,
+      field: 'card_ids',
+      message: `カード数が多すぎます（${quiz.card_ids.length}枚、推奨5〜8枚）`,
+    });
   }
 
   // Non-approved cards
@@ -112,7 +255,13 @@ function validateQuiz(quiz: Quiz, cards: Card[]): ValidationError[] {
     return c && c.status !== 'approved';
   });
   if (hasNonApproved) {
-    errors.push({ level: 'warning', entity: 'quiz', id: quiz.id, field: 'card_ids', message: '未承認のカードが含まれています' });
+    errors.push({
+      level: 'warning',
+      entity: 'quiz',
+      id: quiz.id,
+      field: 'card_ids',
+      message: '未承認のカードが含まれています',
+    });
   }
 
   return errors;
@@ -123,68 +272,247 @@ function validateNode(node: Node, nodes: Node[], quizzes: Quiz[]): ValidationErr
   const nodeMap = new Map(nodes.map((n) => [n.id, n]));
   const quizMap = new Map(quizzes.map((q) => [q.id, q]));
 
-  if (!node.id) errors.push({ level: 'error', entity: 'node', id: node.id ?? '?', field: 'id', message: 'IDは必須です' });
-  if (node.id && !ID_PATTERN.test(node.id)) errors.push({ level: 'error', entity: 'node', id: node.id, field: 'id', message: 'IDは英数字・アンダースコアのみ（最大64文字）' });
-  if (!node.label) errors.push({ level: 'error', entity: 'node', id: node.id, field: 'label', message: 'ラベルは必須です' });
-  if (!node.region) errors.push({ level: 'error', entity: 'node', id: node.id, field: 'region', message: 'リージョンは必須です' });
+  if (!node.id)
+    errors.push({
+      level: 'error',
+      entity: 'node',
+      id: node.id ?? '?',
+      field: 'id',
+      message: 'IDは必須です',
+    });
+  if (node.id && !ID_PATTERN.test(node.id))
+    errors.push({
+      level: 'error',
+      entity: 'node',
+      id: node.id,
+      field: 'id',
+      message: 'IDは英数字・アンダースコアのみ（最大64文字）',
+    });
+  if (!node.label)
+    errors.push({
+      level: 'error',
+      entity: 'node',
+      id: node.id,
+      field: 'label',
+      message: 'ラベルは必須です',
+    });
+  if (!node.region)
+    errors.push({
+      level: 'error',
+      entity: 'node',
+      id: node.id,
+      field: 'region',
+      message: 'リージョンは必須です',
+    });
 
   // Parent existence and region consistency
   if (node.parent_id) {
     const parentNode = nodeMap.get(node.parent_id);
     if (!parentNode) {
-      errors.push({ level: 'error', entity: 'node', id: node.id, field: 'parent_id', message: `親ノード "${node.parent_id}" が存在しません` });
+      errors.push({
+        level: 'error',
+        entity: 'node',
+        id: node.id,
+        field: 'parent_id',
+        message: `親ノード "${node.parent_id}" が存在しません`,
+      });
     } else if (node.region && parentNode.region !== node.region) {
-      errors.push({ level: 'warning', entity: 'node', id: node.id, field: 'parent_id', message: `親ノード "${node.parent_id}" のリージョン(${parentNode.region})と異なります` });
+      errors.push({
+        level: 'warning',
+        entity: 'node',
+        id: node.id,
+        field: 'parent_id',
+        message: `親ノード "${node.parent_id}" のリージョン(${parentNode.region})と異なります`,
+      });
     }
   }
 
   // Quiz existence
   for (const quizId of node.quiz_ids) {
     if (!quizMap.has(quizId)) {
-      errors.push({ level: 'error', entity: 'node', id: node.id, field: 'quiz_ids', message: `クイズ "${quizId}" が存在しません` });
+      errors.push({
+        level: 'error',
+        entity: 'node',
+        id: node.id,
+        field: 'quiz_ids',
+        message: `クイズ "${quizId}" が存在しません`,
+      });
     }
   }
 
   return errors;
 }
 
-export function validateImport(data: unknown): ValidationReport {
+function isPlainObject(v: unknown): v is Record<string, unknown> {
+  return !!v && typeof v === 'object' && !Array.isArray(v);
+}
+
+function isStringArray(v: unknown): v is string[] {
+  return Array.isArray(v) && v.every((x) => typeof x === 'string');
+}
+
+function looksLikeRegion(v: unknown): boolean {
+  if (!isPlainObject(v)) return false;
+  return (
+    typeof v.id === 'string' &&
+    typeof v.label === 'string' &&
+    typeof v.emoji === 'string' &&
+    typeof v.color === 'string' &&
+    isPlainObject(v.era_colors)
+  );
+}
+
+function looksLikeCard(v: unknown): boolean {
+  if (!isPlainObject(v)) return false;
+  return (
+    typeof v.id === 'string' &&
+    typeof v.region === 'string' &&
+    (v.type === 'term' || v.type === 'description') &&
+    typeof v.description === 'string' &&
+    typeof v.year === 'number' &&
+    typeof v.era_color_key === 'string'
+  );
+}
+
+function looksLikeQuiz(v: unknown): boolean {
+  if (!isPlainObject(v)) return false;
+  return (
+    typeof v.id === 'string' &&
+    typeof v.region === 'string' &&
+    typeof v.title === 'string' &&
+    isStringArray(v.card_ids) &&
+    Array.isArray(v.modes)
+  );
+}
+
+function looksLikeNode(v: unknown): boolean {
+  if (!isPlainObject(v)) return false;
+  return (
+    typeof v.id === 'string' &&
+    typeof v.region === 'string' &&
+    typeof v.label === 'string' &&
+    (v.parent_id === null || typeof v.parent_id === 'string') &&
+    isStringArray(v.quiz_ids)
+  );
+}
+
+export interface SanitizedImport {
+  regions: Region[];
+  cards: Card[];
+  quizzes: Quiz[];
+  nodes: Node[];
+  categories: CategoryDef[];
+}
+
+export function validateImport(data: unknown): ValidationReport & { sanitized?: SanitizedImport } {
   const errors: ValidationError[] = [];
   const warnings: ValidationError[] = [];
 
-  if (!data || typeof data !== 'object') {
-    errors.push({ level: 'error', entity: 'root', id: 'root', message: '有効なJSONオブジェクトではありません' });
+  if (!isPlainObject(data)) {
+    errors.push({
+      level: 'error',
+      entity: 'root',
+      id: 'root',
+      message: '有効なJSONオブジェクトではありません',
+    });
     return { errors, warnings, valid: false };
   }
 
-  const d = data as Record<string, unknown>;
+  const d = data;
 
   // Version check
   if (!d.version) {
-    warnings.push({ level: 'warning', entity: 'root', id: 'root', field: 'version', message: 'バージョンフィールドがありません' });
+    warnings.push({
+      level: 'warning',
+      entity: 'root',
+      id: 'root',
+      field: 'version',
+      message: 'バージョンフィールドがありません',
+    });
   }
 
   // Required arrays
   const required = ['regions', 'cards', 'quizzes', 'nodes'] as const;
   for (const key of required) {
     if (!Array.isArray(d[key])) {
-      errors.push({ level: 'error', entity: 'root', id: 'root', field: key, message: `"${key}" フィールドが配列ではありません` });
+      errors.push({
+        level: 'error',
+        entity: 'root',
+        id: 'root',
+        field: key,
+        message: `"${key}" フィールドが配列ではありません`,
+      });
     }
   }
 
   if (errors.length > 0) return { errors, warnings, valid: false };
 
-  const regions = d.regions as Region[];
-  const cards = d.cards as Card[];
-  const quizzes = d.quizzes as Quiz[];
-  const nodes = d.nodes as Node[];
+  // Element-level shape check before casting. Reject the whole import on
+  // first malformed element to avoid downstream crashes.
+  const rawRegions = d.regions as unknown[];
+  const rawCards = d.cards as unknown[];
+  const rawQuizzes = d.quizzes as unknown[];
+  const rawNodes = d.nodes as unknown[];
 
-  const fakeState = {
-    regions,
-    categories: Array.isArray(d.categories)
-      ? (d.categories as { value: string; label: string; icon: string }[])
-      : [],
-  };
+  for (let i = 0; i < rawRegions.length; i++) {
+    if (!looksLikeRegion(rawRegions[i])) {
+      errors.push({
+        level: 'error',
+        entity: 'region',
+        id: `index_${i}`,
+        message: `regions[${i}] のスキーマが不正です`,
+      });
+    }
+  }
+  for (let i = 0; i < rawCards.length; i++) {
+    if (!looksLikeCard(rawCards[i])) {
+      errors.push({
+        level: 'error',
+        entity: 'card',
+        id: `index_${i}`,
+        message: `cards[${i}] のスキーマが不正です`,
+      });
+    }
+  }
+  for (let i = 0; i < rawQuizzes.length; i++) {
+    if (!looksLikeQuiz(rawQuizzes[i])) {
+      errors.push({
+        level: 'error',
+        entity: 'quiz',
+        id: `index_${i}`,
+        message: `quizzes[${i}] のスキーマが不正です`,
+      });
+    }
+  }
+  for (let i = 0; i < rawNodes.length; i++) {
+    if (!looksLikeNode(rawNodes[i])) {
+      errors.push({
+        level: 'error',
+        entity: 'node',
+        id: `index_${i}`,
+        message: `nodes[${i}] のスキーマが不正です`,
+      });
+    }
+  }
+
+  if (errors.length > 0) return { errors, warnings, valid: false };
+
+  const regions = rawRegions as Region[];
+  const cards = rawCards as Card[];
+  const quizzes = rawQuizzes as Quiz[];
+  const nodes = rawNodes as Node[];
+
+  const categories: CategoryDef[] = Array.isArray(d.categories)
+    ? ((d.categories as unknown[]).filter(
+        (c) =>
+          isPlainObject(c) &&
+          typeof c.value === 'string' &&
+          typeof c.label === 'string' &&
+          typeof c.icon === 'string',
+      ) as CategoryDef[])
+    : [];
+
+  const fakeState = { regions, categories };
 
   // Validate each card
   const cardIds = new Set<string>();
@@ -196,7 +524,12 @@ export function validateImport(data: unknown): ValidationReport {
     }
     if (card.id) {
       if (cardIds.has(card.id)) {
-        errors.push({ level: 'error', entity: 'card', id: card.id, message: `カードID "${card.id}" が重複しています` });
+        errors.push({
+          level: 'error',
+          entity: 'card',
+          id: card.id,
+          message: `カードID "${card.id}" が重複しています`,
+        });
       }
       cardIds.add(card.id);
     }
@@ -212,7 +545,12 @@ export function validateImport(data: unknown): ValidationReport {
     }
     if (quiz.id) {
       if (quizIds.has(quiz.id)) {
-        errors.push({ level: 'error', entity: 'quiz', id: quiz.id, message: `クイズID "${quiz.id}" が重複しています` });
+        errors.push({
+          level: 'error',
+          entity: 'quiz',
+          id: quiz.id,
+          message: `クイズID "${quiz.id}" が重複しています`,
+        });
       }
       quizIds.add(quiz.id);
     }
@@ -228,15 +566,34 @@ export function validateImport(data: unknown): ValidationReport {
     }
     if (node.id) {
       if (nodeIds.has(node.id)) {
-        errors.push({ level: 'error', entity: 'node', id: node.id, message: `ノードID "${node.id}" が重複しています` });
+        errors.push({
+          level: 'error',
+          entity: 'node',
+          id: node.id,
+          message: `ノードID "${node.id}" が重複しています`,
+        });
       }
       nodeIds.add(node.id);
     }
+  }
+
+  // Detect circular parent_id chains across nodes — fatal because the tree
+  // walker in QuizList would otherwise loop forever.
+  const circularNodeIds = detectCircularRefs(nodes);
+  for (const id of circularNodeIds) {
+    errors.push({
+      level: 'error',
+      entity: 'node',
+      id,
+      field: 'parent_id',
+      message: `ノード "${id}" の親子関係に循環があります`,
+    });
   }
 
   return {
     errors,
     warnings,
     valid: errors.length === 0,
+    sanitized: errors.length === 0 ? { regions, cards, quizzes, nodes, categories } : undefined,
   };
 }
