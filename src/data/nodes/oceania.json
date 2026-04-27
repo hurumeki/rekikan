@@ -1,0 +1,149 @@
+[
+  {
+    "id": "node_oceania_root",
+    "region": "oceania",
+    "parent_id": null,
+    "label": "オセアニア史",
+    "sort_order": 0,
+    "quiz_ids": ["quiz_oceania_intro_desc"],
+    "unlock_condition": null
+  },
+  {
+    "id": "node_oceania_indigenous",
+    "region": "oceania",
+    "parent_id": "node_oceania_root",
+    "label": "先住民の世界",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_oceania_indigenous_flow"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_oceania_intro_desc"]
+    }
+  },
+  {
+    "id": "node_oceania_indigenous_detail",
+    "region": "oceania",
+    "parent_id": "node_oceania_indigenous",
+    "label": "海洋世界の文化",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_oceania_indigenous_desc"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_oceania_indigenous_flow"]
+    }
+  },
+  {
+    "id": "node_oceania_exploration",
+    "region": "oceania",
+    "parent_id": "node_oceania_root",
+    "label": "ヨーロッパ人の探検",
+    "sort_order": 2,
+    "quiz_ids": ["quiz_oceania_exploration_flow"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_oceania_intro_desc"]
+    }
+  },
+  {
+    "id": "node_oceania_exploration_detail",
+    "region": "oceania",
+    "parent_id": "node_oceania_exploration",
+    "label": "地図の完成",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_oceania_exploration_desc"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_oceania_exploration_flow"]
+    }
+  },
+  {
+    "id": "node_oceania_colonial",
+    "region": "oceania",
+    "parent_id": "node_oceania_root",
+    "label": "植民地時代",
+    "sort_order": 3,
+    "quiz_ids": ["quiz_oceania_colonial_flow"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_oceania_intro_desc"]
+    }
+  },
+  {
+    "id": "node_oceania_colonial_detail",
+    "region": "oceania",
+    "parent_id": "node_oceania_colonial",
+    "label": "入植と先住民",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_oceania_colonial_desc"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_oceania_colonial_flow"]
+    }
+  },
+  {
+    "id": "node_oceania_modern",
+    "region": "oceania",
+    "parent_id": "node_oceania_root",
+    "label": "連邦結成と独立",
+    "sort_order": 4,
+    "quiz_ids": ["quiz_oceania_modern_flow"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_oceania_intro_desc"]
+    }
+  },
+  {
+    "id": "node_oceania_modern_detail",
+    "region": "oceania",
+    "parent_id": "node_oceania_modern",
+    "label": "二つの世界大戦と国民意識",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_oceania_modern_desc"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_oceania_modern_flow"]
+    }
+  },
+  {
+    "id": "node_oceania_contemporary",
+    "region": "oceania",
+    "parent_id": "node_oceania_root",
+    "label": "現代オセアニア",
+    "sort_order": 5,
+    "quiz_ids": ["quiz_oceania_contemporary_term"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_oceania_intro_desc"]
+    }
+  },
+  {
+    "id": "node_oceania_contemporary_detail",
+    "region": "oceania",
+    "parent_id": "node_oceania_contemporary",
+    "label": "戦後の変化",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_oceania_contemporary_desc"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_oceania_contemporary_term"]
+    }
+  },
+  {
+    "id": "node_oceania_all_eras",
+    "region": "oceania",
+    "parent_id": "node_oceania_root",
+    "label": "全時代通し",
+    "sort_order": 6,
+    "quiz_ids": ["quiz_oceania_all_eras_term"],
+    "unlock_condition": {
+      "type": "complete_node",
+      "node_ids": [
+        "node_oceania_indigenous",
+        "node_oceania_exploration",
+        "node_oceania_colonial",
+        "node_oceania_modern",
+        "node_oceania_contemporary"
+      ]
+    }
+  }
+]
