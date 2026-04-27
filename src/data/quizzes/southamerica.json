@@ -1,0 +1,187 @@
+[
+  {
+    "id": "quiz_southamerica_intro_desc",
+    "region": "southamerica",
+    "title": "南アメリカ史の大きな流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_southamerica_desc_intro_1",
+      "card_southamerica_desc_intro_2",
+      "card_southamerica_desc_intro_3",
+      "card_southamerica_desc_intro_4",
+      "card_southamerica_desc_intro_5"
+    ],
+    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_southamerica_indigenous_flow",
+    "region": "southamerica",
+    "title": "アンデス文明の流れ",
+    "card_type": "term",
+    "card_ids": [
+      "card_southamerica_chavin",
+      "card_southamerica_moche",
+      "card_southamerica_tiwanaku",
+      "card_southamerica_inca"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_southamerica_indigenous_desc",
+    "region": "southamerica",
+    "title": "先住民文明の流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_southamerica_desc_indigenous_1",
+      "card_southamerica_desc_indigenous_2",
+      "card_southamerica_desc_indigenous_3",
+      "card_southamerica_desc_indigenous_4",
+      "card_southamerica_desc_indigenous_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_southamerica_colonial_flow",
+    "region": "southamerica",
+    "title": "ヨーロッパ植民地時代の流れ",
+    "card_type": "term",
+    "card_ids": [
+      "card_southamerica_tordesillas",
+      "card_southamerica_brazil_portuguese",
+      "card_southamerica_pizarro",
+      "card_southamerica_potosi",
+      "card_southamerica_sugar_plantation",
+      "card_southamerica_tupac_amaru"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_southamerica_colonial_desc",
+    "region": "southamerica",
+    "title": "スペイン・ポルトガル植民地の流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_southamerica_desc_colonial_1",
+      "card_southamerica_desc_colonial_2",
+      "card_southamerica_desc_colonial_3",
+      "card_southamerica_desc_colonial_4",
+      "card_southamerica_desc_colonial_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_southamerica_independence_flow",
+    "region": "southamerica",
+    "title": "ラテンアメリカ独立の流れ",
+    "card_type": "term",
+    "card_ids": [
+      "card_southamerica_haiti_independence",
+      "card_southamerica_bolivar",
+      "card_southamerica_san_martin",
+      "card_southamerica_brazil_independence",
+      "card_southamerica_ayacucho"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_southamerica_independence_desc",
+    "region": "southamerica",
+    "title": "独立革命の流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_southamerica_desc_independence_1",
+      "card_southamerica_desc_independence_2",
+      "card_southamerica_desc_independence_3",
+      "card_southamerica_desc_independence_4",
+      "card_southamerica_desc_independence_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_southamerica_modern_flow",
+    "region": "southamerica",
+    "title": "共和国の発展の流れ",
+    "card_type": "term",
+    "card_ids": [
+      "card_southamerica_pacific_war",
+      "card_southamerica_brazil_republic",
+      "card_southamerica_coffee_oligarchy",
+      "card_southamerica_immigration",
+      "card_southamerica_isi",
+      "card_southamerica_vargas"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_southamerica_modern_desc",
+    "region": "southamerica",
+    "title": "輸出経済と工業化の流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_southamerica_desc_modern_1",
+      "card_southamerica_desc_modern_2",
+      "card_southamerica_desc_modern_3",
+      "card_southamerica_desc_modern_4",
+      "card_southamerica_desc_modern_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_southamerica_contemporary_term",
+    "region": "southamerica",
+    "title": "ポピュリズムから民主化への流れ",
+    "card_type": "term",
+    "card_ids": [
+      "card_southamerica_peron",
+      "card_southamerica_bolivian_revolution",
+      "card_southamerica_cuba_revolution",
+      "card_southamerica_allende",
+      "card_southamerica_chile_coup",
+      "card_southamerica_falklands",
+      "card_southamerica_mercosur"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_southamerica_contemporary_desc",
+    "region": "southamerica",
+    "title": "現代南米の流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_southamerica_desc_contemporary_1",
+      "card_southamerica_desc_contemporary_2",
+      "card_southamerica_desc_contemporary_3",
+      "card_southamerica_desc_contemporary_4",
+      "card_southamerica_desc_contemporary_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_southamerica_all_eras_term",
+    "region": "southamerica",
+    "title": "南アメリカ史全般",
+    "card_type": "term",
+    "card_ids": [
+      "card_southamerica_chavin",
+      "card_southamerica_inca",
+      "card_southamerica_pizarro",
+      "card_southamerica_bolivar",
+      "card_southamerica_brazil_republic",
+      "card_southamerica_peron",
+      "card_southamerica_mercosur"
+    ],
+    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "difficulty": 3
+  }
+]
