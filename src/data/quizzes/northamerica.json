@@ -1,0 +1,189 @@
+[
+  {
+    "id": "quiz_northamerica_intro_desc",
+    "region": "northamerica",
+    "title": "北アメリカ史の大きな流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_northamerica_desc_intro_1",
+      "card_northamerica_desc_intro_2",
+      "card_northamerica_desc_intro_3",
+      "card_northamerica_desc_intro_4",
+      "card_northamerica_desc_intro_5"
+    ],
+    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_northamerica_indigenous_flow",
+    "region": "northamerica",
+    "title": "先住民の世界の流れ",
+    "card_type": "term",
+    "card_ids": [
+      "card_northamerica_native_origin",
+      "card_northamerica_mound_builders",
+      "card_northamerica_iroquois"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_northamerica_indigenous_desc",
+    "region": "northamerica",
+    "title": "先住民文化の流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_northamerica_desc_indigenous_1",
+      "card_northamerica_desc_indigenous_2",
+      "card_northamerica_desc_indigenous_3",
+      "card_northamerica_desc_indigenous_4",
+      "card_northamerica_desc_indigenous_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_northamerica_colonial_flow",
+    "region": "northamerica",
+    "title": "植民地時代の流れ",
+    "card_type": "term",
+    "card_ids": [
+      "card_northamerica_columbus",
+      "card_northamerica_jamestown",
+      "card_northamerica_pilgrim",
+      "card_northamerica_newfrance",
+      "card_northamerica_french_indian_war",
+      "card_northamerica_stamp_act",
+      "card_northamerica_boston_tea"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_northamerica_colonial_desc",
+    "region": "northamerica",
+    "title": "ヨーロッパ植民地時代の流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_northamerica_desc_colonial_1",
+      "card_northamerica_desc_colonial_2",
+      "card_northamerica_desc_colonial_3",
+      "card_northamerica_desc_colonial_4",
+      "card_northamerica_desc_colonial_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_northamerica_independence_flow",
+    "region": "northamerica",
+    "title": "独立から大陸国家完成まで",
+    "card_type": "term",
+    "card_ids": [
+      "card_northamerica_declaration",
+      "card_northamerica_paris_1783",
+      "card_northamerica_constitution",
+      "card_northamerica_louisiana",
+      "card_northamerica_war_1812",
+      "card_northamerica_monroe",
+      "card_northamerica_manifest_destiny"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_northamerica_independence_desc",
+    "region": "northamerica",
+    "title": "独立と建国の流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_northamerica_desc_independence_1",
+      "card_northamerica_desc_independence_2",
+      "card_northamerica_desc_independence_3",
+      "card_northamerica_desc_independence_4",
+      "card_northamerica_desc_independence_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_northamerica_modern_flow",
+    "region": "northamerica",
+    "title": "南北戦争から二度の大戦へ",
+    "card_type": "term",
+    "card_ids": [
+      "card_northamerica_civil_war",
+      "card_northamerica_emancipation",
+      "card_northamerica_transcontinental",
+      "card_northamerica_frontier_close",
+      "card_northamerica_spanish_war",
+      "card_northamerica_wwi_entry",
+      "card_northamerica_great_depression",
+      "card_northamerica_pearl_harbor"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_northamerica_modern_desc",
+    "region": "northamerica",
+    "title": "近代国家への変貌の流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_northamerica_desc_modern_1",
+      "card_northamerica_desc_modern_2",
+      "card_northamerica_desc_modern_3",
+      "card_northamerica_desc_modern_4",
+      "card_northamerica_desc_modern_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_northamerica_contemporary_term",
+    "region": "northamerica",
+    "title": "戦後アメリカの流れ",
+    "card_type": "term",
+    "card_ids": [
+      "card_northamerica_un_founding",
+      "card_northamerica_korean_war",
+      "card_northamerica_civil_rights",
+      "card_northamerica_moon_landing",
+      "card_northamerica_nine_eleven"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_northamerica_contemporary_desc",
+    "region": "northamerica",
+    "title": "現代アメリカの流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_northamerica_desc_contemporary_1",
+      "card_northamerica_desc_contemporary_2",
+      "card_northamerica_desc_contemporary_3",
+      "card_northamerica_desc_contemporary_4",
+      "card_northamerica_desc_contemporary_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_northamerica_all_eras_term",
+    "region": "northamerica",
+    "title": "北アメリカ史全般",
+    "card_type": "term",
+    "card_ids": [
+      "card_northamerica_columbus",
+      "card_northamerica_declaration",
+      "card_northamerica_louisiana",
+      "card_northamerica_civil_war",
+      "card_northamerica_pearl_harbor",
+      "card_northamerica_civil_rights",
+      "card_northamerica_nine_eleven"
+    ],
+    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "difficulty": 3
+  }
+]

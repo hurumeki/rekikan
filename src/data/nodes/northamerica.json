@@ -1,0 +1,149 @@
+[
+  {
+    "id": "node_northamerica_root",
+    "region": "northamerica",
+    "parent_id": null,
+    "label": "北アメリカ史",
+    "sort_order": 0,
+    "quiz_ids": ["quiz_northamerica_intro_desc"],
+    "unlock_condition": null
+  },
+  {
+    "id": "node_northamerica_indigenous",
+    "region": "northamerica",
+    "parent_id": "node_northamerica_root",
+    "label": "先コロンブス期",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_northamerica_indigenous_flow"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_northamerica_intro_desc"]
+    }
+  },
+  {
+    "id": "node_northamerica_indigenous_detail",
+    "region": "northamerica",
+    "parent_id": "node_northamerica_indigenous",
+    "label": "先住民文化",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_northamerica_indigenous_desc"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_northamerica_indigenous_flow"]
+    }
+  },
+  {
+    "id": "node_northamerica_colonial",
+    "region": "northamerica",
+    "parent_id": "node_northamerica_root",
+    "label": "ヨーロッパ植民地時代",
+    "sort_order": 2,
+    "quiz_ids": ["quiz_northamerica_colonial_flow"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_northamerica_intro_desc"]
+    }
+  },
+  {
+    "id": "node_northamerica_colonial_detail",
+    "region": "northamerica",
+    "parent_id": "node_northamerica_colonial",
+    "label": "13植民地と本国の対立",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_northamerica_colonial_desc"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_northamerica_colonial_flow"]
+    }
+  },
+  {
+    "id": "node_northamerica_independence",
+    "region": "northamerica",
+    "parent_id": "node_northamerica_root",
+    "label": "独立と建国",
+    "sort_order": 3,
+    "quiz_ids": ["quiz_northamerica_independence_flow"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_northamerica_intro_desc"]
+    }
+  },
+  {
+    "id": "node_northamerica_independence_detail",
+    "region": "northamerica",
+    "parent_id": "node_northamerica_independence",
+    "label": "領土拡大と民主主義",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_northamerica_independence_desc"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_northamerica_independence_flow"]
+    }
+  },
+  {
+    "id": "node_northamerica_modern",
+    "region": "northamerica",
+    "parent_id": "node_northamerica_root",
+    "label": "南北戦争と拡張",
+    "sort_order": 4,
+    "quiz_ids": ["quiz_northamerica_modern_flow"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_northamerica_intro_desc"]
+    }
+  },
+  {
+    "id": "node_northamerica_modern_detail",
+    "region": "northamerica",
+    "parent_id": "node_northamerica_modern",
+    "label": "工業化と帝国主義",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_northamerica_modern_desc"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_northamerica_modern_flow"]
+    }
+  },
+  {
+    "id": "node_northamerica_contemporary",
+    "region": "northamerica",
+    "parent_id": "node_northamerica_root",
+    "label": "現代アメリカ",
+    "sort_order": 5,
+    "quiz_ids": ["quiz_northamerica_contemporary_term"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_northamerica_intro_desc"]
+    }
+  },
+  {
+    "id": "node_northamerica_contemporary_detail",
+    "region": "northamerica",
+    "parent_id": "node_northamerica_contemporary",
+    "label": "冷戦と公民権",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_northamerica_contemporary_desc"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_northamerica_contemporary_term"]
+    }
+  },
+  {
+    "id": "node_northamerica_all_eras",
+    "region": "northamerica",
+    "parent_id": "node_northamerica_root",
+    "label": "全時代通し",
+    "sort_order": 6,
+    "quiz_ids": ["quiz_northamerica_all_eras_term"],
+    "unlock_condition": {
+      "type": "complete_node",
+      "node_ids": [
+        "node_northamerica_indigenous",
+        "node_northamerica_colonial",
+        "node_northamerica_independence",
+        "node_northamerica_modern",
+        "node_northamerica_contemporary"
+      ]
+    }
+  }
+]
