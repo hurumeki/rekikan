@@ -82,5 +82,7 @@ export interface QuizProgress {
   quizId: string;
   bestScore: number;
   cleared: boolean;
+  /** Perfect score achieved at least once with hint enabled (used for hint_clear unlock) */
+  clearedWithHint: boolean;
   attemptCount: number;
 }

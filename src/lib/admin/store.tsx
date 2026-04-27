@@ -7,6 +7,10 @@ import type { AdminAction } from './actions';
 import { loadAdminState, saveAdminState } from './indexeddb';
 import { buildInitialAdminState } from './initial-data';
 
+export type UndoSnapshot = Omit<AdminState, 'undoStack'>;
+
+const UNDO_STACK_LIMIT = 30;
+
 export interface AdminState {
   regions: Region[];
   cards: Card[];
@@ -15,7 +19,7 @@ export interface AdminState {
   categories: CategoryDef[];
   isDirty: boolean;
   lastSavedAt: string | null;
-  undoStack: Omit<AdminState, 'undoStack'> | null;
+  undoStack: UndoSnapshot[];
 }
 
 const emptyState: AdminState = {
@@ -26,13 +30,16 @@ const emptyState: AdminState = {
   categories: [],
   isDirty: false,
   lastSavedAt: null,
-  undoStack: null,
+  undoStack: [],
 };
 
 function withUndo(prev: AdminState): Pick<AdminState, 'undoStack'> {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { undoStack: _u, ...snapshot } = prev;
-  return { undoStack: snapshot };
+  // Cap the stack so long edit sessions don't grow memory unbounded.
+  const next = [snapshot, ...prev.undoStack];
+  if (next.length > UNDO_STACK_LIMIT) next.length = UNDO_STACK_LIMIT;
+  return { undoStack: next };
 }
 
 function adminReducer(state: AdminState, action: AdminAction): AdminState {
@@ -68,9 +75,7 @@ function adminReducer(state: AdminState, action: AdminAction): AdminState {
         ...state,
         ...withUndo(state),
         isDirty: true,
-        cards: state.cards.map((c) =>
-          ids.has(c.id) ? { ...c, status: action.status } : c
-        ),
+        cards: state.cards.map((c) => (ids.has(c.id) ? { ...c, status: action.status } : c)),
       };
     }
     case 'UPSERT_QUIZ': {
@@ -123,7 +128,7 @@ function adminReducer(state: AdminState, action: AdminAction): AdminState {
         nodes: state.nodes.map((n) =>
           n.id === action.id
             ? { ...n, parent_id: action.newParentId, sort_order: action.newSortOrder }
-            : n
+            : n,
         ),
       };
     }
@@ -153,9 +158,7 @@ function adminReducer(state: AdminState, action: AdminAction): AdminState {
         ...withUndo(state),
         isDirty: true,
         categories: exists
-          ? state.categories.map((c) =>
-              c.value === action.category.value ? action.category : c
-            )
+          ? state.categories.map((c) => (c.value === action.category.value ? action.category : c))
           : [...state.categories, action.category],
       };
     }
@@ -168,12 +171,17 @@ function adminReducer(state: AdminState, action: AdminAction): AdminState {
       };
     }
     case 'LOAD_STATE': {
+      // Whitelist: only known fields flow into state. Prevents extra keys in
+      // imported JSON or stale IndexedDB blobs from polluting the store.
       return {
-        ...emptyState,
-        ...action.data,
-        isDirty: true,
-        lastSavedAt: null,
-        undoStack: null,
+        regions: Array.isArray(action.data.regions) ? action.data.regions : [],
+        cards: Array.isArray(action.data.cards) ? action.data.cards : [],
+        quizzes: Array.isArray(action.data.quizzes) ? action.data.quizzes : [],
+        nodes: Array.isArray(action.data.nodes) ? action.data.nodes : [],
+        categories: Array.isArray(action.data.categories) ? action.data.categories : [],
+        isDirty: action.markClean !== true,
+        lastSavedAt: action.markClean ? new Date().toISOString() : null,
+        undoStack: [],
       };
     }
     case 'MERGE_STATE': {
@@ -207,8 +215,9 @@ function adminReducer(state: AdminState, action: AdminAction): AdminState {
       return { ...state, isDirty: false, lastSavedAt: action.at };
     }
     case 'UNDO': {
-      if (!state.undoStack) return state;
-      return { ...state.undoStack, isDirty: true, undoStack: null };
+      if (state.undoStack.length === 0) return state;
+      const [head, ...rest] = state.undoStack;
+      return { ...head, isDirty: true, undoStack: rest };
     }
     default:
       return state;
@@ -227,7 +236,9 @@ export function AdminStoreProvider({ children }: { children: React.ReactNode }) 
   const hydrated = useRef(false);
   // Always holds the latest state for use in async callbacks (avoids stale closure)
   const stateRef = useRef(state);
-  useEffect(() => { stateRef.current = state; }, [state]);
+  useEffect(() => {
+    stateRef.current = state;
+  }, [state]);
 
   // Hydrate from IndexedDB or JSON on first mount
   useEffect(() => {
@@ -236,12 +247,10 @@ export function AdminStoreProvider({ children }: { children: React.ReactNode }) 
     (async () => {
       const saved = await loadAdminState();
       if (saved) {
-        dispatch({ type: 'LOAD_STATE', data: saved });
-        dispatch({ type: 'MARK_SAVED', at: saved.lastSavedAt ?? new Date().toISOString() });
+        dispatch({ type: 'LOAD_STATE', data: saved, markClean: true });
       } else {
         const initial = buildInitialAdminState();
-        dispatch({ type: 'LOAD_STATE', data: initial });
-        dispatch({ type: 'MARK_SAVED', at: new Date().toISOString() });
+        dispatch({ type: 'LOAD_STATE', data: initial, markClean: true });
       }
     })();
   }, []);
@@ -261,6 +270,21 @@ export function AdminStoreProvider({ children }: { children: React.ReactNode }) 
       if (saveTimer.current) clearTimeout(saveTimer.current);
     };
   }, [state.isDirty]);
+
+  // Flush pending changes if the user closes the tab inside the debounce window,
+  // and warn before navigating away with unsaved edits.
+  useEffect(() => {
+    function onBeforeUnload(e: BeforeUnloadEvent) {
+      if (!stateRef.current.isDirty) return;
+      // Best-effort synchronous-ish save. IndexedDB writes are async, but the
+      // browser usually keeps the tab alive long enough to commit a small put.
+      void saveAdminState(stateRef.current);
+      e.preventDefault();
+      e.returnValue = '';
+    }
+    window.addEventListener('beforeunload', onBeforeUnload);
+    return () => window.removeEventListener('beforeunload', onBeforeUnload);
+  }, []);
 
   return <AdminContext.Provider value={{ state, dispatch }}>{children}</AdminContext.Provider>;
 }

@@ -21,11 +21,34 @@ export function getHistoricalStars(
 
 const STORAGE_KEY = 'rekikan_progress';
 
+function isQuizProgress(v: unknown): v is QuizProgress {
+  if (!v || typeof v !== 'object') return false;
+  const p = v as Record<string, unknown>;
+  return (
+    typeof p.quizId === 'string' &&
+    typeof p.bestScore === 'number' &&
+    typeof p.cleared === 'boolean' &&
+    typeof p.attemptCount === 'number'
+  );
+}
+
 function loadAll(): Record<string, QuizProgress> {
   if (typeof window === 'undefined') return {};
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? JSON.parse(raw) : {};
+    if (!raw) return {};
+    const parsed: unknown = JSON.parse(raw);
+    if (!parsed || typeof parsed !== 'object') return {};
+    const result: Record<string, QuizProgress> = {};
+    for (const [key, value] of Object.entries(parsed)) {
+      if (!isQuizProgress(value)) continue;
+      result[key] = {
+        ...value,
+        // Default for entries saved before this field was added
+        clearedWithHint: typeof value.clearedWithHint === 'boolean' ? value.clearedWithHint : false,
+      };
+    }
+    return result;
   } catch {
     return {};
   }
@@ -50,6 +73,7 @@ export function saveQuizResult(result: QuizResult): QuizProgress {
     quizId: result.quizId,
     bestScore: Math.max(result.score, existing?.bestScore ?? 0),
     cleared: cleared || (existing?.cleared ?? false),
+    clearedWithHint: (cleared && result.hintUsed) || (existing?.clearedWithHint ?? false),
     attemptCount: (existing?.attemptCount ?? 0) + 1,
   };
 

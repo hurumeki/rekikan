@@ -17,13 +17,21 @@ export default function AdminPage() {
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if ((e.ctrlKey || e.metaKey) && e.key === 'z' && !e.shiftKey) {
-        // Only trigger if not in an input field
         const target = e.target as HTMLElement;
-        const isInput = target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable;
-        if (!isInput) {
-          e.preventDefault();
-          dispatch({ type: 'UNDO' });
+        const isInput =
+          target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable;
+        if (isInput) return;
+        // Radix popovers/dialogs/menus mark themselves with [data-state="open"];
+        // skip undo while one is open so the user's "back out" intent isn't hijacked.
+        if (
+          document.querySelector(
+            '[role="dialog"][data-state="open"], [role="menu"][data-state="open"], [role="listbox"][data-state="open"]',
+          )
+        ) {
+          return;
         }
+        e.preventDefault();
+        dispatch({ type: 'UNDO' });
       }
     };
     window.addEventListener('keydown', handler);

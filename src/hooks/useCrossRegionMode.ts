@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import type { Card, CardResult, CardState } from '@/lib/types';
 import { shuffleArray, checkAnswers } from '@/lib/quiz-engine';
 
@@ -43,24 +43,33 @@ export function useCrossRegionMode(cards: Card[], correctOrder: string[]) {
     });
   }, [correctOrder]);
 
+  const resultMap = useMemo(
+    () => (state.results ? new Map(state.results.map((r) => [r.cardId, r])) : null),
+    [state.results],
+  );
+  const selectionIndex = useMemo(() => {
+    const m = new Map<string, number>();
+    state.selectionOrder.forEach((id, i) => m.set(id, i));
+    return m;
+  }, [state.selectionOrder]);
+
   const getCardState = useCallback(
     (cardId: string): CardState => {
-      if (state.isConfirmed && state.results) {
-        const result = state.results.find((r) => r.cardId === cardId);
-        return result?.correct ? 'correct' : 'incorrect';
+      if (state.isConfirmed && resultMap) {
+        return resultMap.get(cardId)?.correct ? 'correct' : 'incorrect';
       }
-      if (state.selectionOrder.includes(cardId)) return 'selected';
+      if (selectionIndex.has(cardId)) return 'selected';
       return 'unselected';
     },
-    [state.isConfirmed, state.results, state.selectionOrder],
+    [state.isConfirmed, resultMap, selectionIndex],
   );
 
   const getSelectionNumber = useCallback(
     (cardId: string): number | undefined => {
-      const idx = state.selectionOrder.indexOf(cardId);
-      return idx >= 0 ? idx + 1 : undefined;
+      const idx = selectionIndex.get(cardId);
+      return idx === undefined ? undefined : idx + 1;
     },
-    [state.selectionOrder],
+    [selectionIndex],
   );
 
   const allSelected = state.selectionOrder.length === state.cards.length;

@@ -22,7 +22,7 @@ export default function QuizClient() {
   const quizId = params.quizId as string;
 
   const quiz = getQuiz(quizId);
-  const cards = quiz ? getCardsForQuiz(quiz) : [];
+  const cards = useMemo(() => (quiz ? getCardsForQuiz(quiz) : []), [quiz]);
   const region = quiz ? getRegion(quiz.region) : undefined;
   const allRegions = getRegions();
 

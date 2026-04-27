@@ -1,7 +1,14 @@
 'use client';
 
+import { useMemo } from 'react';
 import { Input } from '@/components/admin-ui/input';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/admin-ui/select';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/admin-ui/select';
 import type { Region } from '@/lib/types';
 import type { CategoryDef } from '@/lib/admin/categories';
 
@@ -36,17 +43,20 @@ export function CardFilters({ filters, onChange, regions, categories }: Props) {
   }
 
   // Derive era bands from selected region or all regions
-  const eraOptions: { key: string; label: string; regionId: string }[] = [];
-  const seenKeys = new Set<string>();
-  for (const region of regions) {
-    if (filters.regionId && region.id !== filters.regionId) continue;
-    for (const [key, value] of Object.entries(region.era_colors)) {
-      if (!seenKeys.has(key)) {
-        eraOptions.push({ key, label: value.label, regionId: region.id });
-        seenKeys.add(key);
+  const eraOptions = useMemo(() => {
+    const out: { key: string; label: string; regionId: string }[] = [];
+    const seenKeys = new Set<string>();
+    for (const region of regions) {
+      if (filters.regionId && region.id !== filters.regionId) continue;
+      for (const [key, value] of Object.entries(region.era_colors)) {
+        if (!seenKeys.has(key)) {
+          out.push({ key, label: value.label, regionId: region.id });
+          seenKeys.add(key);
+        }
       }
     }
-  }
+    return out;
+  }, [regions, filters.regionId]);
 
   return (
     <div className="flex flex-wrap gap-2 p-3 border-b border-border bg-muted/20">
@@ -56,7 +66,10 @@ export function CardFilters({ filters, onChange, regions, categories }: Props) {
         onChange={(e) => set({ search: e.target.value })}
         className="w-48"
       />
-      <Select value={filters.regionId || '__all__'} onValueChange={(v) => set({ regionId: v === '__all__' ? '' : v, eraColorKey: '' })}>
+      <Select
+        value={filters.regionId || '__all__'}
+        onValueChange={(v) => set({ regionId: v === '__all__' ? '' : v, eraColorKey: '' })}
+      >
         <SelectTrigger className="w-36">
           <SelectValue placeholder="リージョン" />
         </SelectTrigger>
@@ -69,7 +82,10 @@ export function CardFilters({ filters, onChange, regions, categories }: Props) {
           ))}
         </SelectContent>
       </Select>
-      <Select value={filters.eraColorKey || '__all__'} onValueChange={(v) => set({ eraColorKey: v === '__all__' ? '' : v })}>
+      <Select
+        value={filters.eraColorKey || '__all__'}
+        onValueChange={(v) => set({ eraColorKey: v === '__all__' ? '' : v })}
+      >
         <SelectTrigger className="w-36">
           <SelectValue placeholder="時代帯" />
         </SelectTrigger>
@@ -82,7 +98,10 @@ export function CardFilters({ filters, onChange, regions, categories }: Props) {
           ))}
         </SelectContent>
       </Select>
-      <Select value={filters.category || '__all__'} onValueChange={(v) => set({ category: v === '__all__' ? '' : v })}>
+      <Select
+        value={filters.category || '__all__'}
+        onValueChange={(v) => set({ category: v === '__all__' ? '' : v })}
+      >
         <SelectTrigger className="w-36">
           <SelectValue placeholder="カテゴリ" />
         </SelectTrigger>
@@ -95,7 +114,10 @@ export function CardFilters({ filters, onChange, regions, categories }: Props) {
           ))}
         </SelectContent>
       </Select>
-      <Select value={filters.cardType || '__all__'} onValueChange={(v) => set({ cardType: v === '__all__' ? '' : v })}>
+      <Select
+        value={filters.cardType || '__all__'}
+        onValueChange={(v) => set({ cardType: v === '__all__' ? '' : v })}
+      >
         <SelectTrigger className="w-32">
           <SelectValue placeholder="種別" />
         </SelectTrigger>
@@ -105,7 +127,10 @@ export function CardFilters({ filters, onChange, regions, categories }: Props) {
           <SelectItem value="description">説明文</SelectItem>
         </SelectContent>
       </Select>
-      <Select value={filters.status || '__all__'} onValueChange={(v) => set({ status: v === '__all__' ? '' : v })}>
+      <Select
+        value={filters.status || '__all__'}
+        onValueChange={(v) => set({ status: v === '__all__' ? '' : v })}
+      >
         <SelectTrigger className="w-36">
           <SelectValue placeholder="ステータス" />
         </SelectTrigger>

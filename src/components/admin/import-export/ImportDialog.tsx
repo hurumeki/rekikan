@@ -23,7 +23,9 @@ export function ImportDialog({ open, onOpenChange }: Props) {
   const fileRef = useRef<HTMLInputElement>(null);
   const [mode, setMode] = useState<'overwrite' | 'merge'>('overwrite');
   const [report, setReport] = useState<ValidationReport | null>(null);
-  const [parsed, setParsed] = useState<Partial<Omit<AdminState, 'isDirty' | 'lastSavedAt' | 'undoStack'>> | null>(null);
+  const [parsed, setParsed] = useState<Partial<
+    Omit<AdminState, 'isDirty' | 'lastSavedAt' | 'undoStack'>
+  > | null>(null);
   const [warningAcknowledged, setWarningAcknowledged] = useState(false);
   const [fileName, setFileName] = useState('');
 
@@ -38,14 +40,18 @@ export function ImportDialog({ open, onOpenChange }: Props) {
         if (typeof raw !== 'string') {
           throw new Error('ファイルの読み込みに失敗しました');
         }
-        const data = JSON.parse(raw);
+        const data: unknown = JSON.parse(raw);
         const result = validateImport(data);
         setReport(result);
-        setParsed(data);
+        // Only the sanitized subset is forwarded to the reducer; this keeps
+        // unexpected top-level fields out of admin state.
+        setParsed(result.sanitized ?? null);
         setWarningAcknowledged(false);
       } catch {
         setReport({
-          errors: [{ level: 'error', entity: 'root', id: 'root', message: 'JSONのパースに失敗しました' }],
+          errors: [
+            { level: 'error', entity: 'root', id: 'root', message: 'JSONのパースに失敗しました' },
+          ],
           warnings: [],
           valid: false,
         });
@@ -75,7 +81,10 @@ export function ImportDialog({ open, onOpenChange }: Props) {
   }
 
   const canImport =
-    parsed && report && report.errors.length === 0 && (report.warnings.length === 0 || warningAcknowledged);
+    parsed &&
+    report &&
+    report.errors.length === 0 &&
+    (report.warnings.length === 0 || warningAcknowledged);
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -126,7 +135,9 @@ export function ImportDialog({ open, onOpenChange }: Props) {
             <div className="space-y-2">
               {report.errors.length > 0 && (
                 <div className="rounded-md border border-destructive/30 bg-destructive/5 p-3 space-y-1">
-                  <p className="text-xs font-semibold text-destructive">エラー ({report.errors.length}件)</p>
+                  <p className="text-xs font-semibold text-destructive">
+                    エラー ({report.errors.length}件)
+                  </p>
                   {report.errors.slice(0, 10).map((e, i) => (
                     <p key={i} className="text-xs text-destructive">
                       [{e.entity}: {e.id}] {e.message}
@@ -139,7 +150,9 @@ export function ImportDialog({ open, onOpenChange }: Props) {
               )}
               {report.warnings.length > 0 && (
                 <div className="rounded-md border border-yellow-300/50 bg-yellow-50 p-3 space-y-1">
-                  <p className="text-xs font-semibold text-yellow-700">警告 ({report.warnings.length}件)</p>
+                  <p className="text-xs font-semibold text-yellow-700">
+                    警告 ({report.warnings.length}件)
+                  </p>
                   {report.warnings.slice(0, 5).map((w, i) => (
                     <p key={i} className="text-xs text-yellow-700">
                       [{w.entity}: {w.id}] {w.message}
@@ -155,7 +168,9 @@ export function ImportDialog({ open, onOpenChange }: Props) {
                       onChange={(e) => setWarningAcknowledged(e.target.checked)}
                       className="accent-primary"
                     />
-                    <span className="text-xs text-yellow-700">警告を確認しました。このままインポートします。</span>
+                    <span className="text-xs text-yellow-700">
+                      警告を確認しました。このままインポートします。
+                    </span>
                   </label>
                 </div>
               )}
@@ -166,7 +181,9 @@ export function ImportDialog({ open, onOpenChange }: Props) {
           )}
         </div>
         <DialogFooter>
-          <Button variant="outline" onClick={() => onOpenChange(false)}>キャンセル</Button>
+          <Button variant="outline" onClick={() => onOpenChange(false)}>
+            キャンセル
+          </Button>
           <Button onClick={handleImport} disabled={!canImport}>
             インポート実行
           </Button>

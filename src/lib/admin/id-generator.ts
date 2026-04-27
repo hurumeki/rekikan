@@ -13,13 +13,38 @@ export function toRomaji(text: string): string {
 }
 
 /**
+ * Stable short hash of an arbitrary string (e.g. Japanese-only names) so
+ * generated IDs stay distinct and content-addressable instead of all
+ * collapsing to "card_2", "card_3", ...
+ */
+function stableHash(text: string): string {
+  let h = 0;
+  for (let i = 0; i < text.length; i++) {
+    h = (Math.imul(h, 31) + text.charCodeAt(i)) | 0;
+  }
+  // 6 char base36, unsigned
+  return (h >>> 0).toString(36).padStart(6, '0').slice(-6);
+}
+
+function nameSlug(text: string, fallbackPrefix: string): string {
+  const r = toRomaji(text);
+  if (r) return r.slice(0, 16);
+  if (text) return `${fallbackPrefix}${stableHash(text)}`;
+  return fallbackPrefix;
+}
+
+/**
  * Auto-generates a card ID from its fields.
  * Format: {region}_{era_band_short}_{name_slug}
  */
 export function generateCardId(region: string, eraColorKey: string, name: string): string {
   const regionPart = region.slice(0, 6);
-  const eraPart = eraColorKey.split('_').map((w) => w[0]).join('').slice(0, 4);
-  const namePart = toRomaji(name).slice(0, 16) || 'card';
+  const eraPart = eraColorKey
+    .split('_')
+    .map((w) => w[0])
+    .join('')
+    .slice(0, 4);
+  const namePart = nameSlug(name, 'card_');
   const base = `${regionPart}_${eraPart}_${namePart}`;
   return base.replace(/_{2,}/g, '_').replace(/^_|_$/g, '');
 }
@@ -29,7 +54,7 @@ export function generateCardId(region: string, eraColorKey: string, name: string
  */
 export function generateNodeId(region: string, label: string): string {
   const regionPart = region.slice(0, 6);
-  const labelPart = toRomaji(label).slice(0, 16) || 'node';
+  const labelPart = nameSlug(label, 'node_');
   return `node_${regionPart}_${labelPart}`.replace(/_{2,}/g, '_');
 }
 
@@ -38,7 +63,7 @@ export function generateNodeId(region: string, label: string): string {
  */
 export function generateQuizId(region: string, title: string): string {
   const regionPart = region.slice(0, 6);
-  const titlePart = toRomaji(title).slice(0, 16) || 'quiz';
+  const titlePart = nameSlug(title, 'quiz_');
   return `quiz_${regionPart}_${titlePart}`.replace(/_{2,}/g, '_');
 }
 

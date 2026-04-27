@@ -21,17 +21,35 @@ function openDB(): Promise<IDBDatabase> {
   });
 }
 
+function isStorableState(v: unknown): v is StorableState {
+  if (!v || typeof v !== 'object') return false;
+  const s = v as Record<string, unknown>;
+  return (
+    Array.isArray(s.regions) &&
+    Array.isArray(s.cards) &&
+    Array.isArray(s.quizzes) &&
+    Array.isArray(s.nodes) &&
+    Array.isArray(s.categories)
+  );
+}
+
 export async function loadAdminState(): Promise<StorableState | null> {
   if (typeof window === 'undefined') return null;
   try {
     const db = await openDB();
-    return new Promise((resolve, reject) => {
+    const raw = await new Promise<unknown>((resolve, reject) => {
       const tx = db.transaction(STORE_NAME, 'readonly');
       const store = tx.objectStore(STORE_NAME);
       const req = store.get(STATE_KEY);
       req.onsuccess = () => resolve(req.result ?? null);
       req.onerror = () => reject(req.error);
     });
+    if (raw === null || raw === undefined) return null;
+    if (!isStorableState(raw)) {
+      console.warn('[rekikan-admin] IndexedDB payload failed schema check; ignoring');
+      return null;
+    }
+    return raw;
   } catch (err) {
     console.error('[rekikan-admin] IndexedDB load failed:', err);
     return null;

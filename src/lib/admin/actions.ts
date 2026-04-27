@@ -20,8 +20,15 @@ export type AdminAction =
   | { type: 'UPSERT_CATEGORY'; category: CategoryDef }
   | { type: 'DELETE_CATEGORY'; value: string }
   // Import
-  | { type: 'LOAD_STATE'; data: Omit<AdminState, 'isDirty' | 'lastSavedAt' | 'undoStack'> }
-  | { type: 'MERGE_STATE'; data: Partial<Omit<AdminState, 'isDirty' | 'lastSavedAt' | 'undoStack'>> }
+  | {
+      type: 'LOAD_STATE';
+      data: Omit<AdminState, 'isDirty' | 'lastSavedAt' | 'undoStack'>;
+      markClean?: boolean;
+    }
+  | {
+      type: 'MERGE_STATE';
+      data: Partial<Omit<AdminState, 'isDirty' | 'lastSavedAt' | 'undoStack'>>;
+    }
   // Persistence
   | { type: 'MARK_SAVED'; at: string }
   | { type: 'UNDO' };
