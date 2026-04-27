@@ -1371,37 +1371,37 @@
     "id": "card_jp_115",
     "region": "japan",
     "type": "term",
-    "name": "金閣（鹿苑寺）の建立",
+    "name": "新古今和歌集の編纂",
     "year": 1205,
     "year_end": null,
     "era_color_key": "medieval",
     "category": "culture",
-    "hint": "足利義満が京都の北山に建てた別荘建築",
-    "description": "公家文化と武家文化が融合した北山文化を代表する、金箔張りの楼閣建築。"
+    "hint": "後鳥羽上皇の命で藤原定家らが選んだ勅撰和歌集",
+    "description": "後鳥羽上皇の院宣により藤原定家らが撰した勅撰和歌集。"
   },
   {
     "id": "card_jp_116",
     "region": "japan",
     "type": "term",
-    "name": "銀閣（慈照寺）の建立",
+    "name": "方丈記の成立",
     "year": 1212,
     "year_end": null,
     "era_color_key": "medieval",
     "category": "culture",
-    "hint": "足利義政が京都の東山に建てた別荘建築",
-    "description": "書院造を取り入れ、わび・さびを重んじる東山文化を代表する建築物。"
+    "hint": "鴨長明が無常観を綴った随筆",
+    "description": "鴨長明が世の無常を綴った随筆文学。"
   },
   {
     "id": "card_jp_117",
     "region": "japan",
     "type": "term",
-    "name": "勘合貿易の開始",
+    "name": "浄土真宗",
     "year": 1224,
     "year_end": null,
     "era_color_key": "medieval",
-    "category": "economy",
-    "hint": "倭寇と区別する札を使って明と行われた貿易",
-    "description": "足利義満が明の朝貢国として開始した、勘合（割賦）を用いる正式な貿易。"
+    "category": "event",
+    "hint": "親鸞が開いた阿弥陀信仰の宗派",
+    "description": "親鸞が開く。「他力本願」「悪人正機」"
   },
   {
     "id": "card_jp_118",
@@ -1443,25 +1443,25 @@
     "id": "card_jp_121",
     "region": "japan",
     "type": "description",
-    "name": "鉄砲伝来",
+    "name": null,
     "year": 1428,
     "year_end": null,
     "era_color_key": "medieval",
-    "category": "economy",
-    "hint": "種子島に漂着したポルトガル人によってもたらされた新兵器",
-    "description": "種子島にポルトガル人が漂着し、鉄砲（火縄銃）が日本に伝えられた。"
+    "category": null,
+    "hint": null,
+    "description": "農民の徳政要求や守護大名間の対立で幕府の権威が揺らぐ"
   },
   {
     "id": "card_jp_122",
     "region": "japan",
     "type": "description",
-    "name": "キリスト教伝来",
+    "name": null,
     "year": 1467,
     "year_end": null,
     "era_color_key": "medieval",
-    "category": "culture",
-    "hint": "フランシスコ・ザビエルによって日本に伝えられた宗教",
-    "description": "イエズス会の宣教師フランシスコ・ザビエルが鹿児島に上陸し、キリスト教を伝えた。"
+    "category": null,
+    "hint": null,
+    "description": "将軍家の継嗣争いから大規模な内乱が起こり、室町幕府の権威が失墜する"
   },
   {
     "id": "card_jp_123",
@@ -1491,25 +1491,25 @@
     "id": "card_jp_125",
     "region": "japan",
     "type": "term",
-    "name": "太閤検地の実施",
+    "name": "鎌倉幕府の滅亡",
     "year": 1333,
     "year_end": null,
     "era_color_key": "medieval",
-    "category": "economy",
-    "hint": "豊臣秀吉が全国の田畑の広さや収穫量を調べた政策",
-    "description": "全国共通の升を用いて土地の石高を調査し、農民の耕作権と年貢負担を定めた。"
+    "category": "event",
+    "hint": "後醍醐天皇に呼応した新田義貞らが幕府を倒した出来事",
+    "description": "新田義貞が鎌倉を攻め、北条高時が自害して幕府が滅亡した。"
   },
   {
     "id": "card_jp_126",
     "region": "japan",
     "type": "term",
-    "name": "刀狩令の実施",
+    "name": "建武式目の制定",
     "year": 1336,
     "year_end": null,
     "era_color_key": "medieval",
     "category": "law",
-    "hint": "豊臣秀吉が農民から武器を取り上げた政策",
-    "description": "一揆を防ぐため農民から武器を没収し、兵農分離を明確にした政策。"
+    "hint": "足利尊氏が政治の方針を示した法令",
+    "description": "足利尊氏が今後の政治の基本方針として制定した、17条からなる法令。"
   },
   {
     "id": "card_jp_127",
@@ -1587,25 +1587,25 @@
     "id": "card_jp_133",
     "region": "japan",
     "type": "term",
-    "name": "武家諸法度の制定",
+    "name": "鉄砲伝来",
     "year": 1543,
     "year_end": null,
     "era_color_key": "medieval",
-    "category": "law",
-    "hint": "大名を統制するために幕府が定めた法律",
-    "description": "幕府が大名を統制するため、大名の守るべき規則を定めた基本法。"
+    "category": "culture",
+    "hint": "種子島に漂着したポルトガル人がもたらした新兵器",
+    "description": "種子島に漂着したポルトガル人が、日本に火縄銃を伝えた。"
   },
   {
     "id": "card_jp_134",
     "region": "japan",
     "type": "term",
-    "name": "参勤交代の制度化",
+    "name": "キリスト教伝来",
     "year": 1549,
     "year_end": null,
     "era_color_key": "medieval",
-    "category": "law",
-    "hint": "大名に領地と江戸を1年おきに往復させた制度",
-    "description": "大名の財力を削ぎ、謀反を防ぐために3代将軍家光が制度化した。"
+    "category": "culture",
+    "hint": "イエズス会の宣教師が日本に伝えた宗教",
+    "description": "イエズス会のフランシスコ・ザビエルが鹿児島に上陸し、布教を始めた。"
   },
   {
     "id": "card_jp_135",
@@ -1635,61 +1635,61 @@
     "id": "card_jp_137",
     "region": "japan",
     "type": "term",
-    "name": "鎖国の完成",
+    "name": "銀閣寺の建立",
     "year": 1489,
     "year_end": null,
     "era_color_key": "medieval",
-    "category": "war",
-    "hint": "ポルトガル船の来航を禁止し外国との交流を制限した体制",
-    "description": "オランダと中国（清）などを除くヨーロッパ諸国との貿易・交渉を断絶した。"
+    "category": "culture",
+    "hint": "足利義政が東山に造営した楼閣建築",
+    "description": "足利義政が東山殿に造営を始めた、書院造を取り入れた楼閣。"
   },
   {
     "id": "card_jp_138",
     "region": "japan",
     "type": "term",
-    "name": "生類憐みの令",
+    "name": "東山文化の発展",
     "year": 1490,
     "year_end": null,
     "era_color_key": "medieval",
-    "category": "law",
-    "hint": "極端な動物愛護を強制した法令",
-    "description": "5代将軍綱吉が出した、犬などの動物を極端に保護する法令。"
+    "category": "culture",
+    "hint": "足利義政の隠居所を中心に栄えたわび・さびの武家文化",
+    "description": "公家文化と禅宗文化が融合し、わび・さびを重んじる新しい武家文化が花開いた。"
   },
   {
     "id": "card_jp_139",
     "region": "japan",
     "type": "term",
-    "name": "公事方御定書の制定",
+    "name": "連歌の大成",
     "year": 1500,
     "year_end": null,
     "era_color_key": "medieval",
-    "category": "law",
-    "hint": "徳川吉宗の享保の改革において定められた裁判の基準",
-    "description": "裁判の基準となる刑法典がまとめられ、司法の迅速化・合理化が図られた。"
+    "category": "culture",
+    "hint": "宗祇らが芸術として高めた集団詩",
+    "description": "宗祇が連歌を芸術として大成し、地方武士や庶民にも広まった。"
   },
   {
     "id": "card_jp_140",
     "region": "japan",
     "type": "term",
-    "name": "定免法の採用",
+    "name": "御伽草子の流行",
     "year": 1500,
     "year_end": null,
     "era_color_key": "medieval",
-    "category": "economy",
-    "hint": "年貢の計算方法を一定期間固定にした税制改革",
-    "description": "豊凶に関わらず一定の収穫量（年貢率）を定めて課税し、幕府の収入を安定させた。"
+    "category": "culture",
+    "hint": "庶民を担い手とする短編物語の集まり",
+    "description": "庶民の間で短編物語が広まり、文学が公家・武家の枠を超えて広がった。"
   },
   {
     "id": "card_jp_141",
     "region": "japan",
     "type": "term",
-    "name": "目安箱の設置",
+    "name": "室町幕府の滅亡",
     "year": 1573,
     "year_end": null,
     "era_color_key": "medieval",
-    "category": "law",
-    "hint": "庶民の意見を聞くために設けられた投書箱",
-    "description": "徳川吉宗が庶民の不満や意見を直接聞くために設置した。"
+    "category": "event",
+    "hint": "信長が将軍足利義昭を京から追放した出来事",
+    "description": "織田信長が将軍足利義昭を京から追放し、室町幕府が事実上滅亡した。"
   },
   {
     "id": "card_jp_142",
@@ -1707,37 +1707,37 @@
     "id": "card_jp_143",
     "region": "japan",
     "type": "term",
-    "name": "株仲間の公認",
+    "name": "本能寺の変",
     "year": 1582,
     "year_end": null,
     "era_color_key": "medieval",
-    "category": "economy",
-    "hint": "商人の同業者組合を幕府が認め、税を取った政策",
-    "description": "田沼意次らが商人の独占的な組合を公認し、代わりに運上金・冥加金を納めさせた。"
+    "category": "event",
+    "hint": "家臣の謀反により信長が自害した事件",
+    "description": "京都本能寺に滞在中の織田信長が、家臣明智光秀の謀反で自害した事件。"
   },
   {
     "id": "card_jp_144",
     "region": "japan",
     "type": "term",
-    "name": "寛政異学の禁",
+    "name": "刀狩令",
     "year": 1588,
     "year_end": null,
     "era_color_key": "medieval",
-    "category": "culture",
-    "hint": "幕府の学校で朱子学以外の学問を教えることを禁じた政策",
-    "description": "松平定信の寛政の改革において、湯島聖堂での朱子学以外の講義を禁止した。"
+    "category": "law",
+    "hint": "一揆を防ぐため農民から武器を取り上げた命令",
+    "description": "豊臣秀吉が農民から刀・槍などの武器を没収し、兵農分離を進めた。"
   },
   {
     "id": "card_jp_145",
     "region": "japan",
     "type": "term",
-    "name": "異国船打払令",
+    "name": "秀吉の天下統一",
     "year": 1590,
     "year_end": null,
     "era_color_key": "medieval",
-    "category": "war",
-    "hint": "日本に近づく外国船を無条件で攻撃して追い返す法令",
-    "description": "沿岸に接近する外国船に対し、無差別に砲撃を加えて撃退するよう命じた。"
+    "category": "event",
+    "hint": "関東の北条氏を滅ぼし全国を統一した出来事",
+    "description": "豊臣秀吉が小田原の北条氏を滅ぼし、全国統一を完了した。"
   },
   {
     "id": "card_jp_146",
@@ -1755,13 +1755,13 @@
     "id": "card_jp_147",
     "region": "japan",
     "type": "description",
-    "name": "大塩平八郎の乱",
+    "name": null,
     "year": 1603,
     "year_end": null,
     "era_color_key": "early_modern",
-    "category": "event",
-    "hint": "元役人が飢饉に苦しむ人々を救うために大阪で起こした反乱",
-    "description": "天保の飢饉の際、元大坂町奉行所の与力である大塩平八郎が蜂起した事件。"
+    "category": null,
+    "hint": null,
+    "description": "徳川家康が征夷大将軍となり、江戸幕府が成立する"
   },
   {
     "id": "card_jp_148",
@@ -1911,37 +1911,37 @@
     "id": "card_jp_160",
     "region": "japan",
     "type": "term",
-    "name": "日米和親条約の締結",
+    "name": "赤穂事件",
     "year": 1702,
     "year_end": null,
     "era_color_key": "early_modern",
-    "category": "war",
-    "hint": "ペリーの来航を受けて結ばれ、鎖国が終わった条約",
-    "description": "下田と函館の開港、水や食料の供給などを定めた条約。"
+    "category": "event",
+    "hint": "浪士たちが主君の仇討ちとして吉良邸に討ち入った事件",
+    "description": "赤穂藩の浪士が、主君浅野長矩の仇である吉良義央を討った事件。"
   },
   {
     "id": "card_jp_161",
     "region": "japan",
     "type": "term",
-    "name": "日米修好通商条約の締結",
+    "name": "正徳の治",
     "year": 1709,
     "year_end": null,
     "era_color_key": "early_modern",
-    "category": "war",
-    "hint": "井伊直弼が天皇の許可なく結んだ不平等条約",
-    "description": "関税自主権がなく領事裁判権を認めるなど、日本に不利な内容の通商条約。"
+    "category": "law",
+    "hint": "新井白石が儒学に基づいて行った文治政治",
+    "description": "新井白石が儀式の整備や財政改革を進め、儒学に基づく文治政治を展開した。"
   },
   {
     "id": "card_jp_162",
     "region": "japan",
     "type": "term",
-    "name": "安政の大獄",
+    "name": "海舶互市新例",
     "year": 1715,
     "year_end": null,
     "era_color_key": "early_modern",
-    "category": "event",
-    "hint": "井伊直弼が幕府に反対する人々を厳しく処罰した事件",
-    "description": "将軍継嗣問題や条約調印に反対する大名や志士たちを、井伊直弼が弾圧した事件。"
+    "category": "law",
+    "hint": "金銀の流出を防ぐため貿易額を制限した法令",
+    "description": "新井白石が金銀の流出を防ぐため、長崎での貿易額や入港船数を制限した法令。"
   },
   {
     "id": "card_jp_163",
