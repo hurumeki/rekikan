@@ -1,0 +1,220 @@
+[
+  {
+    "id": "quiz_centralasia_intro_desc",
+    "region": "centralasia",
+    "title": "中央アジア史の大きな流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_centralasia_desc_intro_1",
+      "card_centralasia_desc_intro_2",
+      "card_centralasia_desc_intro_3",
+      "card_centralasia_desc_intro_4",
+      "card_centralasia_desc_intro_5"
+    ],
+    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_centralasia_ancient_flow",
+    "region": "centralasia",
+    "title": "騎馬遊牧民の世界の流れ",
+    "card_type": "term",
+    "card_ids": [
+      "card_centralasia_scythian",
+      "card_centralasia_xiongnu",
+      "card_centralasia_silkroad",
+      "card_centralasia_kushan",
+      "card_centralasia_sogdian",
+      "card_centralasia_hephthalite"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_centralasia_ancient_desc",
+    "region": "centralasia",
+    "title": "古代遊牧世界の流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_centralasia_desc_ancient_1",
+      "card_centralasia_desc_ancient_2",
+      "card_centralasia_desc_ancient_3",
+      "card_centralasia_desc_ancient_4",
+      "card_centralasia_desc_ancient_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_centralasia_ancient_detail_term",
+    "region": "centralasia",
+    "title": "騎馬遊牧民と絹の道",
+    "card_type": "term",
+    "card_ids": [
+      "card_centralasia_scythian",
+      "card_centralasia_xiongnu",
+      "card_centralasia_yuezhi",
+      "card_centralasia_silkroad",
+      "card_centralasia_kushan",
+      "card_centralasia_sogdian"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_centralasia_turkic_flow",
+    "region": "centralasia",
+    "title": "突厥・ウイグルの流れ",
+    "card_type": "term",
+    "card_ids": [
+      "card_centralasia_turkic",
+      "card_centralasia_eastwest_split",
+      "card_centralasia_uighur",
+      "card_centralasia_talas",
+      "card_centralasia_uighur_collapse"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_centralasia_turkic_desc",
+    "region": "centralasia",
+    "title": "テュルク系遊牧国家の時代",
+    "card_type": "description",
+    "card_ids": [
+      "card_centralasia_desc_turkic_1",
+      "card_centralasia_desc_turkic_2",
+      "card_centralasia_desc_turkic_3",
+      "card_centralasia_desc_turkic_4",
+      "card_centralasia_desc_turkic_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_centralasia_islamic_flow",
+    "region": "centralasia",
+    "title": "中央アジアのイスラーム化の流れ",
+    "card_type": "term",
+    "card_ids": [
+      "card_centralasia_samanid",
+      "card_centralasia_ghaznavid",
+      "card_centralasia_qarakhanid",
+      "card_centralasia_seljuk",
+      "card_centralasia_kara_khitai",
+      "card_centralasia_khwarazm"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_centralasia_islamic_desc",
+    "region": "centralasia",
+    "title": "イスラーム王朝の興亡",
+    "card_type": "description",
+    "card_ids": [
+      "card_centralasia_desc_islamic_1",
+      "card_centralasia_desc_islamic_2",
+      "card_centralasia_desc_islamic_3",
+      "card_centralasia_desc_islamic_4",
+      "card_centralasia_desc_islamic_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_centralasia_mongol_flow",
+    "region": "centralasia",
+    "title": "モンゴル・ティムール朝の流れ",
+    "card_type": "term",
+    "card_ids": [
+      "card_centralasia_mongol",
+      "card_centralasia_chagatai",
+      "card_centralasia_timur",
+      "card_centralasia_ulugh_beg",
+      "card_centralasia_kazakh",
+      "card_centralasia_uzbek"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_centralasia_mongol_desc",
+    "region": "centralasia",
+    "title": "モンゴル・ティムールの時代",
+    "card_type": "description",
+    "card_ids": [
+      "card_centralasia_desc_mongol_1",
+      "card_centralasia_desc_mongol_2",
+      "card_centralasia_desc_mongol_3",
+      "card_centralasia_desc_mongol_4",
+      "card_centralasia_desc_mongol_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_centralasia_mongol_detail_term",
+    "region": "centralasia",
+    "title": "モンゴルからウズベク3ハン国",
+    "card_type": "term",
+    "card_ids": [
+      "card_centralasia_mongol",
+      "card_centralasia_chagatai",
+      "card_centralasia_timur",
+      "card_centralasia_ulugh_beg",
+      "card_centralasia_kazakh",
+      "card_centralasia_uzbek",
+      "card_centralasia_three_khanates"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_centralasia_modern_term",
+    "region": "centralasia",
+    "title": "ロシア進出から独立まで",
+    "card_type": "term",
+    "card_ids": [
+      "card_centralasia_russia_conquest",
+      "card_centralasia_great_game",
+      "card_centralasia_soviet",
+      "card_centralasia_collectivization",
+      "card_centralasia_independence"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_centralasia_modern_desc",
+    "region": "centralasia",
+    "title": "近現代の中央アジアの流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_centralasia_desc_modern_1",
+      "card_centralasia_desc_modern_2",
+      "card_centralasia_desc_modern_3",
+      "card_centralasia_desc_modern_4",
+      "card_centralasia_desc_modern_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_centralasia_all_eras_term",
+    "region": "centralasia",
+    "title": "中央アジア史全般",
+    "card_type": "term",
+    "card_ids": [
+      "card_centralasia_silkroad",
+      "card_centralasia_turkic",
+      "card_centralasia_samanid",
+      "card_centralasia_mongol",
+      "card_centralasia_timur",
+      "card_centralasia_russia_conquest",
+      "card_centralasia_independence"
+    ],
+    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "difficulty": 3
+  }
+]
