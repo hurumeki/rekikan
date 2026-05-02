@@ -1180,6 +1180,34 @@
     "status": "ai_generated"
   },
   {
+    "id": "card_europe_triangular_trade",
+    "region": "europe",
+    "type": "term",
+    "name": "大西洋三角貿易の本格化",
+    "year": 1650,
+    "year_end": null,
+    "era_color_key": "early_modern",
+    "category": "economy",
+    "hint": "ヨーロッパ・アフリカ・新大陸・砂糖・奴隷",
+    "description": "ヨーロッパ・西アフリカ・新大陸を結ぶ三角貿易が拡大し、奴隷と砂糖が大量に取引された。",
+    "tags": ["交易"],
+    "status": "ai_generated"
+  },
+  {
+    "id": "card_europe_abolition_slave_trade",
+    "region": "europe",
+    "type": "term",
+    "name": "イギリスによる奴隷貿易の廃止",
+    "year": 1807,
+    "year_end": null,
+    "era_color_key": "modern",
+    "category": "law",
+    "hint": "ウィルバーフォース・大西洋奴隷貿易禁止法",
+    "description": "イギリス議会が奴隷貿易の禁止を法制化し、大西洋の人身売買体制が崩れ始めた。",
+    "tags": ["交易"],
+    "status": "ai_generated"
+  },
+  {
     "id": "card_europe_dolly",
     "region": "europe",
     "type": "term",
