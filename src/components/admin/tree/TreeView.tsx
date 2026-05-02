@@ -12,6 +12,7 @@ import {
 } from '@/components/admin-ui/select';
 import { NodeEditPanel } from './NodeEditPanel';
 import { QuizEditPanel } from './QuizEditPanel';
+import { CardEditPanel } from '../cards/CardEditPanel';
 import { useAdminStore } from '@/lib/admin/store';
 import { buildNodeTree, getQuizStatusSummary } from '@/lib/admin/selectors';
 import type { Node } from '@/lib/types';
@@ -122,6 +123,8 @@ export function TreeView() {
   const [nodeOpen, setNodeOpen] = useState(false);
   const [editingQuizId, setEditingQuizId] = useState<string | null>(null);
   const [quizOpen, setQuizOpen] = useState(false);
+  const [detailCardId, setDetailCardId] = useState<string | null>(null);
+  const [detailOpen, setDetailOpen] = useState(false);
 
   const filteredRegions = regionFilter
     ? state.regions.filter((r) => r.id === regionFilter)
@@ -219,7 +222,30 @@ export function TreeView() {
       </div>
 
       <NodeEditPanel nodeId={editingNodeId} open={nodeOpen} onOpenChange={setNodeOpen} />
-      <QuizEditPanel quizId={editingQuizId} open={quizOpen} onOpenChange={setQuizOpen} />
+      <QuizEditPanel
+        quizId={editingQuizId}
+        open={quizOpen}
+        onOpenChange={setQuizOpen}
+        onOpenCardDetail={(cardId) => {
+          setDetailCardId(cardId);
+          setDetailOpen(true);
+        }}
+      />
+      <CardEditPanel
+        cardId={detailCardId}
+        open={detailOpen}
+        onOpenChange={(next) => {
+          setDetailOpen(next);
+          if (!next) {
+            // Radix DialogPrimitive leaves body pointer-events disabled when one
+            // modal closes while another is still open; reset so the underlying
+            // QuizEditPanel stays interactive.
+            requestAnimationFrame(() => {
+              document.body.style.pointerEvents = '';
+            });
+          }
+        }}
+      />
     </div>
   );
 }
