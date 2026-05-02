@@ -341,6 +341,39 @@
     "difficulty": 3
   },
   {
+    "id": "quiz_theme_empire_mongol",
+    "region": "world",
+    "regions": ["centralasia", "westasia", "china"],
+    "title": "モンゴル帝国の拡大と分裂",
+    "card_type": "term",
+    "card_ids": [
+      "card_centralasia_mongol",
+      "card_centralasia_chagatai",
+      "card_westasia_mongol_baghdad",
+      "card_china_kublai_khan",
+      "card_centralasia_timur"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_theme_empire_colonial",
+    "region": "world",
+    "regions": ["europe", "southeastasia", "southamerica", "southasia"],
+    "title": "ヨーロッパ列強の植民地支配",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_columbus",
+      "card_europe_vasco_da_gama",
+      "card_southeastasia_portuguese_malacca",
+      "card_southeastasia_voc",
+      "card_southasia_plassey",
+      "card_europe_imperialism"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 2
+  },
+  {
     "id": "quiz_theme_religion_christianity",
     "region": "world",
     "regions": ["europe"],
