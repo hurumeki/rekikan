@@ -74,5 +74,18 @@
     "sort_order": 7,
     "quiz_ids": ["quiz_cross_islamic_dynasties", "quiz_cross_pacific_exploration"],
     "unlock_condition": null
+  },
+  {
+    "id": "node_world_theme_scitech",
+    "region": "world",
+    "parent_id": "node_world_root",
+    "label": "テーマ史：科学技術",
+    "sort_order": 8,
+    "quiz_ids": [
+      "quiz_theme_scitech_20c_big",
+      "quiz_theme_scitech_life_science",
+      "quiz_theme_scitech_20c_full"
+    ],
+    "unlock_condition": null
   }
 ]

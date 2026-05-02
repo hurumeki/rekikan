@@ -305,5 +305,58 @@
     ],
     "modes": ["cross_region"],
     "difficulty": 3
+  },
+  {
+    "id": "quiz_theme_scitech_20c_big",
+    "region": "world",
+    "regions": ["northamerica", "europe"],
+    "title": "20世紀の巨大技術：核・宇宙・コンピュータ",
+    "card_type": "term",
+    "card_ids": [
+      "card_northamerica_atomic_bomb",
+      "card_northamerica_transistor",
+      "card_europe_sputnik",
+      "card_europe_gagarin",
+      "card_northamerica_moon_landing",
+      "card_northamerica_arpanet",
+      "card_europe_www"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_theme_scitech_life_science",
+    "region": "world",
+    "regions": ["europe", "northamerica"],
+    "title": "生命科学の世紀",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_penicillin",
+      "card_europe_dna_helix",
+      "card_europe_ivf",
+      "card_europe_dolly",
+      "card_northamerica_human_genome"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 3
+  },
+  {
+    "id": "quiz_theme_scitech_20c_full",
+    "region": "world",
+    "regions": ["northamerica", "europe"],
+    "title": "20世紀科学技術史：通し",
+    "card_type": "term",
+    "card_ids": [
+      "card_northamerica_wright",
+      "card_europe_relativity",
+      "card_europe_penicillin",
+      "card_northamerica_atomic_bomb",
+      "card_europe_sputnik",
+      "card_northamerica_moon_landing",
+      "card_europe_www",
+      "card_northamerica_human_genome"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 3
   }
 ]
