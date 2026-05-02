@@ -1,0 +1,184 @@
+[
+  {
+    "id": "quiz_oceania_intro_desc",
+    "region": "oceania",
+    "title": "オセアニア史の大きな流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_oceania_desc_intro_1",
+      "card_oceania_desc_intro_2",
+      "card_oceania_desc_intro_3",
+      "card_oceania_desc_intro_4",
+      "card_oceania_desc_intro_5"
+    ],
+    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_oceania_indigenous_flow",
+    "region": "oceania",
+    "title": "先住民の世界の流れ",
+    "card_type": "term",
+    "card_ids": [
+      "card_oceania_aboriginal_arrival",
+      "card_oceania_polynesian",
+      "card_oceania_moai",
+      "card_oceania_maori_settlement"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_oceania_indigenous_desc",
+    "region": "oceania",
+    "title": "先住民の世界の流れ（解説）",
+    "card_type": "description",
+    "card_ids": [
+      "card_oceania_desc_indigenous_1",
+      "card_oceania_desc_indigenous_2",
+      "card_oceania_desc_indigenous_3",
+      "card_oceania_desc_indigenous_4",
+      "card_oceania_desc_indigenous_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_oceania_exploration_flow",
+    "region": "oceania",
+    "title": "ヨーロッパ人の探検の流れ",
+    "card_type": "term",
+    "card_ids": [
+      "card_oceania_magellan",
+      "card_oceania_janszoon",
+      "card_oceania_tasman",
+      "card_oceania_cook"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_oceania_exploration_desc",
+    "region": "oceania",
+    "title": "ヨーロッパ人の探検時代",
+    "card_type": "description",
+    "card_ids": [
+      "card_oceania_desc_exploration_1",
+      "card_oceania_desc_exploration_2",
+      "card_oceania_desc_exploration_3",
+      "card_oceania_desc_exploration_4",
+      "card_oceania_desc_exploration_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_oceania_colonial_flow",
+    "region": "oceania",
+    "title": "植民地時代の流れ",
+    "card_type": "term",
+    "card_ids": [
+      "card_oceania_first_fleet",
+      "card_oceania_waitangi",
+      "card_oceania_gold_rush",
+      "card_oceania_responsible_govt",
+      "card_oceania_nz_war"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_oceania_colonial_desc",
+    "region": "oceania",
+    "title": "植民地時代の流れ（解説）",
+    "card_type": "description",
+    "card_ids": [
+      "card_oceania_desc_colonial_1",
+      "card_oceania_desc_colonial_2",
+      "card_oceania_desc_colonial_3",
+      "card_oceania_desc_colonial_4",
+      "card_oceania_desc_colonial_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_oceania_modern_flow",
+    "region": "oceania",
+    "title": "連邦結成と二つの世界大戦の流れ",
+    "card_type": "term",
+    "card_ids": [
+      "card_oceania_au_federation",
+      "card_oceania_white_australia",
+      "card_oceania_nz_dominion",
+      "card_oceania_wwi",
+      "card_oceania_anzac",
+      "card_oceania_westminster"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_oceania_modern_desc",
+    "region": "oceania",
+    "title": "連邦結成から自治独立への流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_oceania_desc_modern_1",
+      "card_oceania_desc_modern_2",
+      "card_oceania_desc_modern_3",
+      "card_oceania_desc_modern_4",
+      "card_oceania_desc_modern_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_oceania_contemporary_term",
+    "region": "oceania",
+    "title": "戦後オセアニアの流れ",
+    "card_type": "term",
+    "card_ids": [
+      "card_oceania_pacific_war",
+      "card_oceania_anzus",
+      "card_oceania_pacific_islands",
+      "card_oceania_pif",
+      "card_oceania_immigration_reform",
+      "card_oceania_papua_independence"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_oceania_contemporary_desc",
+    "region": "oceania",
+    "title": "現代オセアニアの流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_oceania_desc_contemporary_1",
+      "card_oceania_desc_contemporary_2",
+      "card_oceania_desc_contemporary_3",
+      "card_oceania_desc_contemporary_4",
+      "card_oceania_desc_contemporary_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_oceania_all_eras_term",
+    "region": "oceania",
+    "title": "オセアニア史全般",
+    "card_type": "term",
+    "card_ids": [
+      "card_oceania_polynesian",
+      "card_oceania_cook",
+      "card_oceania_first_fleet",
+      "card_oceania_au_federation",
+      "card_oceania_anzac",
+      "card_oceania_anzus",
+      "card_oceania_immigration_reform"
+    ],
+    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "difficulty": 3
+  }
+]

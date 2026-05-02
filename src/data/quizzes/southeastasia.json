@@ -1,0 +1,205 @@
+[
+  {
+    "id": "quiz_southeastasia_intro_desc",
+    "region": "southeastasia",
+    "title": "東南アジア史の大きな流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_southeastasia_desc_intro_1",
+      "card_southeastasia_desc_intro_2",
+      "card_southeastasia_desc_intro_3",
+      "card_southeastasia_desc_intro_4",
+      "card_southeastasia_desc_intro_5"
+    ],
+    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_southeastasia_ancient_flow",
+    "region": "southeastasia",
+    "title": "古代諸国の流れ",
+    "card_type": "term",
+    "card_ids": [
+      "card_southeastasia_dongson",
+      "card_southeastasia_funan",
+      "card_southeastasia_champa",
+      "card_southeastasia_pyu",
+      "card_southeastasia_chenla"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_southeastasia_ancient_desc",
+    "region": "southeastasia",
+    "title": "東南アジア古代の流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_southeastasia_desc_ancient_1",
+      "card_southeastasia_desc_ancient_2",
+      "card_southeastasia_desc_ancient_3",
+      "card_southeastasia_desc_ancient_4",
+      "card_southeastasia_desc_ancient_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_southeastasia_medieval_flow",
+    "region": "southeastasia",
+    "title": "港市国家と大陸帝国の流れ",
+    "card_type": "term",
+    "card_ids": [
+      "card_southeastasia_srivijaya",
+      "card_southeastasia_shailendra",
+      "card_southeastasia_khmer",
+      "card_southeastasia_pagan",
+      "card_southeastasia_angkor_wat",
+      "card_southeastasia_majapahit"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_southeastasia_medieval_desc",
+    "region": "southeastasia",
+    "title": "中世東南アジアの流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_southeastasia_desc_medieval_1",
+      "card_southeastasia_desc_medieval_2",
+      "card_southeastasia_desc_medieval_3",
+      "card_southeastasia_desc_medieval_4",
+      "card_southeastasia_desc_medieval_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_southeastasia_medieval_detail_term",
+    "region": "southeastasia",
+    "title": "中世東南アジアの詳細",
+    "card_type": "term",
+    "card_ids": [
+      "card_southeastasia_srivijaya",
+      "card_southeastasia_shailendra",
+      "card_southeastasia_khmer",
+      "card_southeastasia_daiviet",
+      "card_southeastasia_pagan",
+      "card_southeastasia_angkor_wat",
+      "card_southeastasia_majapahit",
+      "card_southeastasia_ayutthaya"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_southeastasia_early_modern_flow",
+    "region": "southeastasia",
+    "title": "イスラーム化と西欧進出の流れ",
+    "card_type": "term",
+    "card_ids": [
+      "card_southeastasia_malacca",
+      "card_southeastasia_portuguese_malacca",
+      "card_southeastasia_spanish_philippines",
+      "card_southeastasia_voc",
+      "card_southeastasia_chakri"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_southeastasia_early_modern_desc",
+    "region": "southeastasia",
+    "title": "近世東南アジアの流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_southeastasia_desc_early_modern_1",
+      "card_southeastasia_desc_early_modern_2",
+      "card_southeastasia_desc_early_modern_3",
+      "card_southeastasia_desc_early_modern_4",
+      "card_southeastasia_desc_early_modern_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_southeastasia_colonial_flow",
+    "region": "southeastasia",
+    "title": "植民地時代の流れ",
+    "card_type": "term",
+    "card_ids": [
+      "card_southeastasia_nguyen",
+      "card_southeastasia_singapore",
+      "card_southeastasia_cultivation",
+      "card_southeastasia_french_indochina",
+      "card_southeastasia_british_malaya",
+      "card_southeastasia_indonesian_movement",
+      "card_southeastasia_japanese_occupation"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_southeastasia_colonial_desc",
+    "region": "southeastasia",
+    "title": "植民地時代の流れ（解説）",
+    "card_type": "description",
+    "card_ids": [
+      "card_southeastasia_desc_colonial_1",
+      "card_southeastasia_desc_colonial_2",
+      "card_southeastasia_desc_colonial_3",
+      "card_southeastasia_desc_colonial_4",
+      "card_southeastasia_desc_colonial_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_southeastasia_contemporary_term",
+    "region": "southeastasia",
+    "title": "独立から現代へ",
+    "card_type": "term",
+    "card_ids": [
+      "card_southeastasia_indonesia_independence",
+      "card_southeastasia_indochina_war",
+      "card_southeastasia_geneva",
+      "card_southeastasia_asean",
+      "card_southeastasia_vietnam_war_end"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_southeastasia_contemporary_desc",
+    "region": "southeastasia",
+    "title": "現代東南アジアの流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_southeastasia_desc_contemporary_1",
+      "card_southeastasia_desc_contemporary_2",
+      "card_southeastasia_desc_contemporary_3",
+      "card_southeastasia_desc_contemporary_4",
+      "card_southeastasia_desc_contemporary_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_southeastasia_all_eras_term",
+    "region": "southeastasia",
+    "title": "東南アジア史全般",
+    "card_type": "term",
+    "card_ids": [
+      "card_southeastasia_funan",
+      "card_southeastasia_srivijaya",
+      "card_southeastasia_malacca",
+      "card_southeastasia_voc",
+      "card_southeastasia_french_indochina",
+      "card_southeastasia_indonesia_independence",
+      "card_southeastasia_asean"
+    ],
+    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "difficulty": 3
+  }
+]

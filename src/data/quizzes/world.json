@@ -1,13 +1,83 @@
 [
   {
+    "id": "quiz_cross_ancient_orient",
+    "region": "world",
+    "regions": ["westasia", "southasia", "china"],
+    "title": "古代オリエントとアジアの曙",
+    "card_type": "term",
+    "card_ids": [
+      "card_westasia_mesopotamia",
+      "card_westasia_egypt",
+      "card_southasia_indus",
+      "card_china_shang",
+      "card_southasia_aryan",
+      "card_china_zhou"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_cross_classical",
+    "region": "world",
+    "regions": ["europe", "southasia", "china", "centralasia"],
+    "title": "古典文明の時代：地中海・インド・中国",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_polis",
+      "card_southasia_buddha",
+      "card_china_qin_shi_huang",
+      "card_centralasia_xiongnu",
+      "card_china_emperor_wu_han",
+      "card_europe_caesar"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_cross_late_antiquity",
+    "region": "world",
+    "regions": ["centralasia", "china", "westasia", "europe", "southasia"],
+    "title": "古代の終焉と諸帝国の興亡",
+    "card_type": "term",
+    "card_ids": [
+      "card_centralasia_kushan",
+      "card_china_three_kingdoms",
+      "card_westasia_sassanid",
+      "card_europe_constantine",
+      "card_southasia_gupta",
+      "card_europe_fall_of_rome"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_cross_early_medieval",
+    "region": "world",
+    "regions": ["centralasia", "china", "westasia", "southeastasia", "japan", "europe"],
+    "title": "ユーラシアの再編：7〜9世紀",
+    "card_type": "term",
+    "card_ids": [
+      "card_centralasia_turkic",
+      "card_china_sui",
+      "card_westasia_hijra",
+      "card_southeastasia_srivijaya",
+      "card_jp_46",
+      "card_europe_charlemagne"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 2
+  },
+  {
     "id": "quiz_cross_medieval",
     "region": "world",
-    "regions": ["japan", "europe", "china"],
-    "title": "中世の世界：日本・ヨーロッパ・中国",
+    "regions": ["china", "southeastasia", "europe", "japan"],
+    "title": "中世の世界：宋・十字軍・鎌倉",
     "card_type": "term",
     "card_ids": [
       "card_china_song",
+      "card_southeastasia_pagan",
       "card_europe_crusades",
+      "card_southeastasia_angkor_wat",
       "card_jp_91",
       "card_europe_magna_carta",
       "card_china_kublai_khan"
@@ -16,18 +86,70 @@
     "difficulty": 2
   },
   {
-    "id": "quiz_cross_early_modern",
+    "id": "quiz_cross_age_of_discovery",
     "region": "world",
-    "regions": ["japan", "europe", "china"],
-    "title": "大航海時代：日本・ヨーロッパ・中国",
+    "regions": ["southeastasia", "china", "westasia", "europe", "oceania"],
+    "title": "大航海時代の幕開け",
     "card_type": "term",
     "card_ids": [
+      "card_southeastasia_malacca",
       "card_china_zheng_he",
+      "card_westasia_constantinople",
       "card_europe_columbus",
+      "card_europe_vasco_da_gama",
+      "card_southeastasia_portuguese_malacca",
+      "card_oceania_magellan"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_cross_early_modern",
+    "region": "world",
+    "regions": ["europe", "southamerica", "japan", "southeastasia", "northamerica", "china"],
+    "title": "16〜17世紀の世界：宗教改革と植民地競争",
+    "card_type": "term",
+    "card_ids": [
       "card_europe_luther",
-      "card_jp_133",
+      "card_southamerica_pizarro",
       "card_jp_152",
+      "card_southeastasia_voc",
+      "card_northamerica_jamestown",
       "card_china_qing"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_cross_18c_global",
+    "region": "world",
+    "regions": ["centralasia", "northamerica", "southasia", "europe", "oceania", "japan"],
+    "title": "18世紀のグローバル化：植民地戦争と産業革命",
+    "card_type": "term",
+    "card_ids": [
+      "card_centralasia_three_khanates",
+      "card_northamerica_french_indian_war",
+      "card_southasia_plassey",
+      "card_europe_industrial",
+      "card_oceania_cook",
+      "card_jp_165"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_cross_revolutions",
+    "region": "world",
+    "regions": ["northamerica", "europe", "southamerica"],
+    "title": "大西洋革命の連鎖",
+    "card_type": "term",
+    "card_ids": [
+      "card_northamerica_declaration",
+      "card_europe_french_revolution",
+      "card_southamerica_haiti_independence",
+      "card_europe_napoleon",
+      "card_southamerica_bolivar",
+      "card_northamerica_monroe"
     ],
     "modes": ["cross_region"],
     "difficulty": 2
@@ -35,18 +157,153 @@
   {
     "id": "quiz_cross_modern",
     "region": "world",
-    "regions": ["japan", "europe", "china"],
-    "title": "近代の激動：日本・ヨーロッパ・中国",
+    "regions": ["europe", "china", "japan", "southasia"],
+    "title": "19世紀ナショナリズムの波",
     "card_type": "term",
     "card_ids": [
       "card_europe_napoleon",
       "card_europe_vienna_congress",
       "card_china_opium_war",
-      "card_china_taiping_rebellion",
       "card_jp_196",
+      "card_southasia_sepoy",
       "card_europe_bismarck"
     ],
     "modes": ["cross_region"],
     "difficulty": 2
+  },
+  {
+    "id": "quiz_cross_imperialism",
+    "region": "world",
+    "regions": ["centralasia", "westasia", "southeastasia", "southamerica", "northamerica"],
+    "title": "19世紀後期の帝国主義と分割",
+    "card_type": "term",
+    "card_ids": [
+      "card_centralasia_russia_conquest",
+      "card_westasia_suez",
+      "card_centralasia_great_game",
+      "card_southeastasia_french_indochina",
+      "card_southamerica_brazil_republic",
+      "card_northamerica_spanish_war"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 3
+  },
+  {
+    "id": "quiz_cross_wwi_era",
+    "region": "world",
+    "regions": ["europe", "oceania", "southasia", "westasia"],
+    "title": "第一次世界大戦と戦後秩序",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_sarajevo",
+      "card_oceania_anzac",
+      "card_europe_russian_revolution",
+      "card_europe_versailles",
+      "card_southasia_gandhi",
+      "card_westasia_turkey_republic"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 3
+  },
+  {
+    "id": "quiz_cross_wwii_era",
+    "region": "world",
+    "regions": ["europe", "japan", "southeastasia"],
+    "title": "世界恐慌から第二次世界大戦",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_great_depression",
+      "card_jp_236",
+      "card_europe_nazi",
+      "card_europe_ww2",
+      "card_jp_240",
+      "card_southeastasia_japanese_occupation"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 3
+  },
+  {
+    "id": "quiz_cross_decolonization",
+    "region": "world",
+    "regions": ["southeastasia", "northamerica", "southasia", "westasia", "china"],
+    "title": "戦後のアジア・アフリカ独立",
+    "card_type": "term",
+    "card_ids": [
+      "card_southeastasia_indonesia_independence",
+      "card_northamerica_un_founding",
+      "card_southasia_independence",
+      "card_westasia_israel",
+      "card_china_prc_established",
+      "card_westasia_algeria_independence"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 3
+  },
+  {
+    "id": "quiz_cross_cold_war_hot_spots",
+    "region": "world",
+    "regions": ["northamerica", "southamerica", "southeastasia", "westasia"],
+    "title": "冷戦下の代理戦争と革命",
+    "card_type": "term",
+    "card_ids": [
+      "card_northamerica_korean_war",
+      "card_southamerica_cuba_revolution",
+      "card_southamerica_allende",
+      "card_southamerica_chile_coup",
+      "card_southeastasia_vietnam_war_end",
+      "card_westasia_iran_revolution"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 3
+  },
+  {
+    "id": "quiz_cross_cold_war_end",
+    "region": "world",
+    "regions": ["europe", "centralasia", "southamerica", "northamerica"],
+    "title": "冷戦の終結と新しい秩序",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_berlin_wall_fall",
+      "card_southamerica_mercosur",
+      "card_centralasia_independence",
+      "card_europe_eu",
+      "card_northamerica_nine_eleven"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 3
+  },
+  {
+    "id": "quiz_cross_islamic_dynasties",
+    "region": "world",
+    "regions": ["westasia", "centralasia", "southasia", "southeastasia"],
+    "title": "イスラーム王朝の東漸",
+    "card_type": "term",
+    "card_ids": [
+      "card_westasia_hijra",
+      "card_centralasia_talas",
+      "card_centralasia_samanid",
+      "card_southasia_ghaznavid",
+      "card_centralasia_seljuk",
+      "card_southeastasia_malacca"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 3
+  },
+  {
+    "id": "quiz_cross_pacific_exploration",
+    "region": "world",
+    "regions": ["europe", "oceania"],
+    "title": "太平洋の探検と植民地化",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_exploration",
+      "card_oceania_magellan",
+      "card_oceania_janszoon",
+      "card_oceania_tasman",
+      "card_oceania_cook",
+      "card_oceania_first_fleet"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 3
   }
 ]

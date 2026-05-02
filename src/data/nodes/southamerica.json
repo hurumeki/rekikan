@@ -1,0 +1,149 @@
+[
+  {
+    "id": "node_southamerica_root",
+    "region": "southamerica",
+    "parent_id": null,
+    "label": "南アメリカ史",
+    "sort_order": 0,
+    "quiz_ids": ["quiz_southamerica_intro_desc"],
+    "unlock_condition": null
+  },
+  {
+    "id": "node_southamerica_indigenous",
+    "region": "southamerica",
+    "parent_id": "node_southamerica_root",
+    "label": "アンデス文明",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_southamerica_indigenous_flow"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_southamerica_intro_desc"]
+    }
+  },
+  {
+    "id": "node_southamerica_indigenous_detail",
+    "region": "southamerica",
+    "parent_id": "node_southamerica_indigenous",
+    "label": "先住民文明の流れ",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_southamerica_indigenous_desc"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_southamerica_indigenous_flow"]
+    }
+  },
+  {
+    "id": "node_southamerica_colonial",
+    "region": "southamerica",
+    "parent_id": "node_southamerica_root",
+    "label": "スペイン・ポルトガル植民地",
+    "sort_order": 2,
+    "quiz_ids": ["quiz_southamerica_colonial_flow"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_southamerica_intro_desc"]
+    }
+  },
+  {
+    "id": "node_southamerica_colonial_detail",
+    "region": "southamerica",
+    "parent_id": "node_southamerica_colonial",
+    "label": "銀山開発と先住民支配",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_southamerica_colonial_desc"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_southamerica_colonial_flow"]
+    }
+  },
+  {
+    "id": "node_southamerica_independence",
+    "region": "southamerica",
+    "parent_id": "node_southamerica_root",
+    "label": "独立革命",
+    "sort_order": 3,
+    "quiz_ids": ["quiz_southamerica_independence_flow"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_southamerica_intro_desc"]
+    }
+  },
+  {
+    "id": "node_southamerica_independence_detail",
+    "region": "southamerica",
+    "parent_id": "node_southamerica_independence",
+    "label": "解放者と新国家",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_southamerica_independence_desc"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_southamerica_independence_flow"]
+    }
+  },
+  {
+    "id": "node_southamerica_modern",
+    "region": "southamerica",
+    "parent_id": "node_southamerica_root",
+    "label": "共和国の発展",
+    "sort_order": 4,
+    "quiz_ids": ["quiz_southamerica_modern_flow"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_southamerica_intro_desc"]
+    }
+  },
+  {
+    "id": "node_southamerica_modern_detail",
+    "region": "southamerica",
+    "parent_id": "node_southamerica_modern",
+    "label": "輸出経済と工業化",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_southamerica_modern_desc"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_southamerica_modern_flow"]
+    }
+  },
+  {
+    "id": "node_southamerica_contemporary",
+    "region": "southamerica",
+    "parent_id": "node_southamerica_root",
+    "label": "現代南米",
+    "sort_order": 5,
+    "quiz_ids": ["quiz_southamerica_contemporary_term"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_southamerica_intro_desc"]
+    }
+  },
+  {
+    "id": "node_southamerica_contemporary_detail",
+    "region": "southamerica",
+    "parent_id": "node_southamerica_contemporary",
+    "label": "ポピュリズムと民主化",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_southamerica_contemporary_desc"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_southamerica_contemporary_term"]
+    }
+  },
+  {
+    "id": "node_southamerica_all_eras",
+    "region": "southamerica",
+    "parent_id": "node_southamerica_root",
+    "label": "全時代通し",
+    "sort_order": 6,
+    "quiz_ids": ["quiz_southamerica_all_eras_term"],
+    "unlock_condition": {
+      "type": "complete_node",
+      "node_ids": [
+        "node_southamerica_indigenous",
+        "node_southamerica_colonial",
+        "node_southamerica_independence",
+        "node_southamerica_modern",
+        "node_southamerica_contemporary"
+      ]
+    }
+  }
+]

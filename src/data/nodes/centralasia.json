@@ -1,0 +1,149 @@
+[
+  {
+    "id": "node_centralasia_root",
+    "region": "centralasia",
+    "parent_id": null,
+    "label": "中央アジア史",
+    "sort_order": 0,
+    "quiz_ids": ["quiz_centralasia_intro_desc"],
+    "unlock_condition": null
+  },
+  {
+    "id": "node_centralasia_ancient",
+    "region": "centralasia",
+    "parent_id": "node_centralasia_root",
+    "label": "騎馬遊牧民の世界",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_centralasia_ancient_flow"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_centralasia_intro_desc"]
+    }
+  },
+  {
+    "id": "node_centralasia_ancient_detail",
+    "region": "centralasia",
+    "parent_id": "node_centralasia_ancient",
+    "label": "騎馬民族と絹の道",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_centralasia_ancient_desc", "quiz_centralasia_ancient_detail_term"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_centralasia_ancient_flow"]
+    }
+  },
+  {
+    "id": "node_centralasia_turkic",
+    "region": "centralasia",
+    "parent_id": "node_centralasia_root",
+    "label": "突厥・ウイグルの時代",
+    "sort_order": 2,
+    "quiz_ids": ["quiz_centralasia_turkic_flow"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_centralasia_intro_desc"]
+    }
+  },
+  {
+    "id": "node_centralasia_turkic_detail",
+    "region": "centralasia",
+    "parent_id": "node_centralasia_turkic",
+    "label": "草原の覇者の興亡",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_centralasia_turkic_desc"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_centralasia_turkic_flow"]
+    }
+  },
+  {
+    "id": "node_centralasia_islamic",
+    "region": "centralasia",
+    "parent_id": "node_centralasia_root",
+    "label": "イスラーム化の時代",
+    "sort_order": 3,
+    "quiz_ids": ["quiz_centralasia_islamic_flow"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_centralasia_intro_desc"]
+    }
+  },
+  {
+    "id": "node_centralasia_islamic_detail",
+    "region": "centralasia",
+    "parent_id": "node_centralasia_islamic",
+    "label": "イスラーム王朝の興亡",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_centralasia_islamic_desc"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_centralasia_islamic_flow"]
+    }
+  },
+  {
+    "id": "node_centralasia_mongol",
+    "region": "centralasia",
+    "parent_id": "node_centralasia_root",
+    "label": "モンゴル・ティムール朝",
+    "sort_order": 4,
+    "quiz_ids": ["quiz_centralasia_mongol_flow"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_centralasia_intro_desc"]
+    }
+  },
+  {
+    "id": "node_centralasia_mongol_detail",
+    "region": "centralasia",
+    "parent_id": "node_centralasia_mongol",
+    "label": "ユーラシア帝国の継承",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_centralasia_mongol_desc", "quiz_centralasia_mongol_detail_term"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_centralasia_mongol_flow"]
+    }
+  },
+  {
+    "id": "node_centralasia_modern",
+    "region": "centralasia",
+    "parent_id": "node_centralasia_root",
+    "label": "ロシア進出と独立",
+    "sort_order": 5,
+    "quiz_ids": ["quiz_centralasia_modern_term"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_centralasia_intro_desc"]
+    }
+  },
+  {
+    "id": "node_centralasia_modern_detail",
+    "region": "centralasia",
+    "parent_id": "node_centralasia_modern",
+    "label": "近現代の中央アジア",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_centralasia_modern_desc"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_centralasia_modern_term"]
+    }
+  },
+  {
+    "id": "node_centralasia_all_eras",
+    "region": "centralasia",
+    "parent_id": "node_centralasia_root",
+    "label": "全時代通し",
+    "sort_order": 6,
+    "quiz_ids": ["quiz_centralasia_all_eras_term"],
+    "unlock_condition": {
+      "type": "complete_node",
+      "node_ids": [
+        "node_centralasia_ancient",
+        "node_centralasia_turkic",
+        "node_centralasia_islamic",
+        "node_centralasia_mongol",
+        "node_centralasia_modern"
+      ]
+    }
+  }
+]

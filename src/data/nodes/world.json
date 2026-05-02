@@ -5,7 +5,74 @@
     "parent_id": null,
     "label": "同時代の世界",
     "sort_order": 0,
-    "quiz_ids": ["quiz_cross_medieval", "quiz_cross_early_modern", "quiz_cross_modern"],
+    "quiz_ids": [],
+    "unlock_condition": null
+  },
+  {
+    "id": "node_world_ancient",
+    "region": "world",
+    "parent_id": "node_world_root",
+    "label": "古代：オリエントから古典帝国へ",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_cross_ancient_orient", "quiz_cross_classical", "quiz_cross_late_antiquity"],
+    "unlock_condition": null
+  },
+  {
+    "id": "node_world_medieval",
+    "region": "world",
+    "parent_id": "node_world_root",
+    "label": "中世：イスラームと諸文明の交錯",
+    "sort_order": 2,
+    "quiz_ids": ["quiz_cross_early_medieval", "quiz_cross_medieval", "quiz_cross_age_of_discovery"],
+    "unlock_condition": null
+  },
+  {
+    "id": "node_world_early_modern",
+    "region": "world",
+    "parent_id": "node_world_root",
+    "label": "近世：宗教改革・植民地競争・産業革命",
+    "sort_order": 3,
+    "quiz_ids": ["quiz_cross_early_modern", "quiz_cross_18c_global"],
+    "unlock_condition": null
+  },
+  {
+    "id": "node_world_modern",
+    "region": "world",
+    "parent_id": "node_world_root",
+    "label": "近代：革命・国民国家・帝国主義",
+    "sort_order": 4,
+    "quiz_ids": ["quiz_cross_revolutions", "quiz_cross_modern", "quiz_cross_imperialism"],
+    "unlock_condition": null
+  },
+  {
+    "id": "node_world_20c",
+    "region": "world",
+    "parent_id": "node_world_root",
+    "label": "20世紀前半：二度の世界大戦",
+    "sort_order": 5,
+    "quiz_ids": ["quiz_cross_wwi_era", "quiz_cross_wwii_era"],
+    "unlock_condition": null
+  },
+  {
+    "id": "node_world_postwar",
+    "region": "world",
+    "parent_id": "node_world_root",
+    "label": "戦後・現代：冷戦と独立",
+    "sort_order": 6,
+    "quiz_ids": [
+      "quiz_cross_decolonization",
+      "quiz_cross_cold_war_hot_spots",
+      "quiz_cross_cold_war_end"
+    ],
+    "unlock_condition": null
+  },
+  {
+    "id": "node_world_themes",
+    "region": "world",
+    "parent_id": "node_world_root",
+    "label": "テーマ別：宗教伝播と探検",
+    "sort_order": 7,
+    "quiz_ids": ["quiz_cross_islamic_dynasties", "quiz_cross_pacific_exploration"],
     "unlock_condition": null
   }
 ]
