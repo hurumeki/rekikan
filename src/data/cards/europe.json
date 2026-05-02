@@ -1180,6 +1180,34 @@
     "status": "ai_generated"
   },
   {
+    "id": "card_europe_theodosius",
+    "region": "europe",
+    "type": "term",
+    "name": "キリスト教の国教化",
+    "year": 392,
+    "year_end": null,
+    "era_color_key": "ancient",
+    "category": "law",
+    "hint": "テオドシウス帝・ローマ国教・他宗教の禁止",
+    "description": "ローマ皇帝が他の宗教を禁じてキリスト教を唯一の国教と定め、キリスト教世界の枠組みが固まった。",
+    "tags": ["宗教"],
+    "status": "ai_generated"
+  },
+  {
+    "id": "card_europe_great_schism",
+    "region": "europe",
+    "type": "term",
+    "name": "東西教会の分裂",
+    "year": 1054,
+    "year_end": null,
+    "era_color_key": "medieval",
+    "category": "culture",
+    "hint": "ローマ・カトリックと正教会・相互破門",
+    "description": "ローマ教会とコンスタンティノープル教会が相互に破門し、キリスト教世界が東西に分裂した。",
+    "tags": ["宗教"],
+    "status": "ai_generated"
+  },
+  {
     "id": "card_europe_triangular_trade",
     "region": "europe",
     "type": "term",

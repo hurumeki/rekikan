@@ -341,6 +341,39 @@
     "difficulty": 3
   },
   {
+    "id": "quiz_theme_religion_christianity",
+    "region": "world",
+    "regions": ["europe"],
+    "title": "キリスト教の変遷",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_constantine",
+      "card_europe_theodosius",
+      "card_europe_great_schism",
+      "card_europe_crusades",
+      "card_europe_reformation",
+      "card_europe_westphalia"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_theme_religion_buddhism",
+    "region": "world",
+    "regions": ["southasia", "china", "southeastasia", "japan"],
+    "title": "仏教の伝播",
+    "card_type": "term",
+    "card_ids": [
+      "card_southasia_buddha",
+      "card_southasia_ashoka",
+      "card_china_buddhism_arrival",
+      "card_jp_33",
+      "card_southeastasia_srivijaya"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 2
+  },
+  {
     "id": "quiz_theme_trade_silkroad",
     "region": "world",
     "regions": ["centralasia", "china", "westasia"],

@@ -406,5 +406,19 @@
     "category": "person",
     "hint": "北宋・富国強兵・旧法党との対立",
     "description": "北宋の財政立て直しや軍事力強化を目指して行われた大規模な改革。"
+  },
+  {
+    "id": "card_china_buddhism_arrival",
+    "region": "china",
+    "type": "term",
+    "name": "仏教の中国伝来",
+    "year": 67,
+    "year_end": null,
+    "era_color_key": "ancient",
+    "category": "culture",
+    "hint": "後漢・白馬寺・西域経由の伝播",
+    "description": "西域経由で仏典が伝わり、洛陽に最初の寺院が建てられて中国における仏教受容が始まった。",
+    "tags": ["宗教"],
+    "status": "ai_generated"
   }
 ]
