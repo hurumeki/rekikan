@@ -11,6 +11,7 @@ import { useAdminStore } from '@/lib/admin/store';
 
 export default function AdminPage() {
   const [activeTab, setActiveTab] = useState<AdminTab>('cards');
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const { dispatch } = useAdminStore();
 
   // Global Ctrl+Z undo
@@ -40,9 +41,14 @@ export default function AdminPage() {
 
   return (
     <>
-      <AdminHeader />
-      <div className="flex flex-1 overflow-hidden">
-        <AdminSidebar activeTab={activeTab} onChangeTab={setActiveTab} />
+      <AdminHeader onMenuClick={() => setSidebarOpen(true)} />
+      <div className="flex flex-1 overflow-hidden relative">
+        <AdminSidebar
+          activeTab={activeTab}
+          onChangeTab={setActiveTab}
+          isOpen={sidebarOpen}
+          onClose={() => setSidebarOpen(false)}
+        />
         <main className="flex-1 overflow-hidden">
           {activeTab === 'cards' && <CardListView />}
           {activeTab === 'tree' && <TreeView />}
