@@ -11,9 +11,16 @@ import {
 import { Button } from '@/components/admin-ui/button';
 import { Input } from '@/components/admin-ui/input';
 import { Label } from '@/components/admin-ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/admin-ui/select';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/admin-ui/select';
 import { Badge } from '@/components/admin-ui/badge';
 import { CardPickerDialog } from './CardPickerDialog';
+import { CardEditPanel } from '../cards/CardEditPanel';
 import { useAdminStore } from '@/lib/admin/store';
 import { generateQuizId, ensureUnique } from '@/lib/admin/id-generator';
 import type { Quiz, GameMode } from '@/lib/types';
@@ -48,6 +55,8 @@ export function QuizEditPanel({ quizId, open, onOpenChange }: Props) {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [pickerOpen, setPickerOpen] = useState(false);
   const [dragIdx, setDragIdx] = useState<number | null>(null);
+  const [detailCardId, setDetailCardId] = useState<string | null>(null);
+  const [detailOpen, setDetailOpen] = useState(false);
 
   const isNew = quizId === '__new__';
 
@@ -58,10 +67,10 @@ export function QuizEditPanel({ quizId, open, onOpenChange }: Props) {
       setForm({ ...EMPTY_QUIZ, card_ids: [] });
     } else if (quizId) {
       const quiz = state.quizzes.find((q) => q.id === quizId);
-       
+
       setForm(quiz ? { ...quiz } : EMPTY_QUIZ);
     }
-     
+
     setErrors({});
   }, [quizId, open, isNew, state.quizzes]);
 
@@ -164,26 +173,54 @@ export function QuizEditPanel({ quizId, open, onOpenChange }: Props) {
 
         <div className="space-y-4">
           <div className="space-y-1.5">
-            <Label>タイトル {errors.title && <span className="text-destructive text-xs ml-1">{errors.title}</span>}</Label>
-            <Input value={form.title ?? ''} onChange={(e) => set({ title: e.target.value })} placeholder="クイズのタイトル" />
+            <Label>
+              タイトル{' '}
+              {errors.title && (
+                <span className="text-destructive text-xs ml-1">{errors.title}</span>
+              )}
+            </Label>
+            <Input
+              value={form.title ?? ''}
+              onChange={(e) => set({ title: e.target.value })}
+              placeholder="クイズのタイトル"
+            />
           </div>
 
           <div className="grid grid-cols-2 gap-3">
             <div className="space-y-1.5">
-              <Label>リージョン {errors.region && <span className="text-destructive text-xs ml-1">{errors.region}</span>}</Label>
+              <Label>
+                リージョン{' '}
+                {errors.region && (
+                  <span className="text-destructive text-xs ml-1">{errors.region}</span>
+                )}
+              </Label>
               <Select value={form.region || ''} onValueChange={(v) => set({ region: v })}>
-                <SelectTrigger><SelectValue placeholder="リージョン" /></SelectTrigger>
+                <SelectTrigger>
+                  <SelectValue placeholder="リージョン" />
+                </SelectTrigger>
                 <SelectContent>
                   {state.regions.map((r) => (
-                    <SelectItem key={r.id} value={r.id}>{r.emoji} {r.label}</SelectItem>
+                    <SelectItem key={r.id} value={r.id}>
+                      {r.emoji} {r.label}
+                    </SelectItem>
                   ))}
                 </SelectContent>
               </Select>
             </div>
             <div className="space-y-1.5">
-              <Label>カード種別 {errors.card_type && <span className="text-destructive text-xs ml-1">{errors.card_type}</span>}</Label>
-              <Select value={form.card_type || ''} onValueChange={(v) => set({ card_type: v as 'term' | 'description' })}>
-                <SelectTrigger><SelectValue placeholder="種別" /></SelectTrigger>
+              <Label>
+                カード種別{' '}
+                {errors.card_type && (
+                  <span className="text-destructive text-xs ml-1">{errors.card_type}</span>
+                )}
+              </Label>
+              <Select
+                value={form.card_type || ''}
+                onValueChange={(v) => set({ card_type: v as 'term' | 'description' })}
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder="種別" />
+                </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="term">用語</SelectItem>
                   <SelectItem value="description">説明文</SelectItem>
@@ -195,17 +232,29 @@ export function QuizEditPanel({ quizId, open, onOpenChange }: Props) {
           <div className="grid grid-cols-2 gap-3">
             <div className="space-y-1.5">
               <Label>難易度</Label>
-              <Select value={String(form.difficulty ?? 2)} onValueChange={(v) => set({ difficulty: Number(v) })}>
-                <SelectTrigger><SelectValue /></SelectTrigger>
+              <Select
+                value={String(form.difficulty ?? 2)}
+                onValueChange={(v) => set({ difficulty: Number(v) })}
+              >
+                <SelectTrigger>
+                  <SelectValue />
+                </SelectTrigger>
                 <SelectContent>
                   {[1, 2, 3, 4, 5].map((d) => (
-                    <SelectItem key={d} value={String(d)}>★ {d}</SelectItem>
+                    <SelectItem key={d} value={String(d)}>
+                      ★ {d}
+                    </SelectItem>
                   ))}
                 </SelectContent>
               </Select>
             </div>
             <div className="space-y-1.5">
-              <Label>モード {errors.modes && <span className="text-destructive text-xs ml-1">{errors.modes}</span>}</Label>
+              <Label>
+                モード{' '}
+                {errors.modes && (
+                  <span className="text-destructive text-xs ml-1">{errors.modes}</span>
+                )}
+              </Label>
               <div className="flex gap-3 pt-1">
                 {(['careful', 'challenge'] as GameMode[]).map((m) => (
                   <label key={m} className="flex items-center gap-1.5 cursor-pointer text-sm">
@@ -226,9 +275,13 @@ export function QuizEditPanel({ quizId, open, onOpenChange }: Props) {
           <div className="space-y-2">
             <div className="flex items-center justify-between">
               <Label>
-                カード構成
-                {' '}
-                <span className={cn('text-xs font-normal', countOk ? 'text-green-600' : 'text-orange-500')}>
+                カード構成{' '}
+                <span
+                  className={cn(
+                    'text-xs font-normal',
+                    countOk ? 'text-green-600' : 'text-orange-500',
+                  )}
+                >
                   ({cardCount}枚{!countOk && '、推奨5〜8枚'})
                 </span>
               </Label>
@@ -237,7 +290,12 @@ export function QuizEditPanel({ quizId, open, onOpenChange }: Props) {
                   <ArrowUpDown className="h-3 w-3 mr-1" />
                   年順に並替
                 </Button>
-                <Button variant="outline" size="sm" className="h-7 text-xs" onClick={() => setPickerOpen(true)}>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="h-7 text-xs"
+                  onClick={() => setPickerOpen(true)}
+                >
                   <Plus className="h-3 w-3 mr-1" />
                   カードを追加
                 </Button>
@@ -262,24 +320,39 @@ export function QuizEditPanel({ quizId, open, onOpenChange }: Props) {
                     <GripVertical className="h-4 w-4 text-muted-foreground cursor-grab shrink-0" />
                     <span className="text-xs text-muted-foreground w-5 shrink-0">{idx + 1}</span>
                     {card ? (
-                      <>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setDetailCardId(cardId);
+                          setDetailOpen(true);
+                        }}
+                        className="flex flex-1 items-center gap-2 text-left min-w-0 hover:underline"
+                      >
                         <span className="flex-1 text-xs line-clamp-1">
-                          {card.type === 'term' && card.name ? card.name : card.description.slice(0, 50)}
+                          {card.type === 'term' && card.name
+                            ? card.name
+                            : card.description.slice(0, 50)}
                         </span>
                         <span className="text-xs text-muted-foreground shrink-0">{card.year}</span>
                         <Badge
-                          variant={card.status as 'draft' | 'ai_generated' | 'reviewed' | 'approved'}
+                          variant={
+                            card.status as 'draft' | 'ai_generated' | 'reviewed' | 'approved'
+                          }
                           className="text-xs shrink-0"
                         >
                           {STATUS_LABELS[card.status ?? 'draft'] ?? card.status}
                         </Badge>
-                      </>
+                      </button>
                     ) : (
-                      <span className="flex-1 text-xs text-destructive">不明なカード: {cardId}</span>
+                      <span className="flex-1 text-xs text-destructive">
+                        不明なカード: {cardId}
+                      </span>
                     )}
                     <button
+                      type="button"
                       onClick={() => removeCard(cardId)}
                       className="p-1 rounded hover:bg-destructive/10 text-muted-foreground hover:text-destructive shrink-0"
+                      aria-label="カードを削除"
                     >
                       <Trash2 className="h-3.5 w-3.5" />
                     </button>
@@ -291,7 +364,9 @@ export function QuizEditPanel({ quizId, open, onOpenChange }: Props) {
         </div>
 
         <SheetFooter className="mt-6">
-          <Button variant="outline" onClick={() => onOpenChange(false)}>キャンセル</Button>
+          <Button variant="outline" onClick={() => onOpenChange(false)}>
+            キャンセル
+          </Button>
           <Button onClick={handleSave}>保存</Button>
         </SheetFooter>
       </SheetContent>
@@ -302,6 +377,8 @@ export function QuizEditPanel({ quizId, open, onOpenChange }: Props) {
         excludeIds={form.card_ids ?? []}
         onSelect={handleAddCards}
       />
+
+      <CardEditPanel cardId={detailCardId} open={detailOpen} onOpenChange={setDetailOpen} />
     </Sheet>
   );
 }

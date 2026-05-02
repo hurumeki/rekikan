@@ -3,7 +3,13 @@
 import { useState, useMemo } from 'react';
 import { Plus, ChevronRight, ChevronDown, Circle } from 'lucide-react';
 import { Button } from '@/components/admin-ui/button';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/admin-ui/select';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/admin-ui/select';
 import { NodeEditPanel } from './NodeEditPanel';
 import { QuizEditPanel } from './QuizEditPanel';
 import { useAdminStore } from '@/lib/admin/store';
@@ -34,7 +40,9 @@ function TreeNodeRow({
   const [expanded, setExpanded] = useState(true);
 
   const children = tree.get(node.id) ?? [];
-  const quizzes = node.quiz_ids.map((qid) => state.quizzes.find((q) => q.id === qid)).filter(Boolean);
+  const quizzes = node.quiz_ids
+    .map((qid) => state.quizzes.find((q) => q.id === qid))
+    .filter(Boolean);
   const hasContent = children.length > 0 || quizzes.length > 0;
 
   return (
@@ -43,19 +51,27 @@ function TreeNodeRow({
       <div
         className={cn(
           'flex items-center gap-2 py-1.5 pr-3 hover:bg-muted/30 rounded cursor-pointer group',
-          'text-sm'
+          'text-sm',
         )}
         style={{ paddingLeft: `${depth * 20 + 8}px` }}
         onClick={() => onEditNode(node.id)}
       >
         <button
-          onClick={(e) => { e.stopPropagation(); setExpanded((v) => !v); }}
+          onClick={(e) => {
+            e.stopPropagation();
+            setExpanded((v) => !v);
+          }}
           className="text-muted-foreground hover:text-foreground shrink-0"
         >
-          {hasContent
-            ? (expanded ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />)
-            : <Circle className="h-2 w-2 mx-1" />
-          }
+          {hasContent ? (
+            expanded ? (
+              <ChevronDown className="h-4 w-4" />
+            ) : (
+              <ChevronRight className="h-4 w-4" />
+            )
+          ) : (
+            <Circle className="h-2 w-2 mx-1" />
+          )}
         </button>
         <span className="font-medium text-foreground flex-1">{node.label}</span>
         <span className="text-xs text-muted-foreground opacity-0 group-hover:opacity-100">
@@ -64,30 +80,37 @@ function TreeNodeRow({
       </div>
 
       {/* Quizzes */}
-      {expanded && quizzes.map((quiz) => quiz && (
-        <div
-          key={quiz.id}
-          className="flex items-center gap-2 py-1 pr-3 hover:bg-muted/30 rounded cursor-pointer"
-          style={{ paddingLeft: `${(depth + 1) * 20 + 8}px` }}
-          onClick={() => onEditQuiz(quiz.id)}
-        >
-          <StatusIcon status={getQuizStatusSummary(quiz, state.cards)} />
-          <span className="text-sm">{quiz.title}</span>
-          <span className="text-xs text-muted-foreground ml-auto">{quiz.card_ids.length}枚</span>
-        </div>
-      ))}
+      {expanded &&
+        quizzes.map(
+          (quiz) =>
+            quiz && (
+              <div
+                key={quiz.id}
+                className="flex items-center gap-2 py-1 pr-3 hover:bg-muted/30 rounded cursor-pointer"
+                style={{ paddingLeft: `${(depth + 1) * 20 + 8}px` }}
+                onClick={() => onEditQuiz(quiz.id)}
+              >
+                <StatusIcon status={getQuizStatusSummary(quiz, state.cards)} />
+                <span className="text-sm">{quiz.title}</span>
+                <span className="text-xs text-muted-foreground ml-auto">
+                  {quiz.card_ids.length}枚
+                </span>
+              </div>
+            ),
+        )}
 
       {/* Children */}
-      {expanded && children.map((child) => (
-        <TreeNodeRow
-          key={child.id}
-          node={child}
-          depth={depth + 1}
-          tree={tree}
-          onEditNode={onEditNode}
-          onEditQuiz={onEditQuiz}
-        />
-      ))}
+      {expanded &&
+        children.map((child) => (
+          <TreeNodeRow
+            key={child.id}
+            node={child}
+            depth={depth + 1}
+            tree={tree}
+            onEditNode={onEditNode}
+            onEditQuiz={onEditQuiz}
+          />
+        ))}
     </div>
   );
 }
@@ -131,27 +154,34 @@ export function TreeView() {
 
   return (
     <div className="flex flex-col h-full overflow-hidden">
-      <div className="flex items-center justify-between px-3 py-2 border-b border-border shrink-0">
-        <h2 className="text-sm font-semibold">ツリー・クイズ管理</h2>
-        <div className="flex gap-2">
-          <Select value={regionFilter || '__all__'} onValueChange={(v) => setRegionFilter(v === '__all__' ? '' : v)}>
-            <SelectTrigger className="w-40 h-8">
+      <div className="flex flex-col gap-2 px-3 py-2 border-b border-border shrink-0 md:flex-row md:items-center md:justify-between">
+        <h2 className="text-sm font-semibold whitespace-nowrap">ツリー・クイズ管理</h2>
+        <div className="flex gap-2 flex-wrap">
+          <Select
+            value={regionFilter || '__all__'}
+            onValueChange={(v) => setRegionFilter(v === '__all__' ? '' : v)}
+          >
+            <SelectTrigger className="flex-1 min-w-32 md:flex-none md:w-40 h-8">
               <SelectValue placeholder="すべての地域" />
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="__all__">すべての地域</SelectItem>
               {state.regions.map((r) => (
-                <SelectItem key={r.id} value={r.id}>{r.emoji} {r.label}</SelectItem>
+                <SelectItem key={r.id} value={r.id}>
+                  {r.emoji} {r.label}
+                </SelectItem>
               ))}
             </SelectContent>
           </Select>
           <Button size="sm" variant="outline" onClick={() => openNewNode()}>
-            <Plus className="h-4 w-4 mr-1" />
-            ノード追加
+            <Plus className="h-4 w-4 md:mr-1" />
+            <span className="hidden md:inline">ノード追加</span>
+            <span className="md:hidden">ノード</span>
           </Button>
           <Button size="sm" onClick={openNewQuiz}>
-            <Plus className="h-4 w-4 mr-1" />
-            クイズ追加
+            <Plus className="h-4 w-4 md:mr-1" />
+            <span className="hidden md:inline">クイズ追加</span>
+            <span className="md:hidden">クイズ</span>
           </Button>
         </div>
       </div>
@@ -162,7 +192,9 @@ export function TreeView() {
           return (
             <div key={region.id} className="mb-4">
               <div className="flex items-center gap-2 px-2 py-1 bg-muted/40 rounded mb-1">
-                <span className="font-semibold text-sm">{region.emoji} {region.label}</span>
+                <span className="font-semibold text-sm">
+                  {region.emoji} {region.label}
+                </span>
                 <span className="text-xs text-muted-foreground ml-auto">
                   {state.nodes.filter((n) => n.region === region.id).length}ノード /
                   {state.quizzes.filter((q) => q.region === region.id).length}クイズ
