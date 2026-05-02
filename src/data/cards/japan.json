@@ -1832,8 +1832,8 @@
     "year_end": null,
     "era_color_key": "early_modern",
     "category": "event",
-    "hint": null,
-    "description": "家康が征夷大将軍となる"
+    "hint": "家康が征夷大将軍に任命され、武家政権の根拠地を東国に置いた",
+    "description": "徳川家康が征夷大将軍に任命され、江戸を拠点とする武家政権が成立した。"
   },
   {
     "id": "card_jp_154",
@@ -3519,13 +3519,13 @@
     "id": "card_jp_294",
     "region": "japan",
     "type": "term",
-    "name": "江戸幕府",
-    "year": 1603,
+    "name": "安土城の築城",
+    "year": 1576,
     "year_end": null,
     "era_color_key": "early_modern",
     "category": "event",
     "hint": null,
-    "description": "徳川家康による江戸での武家政権"
+    "description": "織田信長が近江国安土に天下統一の拠点となる城を築き、新たな政治の中心地を確立した"
   },
   {
     "id": "card_jp_295",
