@@ -1251,13 +1251,13 @@
     "id": "card_jp_105",
     "region": "japan",
     "type": "term",
-    "name": "新古今和歌集の編纂",
+    "name": "源実朝の暗殺",
     "year": 1219,
     "year_end": null,
     "era_color_key": "medieval",
-    "category": "culture",
-    "hint": "後鳥羽上皇の命で藤原定家らがまとめた和歌集",
-    "description": "後鳥羽上皇の命で藤原定家らが編纂した、鎌倉時代の代表的な和歌集。"
+    "category": "event",
+    "hint": "甥の公暁に暗殺され、源氏の将軍家が断絶した",
+    "description": "3代将軍源実朝が鶴岡八幡宮で公暁に暗殺され、源氏の将軍家が途絶えた。"
   },
   {
     "id": "card_jp_106",
@@ -1275,13 +1275,13 @@
     "id": "card_jp_107",
     "region": "japan",
     "type": "term",
-    "name": "御成敗式目の制定",
+    "name": "六波羅探題の設置",
     "year": 1221,
     "year_end": null,
     "era_color_key": "medieval",
-    "category": "law",
-    "hint": "北条泰時が定めた武士のための最初の法律",
-    "description": "道理（武士の慣習）を基準とした、武家政権による最初の本格的な法律。"
+    "category": "event",
+    "hint": "承久の乱後に幕府が京都に設けた監視機関",
+    "description": "承久の乱後、幕府は朝廷を監視するために京都に六波羅探題を設置し、西国支配を固めた。"
   },
   {
     "id": "card_jp_108",
@@ -3465,7 +3465,7 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": null,
-    "description": "中華人民共和国との国交正常化"
+    "description": "田中角栄首相と周恩来が署名し、日本と中華人民共和国の国交を正常化した"
   },
   {
     "id": "card_jp_290",
