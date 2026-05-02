@@ -76,11 +76,20 @@
     "unlock_condition": null
   },
   {
+    "id": "node_world_theme_revolution",
+    "region": "world",
+    "parent_id": "node_world_root",
+    "label": "テーマ史：革命・民主化",
+    "sort_order": 8,
+    "quiz_ids": ["quiz_theme_revolution_20c"],
+    "unlock_condition": null
+  },
+  {
     "id": "node_world_theme_empire",
     "region": "world",
     "parent_id": "node_world_root",
     "label": "テーマ史：帝国・覇権",
-    "sort_order": 8,
+    "sort_order": 9,
     "quiz_ids": ["quiz_theme_empire_mongol", "quiz_theme_empire_colonial"],
     "unlock_condition": null
   },
@@ -89,7 +98,7 @@
     "region": "world",
     "parent_id": "node_world_root",
     "label": "テーマ史：宗教・思想",
-    "sort_order": 9,
+    "sort_order": 10,
     "quiz_ids": ["quiz_theme_religion_christianity", "quiz_theme_religion_buddhism"],
     "unlock_condition": null
   },
@@ -98,7 +107,7 @@
     "region": "world",
     "parent_id": "node_world_root",
     "label": "テーマ史：交流・交易",
-    "sort_order": 10,
+    "sort_order": 11,
     "quiz_ids": ["quiz_theme_trade_silkroad", "quiz_theme_trade_atlantic"],
     "unlock_condition": null
   },
@@ -107,7 +116,7 @@
     "region": "world",
     "parent_id": "node_world_root",
     "label": "テーマ史：科学技術",
-    "sort_order": 11,
+    "sort_order": 12,
     "quiz_ids": [
       "quiz_theme_scitech_20c_big",
       "quiz_theme_scitech_life_science",
