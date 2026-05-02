@@ -1180,6 +1180,34 @@
     "status": "ai_generated"
   },
   {
+    "id": "card_europe_mercantilism",
+    "region": "europe",
+    "type": "term",
+    "name": "重商主義政策の確立",
+    "year": 1664,
+    "year_end": null,
+    "era_color_key": "early_modern",
+    "category": "economy",
+    "hint": "コルベール・特権会社・貴金属の蓄積",
+    "description": "輸出を奨励し国富としての貴金属の蓄積を図る政策が各国で本格化し、近世の経済秩序が形作られた。",
+    "tags": ["経済"],
+    "status": "ai_generated"
+  },
+  {
+    "id": "card_europe_wealth_of_nations",
+    "region": "europe",
+    "type": "term",
+    "name": "『国富論』の刊行",
+    "year": 1776,
+    "year_end": null,
+    "era_color_key": "modern",
+    "category": "culture",
+    "hint": "アダム・スミス・自由放任・古典派経済学",
+    "description": "アダム・スミスが分業と市場の働きを論じ、自由放任を理論化した古典派経済学の出発点となった。",
+    "tags": ["経済"],
+    "status": "ai_generated"
+  },
+  {
     "id": "card_europe_theodosius",
     "region": "europe",
     "type": "term",

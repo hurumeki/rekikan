@@ -840,6 +840,20 @@
     "status": "ai_generated"
   },
   {
+    "id": "card_northamerica_new_deal",
+    "region": "northamerica",
+    "type": "term",
+    "name": "ニューディール政策",
+    "year": 1933,
+    "year_end": null,
+    "era_color_key": "contemporary",
+    "category": "law",
+    "hint": "F.ローズヴェルト・公共事業・修正資本主義",
+    "description": "世界恐慌に対応するため大規模な公共事業と社会保障を導入し、政府が経済に積極介入する体制が始まった。",
+    "tags": ["経済"],
+    "status": "ai_generated"
+  },
+  {
     "id": "card_northamerica_wright",
     "region": "northamerica",
     "type": "term",

@@ -341,6 +341,24 @@
     "difficulty": 3
   },
   {
+    "id": "quiz_theme_economy_capitalism",
+    "region": "world",
+    "regions": ["europe", "northamerica", "westasia"],
+    "title": "資本主義の発展",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_mercantilism",
+      "card_europe_industrial",
+      "card_europe_wealth_of_nations",
+      "card_europe_imperialism",
+      "card_europe_great_depression",
+      "card_northamerica_new_deal",
+      "card_westasia_oil_crisis"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 3
+  },
+  {
     "id": "quiz_theme_revolution_20c",
     "region": "world",
     "regions": ["china", "europe", "westasia", "southamerica"],
