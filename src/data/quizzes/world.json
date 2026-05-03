@@ -305,5 +305,193 @@
     ],
     "modes": ["cross_region"],
     "difficulty": 3
+  },
+  {
+    "id": "quiz_theme_scitech_20c_big",
+    "region": "world",
+    "regions": ["northamerica", "europe"],
+    "title": "20世紀の巨大技術：核・宇宙・コンピュータ",
+    "card_type": "term",
+    "card_ids": [
+      "card_northamerica_atomic_bomb",
+      "card_northamerica_transistor",
+      "card_europe_sputnik",
+      "card_europe_gagarin",
+      "card_northamerica_moon_landing",
+      "card_northamerica_arpanet",
+      "card_europe_www"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_theme_scitech_life_science",
+    "region": "world",
+    "regions": ["europe", "northamerica"],
+    "title": "生命科学の世紀",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_penicillin",
+      "card_europe_dna_helix",
+      "card_europe_ivf",
+      "card_europe_dolly",
+      "card_northamerica_human_genome"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 3
+  },
+  {
+    "id": "quiz_theme_economy_capitalism",
+    "region": "world",
+    "regions": ["europe", "northamerica", "westasia"],
+    "title": "資本主義の発展",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_mercantilism",
+      "card_europe_industrial",
+      "card_europe_wealth_of_nations",
+      "card_europe_imperialism",
+      "card_europe_great_depression",
+      "card_northamerica_new_deal",
+      "card_westasia_oil_crisis"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 3
+  },
+  {
+    "id": "quiz_theme_revolution_20c",
+    "region": "world",
+    "regions": ["china", "europe", "westasia", "southamerica"],
+    "title": "20世紀の革命：体制転換の連鎖",
+    "card_type": "term",
+    "card_ids": [
+      "card_china_xinhai_revolution",
+      "card_europe_russian_revolution",
+      "card_westasia_turkey_republic",
+      "card_china_prc_established",
+      "card_southamerica_cuba_revolution",
+      "card_westasia_iran_revolution",
+      "card_europe_berlin_wall_fall"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 3
+  },
+  {
+    "id": "quiz_theme_empire_mongol",
+    "region": "world",
+    "regions": ["centralasia", "westasia", "china"],
+    "title": "モンゴル帝国の拡大と分裂",
+    "card_type": "term",
+    "card_ids": [
+      "card_centralasia_mongol",
+      "card_centralasia_chagatai",
+      "card_westasia_mongol_baghdad",
+      "card_china_kublai_khan",
+      "card_centralasia_timur"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_theme_empire_colonial",
+    "region": "world",
+    "regions": ["europe", "southeastasia", "southamerica", "southasia"],
+    "title": "ヨーロッパ列強の植民地支配",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_columbus",
+      "card_europe_vasco_da_gama",
+      "card_southeastasia_portuguese_malacca",
+      "card_southeastasia_voc",
+      "card_southasia_plassey",
+      "card_europe_imperialism"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_theme_religion_christianity",
+    "region": "world",
+    "regions": ["europe"],
+    "title": "キリスト教の変遷",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_constantine",
+      "card_europe_theodosius",
+      "card_europe_great_schism",
+      "card_europe_crusades",
+      "card_europe_reformation",
+      "card_europe_westphalia"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_theme_religion_buddhism",
+    "region": "world",
+    "regions": ["southasia", "china", "southeastasia", "japan"],
+    "title": "仏教の伝播",
+    "card_type": "term",
+    "card_ids": [
+      "card_southasia_buddha",
+      "card_southasia_ashoka",
+      "card_china_buddhism_arrival",
+      "card_jp_33",
+      "card_southeastasia_srivijaya"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_theme_trade_silkroad",
+    "region": "world",
+    "regions": ["centralasia", "china", "westasia"],
+    "title": "シルクロードの変遷",
+    "card_type": "term",
+    "card_ids": [
+      "card_centralasia_silkroad",
+      "card_centralasia_sogdian",
+      "card_centralasia_talas",
+      "card_centralasia_mongol",
+      "card_china_zheng_he",
+      "card_westasia_constantinople"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_theme_trade_atlantic",
+    "region": "world",
+    "regions": ["europe", "northamerica"],
+    "title": "大西洋三角貿易の展開",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_columbus",
+      "card_europe_triangular_trade",
+      "card_europe_industrial",
+      "card_europe_abolition_slave_trade",
+      "card_northamerica_emancipation"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_theme_scitech_20c_full",
+    "region": "world",
+    "regions": ["northamerica", "europe"],
+    "title": "20世紀科学技術史：通し",
+    "card_type": "term",
+    "card_ids": [
+      "card_northamerica_wright",
+      "card_europe_relativity",
+      "card_europe_penicillin",
+      "card_northamerica_atomic_bomb",
+      "card_europe_sputnik",
+      "card_northamerica_moon_landing",
+      "card_europe_www",
+      "card_northamerica_human_genome"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 3
   }
 ]
