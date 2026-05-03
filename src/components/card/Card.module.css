@@ -78,6 +78,23 @@
   font-weight: 500;
 }
 
+.image {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 8px;
+  align-self: center;
+  background: var(--state-unselected-border);
+}
+
+@media (min-width: 768px) {
+  .image {
+    width: 80px;
+    height: 80px;
+  }
+}
+
 .mark {
   position: absolute;
   top: -6px;

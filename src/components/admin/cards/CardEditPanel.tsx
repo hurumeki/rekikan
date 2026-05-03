@@ -12,11 +12,19 @@ import { Button } from '@/components/admin-ui/button';
 import { Input } from '@/components/admin-ui/input';
 import { Textarea } from '@/components/admin-ui/textarea';
 import { Label } from '@/components/admin-ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/admin-ui/select';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/admin-ui/select';
 import { Badge } from '@/components/admin-ui/badge';
 import { useAdminStore } from '@/lib/admin/store';
 import { isHintOrderRevealing } from '@/lib/admin/validation';
 import { generateCardId, ensureUnique } from '@/lib/admin/id-generator';
+import { cardImagePath } from '@/lib/images';
+import { ImageFilePreview } from './ImageFilePreview';
 import type { Card, CardType, ReviewStatus, Category } from '@/lib/types';
 
 interface Props {
@@ -36,6 +44,7 @@ const EMPTY_CARD: Partial<Card> = {
   hint: null,
   description: '',
   status: 'draft',
+  has_image: false,
 };
 
 export function CardEditPanel({ cardId, open, onOpenChange }: Props) {
@@ -53,12 +62,12 @@ export function CardEditPanel({ cardId, open, onOpenChange }: Props) {
       setForm({ ...EMPTY_CARD });
     } else if (cardId) {
       const card = state.cards.find((c) => c.id === cardId);
-       
+
       setForm(card ? { ...card } : EMPTY_CARD);
     }
-     
+
     setErrors({});
-     
+
     setHintWarning(false);
   }, [cardId, open, isNew, state.cards]);
 
@@ -92,7 +101,7 @@ export function CardEditPanel({ cardId, open, onOpenChange }: Props) {
       const generated = generateCardId(
         form.region ?? '',
         form.era_color_key ?? '',
-        form.name ?? form.description ?? ''
+        form.name ?? form.description ?? '',
       );
       id = ensureUnique(generated, existingIds);
     }
@@ -110,6 +119,7 @@ export function CardEditPanel({ cardId, open, onOpenChange }: Props) {
       description: form.description!,
       status: form.status as ReviewStatus,
       tags: form.tags,
+      has_image: form.has_image ? true : undefined,
     };
 
     dispatch({ type: 'UPSERT_CARD', card });
@@ -121,9 +131,8 @@ export function CardEditPanel({ cardId, open, onOpenChange }: Props) {
   const eraBands = region ? Object.entries(region.era_colors) : [];
 
   // Quizzes that use this card
-  const usedInQuizzes = cardId && !isNew
-    ? state.quizzes.filter((q) => q.card_ids.includes(cardId))
-    : [];
+  const usedInQuizzes =
+    cardId && !isNew ? state.quizzes.filter((q) => q.card_ids.includes(cardId)) : [];
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
@@ -157,8 +166,16 @@ export function CardEditPanel({ cardId, open, onOpenChange }: Props) {
 
           {/* Region */}
           <div className="space-y-1.5">
-            <Label>リージョン {errors.region && <span className="text-destructive text-xs ml-1">{errors.region}</span>}</Label>
-            <Select value={form.region || ''} onValueChange={(v) => set({ region: v, era_color_key: '' })}>
+            <Label>
+              リージョン{' '}
+              {errors.region && (
+                <span className="text-destructive text-xs ml-1">{errors.region}</span>
+              )}
+            </Label>
+            <Select
+              value={form.region || ''}
+              onValueChange={(v) => set({ region: v, era_color_key: '' })}
+            >
               <SelectTrigger>
                 <SelectValue placeholder="リージョンを選択" />
               </SelectTrigger>
@@ -175,7 +192,12 @@ export function CardEditPanel({ cardId, open, onOpenChange }: Props) {
           {/* Name (term only) */}
           {form.type === 'term' && (
             <div className="space-y-1.5">
-              <Label>用語名 {errors.name && <span className="text-destructive text-xs ml-1">{errors.name}</span>}</Label>
+              <Label>
+                用語名{' '}
+                {errors.name && (
+                  <span className="text-destructive text-xs ml-1">{errors.name}</span>
+                )}
+              </Label>
               <Input
                 value={form.name ?? ''}
                 onChange={(e) => set({ name: e.target.value || null })}
@@ -187,7 +209,12 @@ export function CardEditPanel({ cardId, open, onOpenChange }: Props) {
           {/* Year */}
           <div className="grid grid-cols-2 gap-3">
             <div className="space-y-1.5">
-              <Label>年 {errors.year && <span className="text-destructive text-xs ml-1">{errors.year}</span>}</Label>
+              <Label>
+                年{' '}
+                {errors.year && (
+                  <span className="text-destructive text-xs ml-1">{errors.year}</span>
+                )}
+              </Label>
               <Input
                 type="number"
                 value={form.year ?? ''}
@@ -200,7 +227,9 @@ export function CardEditPanel({ cardId, open, onOpenChange }: Props) {
               <Input
                 type="number"
                 value={form.year_end ?? ''}
-                onChange={(e) => set({ year_end: e.target.value ? parseInt(e.target.value) : null })}
+                onChange={(e) =>
+                  set({ year_end: e.target.value ? parseInt(e.target.value) : null })
+                }
                 placeholder="例: 1868"
               />
             </div>
@@ -208,7 +237,12 @@ export function CardEditPanel({ cardId, open, onOpenChange }: Props) {
 
           {/* Era Color Key */}
           <div className="space-y-1.5">
-            <Label>時代帯 {errors.era_color_key && <span className="text-destructive text-xs ml-1">{errors.era_color_key}</span>}</Label>
+            <Label>
+              時代帯{' '}
+              {errors.era_color_key && (
+                <span className="text-destructive text-xs ml-1">{errors.era_color_key}</span>
+              )}
+            </Label>
             <Select
               value={form.era_color_key || ''}
               onValueChange={(v) => set({ era_color_key: v })}
@@ -271,7 +305,12 @@ export function CardEditPanel({ cardId, open, onOpenChange }: Props) {
 
           {/* Description */}
           <div className="space-y-1.5">
-            <Label>説明文 {errors.description && <span className="text-destructive text-xs ml-1">{errors.description}</span>}</Label>
+            <Label>
+              説明文{' '}
+              {errors.description && (
+                <span className="text-destructive text-xs ml-1">{errors.description}</span>
+              )}
+            </Label>
             <Textarea
               value={form.description ?? ''}
               onChange={(e) => set({ description: e.target.value })}
@@ -280,10 +319,39 @@ export function CardEditPanel({ cardId, open, onOpenChange }: Props) {
             />
           </div>
 
+          {/* Image */}
+          <div className="space-y-1.5">
+            <Label>画像</Label>
+            <label className="flex items-center gap-2 text-sm cursor-pointer">
+              <input
+                type="checkbox"
+                checked={!!form.has_image}
+                onChange={(e) => set({ has_image: e.target.checked })}
+                className="accent-primary"
+              />
+              画像あり
+            </label>
+            {form.has_image && (
+              <ImageFilePreview
+                src={cardImagePath(form.id || cardId || '')}
+                aspectClass="aspect-square w-32"
+                spec="WebP / 768×768 / < 80 KB"
+              />
+            )}
+          </div>
+
           {/* Status */}
           <div className="space-y-1.5">
-            <Label>ステータス {errors.status && <span className="text-destructive text-xs ml-1">{errors.status}</span>}</Label>
-            <Select value={form.status || ''} onValueChange={(v) => set({ status: v as ReviewStatus })}>
+            <Label>
+              ステータス{' '}
+              {errors.status && (
+                <span className="text-destructive text-xs ml-1">{errors.status}</span>
+              )}
+            </Label>
+            <Select
+              value={form.status || ''}
+              onValueChange={(v) => set({ status: v as ReviewStatus })}
+            >
               <SelectTrigger>
                 <SelectValue placeholder="ステータスを選択" />
               </SelectTrigger>

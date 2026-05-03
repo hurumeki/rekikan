@@ -4,6 +4,8 @@ import { useState } from 'react';
 import type { Region, Node, QuizProgress, UnlockCondition } from '@/lib/types';
 import { getQuiz, getRootNode, getChildNodes, getNode } from '@/lib/data-loader';
 import { getHistoricalStars } from '@/lib/progress';
+import { getNodeCoverImageSrc } from '@/lib/images';
+import NodeCoverImage from './NodeCoverImage';
 import styles from './QuizList.module.css';
 
 function StarDisplay({ stars }: { stars: number }) {
@@ -89,8 +91,11 @@ export default function QuizList({ region, nodes, onSelectQuiz, onBack, progress
     const totalCount = node.quiz_ids.length;
     const progressPct = totalCount > 0 ? (clearedCount / totalCount) * 100 : 0;
 
+    const coverSrc = getNodeCoverImageSrc(node);
+
     return (
       <div key={node.id} className={styles.nodeSection}>
+        {coverSrc && <NodeCoverImage src={coverSrc} alt="" />}
         <div className={styles.nodeHeader}>
           <div className={styles.nodeLabel}>{node.label}</div>
           {totalCount > 0 && (

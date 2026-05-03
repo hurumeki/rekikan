@@ -1,0 +1,9 @@
+.cover {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  background: var(--state-unselected-border);
+}

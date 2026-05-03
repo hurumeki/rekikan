@@ -1,11 +1,12 @@
 'use client';
 
-import { memo } from 'react';
+import { memo, useState } from 'react';
 import type { Card as CardType, CardState } from '@/lib/types';
 import EraBadge from '@/components/ui/EraBadge';
 import CategoryIcon from '@/components/ui/CategoryIcon';
 import NumberBadge from '@/components/ui/NumberBadge';
 import { formatYearRange } from '@/lib/quiz-engine';
+import { getCardImageSrc } from '@/lib/images';
 import styles from './Card.module.css';
 
 interface CardProps {
@@ -37,6 +38,10 @@ const Card = memo(function Card({
 
   const yearLabel = formatYearRange(card.year, card.year_end);
 
+  const [imageFailed, setImageFailed] = useState(false);
+  const imageSrc = getCardImageSrc(card);
+  const showImage = !!imageSrc && !imageFailed && (showHint || showYear);
+
   return (
     <div className={classNames} data-testid="quiz-card" onClick={onClick}>
       {!hideEraBadge && (showHint || showYear) && <EraBadge color={eraColor} />}
@@ -59,6 +64,19 @@ const Card = memo(function Card({
           </>
         )}
       </div>
+
+      {showImage && (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          className={styles.image}
+          src={imageSrc!}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          onError={() => setImageFailed(true)}
+          data-testid="card-image"
+        />
+      )}
 
       {selectionNumber !== undefined && state === 'selected' && (
         <NumberBadge number={selectionNumber} />

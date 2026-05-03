@@ -74,20 +74,21 @@ The content entity. All cards are managed in a flat master table.
 }
 ```
 
-| Field         | Type          | Required | Description                                                                    |
-| ------------- | ------------- | -------- | ------------------------------------------------------------------------------ |
-| id            | string        | ✓        | Unique identifier. Naming convention: `card_{region}_{identifier}`             |
-| region        | string        | ✓        | ID of the region this card belongs to                                          |
-| type          | enum          | ✓        | `"term"` (term card) or `"description"` (description card)                     |
-| name          | string / null |          | Term name. null for description cards                                          |
-| year          | number        | ✓        | Start year (sort key; negative for BCE)                                        |
-| year_end      | number / null |          | End year. Used when the card spans a period                                    |
-| era_color_key | string        | ✓        | Key for the era band color. References Region.era_colors                       |
-| category      | string / null |          | Category for the icon display (see category mapping table)                     |
-| hint          | string / null |          | Hint (keyword format). Not needed for description cards                        |
-| description   | string        | ✓        | For term cards: a brief explanation. For description cards: the card body text |
-| tags          | string[]      |          | Auxiliary tags for search and filtering                                        |
-| status        | enum          | ✓        | `"draft"`, `"ai_generated"`, `"reviewed"`, `"approved"`                        |
+| Field         | Type          | Required | Description                                                                                           |
+| ------------- | ------------- | -------- | ----------------------------------------------------------------------------------------------------- |
+| id            | string        | ✓        | Unique identifier. Naming convention: `card_{region}_{identifier}`                                    |
+| region        | string        | ✓        | ID of the region this card belongs to                                                                 |
+| type          | enum          | ✓        | `"term"` (term card) or `"description"` (description card)                                            |
+| name          | string / null |          | Term name. null for description cards                                                                 |
+| year          | number        | ✓        | Start year (sort key; negative for BCE)                                                               |
+| year_end      | number / null |          | End year. Used when the card spans a period                                                           |
+| era_color_key | string        | ✓        | Key for the era band color. References Region.era_colors                                              |
+| category      | string / null |          | Category for the icon display (see category mapping table)                                            |
+| hint          | string / null |          | Hint (keyword format). Not needed for description cards                                               |
+| description   | string        | ✓        | For term cards: a brief explanation. For description cards: the card body text                        |
+| tags          | string[]      |          | Auxiliary tags for search and filtering                                                               |
+| has_image     | boolean       |          | If `true`, an AI-generated image exists at `public/images/cards/{id}.webp`. Default `false` / omitted |
+| status        | enum          | ✓        | `"draft"`, `"ai_generated"`, `"reviewed"`, `"approved"`                                               |
 
 **Additional fields for quality management (operational use):**
 
@@ -153,15 +154,16 @@ Each node of the hierarchy tree. Holds quizzes and unlock conditions.
 }
 ```
 
-| Field            | Type                     | Required | Description                                          |
-| ---------------- | ------------------------ | -------- | ---------------------------------------------------- |
-| id               | string                   | ✓        | Unique identifier                                    |
-| region           | string                   | ✓        | ID of the region                                     |
-| parent_id        | string / null            |          | Parent node ID. null for the root                    |
-| label            | string                   | ✓        | Display name                                         |
-| sort_order       | number                   | ✓        | Display order among siblings                         |
-| quiz_ids         | string[]                 | ✓        | Quiz IDs contained in this node (in display order)   |
-| unlock_condition | object / object[] / null |          | Unlock condition. null means unlocked from the start |
+| Field            | Type                     | Required | Description                                                                                   |
+| ---------------- | ------------------------ | -------- | --------------------------------------------------------------------------------------------- |
+| id               | string                   | ✓        | Unique identifier                                                                             |
+| region           | string                   | ✓        | ID of the region                                                                              |
+| parent_id        | string / null            |          | Parent node ID. null for the root                                                             |
+| label            | string                   | ✓        | Display name                                                                                  |
+| sort_order       | number                   | ✓        | Display order among siblings                                                                  |
+| quiz_ids         | string[]                 | ✓        | Quiz IDs contained in this node (in display order)                                            |
+| has_cover_image  | boolean                  |          | If `true`, a cover image exists at `public/images/nodes/{id}.webp`. Default `false` / omitted |
+| unlock_condition | object / object[] / null |          | Unlock condition. null means unlocked from the start                                          |
 
 ## 2.5 UnlockCondition
 
