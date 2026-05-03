@@ -31,6 +31,7 @@ export interface Card {
   description: string;
   tags?: string[];
   status?: ReviewStatus;
+  has_image?: boolean;
 }
 
 export interface Quiz {
@@ -53,6 +54,7 @@ export interface Node {
   sort_order: number;
   quiz_ids: string[];
   unlock_condition: UnlockCondition | UnlockCondition[] | null;
+  has_cover_image?: boolean;
 }
 
 export type UnlockCondition =

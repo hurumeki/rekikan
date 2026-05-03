@@ -75,6 +75,15 @@ function TreeNodeRow({
           )}
         </button>
         <span className="font-medium text-foreground flex-1">{node.label}</span>
+        {node.has_cover_image && (
+          <span
+            className="text-xs text-muted-foreground"
+            title="カバー画像あり"
+            aria-label="カバー画像あり"
+          >
+            🖼️
+          </span>
+        )}
         <span className="text-xs text-muted-foreground opacity-0 group-hover:opacity-100">
           {quizzes.length}クイズ
         </span>

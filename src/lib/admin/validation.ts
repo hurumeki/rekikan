@@ -149,6 +149,17 @@ export function validateCard(
     }
   }
 
+  // Image flag type check
+  if (card.has_image !== undefined && typeof card.has_image !== 'boolean') {
+    errors.push({
+      level: 'error',
+      entity: 'card',
+      id: card.id,
+      field: 'has_image',
+      message: 'has_image はブール値で指定してください',
+    });
+  }
+
   // Hint order-revealing warning
   if (card.hint && isHintOrderRevealing(card.hint)) {
     errors.push({
@@ -325,6 +336,17 @@ function validateNode(node: Node, nodes: Node[], quizzes: Quiz[]): ValidationErr
         message: `親ノード "${node.parent_id}" のリージョン(${parentNode.region})と異なります`,
       });
     }
+  }
+
+  // Cover image flag type check
+  if (node.has_cover_image !== undefined && typeof node.has_cover_image !== 'boolean') {
+    errors.push({
+      level: 'error',
+      entity: 'node',
+      id: node.id,
+      field: 'has_cover_image',
+      message: 'has_cover_image はブール値で指定してください',
+    });
   }
 
   // Quiz existence

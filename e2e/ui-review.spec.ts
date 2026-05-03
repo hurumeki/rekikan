@@ -107,4 +107,25 @@ test.describe('UI Review - Mobile', () => {
     await expect(page.getByRole('button', { name: 'もう一度' })).toBeVisible({ timeout: 5000 });
     await page.screenshot({ path: screenshotPath('08-challenge-result.png'), fullPage: true });
   });
+
+  test('09 - Card images: absent by default (regression guard)', async ({ page }) => {
+    // No card has has_image set yet — when AI-generated images are added,
+    // images should appear after answer check on the result screen.
+    await page.goto('/');
+    await page.getByText('日本史').click();
+    await page.getByText('日本の歴史の大きな流れ').click();
+    await page.getByText('チャレンジモード').click();
+    await expect(page.getByText('古い順にカードをタップしてください')).toBeVisible();
+
+    // No card image should render before any are produced.
+    await expect(page.getByTestId('card-image')).toHaveCount(0);
+  });
+
+  test('10 - Node cover images: absent by default (regression guard)', async ({ page }) => {
+    // No node has has_cover_image set yet.
+    await page.goto('/');
+    await page.getByText('日本史').click();
+    await expect(page.getByText('← 戻る')).toBeVisible();
+    await expect(page.getByTestId('node-cover-image')).toHaveCount(0);
+  });
 });

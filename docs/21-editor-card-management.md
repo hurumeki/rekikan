@@ -10,27 +10,27 @@ Cards are displayed in a table format.
 
 **Columns:**
 
-| Column | Description | Sortable | Approx. Width |
-|--------|-------------|----------|---------------|
-| Region | Region label (with emoji) | Yes | 60px |
-| Era Band (時代帯) | Shown as a colored badge | Yes | 80px |
-| Category | Shown as an icon | Yes | 40px |
-| Term Name / Description Excerpt | Shows `name` if present; otherwise the first 30 characters of `description` | Yes | 200px |
-| Date | `year_label` | Yes | 80px |
-| Status | Badge display (color-coded) | Yes | 80px |
-| Usage Count | Number of quizzes that include this card | Yes | 50px |
-| Actions | Edit / Duplicate / Delete buttons | — | 100px |
+| Column                          | Description                                                                 | Sortable | Approx. Width |
+| ------------------------------- | --------------------------------------------------------------------------- | -------- | ------------- |
+| Region                          | Region label (with emoji)                                                   | Yes      | 60px          |
+| Era Band (時代帯)               | Shown as a colored badge                                                    | Yes      | 80px          |
+| Category                        | Shown as an icon                                                            | Yes      | 40px          |
+| Term Name / Description Excerpt | Shows `name` if present; otherwise the first 30 characters of `description` | Yes      | 200px         |
+| Date                            | `year_label`                                                                | Yes      | 80px          |
+| Status                          | Badge display (color-coded)                                                 | Yes      | 80px          |
+| Usage Count                     | Number of quizzes that include this card                                    | Yes      | 50px          |
+| Actions                         | Edit / Duplicate / Delete buttons                                           | —        | 100px         |
 
 **Filters:**
 
-| Filter | Control |
-|--------|---------|
-| Region | Dropdown (multi-select) |
-| Era Band | Dropdown (multi-select) |
-| Category | Dropdown (multi-select) |
-| Card Type | Term card / Description card |
-| Review Status | draft / ai_generated / reviewed / approved |
-| Text Search | Cross-field search across name, hint, and description |
+| Filter        | Control                                               |
+| ------------- | ----------------------------------------------------- |
+| Region        | Dropdown (multi-select)                               |
+| Era Band      | Dropdown (multi-select)                               |
+| Category      | Dropdown (multi-select)                               |
+| Card Type     | Term card / Description card                          |
+| Review Status | draft / ai_generated / reviewed / approved            |
+| Text Search   | Cross-field search across name, hint, and description |
 
 **Bulk Actions:**
 
@@ -74,6 +74,14 @@ Clicking a card opens an edit form in a slide-out panel (or modal) on the right 
 │  [the Edo shogunate, laying the foundation ] │
 │  [for roughly 260 years of peace.          ] │
 │                                              │
+│  ── Image ──                                 │
+│  [✓] Has image                               │
+│  Path: /images/cards/card_japan_ieyasu.webp  │
+│  ┌──────────┐                                │
+│  │ preview  │  (768×768 WebP, < 80 KB)       │
+│  └──────────┘                                │
+│  ⚠️ File missing — placed by AI workflow     │
+│                                              │
 │  ── Review ──                                │
 │  Status:        [approved ▼]                 │
 │  Review Notes:                               │
@@ -109,3 +117,13 @@ The warning does not block saving (it is informational only), but when changing 
 Click the "+ New Card" button at the top of the list view to open a blank edit form. The card ID is auto-generated in the format `{region}_{era_band_short}_{name_romaji}` and can be edited manually.
 
 **Duplicate Feature:** Use the "Duplicate" button on an existing card to create a new card with all fields copied. Only the ID is changed by appending `_copy`. This is useful for mass-producing similar cards within the same era band.
+
+---
+
+## 3.4 Card Image Field
+
+Cards may carry an AI-generated illustration. The editor controls only the boolean `has_image` flag and previews the file resolved by ID convention.
+
+- **Toggle:** "Has image" checkbox sets `has_image` on the card. The image file itself is produced and dropped into `public/images/cards/{card_id}.webp` by an external AI generation workflow.
+- **Preview:** when the toggle is ON, the form attempts to load `/images/cards/{card_id}.webp` and shows it at the standard 1:1 aspect ratio. If the file is missing the preview shows a "file missing" placeholder; this does not block saving.
+- **Specification:** WebP, 768 × 768 px, < 80 KB. External URLs are not allowed; the path is always derived from the card ID. See [03-card-design.md](03-card-design.md) Section 3.4.

@@ -54,6 +54,14 @@ Clicking a node opens a panel for editing the node's information and its child q
 │  Parent Node:  [Medieval & Early Modern ▼]         │
 │  Sort Order:   [3]                                 │
 │                                                    │
+│  ── Cover Image ──                                 │
+│  [✓] Has cover image                               │
+│  Path: /images/nodes/node_japan_edo.webp           │
+│  ┌────────────────────┐                            │
+│  │      preview       │ (1280×720 WebP, < 150 KB)  │
+│  └────────────────────┘                            │
+│  ⚠️ File missing — placed by AI workflow           │
+│                                                    │
 │  ── Unlock Condition ──                            │
 │  Condition Type: [Quiz Clear ▼]                    │
 │  Target:         quiz_japan_medieval_term           │
@@ -116,15 +124,25 @@ A card selection dialog with the same filter and search capabilities as the Card
 
 **Card Composition Operations:**
 
-| Operation | Method |
-|-----------|--------|
-| Change correct order | Drag-and-drop, or manually enter a position number |
-| Remove a card | Click the × button on the row (does not delete the card from master data) |
-| Edit card details | Click the row to navigate to the card edit panel |
-| Auto-sort by date | "Re-sort by date" button |
+| Operation            | Method                                                                    |
+| -------------------- | ------------------------------------------------------------------------- |
+| Change correct order | Drag-and-drop, or manually enter a position number                        |
+| Remove a card        | Click the × button on the row (does not delete the card from master data) |
+| Edit card details    | Click the row to navigate to the card edit panel                          |
+| Auto-sort by date    | "Re-sort by date" button                                                  |
 
 ---
 
 ## 4.4 New Node / Quiz Creation
 
 Create a node from the "+ New Node" button in the tree view, or from the right-click context menu "Add Child Node" on an existing node. The parent node's region is automatically inherited. Create a quiz from the "+ New Quiz" button or from the "+ Add Quiz" button inside the node edit panel.
+
+---
+
+## 4.5 Node Cover Image
+
+Each node may carry an AI-generated cover image used as a banner in the quiz list and in the editor tree.
+
+- **Toggle:** "Has cover image" sets `has_cover_image` on the node. The image file is produced by the external AI generation workflow and dropped into `public/images/nodes/{node_id}.webp`.
+- **Preview:** when the toggle is ON, the panel attempts to load `/images/nodes/{node_id}.webp` and shows it at the standard 16:9 aspect ratio. A "file missing" placeholder is shown if absent.
+- **Specification:** WebP, 1280 × 720 px, < 150 KB. External URLs are not allowed. See [09-ui-ux-guidelines.md](09-ui-ux-guidelines.md) Section 9.1.4.

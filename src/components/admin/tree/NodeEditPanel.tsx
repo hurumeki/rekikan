@@ -11,9 +11,17 @@ import {
 import { Button } from '@/components/admin-ui/button';
 import { Input } from '@/components/admin-ui/input';
 import { Label } from '@/components/admin-ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/admin-ui/select';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/admin-ui/select';
 import { useAdminStore } from '@/lib/admin/store';
 import { generateNodeId, ensureUnique } from '@/lib/admin/id-generator';
+import { nodeCoverImagePath } from '@/lib/images';
+import { ImageFilePreview } from '../cards/ImageFilePreview';
 import type { Node, UnlockCondition } from '@/lib/types';
 import { QuizEditPanel } from './QuizEditPanel';
 
@@ -30,6 +38,7 @@ const EMPTY_NODE: Partial<Node> = {
   sort_order: 0,
   quiz_ids: [],
   unlock_condition: null,
+  has_cover_image: false,
 };
 
 export function NodeEditPanel({ nodeId, open, onOpenChange }: Props) {
@@ -54,9 +63,10 @@ export function NodeEditPanel({ nodeId, open, onOpenChange }: Props) {
     } else if (nodeId) {
       const node = state.nodes.find((n) => n.id === nodeId);
       if (node) {
-         
         setForm({ ...node });
-        const uc = Array.isArray(node.unlock_condition) ? node.unlock_condition[0] : node.unlock_condition;
+        const uc = Array.isArray(node.unlock_condition)
+          ? node.unlock_condition[0]
+          : node.unlock_condition;
         if (uc) {
           setUnlockType(uc.type);
           if ('quiz_id' in uc) setUnlockQuizId(uc.quiz_id);
@@ -64,10 +74,9 @@ export function NodeEditPanel({ nodeId, open, onOpenChange }: Props) {
         } else {
           setUnlockType('none');
         }
-         
       }
     }
-     
+
     setErrors({});
   }, [nodeId, open, isNew, state.nodes]);
 
@@ -77,8 +86,10 @@ export function NodeEditPanel({ nodeId, open, onOpenChange }: Props) {
 
   function buildUnlockCondition(): UnlockCondition | null {
     if (unlockType === 'none') return null;
-    if (unlockType === 'complete_quizzes') return { type: 'complete_quizzes', quiz_ids: unlockQuizId ? [unlockQuizId] : [] };
-    if (unlockType === 'attempts') return { type: 'attempts', quiz_id: unlockQuizId, count: unlockCount };
+    if (unlockType === 'complete_quizzes')
+      return { type: 'complete_quizzes', quiz_ids: unlockQuizId ? [unlockQuizId] : [] };
+    if (unlockType === 'attempts')
+      return { type: 'attempts', quiz_id: unlockQuizId, count: unlockCount };
     if (unlockType === 'hint_clear') return { type: 'hint_clear', quiz_id: unlockQuizId };
     return null;
   }
@@ -107,6 +118,7 @@ export function NodeEditPanel({ nodeId, open, onOpenChange }: Props) {
       sort_order: Number(form.sort_order ?? 0),
       quiz_ids: form.quiz_ids ?? [],
       unlock_condition: buildUnlockCondition(),
+      has_cover_image: form.has_cover_image ? true : undefined,
     };
     dispatch({ type: 'UPSERT_NODE', node });
     onOpenChange(false);
@@ -129,12 +141,12 @@ export function NodeEditPanel({ nodeId, open, onOpenChange }: Props) {
   }
 
   // Nodes in same region for parent selection
-  const sameRegionNodes = state.nodes.filter(
-    (n) => n.region === form.region && n.id !== form.id
-  );
+  const sameRegionNodes = state.nodes.filter((n) => n.region === form.region && n.id !== form.id);
 
   // Quizzes for this node
-  const nodeQuizzes = (form.quiz_ids ?? []).map((qid) => state.quizzes.find((q) => q.id === qid)).filter(Boolean);
+  const nodeQuizzes = (form.quiz_ids ?? [])
+    .map((qid) => state.quizzes.find((q) => q.id === qid))
+    .filter(Boolean);
 
   // All quizzes for unlock condition picker
   const regionQuizzes = state.quizzes.filter((q) => q.region === form.region);
@@ -152,18 +164,39 @@ export function NodeEditPanel({ nodeId, open, onOpenChange }: Props) {
 
           <div className="space-y-4">
             <div className="space-y-1.5">
-              <Label>ラベル {errors.label && <span className="text-destructive text-xs ml-1">{errors.label}</span>}</Label>
-              <Input value={form.label ?? ''} onChange={(e) => set({ label: e.target.value })} placeholder="例: 日本の古代" />
+              <Label>
+                ラベル{' '}
+                {errors.label && (
+                  <span className="text-destructive text-xs ml-1">{errors.label}</span>
+                )}
+              </Label>
+              <Input
+                value={form.label ?? ''}
+                onChange={(e) => set({ label: e.target.value })}
+                placeholder="例: 日本の古代"
+              />
             </div>
 
             <div className="grid grid-cols-2 gap-3">
               <div className="space-y-1.5">
-                <Label>リージョン {errors.region && <span className="text-destructive text-xs ml-1">{errors.region}</span>}</Label>
-                <Select value={form.region || ''} onValueChange={(v) => set({ region: v, parent_id: null })}>
-                  <SelectTrigger><SelectValue placeholder="リージョン" /></SelectTrigger>
+                <Label>
+                  リージョン{' '}
+                  {errors.region && (
+                    <span className="text-destructive text-xs ml-1">{errors.region}</span>
+                  )}
+                </Label>
+                <Select
+                  value={form.region || ''}
+                  onValueChange={(v) => set({ region: v, parent_id: null })}
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="リージョン" />
+                  </SelectTrigger>
                   <SelectContent>
                     {state.regions.map((r) => (
-                      <SelectItem key={r.id} value={r.id}>{r.emoji} {r.label}</SelectItem>
+                      <SelectItem key={r.id} value={r.id}>
+                        {r.emoji} {r.label}
+                      </SelectItem>
                     ))}
                   </SelectContent>
                 </Select>
@@ -185,21 +218,48 @@ export function NodeEditPanel({ nodeId, open, onOpenChange }: Props) {
                 onValueChange={(v) => set({ parent_id: v === '__none__' ? null : v })}
                 disabled={!form.region}
               >
-                <SelectTrigger><SelectValue placeholder="なし（ルートノード）" /></SelectTrigger>
+                <SelectTrigger>
+                  <SelectValue placeholder="なし（ルートノード）" />
+                </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="__none__">なし（ルートノード）</SelectItem>
                   {sameRegionNodes.map((n) => (
-                    <SelectItem key={n.id} value={n.id}>{n.label}</SelectItem>
+                    <SelectItem key={n.id} value={n.id}>
+                      {n.label}
+                    </SelectItem>
                   ))}
                 </SelectContent>
               </Select>
+            </div>
+
+            {/* Cover Image */}
+            <div className="space-y-1.5">
+              <Label>カバー画像</Label>
+              <label className="flex items-center gap-2 text-sm cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={!!form.has_cover_image}
+                  onChange={(e) => set({ has_cover_image: e.target.checked })}
+                  className="accent-primary"
+                />
+                カバー画像あり
+              </label>
+              {form.has_cover_image && (
+                <ImageFilePreview
+                  src={nodeCoverImagePath(form.id || nodeId || '')}
+                  aspectClass="aspect-video w-full max-w-sm"
+                  spec="WebP / 1280×720 / < 150 KB"
+                />
+              )}
             </div>
 
             {/* Unlock Condition */}
             <div className="space-y-2 border border-border rounded-md p-3">
               <Label>解放条件</Label>
               <Select value={unlockType} onValueChange={setUnlockType}>
-                <SelectTrigger><SelectValue /></SelectTrigger>
+                <SelectTrigger>
+                  <SelectValue />
+                </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="none">なし（最初から解放）</SelectItem>
                   <SelectItem value="complete_quizzes">クイズクリア</SelectItem>
@@ -211,10 +271,14 @@ export function NodeEditPanel({ nodeId, open, onOpenChange }: Props) {
                 <div className="space-y-2 mt-2">
                   <Label className="text-xs">対象クイズ</Label>
                   <Select value={unlockQuizId} onValueChange={setUnlockQuizId}>
-                    <SelectTrigger><SelectValue placeholder="クイズを選択" /></SelectTrigger>
+                    <SelectTrigger>
+                      <SelectValue placeholder="クイズを選択" />
+                    </SelectTrigger>
                     <SelectContent>
                       {regionQuizzes.map((q) => (
-                        <SelectItem key={q.id} value={q.id}>{q.title}</SelectItem>
+                        <SelectItem key={q.id} value={q.id}>
+                          {q.title}
+                        </SelectItem>
                       ))}
                     </SelectContent>
                   </Select>
@@ -245,46 +309,58 @@ export function NodeEditPanel({ nodeId, open, onOpenChange }: Props) {
                 {nodeQuizzes.length === 0 && (
                   <div className="py-3 text-center text-xs text-muted-foreground">クイズなし</div>
                 )}
-                {nodeQuizzes.map((quiz) => quiz && (
-                  <div
-                    key={quiz.id}
-                    className="flex items-center justify-between px-3 py-2 border-b border-border/50 last:border-0 hover:bg-muted/30"
-                  >
-                    <span className="text-sm">{quiz.title}</span>
-                    <div className="flex gap-1">
-                      <Button variant="ghost" size="sm" className="h-6 text-xs" onClick={() => openEditQuiz(quiz.id)}>
-                        編集
-                      </Button>
-                      <button
-                        onClick={() => set({ quiz_ids: (form.quiz_ids ?? []).filter((id) => id !== quiz.id) })}
-                        className="text-xs text-muted-foreground hover:text-destructive px-1"
+                {nodeQuizzes.map(
+                  (quiz) =>
+                    quiz && (
+                      <div
+                        key={quiz.id}
+                        className="flex items-center justify-between px-3 py-2 border-b border-border/50 last:border-0 hover:bg-muted/30"
                       >
-                        外す
-                      </button>
-                    </div>
-                  </div>
-                ))}
+                        <span className="text-sm">{quiz.title}</span>
+                        <div className="flex gap-1">
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            className="h-6 text-xs"
+                            onClick={() => openEditQuiz(quiz.id)}
+                          >
+                            編集
+                          </Button>
+                          <button
+                            onClick={() =>
+                              set({
+                                quiz_ids: (form.quiz_ids ?? []).filter((id) => id !== quiz.id),
+                              })
+                            }
+                            className="text-xs text-muted-foreground hover:text-destructive px-1"
+                          >
+                            外す
+                          </button>
+                        </div>
+                      </div>
+                    ),
+                )}
               </div>
             </div>
           </div>
 
           <SheetFooter className="mt-6 flex justify-between">
             {!isNew && (
-              <Button variant="destructive" size="sm" onClick={handleDelete}>削除</Button>
+              <Button variant="destructive" size="sm" onClick={handleDelete}>
+                削除
+              </Button>
             )}
             <div className="flex gap-2 ml-auto">
-              <Button variant="outline" onClick={() => onOpenChange(false)}>キャンセル</Button>
+              <Button variant="outline" onClick={() => onOpenChange(false)}>
+                キャンセル
+              </Button>
               <Button onClick={handleSave}>保存</Button>
             </div>
           </SheetFooter>
         </SheetContent>
       </Sheet>
 
-      <QuizEditPanel
-        quizId={editingQuizId}
-        open={quizPanelOpen}
-        onOpenChange={setQuizPanelOpen}
-      />
+      <QuizEditPanel quizId={editingQuizId} open={quizPanelOpen} onOpenChange={setQuizPanelOpen} />
     </>
   );
 }
