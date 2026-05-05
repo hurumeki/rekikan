@@ -922,5 +922,89 @@
     "description": "国際プロジェクトによってヒトの全遺伝情報の解読が完了し、生命科学の新時代が幕を開けた。",
     "tags": ["科学技術"],
     "status": "ai_generated"
+  },
+  {
+    "id": "card_northamerica_blues_origin",
+    "region": "northamerica",
+    "type": "term",
+    "name": "ブルース音楽の形成",
+    "year": 1900,
+    "year_end": null,
+    "era_color_key": "modern",
+    "category": "culture",
+    "hint": "南部・アフリカ系アメリカ人・労働歌",
+    "description": "南部のアフリカ系コミュニティを源流とする民俗音楽の様式が形成され、後の大衆音楽の基層となった。"
+  },
+  {
+    "id": "card_northamerica_jazz_birth",
+    "region": "northamerica",
+    "type": "term",
+    "name": "ジャズの誕生",
+    "year": 1917,
+    "year_end": null,
+    "era_color_key": "modern",
+    "category": "culture",
+    "hint": "ニューオーリンズ・即興演奏・ラグタイムとブルースの融合",
+    "description": "南部の港町を中心に即興演奏を特徴とする新しい音楽様式が成立し、20世紀の大衆音楽の代表となった。"
+  },
+  {
+    "id": "card_northamerica_rock_birth",
+    "region": "northamerica",
+    "type": "term",
+    "name": "ロックンロールの誕生",
+    "year": 1955,
+    "year_end": null,
+    "era_color_key": "contemporary",
+    "category": "culture",
+    "hint": "リズム&ブルースとカントリーの融合・若者文化",
+    "description": "リズム&ブルースをルーツとする若者向けの音楽様式が確立され、戦後文化の象徴として世界に広がった。"
+  },
+  {
+    "id": "card_northamerica_motown_founded",
+    "region": "northamerica",
+    "type": "term",
+    "name": "モータウン・レコードの設立",
+    "year": 1959,
+    "year_end": null,
+    "era_color_key": "contemporary",
+    "category": "culture",
+    "hint": "デトロイト・自動車工業都市・ソウルミュージック",
+    "description": "中西部の自動車産業都市にレコード会社が設立され、ソウル音楽を全米に押し上げる拠点となった。"
+  },
+  {
+    "id": "card_northamerica_woodstock",
+    "region": "northamerica",
+    "type": "term",
+    "name": "ウッドストック・フェスティバル",
+    "year": 1969,
+    "year_end": null,
+    "era_color_key": "contemporary",
+    "category": "culture",
+    "hint": "ニューヨーク州・反戦・対抗文化",
+    "description": "大規模な野外音楽祭が東部の田園地帯で開かれ、若者の対抗文化と反戦運動の象徴となった。"
+  },
+  {
+    "id": "card_northamerica_hiphop_birth",
+    "region": "northamerica",
+    "type": "term",
+    "name": "ヒップホップの誕生",
+    "year": 1973,
+    "year_end": null,
+    "era_color_key": "contemporary",
+    "category": "culture",
+    "hint": "ニューヨーク市ブロンクス・DJ・ブロックパーティー",
+    "description": "ニューヨークの一区画で行われた屋外パーティーから新しい音楽文化が生まれ、後に世界的潮流となった。"
+  },
+  {
+    "id": "card_northamerica_universal_declaration",
+    "region": "northamerica",
+    "type": "term",
+    "name": "世界人権宣言の採択",
+    "year": 1948,
+    "year_end": null,
+    "era_color_key": "contemporary",
+    "category": "law",
+    "hint": "国際連合総会・パリ・基本的人権の世界基準",
+    "description": "国際連合総会で全人類に共通する基本的人権の宣言が採択され、戦後の国際秩序の理念となった。"
   }
 ]

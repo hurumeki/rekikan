@@ -838,5 +838,17 @@
     "description": "長期にわたる大陸部の戦争が終結し、分断されていた南北が統一されて新しい体制が誕生した。",
     "tags": [],
     "status": "ai_generated"
+  },
+  {
+    "id": "card_southeastasia_borobudur",
+    "region": "southeastasia",
+    "type": "term",
+    "name": "ボロブドゥールの建立",
+    "year": 825,
+    "year_end": null,
+    "era_color_key": "medieval",
+    "category": "culture",
+    "hint": "ジャワ島・シャイレーンドラ朝・大乗仏教",
+    "description": "ジャワ島中部に巨大な階段状の仏教遺跡が築かれ、東南アジア大乗仏教文化の頂点を示した。"
   }
 ]
