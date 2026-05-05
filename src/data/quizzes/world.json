@@ -493,5 +493,288 @@
     ],
     "modes": ["cross_region"],
     "difficulty": 3
+  },
+  {
+    "id": "quiz_theme_literature_western_classic",
+    "region": "world",
+    "regions": ["europe"],
+    "title": "西洋古典文学の流れ",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_homer_epics",
+      "card_europe_virgil_aeneid",
+      "card_europe_dante_divine_comedy",
+      "card_europe_chaucer_canterbury",
+      "card_europe_shakespeare_hamlet",
+      "card_europe_milton_paradise_lost"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_theme_literature_japanese_classic",
+    "region": "world",
+    "regions": ["japan"],
+    "title": "日本古典文学の流れ",
+    "card_type": "term",
+    "card_ids": [
+      "card_jp_57",
+      "card_jp_80",
+      "card_jp_82",
+      "card_jp_115",
+      "card_jp_heike_monogatari",
+      "card_jp_basho_oku"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_theme_literature_chinese_classic",
+    "region": "world",
+    "regions": ["china"],
+    "title": "中国古典文学の流れ",
+    "card_type": "term",
+    "card_ids": [
+      "card_china_book_of_songs",
+      "card_china_chu_ci",
+      "card_china_tang_poetry",
+      "card_china_water_margin",
+      "card_china_journey_to_west",
+      "card_china_dream_red_chamber"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_theme_literature_modern_novel",
+    "region": "world",
+    "regions": ["europe", "japan"],
+    "title": "近代小説の系譜",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_goethe_werther",
+      "card_europe_dickens_oliver",
+      "card_europe_dostoevsky_crime",
+      "card_europe_tolstoy_war_peace",
+      "card_jp_soseki_wagahai",
+      "card_europe_kafka_metamorphosis"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 3
+  },
+  {
+    "id": "quiz_theme_art_western_painting",
+    "region": "world",
+    "regions": ["europe"],
+    "title": "西洋絵画の様式の変遷",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_giotto_frescos",
+      "card_europe_da_vinci_last_supper",
+      "card_europe_caravaggio_baroque",
+      "card_europe_rembrandt_night_watch",
+      "card_europe_monet_impression",
+      "card_europe_picasso_guernica"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_theme_art_east_asian",
+    "region": "world",
+    "regions": ["china", "japan"],
+    "title": "東アジア絵画の系譜",
+    "card_type": "term",
+    "card_ids": [
+      "card_china_song_landscape",
+      "card_jp_choju_giga",
+      "card_jp_sesshu_ink",
+      "card_jp_korin_rinpa",
+      "card_jp_hokusai_fugaku"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 3
+  },
+  {
+    "id": "quiz_theme_architecture_western",
+    "region": "world",
+    "regions": ["europe"],
+    "title": "西洋建築様式の流れ",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_parthenon_completion",
+      "card_europe_colosseum_completion",
+      "card_europe_hagia_sophia_completion",
+      "card_europe_notre_dame_completion",
+      "card_europe_florence_dome_completion",
+      "card_europe_versailles_palace",
+      "card_europe_eiffel_tower"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_theme_architecture_asian_religious",
+    "region": "world",
+    "regions": ["japan", "southeastasia", "southasia"],
+    "title": "アジアの宗教建築",
+    "card_type": "term",
+    "card_ids": [
+      "card_jp_52",
+      "card_southeastasia_borobudur",
+      "card_jp_74",
+      "card_southeastasia_angkor_wat",
+      "card_jp_136",
+      "card_southasia_taj_mahal"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_theme_music_classical",
+    "region": "world",
+    "regions": ["europe"],
+    "title": "西洋クラシック音楽の系譜",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_bach_matthew",
+      "card_europe_mozart_figaro",
+      "card_europe_beethoven_ninth",
+      "card_europe_wagner_ring",
+      "card_europe_debussy_la_mer",
+      "card_europe_stravinsky_rite"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_theme_music_popular_20c",
+    "region": "world",
+    "regions": ["northamerica"],
+    "title": "20世紀ポピュラー音楽の流れ",
+    "card_type": "term",
+    "card_ids": [
+      "card_northamerica_blues_origin",
+      "card_northamerica_jazz_birth",
+      "card_northamerica_rock_birth",
+      "card_northamerica_motown_founded",
+      "card_northamerica_woodstock",
+      "card_northamerica_hiphop_birth"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_theme_philosophy_ancient_greek",
+    "region": "world",
+    "regions": ["europe"],
+    "title": "古代ギリシア哲学の系譜",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_socrates_active",
+      "card_europe_plato_academy",
+      "card_europe_aristotle_lyceum",
+      "card_europe_zeno_stoicism",
+      "card_europe_plotinus_neoplatonism"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 3
+  },
+  {
+    "id": "quiz_theme_philosophy_early_modern_eu",
+    "region": "world",
+    "regions": ["europe"],
+    "title": "近世ヨーロッパ哲学の流れ",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_descartes_method",
+      "card_europe_spinoza_ethics",
+      "card_europe_locke",
+      "card_europe_kant_critique",
+      "card_europe_hegel_phenomenology"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 3
+  },
+  {
+    "id": "quiz_theme_philosophy_modern",
+    "region": "world",
+    "regions": ["europe"],
+    "title": "19〜20世紀の思想",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_marx_capital",
+      "card_europe_nietzsche_zarathustra",
+      "card_europe_freud_dreams",
+      "card_europe_wittgenstein_tractatus",
+      "card_europe_sartre_being"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 3
+  },
+  {
+    "id": "quiz_theme_philosophy_east_asian",
+    "region": "world",
+    "regions": ["china", "southasia"],
+    "title": "東洋思想の流れ",
+    "card_type": "term",
+    "card_ids": [
+      "card_china_confucius",
+      "card_southasia_buddha",
+      "card_china_zhuangzi",
+      "card_china_zhu_xi",
+      "card_china_wang_yangming"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 3
+  },
+  {
+    "id": "quiz_theme_law_ancient_codes",
+    "region": "world",
+    "regions": ["westasia", "europe", "japan"],
+    "title": "古代の法典",
+    "card_type": "term",
+    "card_ids": [
+      "card_westasia_hammurabi",
+      "card_europe_twelve_tables",
+      "card_europe_corpus_juris",
+      "card_jp_40",
+      "card_jp_taiho_code"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_theme_law_modern_constitutions",
+    "region": "world",
+    "regions": ["europe", "northamerica", "japan"],
+    "title": "近世・近代法の確立",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_magna_carta",
+      "card_europe_westphalia",
+      "card_europe_bill_of_rights",
+      "card_northamerica_constitution",
+      "card_europe_napoleon_code",
+      "card_jp_211"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_theme_law_contemporary_international",
+    "region": "world",
+    "regions": ["europe", "northamerica", "japan"],
+    "title": "現代の法と国際秩序",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_versailles",
+      "card_northamerica_un_founding",
+      "card_jp_250",
+      "card_northamerica_universal_declaration",
+      "card_europe_eu"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 2
   }
 ]

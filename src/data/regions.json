@@ -71,7 +71,11 @@
       "ancient": { "label": "騎馬遊牧民の世界", "color": "#4ade80", "year_start": -700 },
       "turkic": { "label": "突厥・ウイグル", "color": "#60a5fa", "year_start": 552 },
       "islamic": { "label": "イスラーム化", "color": "#a78bfa", "year_start": 875 },
-      "mongol_timurid": { "label": "モンゴル・ティムール朝", "color": "#fb923c", "year_start": 1206 },
+      "mongol_timurid": {
+        "label": "モンゴル・ティムール朝",
+        "color": "#fb923c",
+        "year_start": 1206
+      },
       "modern": { "label": "近現代", "color": "#f87171", "year_start": 1865 }
     }
   },
@@ -129,7 +133,7 @@
   },
   {
     "id": "world",
-    "label": "同時代の世界",
+    "label": "テーマ史・同時代史",
     "emoji": "🌏",
     "color": "#6366f1",
     "era_colors": {}

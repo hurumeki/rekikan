@@ -3,7 +3,7 @@
     "id": "node_world_root",
     "region": "world",
     "parent_id": null,
-    "label": "同時代の世界",
+    "label": "テーマ史・同時代史",
     "sort_order": 0,
     "quiz_ids": [],
     "unlock_condition": null
@@ -130,6 +130,74 @@
       "quiz_theme_scitech_20c_big",
       "quiz_theme_scitech_life_science",
       "quiz_theme_scitech_20c_full"
+    ],
+    "unlock_condition": null
+  },
+  {
+    "id": "node_world_theme_literature",
+    "region": "world",
+    "parent_id": "node_world_root",
+    "label": "テーマ史：文学",
+    "sort_order": 14,
+    "quiz_ids": [
+      "quiz_theme_literature_western_classic",
+      "quiz_theme_literature_japanese_classic",
+      "quiz_theme_literature_chinese_classic",
+      "quiz_theme_literature_modern_novel"
+    ],
+    "unlock_condition": null
+  },
+  {
+    "id": "node_world_theme_art",
+    "region": "world",
+    "parent_id": "node_world_root",
+    "label": "テーマ史：芸術",
+    "sort_order": 15,
+    "quiz_ids": ["quiz_theme_art_western_painting", "quiz_theme_art_east_asian"],
+    "unlock_condition": null
+  },
+  {
+    "id": "node_world_theme_architecture",
+    "region": "world",
+    "parent_id": "node_world_root",
+    "label": "テーマ史：建築",
+    "sort_order": 16,
+    "quiz_ids": ["quiz_theme_architecture_western", "quiz_theme_architecture_asian_religious"],
+    "unlock_condition": null
+  },
+  {
+    "id": "node_world_theme_music",
+    "region": "world",
+    "parent_id": "node_world_root",
+    "label": "テーマ史：音楽",
+    "sort_order": 17,
+    "quiz_ids": ["quiz_theme_music_classical", "quiz_theme_music_popular_20c"],
+    "unlock_condition": null
+  },
+  {
+    "id": "node_world_theme_philosophy",
+    "region": "world",
+    "parent_id": "node_world_root",
+    "label": "テーマ史：哲学",
+    "sort_order": 18,
+    "quiz_ids": [
+      "quiz_theme_philosophy_ancient_greek",
+      "quiz_theme_philosophy_early_modern_eu",
+      "quiz_theme_philosophy_modern",
+      "quiz_theme_philosophy_east_asian"
+    ],
+    "unlock_condition": null
+  },
+  {
+    "id": "node_world_theme_law",
+    "region": "world",
+    "parent_id": "node_world_root",
+    "label": "テーマ史：法律",
+    "sort_order": 19,
+    "quiz_ids": [
+      "quiz_theme_law_ancient_codes",
+      "quiz_theme_law_modern_constitutions",
+      "quiz_theme_law_contemporary_international"
     ],
     "unlock_condition": null
   }

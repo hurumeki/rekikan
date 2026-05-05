@@ -3538,5 +3538,101 @@
     "category": "event",
     "hint": null,
     "description": "明治天皇が江戸城に入り東京と改称"
+  },
+  {
+    "id": "card_jp_choju_giga",
+    "region": "japan",
+    "type": "term",
+    "name": "鳥獣戯画の制作",
+    "year": 1150,
+    "year_end": null,
+    "era_color_key": "prehistoric_ancient",
+    "category": "culture",
+    "hint": "高山寺・擬人化された動物・絵巻物",
+    "description": "動物を擬人化して描いた風刺的な絵巻物が制作され、後世まで日本の戯画文化に大きな影響を残した。"
+  },
+  {
+    "id": "card_jp_heike_monogatari",
+    "region": "japan",
+    "type": "term",
+    "name": "平家物語の成立",
+    "year": 1240,
+    "year_end": null,
+    "era_color_key": "medieval",
+    "category": "culture",
+    "hint": "琵琶法師・諸行無常・武家の興亡",
+    "description": "栄華を極めた一族の没落を、無常観をにじませた語り物として描いた軍記物語が成立した。"
+  },
+  {
+    "id": "card_jp_basho_oku",
+    "region": "japan",
+    "type": "term",
+    "name": "奥の細道の旅",
+    "year": 1689,
+    "year_end": null,
+    "era_color_key": "early_modern",
+    "category": "culture",
+    "hint": "俳諧・東北行脚・蕉風",
+    "description": "東北・北陸を巡る紀行を題材にした俳諧紀行文がまとめられ、自然と人生を凝縮した文学が確立された。"
+  },
+  {
+    "id": "card_jp_sesshu_ink",
+    "region": "japan",
+    "type": "term",
+    "name": "雪舟の水墨画大成",
+    "year": 1490,
+    "year_end": null,
+    "era_color_key": "medieval",
+    "category": "culture",
+    "hint": "禅僧・明への留学・破墨山水",
+    "description": "明に渡って学んだ画僧が独自の水墨表現を確立し、日本の山水画を高い境地へ引き上げた。"
+  },
+  {
+    "id": "card_jp_korin_rinpa",
+    "region": "japan",
+    "type": "term",
+    "name": "尾形光琳の琳派絵画",
+    "year": 1700,
+    "year_end": null,
+    "era_color_key": "early_modern",
+    "category": "culture",
+    "hint": "京都・燕子花図屏風・装飾画",
+    "description": "大胆な構図と豊かな装飾で知られる絵画様式が大成され、後世まで続く流派の頂点が築かれた。"
+  },
+  {
+    "id": "card_jp_hokusai_fugaku",
+    "region": "japan",
+    "type": "term",
+    "name": "富嶽三十六景の刊行",
+    "year": 1831,
+    "year_end": null,
+    "era_color_key": "early_modern",
+    "category": "culture",
+    "hint": "葛飾北斎・浮世絵風景画・神奈川沖浪裏",
+    "description": "霊峰を多様な視点から描いた連作浮世絵が刊行され、風景版画の傑作として国内外に大きな影響を与えた。"
+  },
+  {
+    "id": "card_jp_soseki_wagahai",
+    "region": "japan",
+    "type": "term",
+    "name": "『吾輩は猫である』連載開始",
+    "year": 1905,
+    "year_end": null,
+    "era_color_key": "modern",
+    "category": "culture",
+    "hint": "夏目漱石・近代文学・ホトトギス",
+    "description": "猫の視点から人間社会を風刺する小説の連載が始まり、日本の近代小説の本格的な幕開けとなった。"
+  },
+  {
+    "id": "card_jp_taiho_code",
+    "region": "japan",
+    "type": "term",
+    "name": "大宝律令の制定",
+    "year": 701,
+    "year_end": null,
+    "era_color_key": "prehistoric_ancient",
+    "category": "law",
+    "hint": "唐の律令を範・刑部親王・藤原不比等",
+    "description": "唐の制度を範とした体系的な律令法典が編まれ、中央集権的な国家統治の基礎が整えられた。"
   }
 ]
