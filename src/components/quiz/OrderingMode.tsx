@@ -1,17 +1,13 @@
 'use client';
 
 import { useEffect, useMemo } from 'react';
-import type { Card as CardType, CardResult, Region } from '@/lib/types';
+import type { Region } from '@/lib/types';
+import type { OrderingQuizModeProps } from './mode-props';
 import { useOrderingMode } from '@/hooks/useOrderingMode';
 import Card from '@/components/card/Card';
 import styles from './OrderingMode.module.css';
 
-interface OrderingModeProps {
-  cards: CardType[];
-  correctOrder: string[];
-  eraColors: Record<string, string>;
-  hintEnabled: boolean;
-  onComplete: (results: CardResult[], score: number, total: number) => void;
+interface OrderingModeProps extends OrderingQuizModeProps {
   /**
    * 渡すと各カードに地域バッジを表示する（同時代モード）。
    * 省略した場合は単一地域のチャレンジモードとして振る舞う。

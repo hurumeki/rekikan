@@ -7,6 +7,16 @@ const regionMap = new Map<string, Region>(REGIONS.map((r) => [r.id, r]));
 const quizMap = new Map<string, Quiz>(ALL_QUIZZES.map((q) => [q.id, q]));
 const nodeMap = new Map<string, Node>(ALL_NODES.map((n) => [n.id, n]));
 
+const quizzesByRegion = new Map<string, Quiz[]>();
+for (const quiz of ALL_QUIZZES) {
+  let list = quizzesByRegion.get(quiz.region);
+  if (!list) {
+    list = [];
+    quizzesByRegion.set(quiz.region, list);
+  }
+  list.push(quiz);
+}
+
 const nodesByRegion = new Map<string, Node[]>();
 for (const node of ALL_NODES) {
   let list = nodesByRegion.get(node.region);
@@ -124,6 +134,10 @@ export async function loadCardsByIds(
 
 export function getQuiz(quizId: string): Quiz | undefined {
   return quizMap.get(quizId);
+}
+
+export function getQuizzesForRegion(regionId: string): Quiz[] {
+  return quizzesByRegion.get(regionId) ?? [];
 }
 
 export function getNodesForRegion(regionId: string): Node[] {

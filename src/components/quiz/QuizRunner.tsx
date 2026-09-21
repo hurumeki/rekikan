@@ -10,17 +10,10 @@ import EraBandQuiz from '@/components/quiz/EraBandQuiz';
 import TimelinePlacementQuiz from '@/components/quiz/TimelinePlacementQuiz';
 import HintToggle from '@/components/quiz/HintToggle';
 import ResultScreen from '@/components/result/ResultScreen';
+import { buildTimelineRange } from '@/lib/timeline-scale';
 import styles from './QuizRunner.module.css';
 
 type Phase = 'mode-select' | 'playing' | 'result';
-
-/** タイムラインの左端を丸める単位を、扱う期間の長さから決める */
-function roundingUnit(span: number): number {
-  if (span > 10000) return 1000;
-  if (span > 2000) return 100;
-  if (span > 300) return 10;
-  return 1;
-}
 
 interface QuizRunnerProps {
   quiz: Quiz;
@@ -80,20 +73,10 @@ export default function QuizRunner({
   // eraConfig: full EraColor objects (label + color) for EraBandQuiz / TimelinePlacementQuiz
   const eraConfig = useMemo<Record<string, EraColor>>(() => region?.era_colors ?? {}, [region]);
 
-  const timelineRange = useMemo(() => {
-    if (quiz.timeline_range) return quiz.timeline_range;
-    if (cards.length === 0) return { start: 0, end: 2000 };
-    const years = cards.map((c) => c.year);
-    const min = Math.min(...years);
-    const max = Math.max(...years);
-    const padding = Math.round((max - min) * 0.15) || 50;
-    const currentYear = new Date().getFullYear();
-    // Don't extend timeline into the future beyond current year
-    const end = Math.min(max + padding, Math.max(max + 10, currentYear));
-    // 端の目盛りが「前11,780年」のような半端な数にならないよう丸める
-    const unit = roundingUnit(max - min);
-    return { start: Math.floor((min - padding) / unit) * unit, end };
-  }, [quiz, cards]);
+  const timelineRange = useMemo(
+    () => quiz.timeline_range ?? buildTimelineRange(cards),
+    [quiz, cards],
+  );
 
   const [phase, setPhase] = useState<Phase>('mode-select');
   const [selectedMode, setSelectedMode] = useState<GameMode | null>(null);
@@ -152,13 +135,9 @@ export default function QuizRunner({
     setPhase('mode-select');
   }, []);
 
-  const commonProps = {
-    cards,
-    correctOrder,
-    eraColors,
-    hintEnabled,
-    onComplete: handleComplete,
-  };
+  // 並べ替え系モードだけが正解順を必要とする（mode-props.ts 参照）
+  const modeProps = { cards, eraColors, hintEnabled, onComplete: handleComplete };
+  const orderingProps = { ...modeProps, correctOrder };
 
   return (
     <div className={styles.container}>
@@ -182,21 +161,21 @@ export default function QuizRunner({
             <h3 className={styles.playTitle}>{quiz.title}</h3>
             <HintToggle enabled={hintEnabled} onToggle={handleToggleHint} />
           </div>
-          {selectedMode === 'careful' && <CarefulMode key={playCount} {...commonProps} />}
-          {selectedMode === 'challenge' && <OrderingMode key={playCount} {...commonProps} />}
+          {selectedMode === 'careful' && <CarefulMode key={playCount} {...orderingProps} />}
+          {selectedMode === 'challenge' && <OrderingMode key={playCount} {...orderingProps} />}
           {selectedMode === 'era_band' && (
-            <EraBandQuiz key={playCount} {...commonProps} eraConfig={eraConfig} />
+            <EraBandQuiz key={playCount} {...modeProps} eraConfig={eraConfig} />
           )}
           {selectedMode === 'timeline' && (
             <TimelinePlacementQuiz
               key={playCount}
-              {...commonProps}
+              {...modeProps}
               eraConfig={eraConfig}
               timelineRange={timelineRange}
             />
           )}
           {selectedMode === 'cross_region' && (
-            <OrderingMode key={playCount} {...commonProps} regions={allRegions} />
+            <OrderingMode key={playCount} {...orderingProps} regions={allRegions} />
           )}
         </>
       )}

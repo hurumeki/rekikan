@@ -1,8 +1,7 @@
 'use client';
 
-import { useMemo } from 'react';
 import type { Region } from '@/lib/types';
-import { ALL_QUIZZES } from '@/lib/data-registry';
+import { getQuizzesForRegion } from '@/lib/data-loader';
 import type { ProgressMap } from '@/lib/progress';
 import styles from './RegionSelector.module.css';
 
@@ -35,18 +34,8 @@ const GROUPS: { label: string; description: string; match: (id: string) => boole
 ];
 
 export default function RegionSelector({ regions, onSelect, progress }: RegionSelectorProps) {
-  const quizCountByRegion = useMemo(() => {
-    const counts = new Map<string, string[]>();
-    for (const quiz of ALL_QUIZZES) {
-      const list = counts.get(quiz.region) ?? [];
-      list.push(quiz.id);
-      counts.set(quiz.region, list);
-    }
-    return counts;
-  }, []);
-
   const renderRegion = (region: Region) => {
-    const quizIds = quizCountByRegion.get(region.id) ?? [];
+    const quizIds = getQuizzesForRegion(region.id).map((q) => q.id);
     const cleared = quizIds.filter((id) => progress[id]?.cleared).length;
     const pct = quizIds.length > 0 ? (cleared / quizIds.length) * 100 : 0;
 

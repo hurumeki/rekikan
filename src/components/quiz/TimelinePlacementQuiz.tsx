@@ -1,19 +1,15 @@
 'use client';
 
 import { useEffect, useCallback, useRef, useMemo } from 'react';
-import type { Card as CardType, CardResult, EraColor } from '@/lib/types';
+import type { EraColor } from '@/lib/types';
+import type { QuizModeProps } from './mode-props';
 import { useTimelineMode } from '@/hooks/useTimelineMode';
 import Card from '@/components/card/Card';
 import { formatYearRange } from '@/lib/quiz-engine';
 import { buildTimelineScale, toleranceYears, TOLERANCE_PERCENT } from '@/lib/timeline-scale';
 import styles from './TimelinePlacementQuiz.module.css';
 
-interface TimelinePlacementQuizProps {
-  cards: CardType[];
-  correctOrder: string[];
-  eraColors: Record<string, string>;
-  hintEnabled: boolean;
-  onComplete: (results: CardResult[], score: number, total: number) => void;
+interface TimelinePlacementQuizProps extends QuizModeProps {
   eraConfig: Record<string, EraColor>;
   timelineRange: { start: number; end: number };
 }

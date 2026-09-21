@@ -31,6 +31,34 @@ export interface TimelineScale {
  */
 export const TOLERANCE_PERCENT = 8;
 
+/** タイムラインの左端を丸める単位を、扱う期間の長さから決める */
+function roundingUnit(span: number): number {
+  if (span > 10000) return 1000;
+  if (span > 2000) return 100;
+  if (span > 300) return 10;
+  return 1;
+}
+
+/**
+ * 出題カードから、表示するタイムラインの範囲を決める。
+ * クイズに timeline_range が指定されていればそちらを優先する。
+ */
+export function buildTimelineRange(cards: Card[]): { start: number; end: number } {
+  if (cards.length === 0) return { start: 0, end: 2000 };
+
+  const years = cards.map((c) => c.year);
+  const min = Math.min(...years);
+  const max = Math.max(...years);
+  const padding = Math.round((max - min) * 0.15) || 50;
+  const currentYear = new Date().getFullYear();
+
+  // 未来側には現在年より先へ伸ばさない
+  const end = Math.min(max + padding, Math.max(max + 10, currentYear));
+  // 端の目盛りが「前11,780年」のような半端な数にならないよう丸める
+  const unit = roundingUnit(max - min);
+  return { start: Math.floor((min - padding) / unit) * unit, end };
+}
+
 /** 時代帯の開始年を決める。定義があればそれを使い、なければカードから推定する。 */
 function resolveEraStart(
   key: string,

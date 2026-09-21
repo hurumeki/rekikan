@@ -5,14 +5,10 @@ import { useRouter } from 'next/navigation';
 import { loadCardsByIds } from '@/lib/data-loader';
 import { getWeakCardIds, recordCardResults, accuracy, getWeakCardRegions } from '@/lib/card-stats';
 import { useCardStats, useWeakCardCount } from '@/hooks/useCardStats';
-import type { Card, GameMode, Quiz } from '@/lib/types';
+import type { Card } from '@/lib/types';
+import { buildReviewQuiz, REVIEW_CARD_COUNT, REVIEW_MIN_CARDS } from '@/lib/review';
 import QuizRunner from '@/components/quiz/QuizRunner';
 import styles from './review.module.css';
-
-/** 1 回の復習で出すカード枚数（docs/04 §4.3 の推奨枚数に合わせる） */
-export const REVIEW_CARD_COUNT = 7;
-/** これを下回ると復習を始められない */
-export const REVIEW_MIN_CARDS = 3;
 
 function EmptyState({ weakCount, onHome }: { weakCount: number; onHome: () => void }) {
   return (
@@ -54,23 +50,7 @@ function ReviewSession({
   const cards = use(cardsPromise);
   const stats = useCardStats();
 
-  const quiz = useMemo<Quiz | null>(() => {
-    if (cards.length < REVIEW_MIN_CARDS) return null;
-    const regions = [...new Set(cards.map((c) => c.region))];
-    // 複数地域が混ざるときは地域バッジの出る同時代モードで出題する
-    const modes: GameMode[] =
-      regions.length > 1 ? ['careful', 'cross_region'] : ['careful', 'challenge'];
-    return {
-      id: '__review__',
-      region: regions[0]!,
-      title: '苦手カードの復習',
-      card_type: cards.every((c) => c.type === 'term') ? 'term' : 'description',
-      card_ids: cards.map((c) => c.id),
-      modes,
-      difficulty: 3,
-      regions: regions.length > 1 ? regions : null,
-    };
-  }, [cards]);
+  const quiz = useMemo(() => buildReviewQuiz(cards), [cards]);
 
   if (!quiz) {
     return <EmptyState weakCount={weakCount} onHome={onHome} />;

@@ -1,18 +1,14 @@
 'use client';
 
 import { useEffect } from 'react';
-import type { Card as CardType, CardResult, EraColor } from '@/lib/types';
+import type { EraColor } from '@/lib/types';
+import type { QuizModeProps } from './mode-props';
 import { useEraBandMode } from '@/hooks/useEraBandMode';
 import Card from '@/components/card/Card';
 import { formatYearRange } from '@/lib/quiz-engine';
 import styles from './EraBandQuiz.module.css';
 
-interface EraBandQuizProps {
-  cards: CardType[];
-  correctOrder: string[];
-  eraColors: Record<string, string>;
-  hintEnabled: boolean;
-  onComplete: (results: CardResult[], score: number, total: number) => void;
+interface EraBandQuizProps extends QuizModeProps {
   eraConfig: Record<string, EraColor>;
 }
 

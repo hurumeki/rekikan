@@ -6,7 +6,7 @@ import { getRegions, getRegion, getNodesForRegion } from '@/lib/data-loader';
 import { useProgress } from '@/hooks/useProgress';
 import { useWeakCardCount } from '@/hooks/useCardStats';
 import type { Region } from '@/lib/types';
-import { REVIEW_MIN_CARDS } from '@/app/review/ReviewClient';
+import { REVIEW_MIN_CARDS } from '@/lib/review';
 import RegionSelector from '@/components/home/RegionSelector';
 import QuizList from '@/components/home/QuizList';
 import styles from './page.module.css';

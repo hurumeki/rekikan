@@ -1,18 +1,10 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useRef, useLayoutEffect } from 'react';
-import type { Card as CardType, CardResult } from '@/lib/types';
+import type { OrderingQuizModeProps } from './mode-props';
 import { useCarefulMode } from '@/hooks/useCarefulMode';
 import Card from '@/components/card/Card';
 import styles from './CarefulMode.module.css';
-
-interface CarefulModeProps {
-  cards: CardType[];
-  correctOrder: string[];
-  eraColors: Record<string, string>;
-  hintEnabled: boolean;
-  onComplete: (results: CardResult[], score: number, total: number) => void;
-}
 
 export default function CarefulMode({
   cards,
@@ -20,7 +12,7 @@ export default function CarefulMode({
   eraColors,
   hintEnabled,
   onComplete,
-}: CarefulModeProps) {
+}: OrderingQuizModeProps) {
   const {
     remainingCards,
     confirmedCards,
