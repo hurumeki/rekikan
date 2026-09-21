@@ -16,7 +16,7 @@
     "region": "europe",
     "type": "description",
     "name": null,
-    "year": 400,
+    "year": 500,
     "year_end": null,
     "era_color_key": "medieval",
     "category": null,
@@ -114,7 +114,7 @@
     "name": "フランク王国",
     "year": 481,
     "year_end": 843,
-    "era_color_key": "ancient",
+    "era_color_key": "medieval",
     "category": "era",
     "hint": "クローヴィス・カール大帝・分裂",
     "description": "西ヨーロッパを統一したが、やがて三つに分裂した。"
@@ -390,7 +390,7 @@
     "name": "サラエボ事件",
     "year": 1914,
     "year_end": null,
-    "era_color_key": "modern",
+    "era_color_key": "contemporary",
     "category": "event",
     "hint": "第一次世界大戦の火種・セルビア",
     "description": "オーストリア皇太子が暗殺され、世界大戦勃発の直接的契機となった。"
