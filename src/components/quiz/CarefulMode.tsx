@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useLayoutEffect } from 'react'
 import type { OrderingQuizModeProps } from './mode-props';
 import { useCarefulMode } from '@/hooks/useCarefulMode';
 import Card from '@/components/card/Card';
+import layout from './quiz-layout.module.css';
 import styles from './CarefulMode.module.css';
 
 export default function CarefulMode({
@@ -132,7 +133,7 @@ export default function CarefulMode({
   }, [wrongCardId, clearWrong]);
 
   return (
-    <div className={styles.container}>
+    <div className={layout.modeContainer}>
       {confirmedCards.length > 0 && (
         <div className={styles.confirmedArea}>
           <div className={styles.confirmedLabel}>古い順に確定したカード</div>
@@ -163,7 +164,7 @@ export default function CarefulMode({
 
       {!isComplete && (
         <div className={styles.promptArea}>
-          <div className={styles.prompt}>この中で1番古いのはどれ？</div>
+          <div className={layout.prompt}>この中で1番古いのはどれ？</div>
           <div className={styles.remainingCount}>のこり{remainingCards.length}枚</div>
           {wrongCardId && (
             <div className={styles.wrongHint} role="status">

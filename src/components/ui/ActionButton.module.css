@@ -1,0 +1,30 @@
+.button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.primary {
+  background: var(--badge-bg);
+  color: var(--badge-text);
+}
+
+.secondary {
+  background: transparent;
+  color: var(--badge-bg);
+  border: 2px solid var(--badge-bg);
+}
+
+/* 半透明にすると「押せそうな色」のまま文字が読めなくなるため、
+   無効であることが分かる灰色に置き換える */
+.button:disabled {
+  background: var(--state-unselected-bg);
+  color: var(--text-muted);
+  border: 1px solid var(--state-unselected-border);
+  cursor: not-allowed;
+}

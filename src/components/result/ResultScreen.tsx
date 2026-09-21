@@ -5,6 +5,8 @@ import { useMemo } from 'react';
 import type { Card as CardType, CardResult, GameMode, Region } from '@/lib/types';
 import { computeStars } from '@/lib/progress-rules';
 import Card from '@/components/card/Card';
+import StarRating from '@/components/ui/StarRating';
+import ActionButton from '@/components/ui/ActionButton';
 import styles from './ResultScreen.module.css';
 
 interface ResultScreenProps {
@@ -62,15 +64,7 @@ export default function ResultScreen({
         </div>
 
         <div className={styles.starsRow}>
-          {[1, 2, 3].map((i) => (
-            <span
-              key={i}
-              className={i <= stars ? styles.starFilled : styles.starEmpty}
-              style={{ '--star-delay': `${(i - 1) * 0.12}s` } as React.CSSProperties}
-            >
-              ★
-            </span>
-          ))}
+          <StarRating stars={stars} size="lg" animated />
         </div>
 
         {isPerfect && <div className={styles.perfect}>パーフェクト！</div>}
@@ -126,12 +120,10 @@ export default function ResultScreen({
       </div>
 
       <div className={styles.buttons}>
-        <button className={styles.retryButton} onClick={onRetry}>
+        <ActionButton variant="secondary" onClick={onRetry}>
           もう一度
-        </button>
-        <button className={styles.homeButton} onClick={onChangeMode}>
-          別のモードで遊ぶ
-        </button>
+        </ActionButton>
+        <ActionButton onClick={onChangeMode}>別のモードで遊ぶ</ActionButton>
       </div>
       <button className={styles.homeLink} onClick={onHome}>
         クイズ一覧に戻る

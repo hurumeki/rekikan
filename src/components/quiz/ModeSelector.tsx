@@ -2,6 +2,7 @@
 
 import type { GameMode, QuizProgress } from '@/lib/types';
 import { getHistoricalStars, isOrderingMode } from '@/lib/progress-rules';
+import StarRating from '@/components/ui/StarRating';
 import styles from './ModeSelector.module.css';
 
 interface ModeSelectorProps {
@@ -37,18 +38,6 @@ const modeInfo: Record<GameMode, { name: string; desc: string }> = {
 
 /** やさしい順。初めての人がいきなり難しいモードを選ばないようにする。 */
 const MODE_ORDER: GameMode[] = ['careful', 'era_band', 'challenge', 'timeline', 'cross_region'];
-
-function ModeStars({ stars }: { stars: number }) {
-  return (
-    <span className={styles.stars} aria-label={`${stars}つ星`}>
-      {[1, 2, 3].map((i) => (
-        <span key={i} className={i <= stars ? styles.starFilled : styles.starEmpty}>
-          ★
-        </span>
-      ))}
-    </span>
-  );
-}
 
 export default function ModeSelector({
   quizTitle,
@@ -94,7 +83,7 @@ export default function ModeSelector({
               </div>
               <div className={styles.modeStatus}>
                 {modeProgress ? (
-                  <ModeStars stars={stars} />
+                  <StarRating stars={stars} />
                 ) : (
                   <span className={styles.unplayed}>未プレイ</span>
                 )}

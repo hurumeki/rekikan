@@ -1,26 +1,3 @@
-.container {
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  max-width: 480px;
-  margin: 0 auto;
-  width: 100%;
-}
-
-.progress {
-  text-align: center;
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-}
-
-.prompt {
-  text-align: center;
-  font-size: 1rem;
-  font-weight: 600;
-  padding: 4px 0;
-}
-
 .timelineWrapper {
   display: flex;
   flex-direction: column;
@@ -172,43 +149,4 @@
 .navBtnEra {
   font-size: 0.95rem;
   width: 36px;
-}
-
-.feedback {
-  text-align: center;
-  font-size: 0.95rem;
-  font-weight: 600;
-  padding: 8px 12px;
-  border-radius: 8px;
-}
-
-.feedbackCorrect {
-  background: color-mix(in srgb, var(--correct-mark-bg) 15%, var(--surface));
-  color: var(--correct-fg);
-}
-
-.feedbackWrong {
-  background: color-mix(in srgb, var(--incorrect-mark-bg) 15%, var(--surface));
-  color: var(--incorrect-fg);
-}
-
-.confirmButton,
-.nextButton {
-  background: var(--badge-bg);
-  color: var(--badge-text);
-  border: none;
-  border-radius: 12px;
-  padding: 14px;
-  font-size: 1rem;
-  font-weight: 600;
-  width: 100%;
-  cursor: pointer;
-  transition: opacity 0.2s;
-}
-
-.confirmButton:disabled {
-  background: var(--state-unselected-bg);
-  color: var(--text-muted);
-  border: 1px solid var(--state-unselected-border);
-  cursor: not-allowed;
 }

@@ -5,6 +5,8 @@ import type { Region } from '@/lib/types';
 import type { OrderingQuizModeProps } from './mode-props';
 import { useOrderingMode } from '@/hooks/useOrderingMode';
 import Card from '@/components/card/Card';
+import ActionButton from '@/components/ui/ActionButton';
+import layout from './quiz-layout.module.css';
 import styles from './OrderingMode.module.css';
 
 interface OrderingModeProps extends OrderingQuizModeProps {
@@ -73,7 +75,7 @@ export default function OrderingMode({
   }, [isConfirmed, results, score, total, onComplete]);
 
   return (
-    <div className={styles.container}>
+    <div className={layout.modeContainer}>
       {!isConfirmed && <div className={styles.instruction}>古い順にカードをタップしてください</div>}
 
       {isConfirmed && results && (
@@ -132,14 +134,9 @@ export default function OrderingMode({
       </div>
 
       {!isConfirmed && (
-        <button
-          className={styles.confirmButton}
-          disabled={!allSelected}
-          onClick={confirm}
-          data-testid="confirm-order"
-        >
+        <ActionButton disabled={!allSelected} onClick={confirm} data-testid="confirm-order">
           {allSelected ? 'この順番で確定する' : `あと${remaining}枚えらぶ`}
-        </button>
+        </ActionButton>
       )}
     </div>
   );

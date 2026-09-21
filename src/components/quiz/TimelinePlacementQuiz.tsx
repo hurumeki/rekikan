@@ -7,6 +7,9 @@ import { useTimelineMode } from '@/hooks/useTimelineMode';
 import Card from '@/components/card/Card';
 import { formatYearRange } from '@/lib/quiz-engine';
 import { buildTimelineScale, toleranceYears, TOLERANCE_PERCENT } from '@/lib/timeline-scale';
+import ActionButton from '@/components/ui/ActionButton';
+import FeedbackBanner from '@/components/ui/FeedbackBanner';
+import layout from './quiz-layout.module.css';
 import styles from './TimelinePlacementQuiz.module.css';
 
 interface TimelinePlacementQuizProps extends QuizModeProps {
@@ -133,12 +136,12 @@ export default function TimelinePlacementQuiz({
   const navDisabled = answeredYear !== null;
 
   return (
-    <div className={styles.container}>
-      <div className={styles.progress}>
+    <div className={layout.modeContainer}>
+      <div className={layout.progress}>
         {currentIndex + 1} / {total}
       </div>
 
-      <div className={styles.prompt}>この出来事はいつ頃？</div>
+      <div className={layout.prompt}>この出来事はいつ頃？</div>
 
       <Card
         card={currentCard}
@@ -206,12 +209,9 @@ export default function TimelinePlacementQuiz({
 
         {/* Era boundary year labels below timeline */}
         <div className={styles.eraYearLabels}>
-          <span className={styles.eraYearLabel} style={{ left: '0%', transform: 'translateX(0)' }}>
-            {formatTimelineYear(timelineRange.start)}
-          </span>
+          {/* 左端は余白ぶんずらした年で意味を持たないため、時代帯の境目だけを出す */}
           {eraBands.slice(1).map((band) =>
-            // 端のラベルと重なる区切りは出さない（桁の多い年号がぶつかるため）
-            band.left > 14 && band.left < 86 ? (
+            band.left > 4 && band.left < 86 ? (
               <span
                 key={band.key}
                 className={styles.eraYearLabel}
@@ -291,31 +291,23 @@ export default function TimelinePlacementQuiz({
 
       {/* Feedback after answer */}
       {answeredYear !== null && (
-        <div
-          className={`${styles.feedback} ${isCorrect ? styles.feedbackCorrect : styles.feedbackWrong}`}
-        >
+        <FeedbackBanner correct={!!isCorrect}>
           {isCorrect
             ? `正解！ ${formatYearRange(currentCard.year, currentCard.year_end)}`
             : `不正解 — 正解は ${formatYearRange(currentCard.year, currentCard.year_end)}（およそ±${toleranceYears(
                 currentCard.year,
                 scale,
               ).toLocaleString()}年まで正解）`}
-        </div>
+        </FeedbackBanner>
       )}
 
       {/* Action buttons */}
       {answeredYear === null ? (
-        <button
-          className={styles.confirmButton}
-          disabled={selectedYear === null}
-          onClick={confirmAnswer}
-        >
+        <ActionButton disabled={selectedYear === null} onClick={confirmAnswer}>
           ここに配置する
-        </button>
+        </ActionButton>
       ) : !isComplete ? (
-        <button className={styles.nextButton} onClick={advance}>
-          次へ
-        </button>
+        <ActionButton onClick={advance}>次へ</ActionButton>
       ) : null}
     </div>
   );

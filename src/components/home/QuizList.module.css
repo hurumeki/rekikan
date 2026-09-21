@@ -279,15 +279,3 @@
   font-size: 1.2rem;
   flex-shrink: 0;
 }
-.stars {
-  display: inline-flex;
-  gap: 1px;
-}
-.starFilled {
-  color: var(--star-filled);
-  font-size: 1rem;
-}
-.starEmpty {
-  color: var(--star-empty);
-  font-size: 1rem;
-}

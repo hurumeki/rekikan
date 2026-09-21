@@ -79,21 +79,6 @@
   flex-shrink: 0;
 }
 
-.stars {
-  display: inline-flex;
-  gap: 1px;
-}
-
-.starFilled {
-  color: var(--star-filled);
-  font-size: 0.9375rem;
-}
-
-.starEmpty {
-  color: var(--star-empty);
-  font-size: 0.9375rem;
-}
-
 .unplayed {
   font-size: 0.75rem;
   color: var(--text-muted);

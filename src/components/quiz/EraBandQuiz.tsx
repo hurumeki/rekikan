@@ -6,6 +6,9 @@ import type { QuizModeProps } from './mode-props';
 import { useEraBandMode } from '@/hooks/useEraBandMode';
 import Card from '@/components/card/Card';
 import { formatYearRange } from '@/lib/quiz-engine';
+import ActionButton from '@/components/ui/ActionButton';
+import FeedbackBanner from '@/components/ui/FeedbackBanner';
+import layout from './quiz-layout.module.css';
 import styles from './EraBandQuiz.module.css';
 
 interface EraBandQuizProps extends QuizModeProps {
@@ -44,12 +47,12 @@ export default function EraBandQuiz({
   const isCorrect = answeredEraKey !== null && wrongEraKey === null;
 
   return (
-    <div className={styles.container}>
-      <div className={styles.progress}>
+    <div className={layout.modeContainer}>
+      <div className={layout.progress}>
         {currentIndex + 1} / {total}
       </div>
 
-      <div className={styles.prompt}>この出来事はどの時代？</div>
+      <div className={layout.prompt}>この出来事はどの時代？</div>
 
       <Card
         card={currentCard}
@@ -93,19 +96,15 @@ export default function EraBandQuiz({
       </div>
 
       {answeredEraKey !== null && (
-        <div
-          className={`${styles.feedback} ${isCorrect ? styles.feedbackCorrect : styles.feedbackWrong}`}
-        >
+        <FeedbackBanner correct={isCorrect}>
           {isCorrect
             ? `正解！ ${formatYearRange(currentCard.year, currentCard.year_end)}`
             : `不正解 — 正解は「${eraConfig[answeredEraKey]?.label}」（${formatYearRange(currentCard.year, currentCard.year_end)}）`}
-        </div>
+        </FeedbackBanner>
       )}
 
       {answeredEraKey !== null && !isComplete && (
-        <button className={styles.nextButton} onClick={advance}>
-          次へ
-        </button>
+        <ActionButton onClick={advance}>次へ</ActionButton>
       )}
     </div>
   );

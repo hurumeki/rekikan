@@ -17,23 +17,12 @@ import {
 import type { ProgressMap } from '@/lib/progress';
 import { stratumColor } from '@/lib/strata';
 import { useNewlyUnlockedNodes } from '@/hooks/useNewlyUnlockedNodes';
+import StarRating from '@/components/ui/StarRating';
 import NodeCoverImage from './NodeCoverImage';
 import styles from './QuizList.module.css';
 
 /** 階層の深さに応じた地層のような見た目の上限（これより深い層は同じ色にする） */
 const MAX_DEPTH_STYLE = 3;
-
-function StarDisplay({ stars }: { stars: number }) {
-  return (
-    <span className={styles.stars} aria-label={`${stars}つ星`}>
-      {[1, 2, 3].map((i) => (
-        <span key={i} className={i <= stars ? styles.starFilled : styles.starEmpty}>
-          ★
-        </span>
-      ))}
-    </span>
-  );
-}
 
 interface QuizListProps {
   region: Region;
@@ -183,7 +172,7 @@ export default function QuizList({ region, nodes, onSelectQuiz, onBack, progress
                     {isLocked ? (
                       <span aria-label="ロック中">🔒</span>
                     ) : (
-                      <StarDisplay stars={stars} />
+                      <StarRating stars={stars} />
                     )}
                   </span>
                 </button>
