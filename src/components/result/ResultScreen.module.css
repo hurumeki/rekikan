@@ -196,7 +196,25 @@
 .buttons {
   display: flex;
   gap: 12px;
-  padding: 16px 0;
+  padding: 16px 0 8px;
+  /* カードが多いクイズでも操作に届くよう画面下に貼り付ける */
+  position: sticky;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--background) 60%, transparent),
+    var(--background) 30%
+  );
+}
+
+.homeLink {
+  align-self: center;
+  background: none;
+  border: none;
+  color: var(--badge-bg);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 4px 8px 16px;
 }
 .retryButton {
   flex: 1;

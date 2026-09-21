@@ -82,11 +82,24 @@ export interface QuizResult {
   timestamp: string;
 }
 
-export interface QuizProgress {
-  quizId: string;
+/** 1 つのモードでの記録 */
+export interface ModeProgress {
   bestScore: number;
   cleared: boolean;
   /** Perfect score achieved at least once with hint enabled (used for hint_clear unlock) */
   clearedWithHint: boolean;
   attemptCount: number;
+}
+
+export interface QuizProgress {
+  quizId: string;
+  /** 全モードを通じた最高スコア（一覧の星表示用） */
+  bestScore: number;
+  /** 並べ替え系モードで満点を取ったか。アンロック判定に使う */
+  cleared: boolean;
+  clearedWithHint: boolean;
+  /** 全モードの挑戦回数の合計 */
+  attemptCount: number;
+  /** モード別の記録 */
+  modes: Partial<Record<GameMode, ModeProgress>>;
 }

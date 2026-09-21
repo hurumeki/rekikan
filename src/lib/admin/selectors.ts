@@ -15,7 +15,7 @@ export function getCardUsageCount(state: Pick<AdminState, 'quizzes'>): Map<strin
 /** Returns status summary for a quiz based on its cards' review statuses */
 export function getQuizStatusSummary(
   quiz: Quiz,
-  cards: Card[]
+  cards: Card[],
 ): 'all_approved' | 'some_reviewed' | 'has_draft' {
   const cardMap = new Map(cards.map((c) => [c.id, c]));
   let hasNonApproved = false;

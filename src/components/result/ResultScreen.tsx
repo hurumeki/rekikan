@@ -17,6 +17,7 @@ interface ResultScreenProps {
   mode: GameMode;
   previousBest: number | null;
   onRetry: () => void;
+  onChangeMode: () => void;
   onHome: () => void;
   regions?: Region[];
 }
@@ -31,6 +32,7 @@ export default function ResultScreen({
   mode,
   previousBest,
   onRetry,
+  onChangeMode,
   onHome,
   regions,
 }: ResultScreenProps) {
@@ -127,10 +129,13 @@ export default function ResultScreen({
         <button className={styles.retryButton} onClick={onRetry}>
           もう一度
         </button>
-        <button className={styles.homeButton} onClick={onHome}>
-          クイズ一覧に戻る
+        <button className={styles.homeButton} onClick={onChangeMode}>
+          別のモードで遊ぶ
         </button>
       </div>
+      <button className={styles.homeLink} onClick={onHome}>
+        クイズ一覧に戻る
+      </button>
     </div>
   );
 }

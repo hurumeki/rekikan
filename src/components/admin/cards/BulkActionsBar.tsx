@@ -2,7 +2,13 @@
 
 import { Trash2 } from 'lucide-react';
 import { Button } from '@/components/admin-ui/button';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/admin-ui/select';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/admin-ui/select';
 import { useAdminStore } from '@/lib/admin/store';
 import type { ReviewStatus } from '@/lib/types';
 

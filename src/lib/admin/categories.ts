@@ -7,10 +7,10 @@ export interface CategoryDef {
   icon: string;
 }
 
-export const CATEGORIES: CategoryDef[] = (
-  Object.keys(CATEGORY_LABELS) as Category[]
-).map((value) => ({
-  value,
-  label: CATEGORY_LABELS[value],
-  icon: CATEGORY_ICONS[value],
-}));
+export const CATEGORIES: CategoryDef[] = (Object.keys(CATEGORY_LABELS) as Category[]).map(
+  (value) => ({
+    value,
+    label: CATEGORY_LABELS[value],
+    icon: CATEGORY_ICONS[value],
+  }),
+);

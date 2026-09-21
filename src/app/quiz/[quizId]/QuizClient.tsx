@@ -22,6 +22,10 @@ export default function QuizClient() {
   const quizId = params.quizId as string;
 
   const quiz = getQuiz(quizId);
+  // 結果保存のたびに増やして、モード選択画面の記録を読み直す
+  const [progressVersion, setProgressVersion] = useState(0);
+  // 再挑戦のたびに増やして、各モードのコンポーネントを作り直す（カードの再シャッフル）
+  const [playCount, setPlayCount] = useState(0);
   const cards = useMemo(() => (quiz ? getCardsForQuiz(quiz) : []), [quiz]);
   const region = quiz ? getRegion(quiz.region) : undefined;
   const allRegions = getRegions();
@@ -70,6 +74,9 @@ export default function QuizClient() {
   const [phase, setPhase] = useState<Phase>('mode-select');
   const [selectedMode, setSelectedMode] = useState<GameMode | null>(null);
   const [hintEnabled, setHintEnabled] = useState(false);
+  // 「ヒントありクリア」は終了時の状態ではなく、
+  // 一度でもヒントを出したかで判定する（途中で OFF に戻しても記録は残る）
+  const [hintUsedInPlay, setHintUsedInPlay] = useState(false);
   const [resultData, setResultData] = useState<{
     results: CardResult[];
     score: number;
@@ -78,14 +85,35 @@ export default function QuizClient() {
     previousBest: number | null;
   } | null>(null);
 
-  const handleModeSelect = useCallback((mode: GameMode) => {
-    setSelectedMode(mode);
-    setPhase('playing');
+  const quizProgress = useMemo(
+    () => (quiz ? getQuizProgress(quiz.id) : null),
+    // progressVersion は保存後の読み直しトリガー
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [quiz, progressVersion],
+  );
+
+  const handleModeSelect = useCallback(
+    (mode: GameMode) => {
+      setSelectedMode(mode);
+      setHintUsedInPlay(hintEnabled);
+      setPlayCount((n) => n + 1);
+      setPhase('playing');
+    },
+    [hintEnabled],
+  );
+
+  const handleToggleHint = useCallback(() => {
+    setHintEnabled((prev) => {
+      if (!prev) setHintUsedInPlay(true);
+      return !prev;
+    });
   }, []);
 
   const handleComplete = useCallback(
     (results: CardResult[], score: number, total: number) => {
-      const previousBest = quiz ? (getQuizProgress(quiz.id)?.bestScore ?? null) : null;
+      const previousBest = quiz
+        ? (getQuizProgress(quiz.id)?.modes[selectedMode!]?.bestScore ?? null)
+        : null;
       setResultData({ results, score, total, mode: selectedMode!, previousBest });
       if (quiz) {
         saveQuizResult({
@@ -93,19 +121,28 @@ export default function QuizClient() {
           mode: selectedMode!,
           score,
           total,
-          hintUsed: hintEnabled,
+          hintUsed: hintUsedInPlay,
           cardResults: results,
           timestamp: new Date().toISOString(),
         });
       }
+      setProgressVersion((n) => n + 1);
       setPhase('result');
     },
-    [quiz, selectedMode, hintEnabled],
+    [quiz, selectedMode, hintUsedInPlay],
   );
 
   const handleRetry = useCallback(() => {
     setResultData(null);
+    setHintUsedInPlay(hintEnabled);
+    setPlayCount((n) => n + 1);
     setPhase('playing');
+  }, [hintEnabled]);
+
+  const handleBackToModes = useCallback(() => {
+    setResultData(null);
+    setSelectedMode(null);
+    setPhase('mode-select');
   }, []);
 
   const handleBackToList = useCallback(() => {
@@ -143,7 +180,13 @@ export default function QuizClient() {
       </button>
 
       {phase === 'mode-select' && (
-        <ModeSelector quizTitle={quiz.title} modes={quiz.modes} onSelect={handleModeSelect} />
+        <ModeSelector
+          quizTitle={quiz.title}
+          modes={quiz.modes}
+          onSelect={handleModeSelect}
+          cardCount={cards.length}
+          progress={quizProgress}
+        />
       )}
 
       {phase === 'playing' && selectedMode && (
@@ -157,11 +200,11 @@ export default function QuizClient() {
             }}
           >
             <h3 style={{ margin: 0, fontSize: '1rem' }}>{quiz.title}</h3>
-            <HintToggle enabled={hintEnabled} onToggle={() => setHintEnabled(!hintEnabled)} />
+            <HintToggle enabled={hintEnabled} onToggle={handleToggleHint} />
           </div>
           {selectedMode === 'careful' && (
             <CarefulMode
-              key={resultData === null ? 'a' : 'b'}
+              key={playCount}
               cards={cards}
               correctOrder={correctOrder}
               eraColors={eraColors}
@@ -171,7 +214,7 @@ export default function QuizClient() {
           )}
           {selectedMode === 'challenge' && (
             <ChallengeMode
-              key={resultData === null ? 'a' : 'b'}
+              key={playCount}
               cards={cards}
               correctOrder={correctOrder}
               eraColors={eraColors}
@@ -181,7 +224,7 @@ export default function QuizClient() {
           )}
           {selectedMode === 'era_band' && (
             <EraBandQuiz
-              key={resultData === null ? 'a' : 'b'}
+              key={playCount}
               cards={cards}
               correctOrder={correctOrder}
               eraColors={eraColors}
@@ -192,7 +235,7 @@ export default function QuizClient() {
           )}
           {selectedMode === 'timeline' && (
             <TimelinePlacementQuiz
-              key={resultData === null ? 'a' : 'b'}
+              key={playCount}
               cards={cards}
               correctOrder={correctOrder}
               eraColors={eraColors}
@@ -204,7 +247,7 @@ export default function QuizClient() {
           )}
           {selectedMode === 'cross_region' && (
             <CrossRegionQuiz
-              key={resultData === null ? 'a' : 'b'}
+              key={playCount}
               cards={cards}
               correctOrder={correctOrder}
               eraColors={eraColors}
@@ -227,6 +270,7 @@ export default function QuizClient() {
           mode={resultData.mode}
           previousBest={resultData.previousBest}
           onRetry={handleRetry}
+          onChangeMode={handleBackToModes}
           onHome={handleBackToList}
           regions={resultData.mode === 'cross_region' ? allRegions : undefined}
         />

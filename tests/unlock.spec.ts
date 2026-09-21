@@ -14,6 +14,14 @@ function cleared(...quizIds: string[]): ProgressMap {
       cleared: true,
       clearedWithHint: false,
       attemptCount: 1,
+      modes: {
+        challenge: {
+          bestScore: quiz?.card_ids.length ?? 0,
+          cleared: true,
+          clearedWithHint: false,
+          attemptCount: 1,
+        },
+      },
     };
     map[id] = progress;
   }

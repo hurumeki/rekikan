@@ -1,4 +1,15 @@
-import type { QuizProgress, QuizResult } from './types';
+import type { GameMode, ModeProgress, QuizProgress, QuizResult } from './types';
+
+/**
+ * 並べ替えを伴うモード。アンロック判定の「クリア」はこれらで満点を取ることを指す。
+ * 時代帯当て・タイムラインは別の能力を鍛えるモードなので、
+ * これらだけで先の階層が開かないようにする。
+ */
+export const ORDERING_MODES: GameMode[] = ['careful', 'challenge', 'cross_region'];
+
+export function isOrderingMode(mode: GameMode): boolean {
+  return ORDERING_MODES.includes(mode);
+}
 
 /** スコアから星数を計算（1〜3）。total が 0 のときは 0 を返す。 */
 export function computeStars(score: number, total: number): number {
@@ -10,7 +21,7 @@ export function computeStars(score: number, total: number): number {
 
 /** 過去のベストスコアに基づく星数（クイズ一覧の表示用）。未プレイなら 0。 */
 export function getHistoricalStars(
-  progress: QuizProgress | null | undefined,
+  progress: QuizProgress | ModeProgress | null | undefined,
   total: number,
 ): number {
   if (!progress || progress.attemptCount === 0) return 0;
@@ -20,16 +31,59 @@ export function getHistoricalStars(
 }
 
 const STORAGE_KEY = 'rekikan_progress';
+const STORAGE_VERSION = 2;
 
-function isQuizProgress(v: unknown): v is QuizProgress {
+interface StoredProgress {
+  version: number;
+  quizzes: Record<string, QuizProgress>;
+}
+
+function emptyModeProgress(): ModeProgress {
+  return { bestScore: 0, cleared: false, clearedWithHint: false, attemptCount: 0 };
+}
+
+function isModeProgress(v: unknown): v is ModeProgress {
   if (!v || typeof v !== 'object') return false;
   const p = v as Record<string, unknown>;
   return (
-    typeof p.quizId === 'string' &&
     typeof p.bestScore === 'number' &&
     typeof p.cleared === 'boolean' &&
     typeof p.attemptCount === 'number'
   );
+}
+
+function normalizeQuizProgress(quizId: string, v: unknown): QuizProgress | null {
+  if (!v || typeof v !== 'object') return null;
+  const p = v as Record<string, unknown>;
+  if (
+    typeof p.bestScore !== 'number' ||
+    typeof p.cleared !== 'boolean' ||
+    typeof p.attemptCount !== 'number'
+  ) {
+    return null;
+  }
+
+  const modes: Partial<Record<GameMode, ModeProgress>> = {};
+  if (p.modes && typeof p.modes === 'object') {
+    for (const [mode, value] of Object.entries(p.modes)) {
+      if (isModeProgress(value)) {
+        modes[mode as GameMode] = {
+          ...value,
+          clearedWithHint:
+            typeof value.clearedWithHint === 'boolean' ? value.clearedWithHint : false,
+        };
+      }
+    }
+  }
+
+  return {
+    quizId,
+    bestScore: p.bestScore,
+    cleared: p.cleared,
+    clearedWithHint: typeof p.clearedWithHint === 'boolean' ? p.clearedWithHint : false,
+    attemptCount: p.attemptCount,
+    modes,
+  };
 }
 
 function loadAll(): Record<string, QuizProgress> {
@@ -39,14 +93,18 @@ function loadAll(): Record<string, QuizProgress> {
     if (!raw) return {};
     const parsed: unknown = JSON.parse(raw);
     if (!parsed || typeof parsed !== 'object') return {};
+
+    // v1 は QuizProgress のマップをそのまま保存していた。
+    // version フィールドの有無で判別し、モード別の記録は空のまま引き継ぐ。
+    const entries =
+      'version' in parsed && typeof (parsed as StoredProgress).version === 'number'
+        ? ((parsed as StoredProgress).quizzes ?? {})
+        : (parsed as Record<string, unknown>);
+
     const result: Record<string, QuizProgress> = {};
-    for (const [key, value] of Object.entries(parsed)) {
-      if (!isQuizProgress(value)) continue;
-      result[key] = {
-        ...value,
-        // Default for entries saved before this field was added
-        clearedWithHint: typeof value.clearedWithHint === 'boolean' ? value.clearedWithHint : false,
-      };
+    for (const [quizId, value] of Object.entries(entries)) {
+      const normalized = normalizeQuizProgress(quizId, value);
+      if (normalized) result[quizId] = normalized;
     }
     return result;
   } catch {
@@ -63,7 +121,8 @@ function loadAll(): Record<string, QuizProgress> {
 function saveAll(data: Record<string, QuizProgress>): boolean {
   if (typeof window === 'undefined') return false;
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    const payload: StoredProgress = { version: STORAGE_VERSION, quizzes: data };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
     return true;
   } catch {
     return false;
@@ -75,17 +134,39 @@ export function getQuizProgress(quizId: string): QuizProgress | null {
   return all[quizId] ?? null;
 }
 
+/** 指定モードの記録だけを取り出す。未プレイなら null。 */
+export function getModeProgress(quizId: string, mode: GameMode): ModeProgress | null {
+  return getQuizProgress(quizId)?.modes[mode] ?? null;
+}
+
 export function saveQuizResult(result: QuizResult): QuizProgress {
   const all = loadAll();
   const existing = all[result.quizId];
-  const cleared = result.score === result.total;
+  const isPerfect = result.score === result.total;
+
+  const previousMode = existing?.modes[result.mode] ?? emptyModeProgress();
+  const modeProgress: ModeProgress = {
+    bestScore: Math.max(result.score, previousMode.bestScore),
+    cleared: isPerfect || previousMode.cleared,
+    clearedWithHint: (isPerfect && result.hintUsed) || previousMode.clearedWithHint,
+    attemptCount: previousMode.attemptCount + 1,
+  };
+
+  const modes = { ...(existing?.modes ?? {}), [result.mode]: modeProgress };
+
+  // アンロックに使う cleared は並べ替え系モードでの満点のみを数える
+  const clearedByOrdering = ORDERING_MODES.some((m) => modes[m]?.cleared === true);
+  const clearedWithHintByOrdering = ORDERING_MODES.some((m) => modes[m]?.clearedWithHint === true);
 
   const progress: QuizProgress = {
     quizId: result.quizId,
     bestScore: Math.max(result.score, existing?.bestScore ?? 0),
-    cleared: cleared || (existing?.cleared ?? false),
-    clearedWithHint: (cleared && result.hintUsed) || (existing?.clearedWithHint ?? false),
+    // 一度 true になったら下がらない。モード別記録を持たない v1 からの
+    // 引き継ぎ分も、これでアンロック状態を失わずに済む。
+    cleared: clearedByOrdering || existing?.cleared === true,
+    clearedWithHint: clearedWithHintByOrdering || existing?.clearedWithHint === true,
     attemptCount: (existing?.attemptCount ?? 0) + 1,
+    modes,
   };
 
   all[result.quizId] = progress;
