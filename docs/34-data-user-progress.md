@@ -36,17 +36,25 @@ Data stored on the device (or on a backend) to track the user's learning history
 
 ## 5.2 CardStats — Per-Card Accuracy
 
-Foundation data for weighted review of weak cards.
+Foundation data for weighted review of weak cards. Stored in `localStorage` under `rekikan_card_stats`:
 
 ```json
 {
-  "card_id": "card_japan_nanbokucho",
-  "attempts": 5,
-  "correct": 2,
-  "accuracy": 0.4,
-  "last_seen": "2026-04-01T10:30:00Z"
+  "version": 1,
+  "cards": {
+    "card_japan_nanbokucho": {
+      "cardId": "card_japan_nanbokucho",
+      "attempts": 5,
+      "correct": 2,
+      "lastSeen": "2026-04-01T10:30:00Z"
+    }
+  }
 }
 ```
+
+- Updated on every completed quiz, in every mode, including review sessions.
+- Accuracy is derived (`correct / attempts`) rather than stored, so the two counters cannot drift apart.
+- A card counts as "weak" while `correct < attempts`; review mode picks the weakest ones (see [08-future-features.md](08-future-features.md) Section 8.2).
 
 ## 5.3 UnlockState
 

@@ -72,6 +72,15 @@ export interface CardResult {
   userPosition: number;
 }
 
+/** カード単位の正答統計（苦手カードの復習に使う） */
+export interface CardStats {
+  cardId: string;
+  attempts: number;
+  correct: number;
+  /** 最後に出題された時刻（ISO 8601） */
+  lastSeen: string;
+}
+
 export interface QuizResult {
   quizId: string;
   mode: GameMode;

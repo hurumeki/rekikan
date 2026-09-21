@@ -182,3 +182,43 @@ export function isQuizCleared(quizId: string): boolean {
 export function getAllProgress(): Record<string, QuizProgress> {
   return loadAll();
 }
+
+/* ------------------------------------------------------------------ *
+ * useSyncExternalStore 用のスナップショット
+ *
+ * 進捗は localStorage にしかないため、静的書き出しされた HTML には
+ * 含まれない。サーバー側スナップショットを空にしておくことで、
+ * ハイドレーション不一致を起こさずにマウント後の値へ切り替わる。
+ * ------------------------------------------------------------------ */
+
+const EMPTY_PROGRESS: Record<string, QuizProgress> = Object.freeze({});
+
+let cachedRaw: string | null = null;
+let cachedSnapshot: Record<string, QuizProgress> = EMPTY_PROGRESS;
+
+/** 参照が安定したスナップショットを返す（保存内容が変わったときだけ作り直す） */
+export function getProgressSnapshot(): Record<string, QuizProgress> {
+  if (typeof window === 'undefined') return EMPTY_PROGRESS;
+  let raw: string | null = null;
+  try {
+    raw = localStorage.getItem(STORAGE_KEY);
+  } catch {
+    return EMPTY_PROGRESS;
+  }
+  if (raw !== cachedRaw) {
+    cachedRaw = raw;
+    cachedSnapshot = loadAll();
+  }
+  return cachedSnapshot;
+}
+
+export function getServerProgressSnapshot(): Record<string, QuizProgress> {
+  return EMPTY_PROGRESS;
+}
+
+/** 他タブでの更新にも追従する */
+export function subscribeProgress(onChange: () => void): () => void {
+  if (typeof window === 'undefined') return () => {};
+  window.addEventListener('storage', onChange);
+  return () => window.removeEventListener('storage', onChange);
+}

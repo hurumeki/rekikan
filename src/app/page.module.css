@@ -22,3 +22,37 @@
   color: var(--text-secondary);
   margin-top: 4px;
 }
+
+/* 苦手カード復習への入口。地域選択より前に置いて再訪の動機にする */
+.reviewCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 16px;
+  border-radius: 16px;
+  border: 2px solid var(--badge-bg);
+  background: var(--surface);
+  text-align: left;
+}
+
+.reviewIcon {
+  font-size: 1.6rem;
+}
+
+.reviewBody {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.reviewTitle {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.reviewDesc {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
