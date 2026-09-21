@@ -92,7 +92,7 @@ Cards and hierarchy nodes may carry AI-generated images to anchor visual memory.
 - Standard size: 1280 × 720 px WebP, target < 150 KB. Stored at `public/images/nodes/{node_id}.webp`.
 - Optional. Used to reinforce the "strata" world-building by giving each era / region node a representative scene.
 
-External URLs are not allowed in either case — paths are derived from the entity ID via a fixed convention. See [03-card-design.md](03-card-design.md) Section 3.4 and [31-data-entities.md](31-data-entities.md) Sections 2.2 and 2.4.
+External URLs are not allowed in either case — paths are derived from the entity ID via a fixed convention. Because the images are rendered with a plain `<img>` tag, which Next.js does not rewrite, the paths are built through `resolvePublicPath()` so that they keep working when the app is served from a sub-path (e.g. GitHub Pages under `/rekikan`). See [03-card-design.md](03-card-design.md) Section 3.4 and [31-data-entities.md](31-data-entities.md) Sections 2.2 and 2.4.
 
 ### 9.1.5 Future Considerations
 
