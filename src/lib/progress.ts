@@ -54,9 +54,20 @@ function loadAll(): Record<string, QuizProgress> {
   }
 }
 
-function saveAll(data: Record<string, QuizProgress>): void {
-  if (typeof window === 'undefined') return;
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+/**
+ * 保存に失敗しても致命的なエラーにはしない。
+ * Safari のプライベートブラウズや容量超過では setItem が例外を投げるため、
+ * ここで握らないとリザルト画面への遷移ごと落ちる。
+ * @returns 保存できたら true
+ */
+function saveAll(data: Record<string, QuizProgress>): boolean {
+  if (typeof window === 'undefined') return false;
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 export function getQuizProgress(quizId: string): QuizProgress | null {
