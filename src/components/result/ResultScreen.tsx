@@ -40,6 +40,10 @@ export default function ResultScreen({
   const stars = computeStars(score, total);
   const isNewBest = previousBest !== null && score > previousBest;
   const isFirstAttempt = previousBest === null;
+  // 初回かつ満点でないときは称える内容がないので、バッジ自体を出さない
+  // （中身だけ null にすると空の色つきピルが残ってしまう）。
+  const badgeLabel =
+    isPerfect && isFirstAttempt ? '初クリア！🎉' : isNewBest ? '自己ベスト更新！🎉' : null;
 
   const cardMap = useMemo(() => new Map(cards.map((c) => [c.id, c])), [cards]);
   const resultMap = useMemo(() => new Map(results.map((r) => [r.cardId, r])), [results]);
@@ -69,11 +73,7 @@ export default function ResultScreen({
 
         {isPerfect && <div className={styles.perfect}>パーフェクト！</div>}
 
-        {(isNewBest || isFirstAttempt) && (
-          <div className={styles.newBestBadge}>
-            {isPerfect && isFirstAttempt ? '初クリア！🎉' : isNewBest ? `自己ベスト更新！🎉` : null}
-          </div>
-        )}
+        {badgeLabel && <div className={styles.newBestBadge}>{badgeLabel}</div>}
       </div>
 
       <div className={styles.cardList}>
