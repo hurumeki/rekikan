@@ -1,93 +1,52 @@
 'use client';
 
 import { useState, useCallback, useMemo } from 'react';
-import type { Card, CardResult, CardState } from '@/lib/types';
-import { shuffleArray, checkAnswers, createYearLookup } from '@/lib/quiz-engine';
+import type { Card, CardState } from '@/lib/types';
+import { shuffleArray, createYearLookup } from '@/lib/quiz-engine';
+import {
+  confirmOrdering,
+  createOrderingState,
+  isOrderingComplete,
+  isOrderingConfirmed,
+  orderingCardState,
+  orderingScore,
+  orderingSelectionNumber,
+  toggleOrderingSelection,
+} from '@/lib/modes/ordering';
 
-interface OrderingModeState {
-  cards: Card[];
-  selectionOrder: string[]; // card IDs in user-selected order
-  isConfirmed: boolean;
-  results: CardResult[] | null;
-  score: number;
-  total: number;
-}
-
-/**
- * 「全部並べてから一括判定」する並べ替えモード共通のフック。
- * チャレンジモードと同時代モードで共有する（違いは地域バッジの有無だけ）。
- */
+/** 状態遷移は lib/modes/ordering.ts、ここは React への橋渡しだけ。 */
 export function useOrderingMode(cards: Card[], correctOrder: string[]) {
-  const [state, setState] = useState<OrderingModeState>(() => ({
-    cards: shuffleArray(cards),
-    selectionOrder: [],
-    isConfirmed: false,
-    results: null,
-    score: 0,
-    total: cards.length,
-  }));
+  const [state, setState] = useState(() => createOrderingState(shuffleArray(cards)));
 
-  const toggleSelect = useCallback((cardId: string) => {
-    setState((prev) => {
-      if (prev.isConfirmed) return prev;
-
-      const idx = prev.selectionOrder.indexOf(cardId);
-      if (idx >= 0) {
-        // Deselect: remove and renumber
-        const newOrder = prev.selectionOrder.filter((id) => id !== cardId);
-        return { ...prev, selectionOrder: newOrder };
-      } else {
-        return { ...prev, selectionOrder: [...prev.selectionOrder, cardId] };
-      }
-    });
-  }, []);
-
-  // 同年のカードを入れ替えても正解として扱うため、年の辞書を判定に渡す。
+  // 同年のカードを入れ替えても正解として扱うため、年の辞書を判定に渡す
   const yearOf = useMemo(() => createYearLookup(cards), [cards]);
 
+  const toggleSelect = useCallback((cardId: string) => {
+    setState((prev) => toggleOrderingSelection(prev, cardId));
+  }, []);
+
   const confirm = useCallback(() => {
-    setState((prev) => {
-      if (prev.selectionOrder.length !== prev.cards.length) return prev;
-      const results = checkAnswers(prev.selectionOrder, correctOrder, yearOf);
-      const score = results.filter((r) => r.correct).length;
-      return { ...prev, isConfirmed: true, results, score };
-    });
+    setState((prev) => confirmOrdering(prev, correctOrder, yearOf));
   }, [correctOrder, yearOf]);
 
-  const resultMap = useMemo(
-    () => (state.results ? new Map(state.results.map((r) => [r.cardId, r])) : null),
-    [state.results],
-  );
-  const selectionIndex = useMemo(() => {
-    const m = new Map<string, number>();
-    state.selectionOrder.forEach((id, i) => m.set(id, i));
-    return m;
-  }, [state.selectionOrder]);
-
   const getCardState = useCallback(
-    (cardId: string): CardState => {
-      if (state.isConfirmed && resultMap) {
-        return resultMap.get(cardId)?.correct ? 'correct' : 'incorrect';
-      }
-      if (selectionIndex.has(cardId)) return 'selected';
-      return 'unselected';
-    },
-    [state.isConfirmed, resultMap, selectionIndex],
+    (cardId: string): CardState => orderingCardState(state, cardId),
+    [state],
   );
 
   const getSelectionNumber = useCallback(
-    (cardId: string): number | undefined => {
-      const idx = selectionIndex.get(cardId);
-      return idx === undefined ? undefined : idx + 1;
-    },
-    [selectionIndex],
+    (cardId: string): number | undefined => orderingSelectionNumber(state, cardId),
+    [state],
   );
 
-  const allSelected = state.selectionOrder.length === state.cards.length;
-
   return {
-    ...state,
-    allSelected,
+    cards: state.cards,
+    selectionOrder: state.selectionOrder,
+    results: state.results,
+    isConfirmed: isOrderingConfirmed(state),
+    score: orderingScore(state),
+    total: state.cards.length,
+    allSelected: isOrderingComplete(state),
     toggleSelect,
     confirm,
     getCardState,
