@@ -1,6 +1,7 @@
 import type { GameMode, ModeProgress, QuizProgress, QuizResult } from './types';
 import { createLocalStore } from './local-store';
 import { applyQuizResult } from './progress-rules';
+import { isSyntheticQuizId } from './constants';
 
 export type ProgressMap = Record<string, QuizProgress>;
 
@@ -87,6 +88,12 @@ export function getModeProgress(quizId: string, mode: GameMode): ModeProgress | 
 }
 
 export function saveQuizResult(result: QuizResult): QuizProgress {
+  // 実行時に組み立てたクイズ（復習など）は同梱データに存在しないので、
+  // 進捗に混ぜない。アンロック判定が架空の ID に依存してしまうため。
+  if (isSyntheticQuizId(result.quizId)) {
+    return applyQuizResult(undefined, result);
+  }
+
   let saved: QuizProgress | null = null;
   progressStore.update((current) => {
     saved = applyQuizResult(current[result.quizId], result);

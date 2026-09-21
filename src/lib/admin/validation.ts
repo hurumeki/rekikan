@@ -18,6 +18,8 @@ export interface ValidationReport {
 }
 
 const ID_PATTERN = /^[a-zA-Z0-9_]{1,64}$/;
+// 実行時に組み立てるクイズ用に予約された接頭辞（src/lib/constants.ts）
+const RESERVED_ID_PREFIX = '__';
 
 // Regex patterns that suggest a hint reveals ordering information
 const ORDER_REVEALING_PATTERNS = [
@@ -193,6 +195,14 @@ function validateQuiz(quiz: Quiz, cards: Card[]): ValidationError[] {
       id: quiz.id,
       field: 'id',
       message: 'IDは英数字・アンダースコアのみ（最大64文字）',
+    });
+  if (quiz.id?.startsWith(RESERVED_ID_PREFIX))
+    errors.push({
+      level: 'error',
+      entity: 'quiz',
+      id: quiz.id,
+      field: 'id',
+      message: `"${RESERVED_ID_PREFIX}" で始まるIDは実行時に組み立てるクイズ用に予約されています`,
     });
   if (!quiz.title)
     errors.push({

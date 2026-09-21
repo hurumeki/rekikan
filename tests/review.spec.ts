@@ -1,5 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { buildReviewQuiz, REVIEW_MIN_CARDS, REVIEW_QUIZ_ID } from '@/lib/review';
+import { isSyntheticQuizId } from '@/lib/constants';
+import { ALL_QUIZZES } from '@/lib/data-registry';
 import type { Card } from '@/lib/types';
 
 function card(id: string, region: string, type: Card['type'] = 'term'): Card {
@@ -42,5 +44,16 @@ test.describe('復習クイズの組み立て', () => {
   test('記述カードが混ざれば description 扱いにする', () => {
     const cards = [card('a', 'japan'), card('b', 'japan', 'description'), card('c', 'japan')];
     expect(buildReviewQuiz(cards)!.card_type).toBe('description');
+  });
+});
+
+test.describe('復習クイズは進捗に保存しない', () => {
+  test('合成クイズの ID は予約接頭辞で判別できる', () => {
+    expect(isSyntheticQuizId(REVIEW_QUIZ_ID)).toBe(true);
+    expect(isSyntheticQuizId('quiz_japan_era_intro_desc')).toBe(false);
+  });
+
+  test('同梱データに予約接頭辞の ID は存在しない', () => {
+    expect(ALL_QUIZZES.filter((q) => isSyntheticQuizId(q.id))).toEqual([]);
   });
 });

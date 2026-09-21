@@ -1,11 +1,12 @@
 import type { Card, GameMode, Quiz } from './types';
+import { SYNTHETIC_QUIZ_ID_PREFIX } from './constants';
 
 /** 1 回の復習で出すカード枚数（docs/04 §4.3 の推奨枚数に合わせる） */
 export const REVIEW_CARD_COUNT = 7;
 /** これを下回ると復習を始められない */
 export const REVIEW_MIN_CARDS = 3;
 /** 復習用に組み立てたクイズの ID（同梱データには存在しない） */
-export const REVIEW_QUIZ_ID = '__review__';
+export const REVIEW_QUIZ_ID = `${SYNTHETIC_QUIZ_ID_PREFIX}review`;
 
 /**
  * 苦手カードから復習用のクイズを組み立てる。
