@@ -52,7 +52,7 @@
 }
 
 .eraBandLabel {
-  font-size: 0.6rem;
+  font-size: 0.625rem;
   font-weight: 700;
   color: rgba(0, 0, 0, 0.65);
   white-space: nowrap;
@@ -64,6 +64,16 @@
 .timeline:hover .eraBand {
   filter: var(--era-filter);
   opacity: 0.75;
+}
+
+.toleranceZone {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: color-mix(in srgb, var(--correct-mark-bg) 28%, transparent);
+  border-left: 1px dashed var(--correct-fg);
+  border-right: 1px dashed var(--correct-fg);
+  pointer-events: none;
 }
 
 .marker {
@@ -110,7 +120,7 @@
 
 .eraYearLabel {
   position: absolute;
-  font-size: 0.6rem;
+  font-size: 0.625rem;
   color: var(--text-secondary);
   white-space: nowrap;
   transform: translateX(-50%);
@@ -201,8 +211,4 @@
   color: var(--text-muted);
   border: 1px solid var(--state-unselected-border);
   cursor: not-allowed;
-}
-
-.nextButton {
-  background: var(--text-secondary);
 }

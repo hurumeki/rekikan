@@ -15,6 +15,14 @@ import styles from './QuizRunner.module.css';
 
 type Phase = 'mode-select' | 'playing' | 'result';
 
+/** タイムラインの左端を丸める単位を、扱う期間の長さから決める */
+function roundingUnit(span: number): number {
+  if (span > 10000) return 1000;
+  if (span > 2000) return 100;
+  if (span > 300) return 10;
+  return 1;
+}
+
 interface QuizRunnerProps {
   quiz: Quiz;
   cards: Card[];
@@ -82,7 +90,10 @@ export default function QuizRunner({
     const padding = Math.round((max - min) * 0.15) || 50;
     const currentYear = new Date().getFullYear();
     // Don't extend timeline into the future beyond current year
-    return { start: min - padding, end: Math.min(max + padding, Math.max(max + 10, currentYear)) };
+    const end = Math.min(max + padding, Math.max(max + 10, currentYear));
+    // 端の目盛りが「前11,780年」のような半端な数にならないよう丸める
+    const unit = roundingUnit(max - min);
+    return { start: Math.floor((min - padding) / unit) * unit, end };
   }, [quiz, cards]);
 
   const [phase, setPhase] = useState<Phase>('mode-select');

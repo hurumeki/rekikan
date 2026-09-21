@@ -5,6 +5,7 @@ import type { Card as CardType, CardResult, EraColor } from '@/lib/types';
 import { useTimelineMode } from '@/hooks/useTimelineMode';
 import Card from '@/components/card/Card';
 import { formatYearRange } from '@/lib/quiz-engine';
+import { buildTimelineScale, toleranceYears, TOLERANCE_PERCENT } from '@/lib/timeline-scale';
 import styles from './TimelinePlacementQuiz.module.css';
 
 interface TimelinePlacementQuizProps {
@@ -22,15 +23,6 @@ function formatTimelineYear(year: number): string {
   return `${year.toLocaleString()}年`;
 }
 
-/** Choose navigation step sizes based on the total span */
-function calcNavSteps(span: number): [number, number, number] {
-  if (span > 20000) return [5000, 1000, 100];
-  if (span > 5000) return [1000, 200, 20];
-  if (span > 1000) return [500, 100, 10];
-  if (span > 200) return [100, 20, 5];
-  return [50, 10, 1];
-}
-
 export default function TimelinePlacementQuiz({
   cards,
   eraColors,
@@ -39,6 +31,12 @@ export default function TimelinePlacementQuiz({
   eraConfig,
   timelineRange,
 }: TimelinePlacementQuizProps) {
+  // 時代帯ごとに等幅の区分線形スケール。先史が画面を占有しないようにする
+  const scale = useMemo(
+    () => buildTimelineScale(eraConfig, cards, timelineRange),
+    [eraConfig, cards, timelineRange],
+  );
+
   const {
     currentCard,
     currentIndex,
@@ -50,10 +48,11 @@ export default function TimelinePlacementQuiz({
     isComplete,
     selectPosition,
     adjustYear,
+    adjustPercent,
     confirmAnswer,
     advance,
     yearToPercent,
-  } = useTimelineMode(cards, timelineRange.start, timelineRange.end);
+  } = useTimelineMode(cards, scale);
 
   const timelineRef = useRef<HTMLDivElement>(null);
 
@@ -88,65 +87,18 @@ export default function TimelinePlacementQuiz({
     [handleTimelineInteraction],
   );
 
-  const totalSpan = timelineRange.end - timelineRange.start;
-  const navSteps = useMemo(() => calcNavSteps(totalSpan), [totalSpan]);
-
-  // Era bands: use defined year_start from eraConfig when available,
-  // otherwise fall back to min card year in that era
-  const eraBands = useMemo(() => {
-    const eraKeys = Object.keys(eraConfig);
-    return eraKeys.map((key, i) => {
-      const cfg = eraConfig[key]!;
-      const nextKey = eraKeys[i + 1];
-      const nextCfg = nextKey ? eraConfig[nextKey] : undefined;
-
-      // Use defined year_start if available, otherwise derive from cards
-      const eraYears = cards
-        .filter((c) => c.era_color_key === key)
-        .map((c) => c.year)
-        .sort((a, b) => a - b);
-
-      const eraStart =
-        cfg.year_start !== undefined
-          ? cfg.year_start
-          : eraYears.length > 0
-            ? eraYears[0]!
-            : timelineRange.start + (i / eraKeys.length) * totalSpan;
-
-      const nextEraStart =
-        nextCfg?.year_start !== undefined
-          ? nextCfg.year_start
-          : nextKey
-            ? (() => {
-                const ny = cards
-                  .filter((c) => c.era_color_key === nextKey)
-                  .map((c) => c.year)
-                  .sort((a, b) => a - b);
-                return ny.length > 0
-                  ? ny[0]!
-                  : timelineRange.start + ((i + 1) / eraKeys.length) * totalSpan;
-              })()
-            : timelineRange.end;
-
-      const eraEnd = nextKey ? nextEraStart : timelineRange.end;
-
-      // Clamp to timeline range
-      const clampedStart = Math.max(timelineRange.start, eraStart);
-      const clampedEnd = Math.min(timelineRange.end, eraEnd);
-
-      const left = Math.max(0, ((clampedStart - timelineRange.start) / totalSpan) * 100);
-      const width = Math.max(0, ((clampedEnd - clampedStart) / totalSpan) * 100);
-
-      return {
-        key,
-        color: cfg.color,
-        label: cfg.label,
-        left,
-        width,
-        yearStart: clampedStart,
-      };
-    });
-  }, [eraConfig, cards, timelineRange, totalSpan]);
+  const eraBands = useMemo(
+    () =>
+      scale.segments.map((seg) => ({
+        key: seg.key,
+        color: seg.color,
+        label: seg.label,
+        left: seg.startPct,
+        width: seg.endPct - seg.startPct,
+        yearStart: seg.startYear,
+      })),
+    [scale],
+  );
 
   // Boundary years for the era-jump buttons
   const eraBoundaryYears = useMemo(
@@ -215,6 +167,7 @@ export default function TimelinePlacementQuiz({
               <div
                 key={band.key}
                 className={styles.eraBand}
+                data-testid="era-band"
                 style={{
                   left: `${band.left}%`,
                   width: `${band.width}%`,
@@ -235,6 +188,17 @@ export default function TimelinePlacementQuiz({
             />
           )}
 
+          {/* 正解とみなされる範囲（解答後に表示して感覚をつかんでもらう） */}
+          {correctPct !== null && (
+            <div
+              className={styles.toleranceZone}
+              style={{
+                left: `${Math.max(0, correctPct - TOLERANCE_PERCENT)}%`,
+                width: `${Math.min(100, correctPct + TOLERANCE_PERCENT) - Math.max(0, correctPct - TOLERANCE_PERCENT)}%`,
+              }}
+            />
+          )}
+
           {/* Correct answer marker (shown after answer) */}
           {correctPct !== null && !isCorrect && (
             <div
@@ -246,11 +210,12 @@ export default function TimelinePlacementQuiz({
 
         {/* Era boundary year labels below timeline */}
         <div className={styles.eraYearLabels}>
-          <span className={styles.eraYearLabel} style={{ left: '0%' }}>
+          <span className={styles.eraYearLabel} style={{ left: '0%', transform: 'translateX(0)' }}>
             {formatTimelineYear(timelineRange.start)}
           </span>
           {eraBands.slice(1).map((band) =>
-            band.left > 5 && band.left < 95 ? (
+            // 端のラベルと重なる区切りは出さない（桁の多い年号がぶつかるため）
+            band.left > 14 && band.left < 86 ? (
               <span
                 key={band.key}
                 className={styles.eraYearLabel}
@@ -280,28 +245,38 @@ export default function TimelinePlacementQuiz({
         >
           ⏮
         </button>
-        {([-navSteps[0], -navSteps[1], -navSteps[2]] as const).map((d) => (
-          <button
-            key={d}
-            className={styles.navBtn}
-            onClick={() => adjustYear(d)}
-            disabled={navDisabled}
-            title={`${Math.abs(d)}年前へ`}
-          >
-            ◀{Math.abs(d)}
-          </button>
-        ))}
-        {([navSteps[2], navSteps[1], navSteps[0]] as const).map((d) => (
-          <button
-            key={d}
-            className={styles.navBtn}
-            onClick={() => adjustYear(d)}
-            disabled={navDisabled}
-            title={`${d}年後へ`}
-          >
-            {d}▶
-          </button>
-        ))}
+        <button
+          className={styles.navBtn}
+          onClick={() => adjustPercent(-5)}
+          disabled={navDisabled}
+          aria-label="大きく戻す"
+        >
+          ◀◀
+        </button>
+        <button
+          className={styles.navBtn}
+          onClick={() => adjustPercent(-1)}
+          disabled={navDisabled}
+          aria-label="少し戻す"
+        >
+          ◀
+        </button>
+        <button
+          className={styles.navBtn}
+          onClick={() => adjustPercent(1)}
+          disabled={navDisabled}
+          aria-label="少し進める"
+        >
+          ▶
+        </button>
+        <button
+          className={styles.navBtn}
+          onClick={() => adjustPercent(5)}
+          disabled={navDisabled}
+          aria-label="大きく進める"
+        >
+          ▶▶
+        </button>
         <button
           className={`${styles.navBtn} ${styles.navBtnEra}`}
           onClick={() => handleJumpEra('next')}
@@ -325,7 +300,10 @@ export default function TimelinePlacementQuiz({
         >
           {isCorrect
             ? `正解！ ${formatYearRange(currentCard.year, currentCard.year_end)}`
-            : `不正解 — 正解は ${formatYearRange(currentCard.year, currentCard.year_end)}`}
+            : `不正解 — 正解は ${formatYearRange(currentCard.year, currentCard.year_end)}（およそ±${toleranceYears(
+                currentCard.year,
+                scale,
+              ).toLocaleString()}年まで正解）`}
         </div>
       )}
 
