@@ -40,7 +40,7 @@ Japanese History
 - Clearing the Intro unlocks that region's Lv.1 (split stages)
 - Clearing all split stages unlocks the "Full sequence"
 - Clearing the Full sequence unlocks Lv.2 and beyond
-- Clearing Lv.1 in multiple regions unlocks "Cross-region questions"
+- Clearing the intro quiz of 2 or more regions unlocks the contemporaneity (cross-region) nodes under テーマ史・同時代史; the theme-history nodes require 3 or more regions. Both are expressed with the `complete_any` condition (see [31-data-entities.md](31-data-entities.md) Section 2.5)
 
 **Safety net:** The next stage also unlocks if the user attempts the same stage a certain number of times (e.g., 3 times) or clears it with hints ON. This prevents the frustration of being stuck and unable to progress.
 

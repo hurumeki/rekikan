@@ -59,6 +59,8 @@ export interface Node {
 
 export type UnlockCondition =
   | { type: 'complete_quizzes'; quiz_ids: string[] }
+  /** 列挙したクイズのうち count 件をクリアすれば解放（「複数地域のLv.1クリア」用） */
+  | { type: 'complete_any'; quiz_ids: string[]; count: number }
   | { type: 'complete_node'; node_ids: string[] }
   | { type: 'attempts'; quiz_id: string; count: number }
   | { type: 'hint_clear'; quiz_id: string };

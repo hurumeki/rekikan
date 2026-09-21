@@ -408,6 +408,56 @@ function validateNode(node: Node, nodes: Node[], quizzes: Quiz[]): ValidationErr
     }
   }
 
+  // アンロック条件が参照する対象の存在確認（docs/25 §7.2）
+  const conditions = node.unlock_condition
+    ? Array.isArray(node.unlock_condition)
+      ? node.unlock_condition
+      : [node.unlock_condition]
+    : [];
+  for (const condition of conditions) {
+    const missingQuizzes: string[] = [];
+    const missingNodes: string[] = [];
+
+    if (condition.type === 'complete_quizzes' || condition.type === 'complete_any') {
+      missingQuizzes.push(...condition.quiz_ids.filter((qid) => !quizMap.has(qid)));
+    } else if (condition.type === 'complete_node') {
+      missingNodes.push(...condition.node_ids.filter((nid) => !nodeMap.has(nid)));
+    } else if (!quizMap.has(condition.quiz_id)) {
+      missingQuizzes.push(condition.quiz_id);
+    }
+
+    for (const qid of missingQuizzes) {
+      errors.push({
+        level: 'error',
+        entity: 'node',
+        id: node.id,
+        field: 'unlock_condition',
+        message: `アンロック条件のクイズ "${qid}" が存在しません`,
+      });
+    }
+    for (const nid of missingNodes) {
+      errors.push({
+        level: 'error',
+        entity: 'node',
+        id: node.id,
+        field: 'unlock_condition',
+        message: `アンロック条件のノード "${nid}" が存在しません`,
+      });
+    }
+
+    if (condition.type === 'complete_any') {
+      if (condition.count < 1 || condition.count > condition.quiz_ids.length) {
+        errors.push({
+          level: 'error',
+          entity: 'node',
+          id: node.id,
+          field: 'unlock_condition',
+          message: `complete_any の count (${condition.count}) が候補数 (${condition.quiz_ids.length}) の範囲外です`,
+        });
+      }
+    }
+  }
+
   return errors;
 }
 

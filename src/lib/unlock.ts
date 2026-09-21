@@ -12,6 +12,10 @@ function isConditionMet(condition: UnlockCondition, progress: ProgressMap): bool
   if (condition.type === 'complete_quizzes') {
     return condition.quiz_ids.every((qid) => progress[qid]?.cleared === true);
   }
+  if (condition.type === 'complete_any') {
+    const cleared = condition.quiz_ids.filter((qid) => progress[qid]?.cleared === true).length;
+    return cleared >= condition.count;
+  }
   if (condition.type === 'complete_node') {
     return condition.node_ids.every((nid) => {
       const targetNode = getNode(nid);
@@ -28,10 +32,16 @@ function isConditionMet(condition: UnlockCondition, progress: ProgressMap): bool
   return false;
 }
 
-/** ノード自身のアンロック条件を満たしているか（親は見ない）。 */
+/**
+ * ノード自身のアンロック条件を満たしているか（親は見ない）。
+ * 複数条件は OR（docs/31 §2.5）。「3回挑戦」「ヒントありクリア」を
+ * 救済措置として並べる設計なので、すべて満たす必要はない。
+ */
 export function isNodeUnlocked(node: Node, progress: ProgressMap): boolean {
   if (node.parent_id === null) return true;
-  return toConditions(node).every((c) => isConditionMet(c, progress));
+  const conditions = toConditions(node);
+  if (conditions.length === 0) return true;
+  return conditions.some((c) => isConditionMet(c, progress));
 }
 
 /**
@@ -56,6 +66,17 @@ export function describeCondition(condition: UnlockCondition): string {
     return condition.quiz_ids
       .map((qid) => `「${getQuiz(qid)?.title ?? qid}」をクリアする`)
       .join('\n');
+  }
+  if (condition.type === 'complete_any') {
+    const regions = new Set(
+      condition.quiz_ids.map((qid) => getQuiz(qid)?.region).filter((r): r is string => !!r),
+    );
+    if (regions.size === condition.quiz_ids.length) {
+      return `${condition.count}つ以上の地域の入門クイズをクリアする`;
+    }
+    return `次のうち${condition.count}つをクリアする\n${condition.quiz_ids
+      .map((qid) => `　「${getQuiz(qid)?.title ?? qid}」`)
+      .join('\n')}`;
   }
   if (condition.type === 'complete_node') {
     return condition.node_ids
@@ -82,6 +103,13 @@ export function conditionProgress(
     const done = condition.quiz_ids.filter((qid) => progress[qid]?.cleared === true).length;
     return { done, total: condition.quiz_ids.length };
   }
+  if (condition.type === 'complete_any') {
+    const done = Math.min(
+      condition.quiz_ids.filter((qid) => progress[qid]?.cleared === true).length,
+      condition.count,
+    );
+    return { done, total: condition.count };
+  }
   if (condition.type === 'complete_node') {
     const quizIds = condition.node_ids.flatMap((nid) => getNode(nid)?.quiz_ids ?? []);
     const done = quizIds.filter((qid) => progress[qid]?.cleared === true).length;
@@ -94,13 +122,16 @@ export function conditionProgress(
   return null;
 }
 
-/** ロック中のノードについて「あと何問でひらくか」を短い文にする。 */
+/**
+ * ロック中のノードについて「あと何問でひらくか」を短い文にする。
+ * 条件は OR なので、もっとも近い条件の残り数を使う。
+ */
 export function remainingLabel(node: Node, progress: ProgressMap): string | null {
   const totals = toConditions(node)
     .map((c) => conditionProgress(c, progress))
     .filter((p): p is { done: number; total: number } => p !== null);
   if (totals.length === 0) return null;
-  const remaining = totals.reduce((sum, p) => sum + Math.max(0, p.total - p.done), 0);
+  const remaining = Math.min(...totals.map((p) => Math.max(0, p.total - p.done)));
   return remaining > 0 ? `あと${remaining}問でひらく` : null;
 }
 

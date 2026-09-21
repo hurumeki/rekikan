@@ -171,6 +171,10 @@ Each node of the hierarchy tree. Holds quizzes and unlock conditions.
 // Unlock after clearing specific quizzes
 { "type": "complete_quizzes", "quiz_ids": ["quiz_japan_era_intro_desc"] }
 
+// Unlock after clearing any N of the listed quizzes
+// (used for cross-region content: "clear the intro of 2+ regions")
+{ "type": "complete_any", "quiz_ids": ["quiz_japan_era_intro_desc", "quiz_europe_intro_desc"], "count": 2 }
+
 // Unlock after clearing all quizzes under specific nodes
 { "type": "complete_node", "node_ids": ["node_japan_prehistoric", "node_japan_medieval", "node_japan_modern"] }
 
@@ -184,6 +188,7 @@ Each node of the hierarchy tree. Holds quizzes and unlock conditions.
 | type             | Description                                                   |
 | ---------------- | ------------------------------------------------------------- |
 | complete_quizzes | Clear all specified quiz IDs                                  |
+| complete_any     | Clear at least `count` of the specified quiz IDs              |
 | complete_node    | Clear all quizzes under the specified nodes                   |
 | attempts         | Attempt a specified quiz a certain number of times (fallback) |
 | hint_clear       | Clear a specified quiz with hints enabled (fallback)          |

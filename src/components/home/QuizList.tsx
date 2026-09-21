@@ -203,7 +203,9 @@ export default function QuizList({ region, nodes, onSelectQuiz, onBack, progress
               🔒 ロックされています
             </div>
             <div className={styles.modalBody}>
-              <div className={styles.modalConditionLabel}>アンロック条件:</div>
+              <div className={styles.modalConditionLabel}>
+                アンロック条件{conditions.length > 1 ? '（いずれか1つ）' : ''}:
+              </div>
               {conditions.map((condition, i) => (
                 <div key={i} className={styles.modalConditionItem}>
                   ・{describeCondition(condition)}
