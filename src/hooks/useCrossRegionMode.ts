@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useMemo } from 'react';
 import type { Card, CardResult, CardState } from '@/lib/types';
-import { shuffleArray, checkAnswers } from '@/lib/quiz-engine';
+import { shuffleArray, checkAnswers, createYearLookup } from '@/lib/quiz-engine';
 
 interface CrossRegionModeState {
   cards: Card[];
@@ -34,14 +34,17 @@ export function useCrossRegionMode(cards: Card[], correctOrder: string[]) {
     });
   }, []);
 
+  // 同年のカードを入れ替えても正解として扱うため、年の辞書を判定に渡す。
+  const yearOf = useMemo(() => createYearLookup(cards), [cards]);
+
   const confirm = useCallback(() => {
     setState((prev) => {
       if (prev.selectionOrder.length !== prev.cards.length) return prev;
-      const results = checkAnswers(prev.selectionOrder, correctOrder);
+      const results = checkAnswers(prev.selectionOrder, correctOrder, yearOf);
       const score = results.filter((r) => r.correct).length;
       return { ...prev, isConfirmed: true, results, score };
     });
-  }, [correctOrder]);
+  }, [correctOrder, yearOf]);
 
   const resultMap = useMemo(
     () => (state.results ? new Map(state.results.map((r) => [r.cardId, r])) : null),

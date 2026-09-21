@@ -30,8 +30,8 @@ jobs:
 
       # エディタと同じバリデーションルールを src/data 全件に適用する。
       # ブラウザは使わないので Playwright のブラウザ導入は不要。
-      - name: Validate content data
-        run: npm run test:data
+      - name: Unit tests & content validation
+        run: npm run test:unit
 
       - name: Build
         run: npm run build

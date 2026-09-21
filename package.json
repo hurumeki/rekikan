@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
-    "test:data": "PW_NO_SERVER=1 playwright test --project=data",
+    "test:unit": "PW_NO_SERVER=1 playwright test --project=unit",
     "test:e2e": "playwright test --project=mobile",
     "format": "prettier --write \"src/**/*.{ts,tsx,css}\"",
     "format:check": "prettier --check \"src/**/*.{ts,tsx,css}\"",

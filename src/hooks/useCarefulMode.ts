@@ -2,12 +2,13 @@
 
 import { useState, useCallback, useRef } from 'react';
 import type { Card, CardResult } from '@/lib/types';
-import { shuffleArray } from '@/lib/quiz-engine';
+import { shuffleArray, isOldestAmong } from '@/lib/quiz-engine';
 
 interface CarefulModeState {
   remainingCards: Card[];
   confirmedCards: Card[];
-  mistakeCardIds: Set<string>; // cards where user made at least one mistake
+  /** 間違えた手数（確定済み枚数 = 手番）。同年カードがあるので ID ではなく手番で持つ。 */
+  mistakeSteps: Set<number>;
   wrongCardId: string | null; // currently shaking card
   isComplete: boolean;
   score: number;
@@ -20,53 +21,49 @@ export function useCarefulMode(cards: Card[], correctOrder: string[]) {
   const [state, setState] = useState<CarefulModeState>(() => ({
     remainingCards: shuffleArray(cards),
     confirmedCards: [],
-    mistakeCardIds: new Set(),
+    mistakeSteps: new Set(),
     wrongCardId: null,
     isComplete: false,
     score: 0,
     total: cards.length,
   }));
 
-  const selectCard = useCallback(
-    (cardId: string) => {
-      if (Date.now() < cooldownUntil.current) return;
+  const selectCard = useCallback((cardId: string) => {
+    if (Date.now() < cooldownUntil.current) return;
 
-      setState((prev) => {
-        if (prev.isComplete) return prev;
+    setState((prev) => {
+      if (prev.isComplete) return prev;
 
-        const selectedCard = prev.remainingCards.find((c) => c.id === cardId);
-        if (!selectedCard) return prev;
+      const selectedCard = prev.remainingCards.find((c) => c.id === cardId);
+      if (!selectedCard) return prev;
 
-        const expectedId = correctOrder[prev.confirmedCards.length];
-        if (!expectedId) return prev;
+      // 残りカードの中で最も古い年。同じ年のカードが複数あれば、
+      // どれを選んでも歴史的に正しいので正解として扱う。
+      const isCorrect = isOldestAmong(selectedCard, prev.remainingCards);
+      const step = prev.confirmedCards.length;
 
-        const isCorrect = cardId === expectedId;
+      if (isCorrect) {
+        cooldownUntil.current = Date.now() + 300;
+        const newRemaining = prev.remainingCards.filter((c) => c.id !== cardId);
+        return {
+          ...prev,
+          confirmedCards: [...prev.confirmedCards, selectedCard],
+          remainingCards: newRemaining,
+          wrongCardId: null,
+          isComplete: newRemaining.length === 0,
+          score: prev.mistakeSteps.has(step) ? prev.score : prev.score + 1,
+        };
+      }
 
-        if (isCorrect) {
-          cooldownUntil.current = Date.now() + 300;
-          const newConfirmed = [...prev.confirmedCards, selectedCard];
-          const newRemaining = prev.remainingCards.filter((c) => c.id !== cardId);
-          return {
-            ...prev,
-            confirmedCards: newConfirmed,
-            remainingCards: newRemaining,
-            wrongCardId: null,
-            isComplete: newRemaining.length === 0,
-            score: prev.mistakeCardIds.has(expectedId) ? prev.score : prev.score + 1,
-          };
-        } else {
-          const newMistakes = new Set(prev.mistakeCardIds);
-          newMistakes.add(expectedId);
-          return {
-            ...prev,
-            wrongCardId: cardId,
-            mistakeCardIds: newMistakes,
-          };
-        }
-      });
-    },
-    [correctOrder],
-  );
+      const newMistakes = new Set(prev.mistakeSteps);
+      newMistakes.add(step);
+      return {
+        ...prev,
+        wrongCardId: cardId,
+        mistakeSteps: newMistakes,
+      };
+    });
+  }, []);
 
   const clearWrong = useCallback(() => {
     setState((prev) => ({ ...prev, wrongCardId: null }));
@@ -74,15 +71,14 @@ export function useCarefulMode(cards: Card[], correctOrder: string[]) {
 
   const results: CardResult[] = state.confirmedCards.map((card, i) => ({
     cardId: card.id,
-    correct: !state.mistakeCardIds.has(card.id),
-    correctPosition: i,
+    correct: !state.mistakeSteps.has(i),
+    correctPosition: correctOrder.indexOf(card.id),
     userPosition: i,
   }));
 
   return {
     remainingCards: state.remainingCards,
     confirmedCards: state.confirmedCards,
-    mistakeCardIds: state.mistakeCardIds,
     wrongCardId: state.wrongCardId,
     isComplete: state.isComplete,
     score: state.score,

@@ -22,7 +22,7 @@ export default defineConfig({
   projects: [
     {
       // ブラウザ不要のデータ検証。CI でコンテンツの整合性を守る。
-      name: 'data',
+      name: 'unit',
       testDir: './tests',
     },
     {
