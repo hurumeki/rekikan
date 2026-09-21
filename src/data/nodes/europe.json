@@ -122,7 +122,11 @@
     "parent_id": "node_europe_modern",
     "label": "市民革命と産業革命",
     "sort_order": 1,
-    "quiz_ids": ["quiz_europe_modern_revolution_desc", "quiz_europe_modern_detailed", "quiz_europe_science_enlightenment_term"],
+    "quiz_ids": [
+      "quiz_europe_modern_revolution_desc",
+      "quiz_europe_modern_detailed",
+      "quiz_europe_science_enlightenment_term"
+    ],
     "unlock_condition": {
       "type": "complete_quizzes",
       "quiz_ids": ["quiz_europe_modern"]
@@ -173,7 +177,12 @@
     "quiz_ids": ["quiz_europe_all_eras_term"],
     "unlock_condition": {
       "type": "complete_node",
-      "node_ids": ["node_europe_ancient", "node_europe_medieval", "node_europe_modern", "node_europe_world_wars"]
+      "node_ids": [
+        "node_europe_ancient",
+        "node_europe_medieval",
+        "node_europe_modern",
+        "node_europe_world_wars"
+      ]
     }
   }
 ]

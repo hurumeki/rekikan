@@ -7,36 +7,31 @@
 Recommended layout when managing the data as JSON files.
 
 ```
-data/
-├── regions/
-│   ├── japan.json            # Region definition + era_colors
-│   ├── europe.json
-│   └── china.json
-│
-├── cards/
-│   ├── japan/
-│   │   ├── era.json          # Era division cards (term)
-│   │   ├── prehistoric.json  # Prehistoric & ancient individual cards
-│   │   ├── medieval.json     # Medieval & early modern individual cards
-│   │   ├── modern.json       # Modern & contemporary individual cards
-│   │   └── descriptions.json # Description cards (all hierarchy levels)
-│   ├── europe/
+src/
+├── data/
+│   ├── regions.json          # All region definitions + era_colors
+│   │
+│   ├── cards/
+│   │   ├── japan.json        # All cards for Japanese history
+│   │   ├── europe.json
+│   │   └── ...               # One file per region
+│   │
+│   ├── quizzes/
+│   │   ├── japan.json        # All quiz definitions for Japanese history
+│   │   ├── europe.json
+│   │   ├── world.json        # Theme / cross-region quizzes
 │   │   └── ...
-│   └── china/
+│   │
+│   └── nodes/
+│       ├── japan.json        # Hierarchy node definitions for Japanese history
+│       ├── europe.json
+│       ├── world.json
 │       └── ...
 │
-├── quizzes/
-│   ├── japan.json            # All quiz definitions for Japanese history
-│   ├── europe.json
-│   └── china.json
-│
-├── tree/
-│   ├── japan.json            # Hierarchy node definitions for Japanese history
-│   ├── europe.json
-│   └── china.json
-│
-└── meta/
-    └── categories.json       # Category–icon mapping table
+└── lib/
+    ├── data-registry.ts      # Single source of truth for shipped regions
+    ├── constants.ts          # Category → icon / label mapping
+    └── admin/categories.ts   # Category master data for the editor
 
 public/images/
 ├── cards/                    # AI-generated card images
@@ -49,7 +44,9 @@ public/images/
 
 **Splitting criteria:**
 
-- cards/: Split by region and theme. Roughly a few dozen cards per file. This also serves as a convenient unit for AI generation and review.
-- quizzes/: One file per region. Can be split further by theme as the number of quizzes grows.
-- tree/: One file per region. Keeps the entire hierarchy visible in a single file.
+- `cards/`: One file per region. Split further by theme if a single file becomes hard to review.
+- `quizzes/`: One file per region. Cross-region and theme quizzes live in `world.json`.
+- `nodes/`: One file per region. Keeps the entire hierarchy visible in a single file.
+- Every file is registered in `src/lib/data-registry.ts`; adding a region there propagates it to the app, the editor's initial state, and static-param generation.
+- The category master lives in code (`src/lib/constants.ts`), not in a JSON file.
 - `public/images/cards/{card_id}.webp` and `public/images/nodes/{node_id}.webp`: image files referenced via `has_image` / `has_cover_image` flags. Paths are not stored in JSON — they are derived from the entity ID. External URLs are not allowed.

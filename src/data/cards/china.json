@@ -9,7 +9,8 @@
     "era_color_key": "ancient",
     "category": null,
     "hint": null,
-    "description": "大きな川のほとりで文明が生まれ、文字や青銅器が作られた時代"
+    "description": "大きな川のほとりで文明が生まれ、文字や青銅器が作られた時代",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_desc_intro_2",
@@ -21,7 +22,8 @@
     "era_color_key": "ancient",
     "category": null,
     "hint": null,
-    "description": "初めて広大な土地が一つの国にまとまり、強力な皇帝が現れた時代"
+    "description": "初めて広大な土地が一つの国にまとまり、強力な皇帝が現れた時代",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_desc_intro_3",
@@ -33,7 +35,8 @@
     "era_color_key": "medieval",
     "category": null,
     "hint": null,
-    "description": "再び統一された帝国のもと、制度が整い周辺の国々に大きな影響を与えた時代"
+    "description": "再び統一された帝国のもと、制度が整い周辺の国々に大きな影響を与えた時代",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_desc_intro_4",
@@ -45,7 +48,8 @@
     "era_color_key": "early_modern",
     "category": null,
     "hint": null,
-    "description": "北方の遊牧民族が広大な帝国を築き、東西の交流が盛んになった時代"
+    "description": "北方の遊牧民族が広大な帝国を築き、東西の交流が盛んになった時代",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_desc_intro_5",
@@ -57,7 +61,8 @@
     "era_color_key": "modern",
     "category": null,
     "hint": null,
-    "description": "外国の力に圧され、古い帝国が崩れて新しい国のかたちが模索された時代"
+    "description": "外国の力に圧され、古い帝国が崩れて新しい国のかたちが模索された時代",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_shang",
@@ -69,7 +74,8 @@
     "era_color_key": "ancient",
     "category": "era",
     "hint": "甲骨文字・青銅器・占い",
-    "description": "中国最古の王朝のひとつ。甲骨文字が生まれた。"
+    "description": "中国最古の王朝のひとつ。甲骨文字が生まれた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_zhou",
@@ -81,7 +87,8 @@
     "era_color_key": "ancient",
     "category": "era",
     "hint": "封建制度・儒教の源流",
-    "description": "封建制度を敷き、諸子百家が活躍した。"
+    "description": "封建制度を敷き、諸子百家が活躍した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_qin",
@@ -93,7 +100,8 @@
     "era_color_key": "ancient",
     "category": "era",
     "hint": "始皇帝・万里の長城・統一",
-    "description": "始皇帝が中国を初めて統一した短命の王朝。"
+    "description": "始皇帝が中国を初めて統一した短命の王朝。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_han",
@@ -105,7 +113,8 @@
     "era_color_key": "ancient",
     "category": "era",
     "hint": "シルクロード・儒教・紙の発明",
-    "description": "約400年続いた大帝国。中国文化の基礎を築いた。"
+    "description": "約400年続いた大帝国。中国文化の基礎を築いた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_three_kingdoms",
@@ -117,7 +126,8 @@
     "era_color_key": "ancient",
     "category": "era",
     "hint": "魏・蜀・呉・三国志",
-    "description": "魏・蜀・呉の三国が覇を争った激動の時代。"
+    "description": "魏・蜀・呉の三国が覇を争った激動の時代。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_sui",
@@ -129,7 +139,8 @@
     "era_color_key": "ancient",
     "category": "era",
     "hint": "大運河・科挙の始まり・統一",
-    "description": "南北を統一し、大運河を建設した短命の王朝。"
+    "description": "南北を統一し、大運河を建設した短命の王朝。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_tang",
@@ -141,7 +152,8 @@
     "era_color_key": "medieval",
     "category": "era",
     "hint": "長安・国際都市・詩の黄金期",
-    "description": "世界最大級の帝国として繁栄し、文化が花開いた。"
+    "description": "世界最大級の帝国として繁栄し、文化が花開いた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_song",
@@ -153,7 +165,8 @@
     "era_color_key": "medieval",
     "category": "era",
     "hint": "科挙・火薬・印刷術",
-    "description": "学問と技術が発展し、経済も大きく成長した。"
+    "description": "学問と技術が発展し、経済も大きく成長した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_yuan",
@@ -165,7 +178,8 @@
     "era_color_key": "early_modern",
     "category": "era",
     "hint": "モンゴル帝国・フビライ・東西交流",
-    "description": "モンゴル人が建てた王朝。東西の交流が盛んになった。"
+    "description": "モンゴル人が建てた王朝。東西の交流が盛んになった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_ming",
@@ -177,7 +191,8 @@
     "era_color_key": "early_modern",
     "category": "era",
     "hint": "紫禁城・鄭和・海禁政策",
-    "description": "漢民族が再び統一。紫禁城が建設された。"
+    "description": "漢民族が再び統一。紫禁城が建設された。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_qing",
@@ -189,7 +204,8 @@
     "era_color_key": "early_modern",
     "category": "era",
     "hint": "満州族・康熙帝・アヘン戦争",
-    "description": "最後の王朝。満州族が統治し、後に列強に圧された。"
+    "description": "最後の王朝。満州族が統治し、後に列強に圧された。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_roc",
@@ -201,7 +217,8 @@
     "era_color_key": "modern",
     "category": "era",
     "hint": "孫文・辛亥革命・日中戦争",
-    "description": "清朝を倒し、アジア初の共和国が誕生した。"
+    "description": "清朝を倒し、アジア初の共和国が誕生した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_confucius",
@@ -213,7 +230,8 @@
     "era_color_key": "ancient",
     "category": "person",
     "hint": "儒教の始祖・論語・仁と礼",
-    "description": "儒教の開祖。身分制秩序と道徳を重視し、後世に多大な影響を与えた。"
+    "description": "儒教の開祖。身分制秩序と道徳を重視し、後世に多大な影響を与えた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_qin_shi_huang",
@@ -225,7 +243,8 @@
     "era_color_key": "ancient",
     "category": "person",
     "hint": "秦・万里の長城・焚書坑儒",
-    "description": "中国を初めて統一し、郡県制や文字・貨幣の統一を行った。"
+    "description": "中国を初めて統一し、郡県制や文字・貨幣の統一を行った。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_emperor_wu_han",
@@ -237,7 +256,8 @@
     "era_color_key": "ancient",
     "category": "person",
     "hint": "前漢・シルクロード・郷挙里選",
-    "description": "前漢の最盛期を築き、儒教を官学化、領域を大きく広げる治世が始まった。"
+    "description": "前漢の最盛期を築き、儒教を官学化、領域を大きく広げる治世が始まった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_cao_cao",
@@ -249,7 +269,8 @@
     "era_color_key": "ancient",
     "category": "war",
     "hint": "三国志・魏の礎・孫権や劉備と対立",
-    "description": "後漢末の混乱を収め、魏の基礎を築いた名将・政治家が天下の覇権を争った戦い。"
+    "description": "後漢末の混乱を収め、魏の基礎を築いた名将・政治家が天下の覇権を争った戦い。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_emperor_taizong_tang",
@@ -261,7 +282,8 @@
     "era_color_key": "medieval",
     "category": "person",
     "hint": "貞観の治・律令制・国際交流",
-    "description": "唐の第2代皇帝として即位し、「貞観の治」と呼ばれる安定した治世を始めた。"
+    "description": "唐の第2代皇帝として即位し、「貞観の治」と呼ばれる安定した治世を始めた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_wu_zetian",
@@ -273,7 +295,8 @@
     "era_color_key": "medieval",
     "category": "person",
     "hint": "中国唯一の女帝・則天武后",
-    "description": "中国史上唯一の女帝して即位し、科挙による人材登用を推進した。"
+    "description": "中国史上唯一の女帝して即位し、科挙による人材登用を推進した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_kublai_khan",
@@ -285,7 +308,8 @@
     "era_color_key": "early_modern",
     "category": "person",
     "hint": "元の始祖・モンゴル帝国・大都遷都",
-    "description": "国号を元とし、中国全土の制圧に向けて本格的に動き出した。"
+    "description": "国号を元とし、中国全土の制圧に向けて本格的に動き出した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_zheng_he",
@@ -297,7 +321,8 @@
     "era_color_key": "early_modern",
     "category": "event",
     "hint": "明・大船団・アフリカ到達",
-    "description": "明の永楽帝の命で大規模な艦隊を率い、東南アジアやインド洋へ最初の航海に出発した。"
+    "description": "明の永楽帝の命で大規模な艦隊を率い、東南アジアやインド洋へ最初の航海に出発した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_kangxi",
@@ -309,7 +334,8 @@
     "era_color_key": "early_modern",
     "category": "person",
     "hint": "清の最盛期・康熙辞典・領域拡大",
-    "description": "清の第4代皇帝として即位し、中国史上最も長い在位で国力を充実させる治世が始まった。"
+    "description": "清の第4代皇帝として即位し、中国史上最も長い在位で国力を充実させる治世が始まった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_opium_war",
@@ -321,7 +347,8 @@
     "era_color_key": "modern",
     "category": "war",
     "hint": "清vsイギリス・南京条約・香港割譲",
-    "description": "イギリスの進出に対し敗北し、中国が半植民地化する契機となった戦争が始まった。"
+    "description": "イギリスの進出に対し敗北し、中国が半植民地化する契機となった戦争が始まった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_xinhai_revolution",
@@ -333,7 +360,8 @@
     "era_color_key": "modern",
     "category": "event",
     "hint": "清の滅亡・孫文・中華民国誕生",
-    "description": "清朝を打倒し、2000年以上続いた皇帝政治に終止符を打つ革命が始まった。"
+    "description": "清朝を打倒し、2000年以上続いた皇帝政治に終止符を打つ革命が始まった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_hongwu_emperor",
@@ -345,7 +373,8 @@
     "era_color_key": "early_modern",
     "category": "person",
     "hint": "朱元璋・明の建国・漢民族の復興",
-    "description": "元を北へ追いやり、漢民族による統一王朝である明を建国した。"
+    "description": "元を北へ追いやり、漢民族による統一王朝である明を建国した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_qianlong",
@@ -357,7 +386,8 @@
     "era_color_key": "early_modern",
     "category": "person",
     "hint": "清の全盛期・最大領域・四庫全書",
-    "description": "清の第6代皇帝。外征を繰り返し、中国史上最大の領域を支配した。"
+    "description": "清の第6代皇帝。外征を繰り返し、中国史上最大の領域を支配した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_taiping_rebellion",
@@ -369,7 +399,8 @@
     "era_color_key": "modern",
     "category": "war",
     "hint": "洪秀全・滅満興漢・キリスト教的",
-    "description": "清朝打倒と平等な社会を目指して起きた、中国史上最大規模の農民反乱。"
+    "description": "清朝打倒と平等な社会を目指して起きた、中国史上最大規模の農民反乱。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_prc_established",
@@ -381,7 +412,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": "毛沢東・共産党・北京",
-    "description": "国共内戦に勝利した中国共産党が、毛沢東を国家主席として新しい国を建国した。"
+    "description": "国共内戦に勝利した中国共産党が、毛沢東を国家主席として新しい国を建国した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_an_lushan",
@@ -393,7 +425,8 @@
     "era_color_key": "medieval",
     "category": "war",
     "hint": "楊貴妃・節度使・唐の衰退",
-    "description": "唐の玄宗の時代に起きた大反乱。これを機に唐の力は大きく衰退した。"
+    "description": "唐の玄宗の時代に起きた大反乱。これを機に唐の力は大きく衰退した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_wang_anshi",
@@ -405,7 +438,8 @@
     "era_color_key": "medieval",
     "category": "person",
     "hint": "北宋・富国強兵・旧法党との対立",
-    "description": "北宋の財政立て直しや軍事力強化を目指して行われた大規模な改革。"
+    "description": "北宋の財政立て直しや軍事力強化を目指して行われた大規模な改革。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_buddhism_arrival",
@@ -431,7 +465,8 @@
     "era_color_key": "ancient",
     "category": "culture",
     "hint": "周代・古典詩集・五経の一つ",
-    "description": "周代の歌謡を集めた中国最古の詩集が編纂され、後世まで儒家の重要な経典として尊ばれた。"
+    "description": "周代の歌謡を集めた中国最古の詩集が編纂され、後世まで儒家の重要な経典として尊ばれた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_chu_ci",
@@ -443,7 +478,8 @@
     "era_color_key": "ancient",
     "category": "culture",
     "hint": "戦国時代・楚の貴族・憂国の詩",
-    "description": "南方の口承文芸を背景にした抒情詩が著され、北方の詩経と並ぶ中国詩文の二大源流となった。"
+    "description": "南方の口承文芸を背景にした抒情詩が著され、北方の詩経と並ぶ中国詩文の二大源流となった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_tang_poetry",
@@ -455,7 +491,8 @@
     "era_color_key": "medieval",
     "category": "culture",
     "hint": "李白・杜甫・盛唐",
-    "description": "華やかな宮廷文化と動乱の時代を背景に多くの優れた詩人が現れ、漢詩の最高峰の時代が築かれた。"
+    "description": "華やかな宮廷文化と動乱の時代を背景に多くの優れた詩人が現れ、漢詩の最高峰の時代が築かれた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_water_margin",
@@ -467,7 +504,8 @@
     "era_color_key": "early_modern",
     "category": "culture",
     "hint": "施耐庵・梁山泊・四大奇書",
-    "description": "北宋末を舞台に義賊たちの活躍を描く長編白話小説がまとめられ、後の通俗文学に大きな影響を与えた。"
+    "description": "北宋末を舞台に義賊たちの活躍を描く長編白話小説がまとめられ、後の通俗文学に大きな影響を与えた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_journey_to_west",
@@ -479,7 +517,8 @@
     "era_color_key": "early_modern",
     "category": "culture",
     "hint": "呉承恩・玄奘の旅・四大奇書",
-    "description": "唐代の僧の天竺への旅に題材をとった長編白話小説が刊行され、四大奇書の一つに数えられた。"
+    "description": "唐代の僧の天竺への旅に題材をとった長編白話小説が刊行され、四大奇書の一つに数えられた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_dream_red_chamber",
@@ -491,7 +530,8 @@
     "era_color_key": "early_modern",
     "category": "culture",
     "hint": "曹雪芹・清代・大家族の盛衰",
-    "description": "貴族一族の盛衰を緻密に描いた長編白話小説が刊行され、中国古典小説の到達点を示した。"
+    "description": "貴族一族の盛衰を緻密に描いた長編白話小説が刊行され、中国古典小説の到達点を示した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_song_landscape",
@@ -503,7 +543,8 @@
     "era_color_key": "medieval",
     "category": "culture",
     "hint": "郭熙・水墨・自然観の哲学",
-    "description": "雄大な自然を理想化して描く水墨山水画が大成され、後の東アジア絵画に大きな影響を与えた。"
+    "description": "雄大な自然を理想化して描く水墨山水画が大成され、後の東アジア絵画に大きな影響を与えた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_zhuangzi",
@@ -515,7 +556,8 @@
     "era_color_key": "ancient",
     "category": "person",
     "hint": "戦国時代・道家・無為自然",
-    "description": "万物の境界を相対的なものとみなす道家の思想が説かれ、老子と並んで道家思想の柱となった。"
+    "description": "万物の境界を相対的なものとみなす道家の思想が説かれ、老子と並んで道家思想の柱となった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_zhu_xi",
@@ -527,7 +569,8 @@
     "era_color_key": "medieval",
     "category": "person",
     "hint": "南宋・理気二元論・四書",
-    "description": "儒学を体系化し理気の哲学を組み立てる学派が大成され、東アジア各地の正統学問の基盤となった。"
+    "description": "儒学を体系化し理気の哲学を組み立てる学派が大成され、東アジア各地の正統学問の基盤となった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_china_wang_yangming",
@@ -539,6 +582,7 @@
     "era_color_key": "early_modern",
     "category": "person",
     "hint": "明・心即理・知行合一",
-    "description": "心の働きを重視する新しい儒学の流派が打ち立てられ、明清の思想と日本の幕末思想に影響を与えた。"
+    "description": "心の働きを重視する新しい儒学の流派が打ち立てられ、明清の思想と日本の幕末思想に影響を与えた。",
+    "status": "ai_generated"
   }
 ]

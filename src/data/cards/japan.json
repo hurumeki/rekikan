@@ -9,7 +9,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": null,
     "hint": null,
-    "description": "狩りや採集で暮らし、土器を使って煮炊きしていた非常に長い時代"
+    "description": "狩りや採集で暮らし、土器を使って煮炊きしていた非常に長い時代",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_2",
@@ -21,7 +22,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": null,
     "hint": null,
-    "description": "大陸から稲作が伝わり、人々が定住してムラを作り始めた時代"
+    "description": "大陸から稲作が伝わり、人々が定住してムラを作り始めた時代",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_3",
@@ -33,7 +35,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": null,
     "hint": null,
-    "description": "大和朝廷が国を統一し、中国にならって法律や制度を整えた時代"
+    "description": "大和朝廷が国を統一し、中国にならって法律や制度を整えた時代",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_4",
@@ -45,7 +48,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": null,
     "hint": null,
-    "description": "貴族が独自の文字や文学を生み出した時代"
+    "description": "貴族が独自の文字や文学を生み出した時代",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_5",
@@ -57,7 +61,8 @@
     "era_color_key": "medieval",
     "category": null,
     "hint": null,
-    "description": "武士が力をつけて政治の実権を握り、幕府が開かれた時代"
+    "description": "武士が力をつけて政治の実権を握り、幕府が開かれた時代",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_6",
@@ -69,7 +74,8 @@
     "era_color_key": "modern",
     "category": null,
     "hint": null,
-    "description": "外国の圧力で開国し、急速に近代化を進めた激動の時代"
+    "description": "外国の圧力で開国し、急速に近代化を進めた激動の時代",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_7",
@@ -81,7 +87,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": null,
     "hint": null,
-    "description": "打製石器から縄文土器と弓矢の時代へ"
+    "description": "打製石器から縄文土器と弓矢の時代へ",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_8",
@@ -93,7 +100,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": null,
     "hint": null,
-    "description": "水稲耕作が普及し、貧富と身分の差が生まれる"
+    "description": "水稲耕作が普及し、貧富と身分の差が生まれる",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_9",
@@ -105,7 +113,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": null,
     "hint": null,
-    "description": "巨大な前方後円墳が築かれ、ヤマト政権が成立"
+    "description": "巨大な前方後円墳が築かれ、ヤマト政権が成立",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_10",
@@ -117,7 +126,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": null,
     "hint": null,
-    "description": "仏教・儒教が伝来し、律令に基づく国家形成が進む"
+    "description": "仏教・儒教が伝来し、律令に基づく国家形成が進む",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_11",
@@ -129,7 +139,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "era",
     "hint": "打製石器を使いながら移動して暮らした時代",
-    "description": "氷河期で、人々は打製石器を用いた狩猟・採集社会を営んだ。"
+    "description": "氷河期で、人々は打製石器を用いた狩猟・採集社会を営んだ。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_12",
@@ -141,7 +152,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "era",
     "hint": "土器が作られ竪穴住居で定住が始まった時代",
-    "description": "縄文土器と弓矢の使用が始まり、竪穴住居での定住生活が始まった。"
+    "description": "縄文土器と弓矢の使用が始まり、竪穴住居での定住生活が始まった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_13",
@@ -153,7 +165,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "era",
     "hint": "大陸から稲作と金属器が伝わった時代",
-    "description": "本格的な水稲耕作が普及し、クニが形成され始めた。"
+    "description": "本格的な水稲耕作が普及し、クニが形成され始めた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_14",
@@ -165,7 +178,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "era",
     "hint": "巨大な墓が造られ大和王権が成立した時代",
-    "description": "巨大な前方後円墳が築造され、大和王権による統一が進んだ。"
+    "description": "巨大な前方後円墳が築造され、大和王権による統一が進んだ。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_15",
@@ -177,7 +191,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "era",
     "hint": "天皇中心の国づくりが進んだ時代",
-    "description": "仏教が伝来し、遣隋使や遣唐使を通じて中国の文化が取り入れられた。"
+    "description": "仏教が伝来し、遣隋使や遣唐使を通じて中国の文化が取り入れられた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_16",
@@ -189,7 +204,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "era",
     "hint": "平城京を中心に律令国家が機能した時代",
-    "description": "平城京を都とし、大宝律令や養老律令による本格的な律令政治が行われた。"
+    "description": "平城京を都とし、大宝律令や養老律令による本格的な律令政治が行われた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_17",
@@ -201,7 +217,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "era",
     "hint": "平安京を中心に貴族文化が栄えた時代",
-    "description": "平安京への遷都から始まり、藤原氏の摂関政治や国風文化が花開いた。"
+    "description": "平安京への遷都から始まり、藤原氏の摂関政治や国風文化が花開いた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_18",
@@ -213,7 +230,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": null,
     "hint": null,
-    "description": "氷河期。打製石器を用いた移動生活"
+    "description": "氷河期。打製石器を用いた移動生活",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_19",
@@ -225,7 +243,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": null,
     "hint": null,
-    "description": "土器の発明と竪穴住居での定住"
+    "description": "土器の発明と竪穴住居での定住",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_20",
@@ -237,7 +256,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": null,
     "hint": null,
-    "description": "水稲耕作と金属器の伝来によりクニが分立"
+    "description": "水稲耕作と金属器の伝来によりクニが分立",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_21",
@@ -249,7 +269,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": null,
     "hint": null,
-    "description": "奴国の王が後漢に使いを送る"
+    "description": "奴国の王が後漢に使いを送る",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_22",
@@ -261,7 +282,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": null,
     "hint": null,
-    "description": "邪馬台国の卑弥呼が魏に使いを送る"
+    "description": "邪馬台国の卑弥呼が魏に使いを送る",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_23",
@@ -273,7 +295,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": null,
     "hint": null,
-    "description": "大和地方を中心とした王権が成立"
+    "description": "大和地方を中心とした王権が成立",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_24",
@@ -285,7 +308,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": "群馬県で相沢忠洋によって打製石器が発見された出来事",
-    "description": "群馬県で打製石器が発見され、日本にも旧石器時代が存在したことが証明された。"
+    "description": "群馬県で打製石器が発見され、日本にも旧石器時代が存在したことが証明された。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_25",
@@ -297,7 +321,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": "青森県にある巨大な縄文時代の集落跡",
-    "description": "青森県にある縄文時代最大級の集落跡で、クリの栽培なども行われていた。"
+    "description": "青森県にある縄文時代最大級の集落跡で、クリの栽培なども行われていた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_26",
@@ -309,7 +334,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": "佐賀県にある弥生時代の大規模な環濠集落跡",
-    "description": "佐賀県にある大規模な環濠集落跡で、物見やぐらなどが発掘されている。"
+    "description": "佐賀県にある大規模な環濠集落跡で、物見やぐらなどが発掘されている。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_27",
@@ -321,7 +347,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "war",
     "hint": "奴国の王が後漢の光武帝から金印を授えられた出来事",
-    "description": "奴国の王が後漢に使いを送り、光武帝から「漢委奴国王」の金印を授かった。"
+    "description": "奴国の王が後漢に使いを送り、光武帝から「漢委奴国王」の金印を授かった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_28",
@@ -333,7 +360,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "war",
     "hint": "邪馬台国の卑弥呼が魏の皇帝から称号を授かった出来事",
-    "description": "卑弥呼が魏に使いを送り、皇帝から「親魏倭王」の称号と銅鏡を授かった。"
+    "description": "卑弥呼が魏に使いを送り、皇帝から「親魏倭王」の称号と銅鏡を授かった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_29",
@@ -345,7 +373,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "culture",
     "hint": "奈良県にある初期の巨大な前方後円墳が造られた出来事",
-    "description": "出現期における巨大な前方後円墳で、卑弥呼の墓との説もある。"
+    "description": "出現期における巨大な前方後円墳で、卑弥呼の墓との説もある。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_30",
@@ -357,7 +386,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": null,
-    "description": "高句麗の碑文に倭軍の出兵が記録される"
+    "description": "高句麗の碑文に倭軍の出兵が記録される",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_31",
@@ -369,7 +399,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": null,
-    "description": "雄略天皇（ワカタケル大王）が宋に使いを送る"
+    "description": "雄略天皇（ワカタケル大王）が宋に使いを送る",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_32",
@@ -381,7 +412,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": null,
-    "description": "九州の豪族・筑紫君磐井が新羅と結んで反乱"
+    "description": "九州の豪族・筑紫君磐井が新羅と結んで反乱",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_33",
@@ -393,7 +425,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": null,
-    "description": "百済の聖明王から仏教が公式に伝えられる"
+    "description": "百済の聖明王から仏教が公式に伝えられる",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_34",
@@ -405,7 +438,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": null,
     "hint": null,
-    "description": "推古天皇が即位し、聖徳太子らが改革を開始"
+    "description": "推古天皇が即位し、聖徳太子らが改革を開始",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_35",
@@ -417,7 +451,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": null,
     "hint": null,
-    "description": "蘇我氏を打倒し、天皇中心の政治へ転換"
+    "description": "蘇我氏を打倒し、天皇中心の政治へ転換",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_36",
@@ -429,7 +464,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": null,
     "hint": null,
-    "description": "壬申の乱を経て天武天皇が権力強化"
+    "description": "壬申の乱を経て天武天皇が権力強化",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_37",
@@ -441,7 +477,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": null,
     "hint": null,
-    "description": "大宝律令が制定され法体系が整う"
+    "description": "大宝律令が制定され法体系が整う",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_38",
@@ -453,7 +490,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": null,
     "hint": null,
-    "description": "平城京に遷都し、国家体制が安定する"
+    "description": "平城京に遷都し、国家体制が安定する",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_39",
@@ -465,7 +503,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "law",
     "hint": "才能や功績により役人を登用する制度が設けられた出来事",
-    "description": "世襲にとらわれず、才能や功績により冠を授ける役人登用の制度。"
+    "description": "世襲にとらわれず、才能や功績により冠を授ける役人登用の制度。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_40",
@@ -477,7 +516,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "law",
     "hint": "和を尊ぶことなど、役人の心構えが示された出来事",
-    "description": "聖徳太子らが定めたとされる、仏教の尊重や役人の心構えを説いた規範。"
+    "description": "聖徳太子らが定めたとされる、仏教の尊重や役人の心構えを説いた規範。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_41",
@@ -489,7 +529,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "war",
     "hint": "小野妹子らが大陸の進んだ制度を学ぶため派遣された出来事",
-    "description": "中国南朝・北朝を統一した隋の制度や文化を学ぶため、小野妹子らが派遣された。"
+    "description": "中国南朝・北朝を統一した隋の制度や文化を学ぶため、小野妹子らが派遣された。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_42",
@@ -501,7 +542,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": null,
-    "description": "中大兄皇子らが蘇我入鹿を暗殺"
+    "description": "中大兄皇子らが蘇我入鹿を暗殺",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_43",
@@ -513,7 +555,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "law",
     "hint": "公地公民などの新政府の基本方針が示された出来事",
-    "description": "大化の改新において、土地と人民を国家の直接支配とする公地公民制などが示された。"
+    "description": "大化の改新において、土地と人民を国家の直接支配とする公地公民制などが示された。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_44",
@@ -525,7 +568,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": null,
-    "description": "唐・新羅連合軍に大敗"
+    "description": "唐・新羅連合軍に大敗",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_45",
@@ -537,7 +581,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": null,
-    "description": "大海人皇子が勝利し天武天皇となる"
+    "description": "大海人皇子が勝利し天武天皇となる",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_46",
@@ -549,7 +594,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": "唐の都長安にならった本格的な都へ移った出来事",
-    "description": "唐の長安にならって碁盤の目状に区画された本格的な都へ遷った。"
+    "description": "唐の長安にならって碁盤の目状に区画された本格的な都へ遷った。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_47",
@@ -561,7 +607,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "economy",
     "hint": "良田を増やすための壮大な開発計画が立てられた出来事",
-    "description": "人口の増加による口分田の不足を補うため、大規模な開墾計画が立てられた。"
+    "description": "人口の増加による口分田の不足を補うため、大規模な開墾計画が立てられた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_48",
@@ -573,7 +620,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "law",
     "hint": "新しく開墾した土地を一定期間私有できるとした法令",
-    "description": "孫の代までなど三世代に限り、新しく開墾した土地の私有を認めた法令。"
+    "description": "孫の代までなど三世代に限り、新しく開墾した土地の私有を認めた法令。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_49",
@@ -585,7 +633,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": null,
-    "description": "九州で藤原広嗣が反乱を起こす"
+    "description": "九州で藤原広嗣が反乱を起こす",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_50",
@@ -597,7 +646,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "culture",
     "hint": "聖武天皇が仏教の力で国を守るため全国に寺を建てさせた出来事",
-    "description": "社会不安を鎮めるため、聖武天皇が各国に国分寺・国分尼寺を建立させた。"
+    "description": "社会不安を鎮めるため、聖武天皇が各国に国分寺・国分尼寺を建立させた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_51",
@@ -609,7 +659,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "law",
     "hint": "開墾した土地の永久私有を認める法令が出された出来事",
-    "description": "新規に開墾した土地の永久私有を認めたことで、公地公民制の原則が崩れ始めた。"
+    "description": "新規に開墾した土地の永久私有を認めたことで、公地公民制の原則が崩れ始めた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_52",
@@ -621,7 +672,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "culture",
     "hint": "聖徳太子が建てた世界最古の木造建築物",
-    "description": "飛鳥文化を代表する世界最古の木造建築物で、釈迦三尊像などが安置されている。"
+    "description": "飛鳥文化を代表する世界最古の木造建築物で、釈迦三尊像などが安置されている。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_53",
@@ -633,7 +685,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "culture",
     "hint": "薬師寺の仏像などに代表される若々しい仏像が作られた時期",
-    "description": "初唐文化の影響を受けた白鳳文化のもと、薬師寺金堂薬師三尊像などが造立された。"
+    "description": "初唐文化の影響を受けた白鳳文化のもと、薬師寺金堂薬師三尊像などが造立された。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_54",
@@ -645,7 +698,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "culture",
     "hint": "神話や伝承をまとめた日本最古の歴史書が成立した出来事",
-    "description": "稗田阿礼が暗誦し、太安万侶が書き記した日本最古の歴史書。"
+    "description": "稗田阿礼が暗誦し、太安万侶が書き記した日本最古の歴史書。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_55",
@@ -657,7 +711,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "culture",
     "hint": "国家の正史として編纂された歴史書が成立した出来事",
-    "description": "舎人親王らが中心となって編纂した、六国史の最初となる国家の正史。"
+    "description": "舎人親王らが中心となって編纂した、六国史の最初となる国家の正史。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_56",
@@ -669,7 +724,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "culture",
     "hint": "平城京で巨大な大仏の完成を祝う儀式が行われた出来事",
-    "description": "聖武天皇の発願によって造えられた盧舎那仏の完成を祝う大規模な儀式。"
+    "description": "聖武天皇の発願によって造えられた盧舎那仏の完成を祝う大規模な儀式。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_57",
@@ -681,7 +737,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "culture",
     "hint": "防人や農民の歌も含まれる日本最古の和歌集の完成",
-    "description": "天皇や貴族だけでなく、防人や農民の歌も収められた日本最古の和歌集。"
+    "description": "天皇や貴族だけでなく、防人や農民の歌も収められた日本最古の和歌集。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_58",
@@ -693,7 +750,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": null,
     "hint": null,
-    "description": "平安京へ遷都し天皇親政を図る"
+    "description": "平安京へ遷都し天皇親政を図る",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_59",
@@ -705,7 +763,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": null,
     "hint": null,
-    "description": "藤原氏が他氏を排斥し朝廷内で権力を握る"
+    "description": "藤原氏が他氏を排斥し朝廷内で権力を握る",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_60",
@@ -717,7 +776,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": null,
     "hint": null,
-    "description": "摂政・関白が常態化し摂関政治が全盛を迎える"
+    "description": "摂政・関白が常態化し摂関政治が全盛を迎える",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_61",
@@ -729,7 +789,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": null,
     "hint": null,
-    "description": "退位した上皇が政界を主導する院政が始まる"
+    "description": "退位した上皇が政界を主導する院政が始まる",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_62",
@@ -741,7 +802,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": null,
     "hint": null,
-    "description": "武士が都の政争に介入し平氏政権が誕生する"
+    "description": "武士が都の政争に介入し平氏政権が誕生する",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_63",
@@ -753,7 +815,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": "桓武天皇が京都へ都を移した出来事",
-    "description": "桓武天皇が、仏教勢力などの影響を断ち切るために新しい都へ遷った。"
+    "description": "桓武天皇が、仏教勢力などの影響を断ち切るために新しい都へ遷った。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_64",
@@ -765,7 +828,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "person",
     "hint": "東北地方の蝦夷を平定するため最高司令官に任命された出来事",
-    "description": "桓武天皇により征夷大将軍に任命され、東北地方の蝦夷を平定した。"
+    "description": "桓武天皇により征夷大将軍に任命され、東北地方の蝦夷を平定した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_65",
@@ -777,7 +841,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": null,
-    "description": "嵯峨天皇と平城上皇の対立"
+    "description": "嵯峨天皇と平城上皇の対立",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_66",
@@ -789,7 +854,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "culture",
     "hint": "空海が真言宗の拠点となる寺院を開いた出来事",
-    "description": "唐から帰国した空海が、紀伊国の山中に真言宗の根本道場を開創した。"
+    "description": "唐から帰国した空海が、紀伊国の山中に真言宗の根本道場を開創した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_67",
@@ -801,7 +867,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "person",
     "hint": "臣下として初めて天皇を補佐する役職に就いた出来事",
-    "description": "藤原良房が、皇族以外の臣下として初めて摂政となり藤原氏の権力が強まった。"
+    "description": "藤原良房が、皇族以外の臣下として初めて摂政となり藤原氏の権力が強まった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_68",
@@ -813,7 +880,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": null,
-    "description": "伴健岑・橘逸勢らが流罪に"
+    "description": "伴健岑・橘逸勢らが流罪に",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_69",
@@ -825,7 +893,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": null,
-    "description": "伴善男らが失脚"
+    "description": "伴善男らが失脚",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_70",
@@ -837,7 +906,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": null,
-    "description": "藤原基経が宇多天皇と対立"
+    "description": "藤原基経が宇多天皇と対立",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_71",
@@ -849,7 +919,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": null,
-    "description": "藤原時平により菅原道真が左遷される"
+    "description": "藤原時平により菅原道真が左遷される",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_72",
@@ -861,7 +932,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": null,
-    "description": "源高明が左遷され他氏排斥が完了"
+    "description": "源高明が左遷され他氏排斥が完了",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_73",
@@ -873,7 +945,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "person",
     "hint": "「この世をば わが世とぞ思ふ」と詠んだ人物が全盛期を迎えた出来事",
-    "description": "娘たちを次々と天皇の后とし、外祖父として摂関政治の全盛期を築いた。"
+    "description": "娘たちを次々と天皇の后とし、外祖父として摂関政治の全盛期を築いた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_74",
@@ -885,7 +958,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "culture",
     "hint": "藤原頼通が極楽浄土を夢見て建てた阿弥陀堂",
-    "description": "藤原頼通が宇治に建立した阿弥陀堂で、国風文化と浄土教の広まりを示す。"
+    "description": "藤原頼通が宇治に建立した阿弥陀堂で、国風文化と浄土教の広まりを示す。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_75",
@@ -897,7 +971,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "law",
     "hint": "退位した天皇が上皇として政界を主導する政治体制が始まった出来事",
-    "description": "白河天皇が上皇となった後も実権を握り続け、摂関家を抑えて政治を行った。"
+    "description": "白河天皇が上皇となった後も実権を握り続け、摂関家を抑えて政治を行った。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_76",
@@ -909,7 +984,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": null,
-    "description": "崇徳上皇と後白河天皇の対立、武士が介入"
+    "description": "崇徳上皇と後白河天皇の対立、武士が介入",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_77",
@@ -921,7 +997,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": null,
-    "description": "源義朝を破り、平清盛が権力を握る"
+    "description": "源義朝を破り、平清盛が権力を握る",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_78",
@@ -933,7 +1010,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": null,
-    "description": "武士として初めて最高位に就く"
+    "description": "武士として初めて最高位に就く",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_79",
@@ -945,7 +1023,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": null,
-    "description": "平氏打倒のリレーが各地で始まる"
+    "description": "平氏打倒のリレーが各地で始まる",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_80",
@@ -957,7 +1036,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "culture",
     "hint": "紀貫之らが中心となってまとめられた最初の勅撰和歌集",
-    "description": "醍醐天皇の命により紀貫之らが編纂した、日本で最初の勅撰和歌集。"
+    "description": "醍醐天皇の命により紀貫之らが編纂した、日本で最初の勅撰和歌集。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_81",
@@ -969,7 +1049,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": null,
-    "description": "関東で新皇を名乗り反乱を起こす"
+    "description": "関東で新皇を名乗り反乱を起こす",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_82",
@@ -981,7 +1062,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "culture",
     "hint": "紫式部が執筆した長編小説が書かれた時期",
-    "description": "宮廷を舞台にした長編物語で、仮名文字の発達とともに生み出された。"
+    "description": "宮廷を舞台にした長編物語で、仮名文字の発達とともに生み出された。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_83",
@@ -993,7 +1075,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "culture",
     "hint": "仏法が衰え世が乱れるという思想が広まった出来事",
-    "description": "仏教の教えが衰えるという不安から、阿弥陀仏にすがる浄土教が流行した。"
+    "description": "仏教の教えが衰えるという不安から、阿弥陀仏にすがる浄土教が流行した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_84",
@@ -1005,7 +1088,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "culture",
     "hint": "奥州藤原氏が平泉に建てた金箔張りの阿弥陀堂",
-    "description": "東北地方で繁栄した奥州藤原氏によって建立された浄土教建築。"
+    "description": "東北地方で繁栄した奥州藤原氏によって建立された浄土教建築。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_85",
@@ -1017,7 +1101,8 @@
     "era_color_key": "medieval",
     "category": null,
     "hint": null,
-    "description": "源氏が平氏を滅ぼし鎌倉幕府を開く"
+    "description": "源氏が平氏を滅ぼし鎌倉幕府を開く",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_86",
@@ -1029,7 +1114,8 @@
     "era_color_key": "medieval",
     "category": null,
     "hint": null,
-    "description": "後醍醐天皇が倒幕し建武の新政を行う"
+    "description": "後醍醐天皇が倒幕し建武の新政を行う",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_87",
@@ -1041,7 +1127,8 @@
     "era_color_key": "medieval",
     "category": null,
     "hint": null,
-    "description": "足利氏が室町幕府を開く"
+    "description": "足利氏が室町幕府を開く",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_88",
@@ -1053,7 +1140,8 @@
     "era_color_key": "medieval",
     "category": null,
     "hint": null,
-    "description": "応仁の乱により戦国時代に突入する"
+    "description": "応仁の乱により戦国時代に突入する",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_89",
@@ -1065,7 +1153,8 @@
     "era_color_key": "medieval",
     "category": null,
     "hint": null,
-    "description": "織田・豊臣による天下統一が進む"
+    "description": "織田・豊臣による天下統一が進む",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_90",
@@ -1077,7 +1166,8 @@
     "era_color_key": "early_modern",
     "category": null,
     "hint": null,
-    "description": "徳川家康が江戸幕府を開き長期の平和が訪れる"
+    "description": "徳川家康が江戸幕府を開き長期の平和が訪れる",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_91",
@@ -1089,7 +1179,8 @@
     "era_color_key": "medieval",
     "category": "era",
     "hint": "源頼朝が幕府を開き、武士による本格的な政治が始まった時代",
-    "description": "御恩と奉公の主従関係で結ばれた武士たちが執権政治を展開した時代。"
+    "description": "御恩と奉公の主従関係で結ばれた武士たちが執権政治を展開した時代。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_92",
@@ -1101,7 +1192,8 @@
     "era_color_key": "medieval",
     "category": "era",
     "hint": "吉野と京都に２つの朝廷が並立し対立した時代",
-    "description": "後醍醐天皇の建武の新政崩壊後、南北に分かれた朝廷が約60年対立した時代。"
+    "description": "後醍醐天皇の建武の新政崩壊後、南北に分かれた朝廷が約60年対立した時代。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_93",
@@ -1113,7 +1205,8 @@
     "era_color_key": "medieval",
     "category": "era",
     "hint": "足利尊氏が幕府を開き、守護大名が力を持った時代",
-    "description": "足利一族が将軍となり、京都の室町を中心に政治や独自の文化（北山・東山文化）が栄えた時代。"
+    "description": "足利一族が将軍となり、京都の室町を中心に政治や独自の文化（北山・東山文化）が栄えた時代。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_94",
@@ -1125,7 +1218,8 @@
     "era_color_key": "medieval",
     "category": "era",
     "hint": "下剋上の風潮が強まり各地で戦国大名が争った時代",
-    "description": "応仁の乱をきっかけに幕府の権威が失墜し、実力で領国を支配する大名たちが覇を競った時代。"
+    "description": "応仁の乱をきっかけに幕府の権威が失墜し、実力で領国を支配する大名たちが覇を競った時代。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_95",
@@ -1137,7 +1231,8 @@
     "era_color_key": "medieval",
     "category": "era",
     "hint": "織田信長と豊臣秀吉が全国統一を進めた時代",
-    "description": "ヨーロッパ文化の影響も受けつつ、城郭建築などが発達し天下統一事業が進められた時代。"
+    "description": "ヨーロッパ文化の影響も受けつつ、城郭建築などが発達し天下統一事業が進められた時代。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_96",
@@ -1149,7 +1244,8 @@
     "era_color_key": "early_modern",
     "category": "era",
     "hint": "徳川家康が幕府を開き、長期の平和と鎖国が続いた時代",
-    "description": "幕藩体制のもとで身分制度が固定化され、町人文化を中心に独自の発展を遂げた時代。"
+    "description": "幕藩体制のもとで身分制度が固定化され、町人文化を中心に独自の発展を遂げた時代。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_97",
@@ -1161,7 +1257,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": null,
     "hint": null,
-    "description": "源頼朝が挙兵し鎌倉を拠点とする"
+    "description": "源頼朝が挙兵し鎌倉を拠点とする",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_98",
@@ -1173,7 +1270,8 @@
     "era_color_key": "medieval",
     "category": null,
     "hint": null,
-    "description": "守護・地頭を設置し全国へ支配を拡大"
+    "description": "守護・地頭を設置し全国へ支配を拡大",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_99",
@@ -1185,7 +1283,8 @@
     "era_color_key": "medieval",
     "category": null,
     "hint": null,
-    "description": "承久の乱で朝廷に勝利し幕府が優勢となる"
+    "description": "承久の乱で朝廷に勝利し幕府が優勢となる",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_100",
@@ -1197,7 +1296,8 @@
     "era_color_key": "medieval",
     "category": null,
     "hint": null,
-    "description": "2度にわたる元寇を退けるが御家人は窮乏"
+    "description": "2度にわたる元寇を退けるが御家人は窮乏",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_101",
@@ -1209,7 +1309,8 @@
     "era_color_key": "medieval",
     "category": null,
     "hint": null,
-    "description": "悪党や倒幕勢力の活躍により鎌倉幕府滅亡"
+    "description": "悪党や倒幕勢力の活躍により鎌倉幕府滅亡",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_102",
@@ -1221,7 +1322,8 @@
     "era_color_key": "medieval",
     "category": "event",
     "hint": null,
-    "description": "源義経らが平家を滅ぼす"
+    "description": "源義経らが平家を滅ぼす",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_103",
@@ -1233,7 +1335,8 @@
     "era_color_key": "medieval",
     "category": "event",
     "hint": null,
-    "description": "頼朝が諸国や荘園の管理権を得る"
+    "description": "頼朝が諸国や荘園の管理権を得る",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_104",
@@ -1245,7 +1348,8 @@
     "era_color_key": "medieval",
     "category": "war",
     "hint": "源頼朝が武士の棟梁として朝廷から任命された役職",
-    "description": "源頼朝が征夷大将軍に任命され、名実ともに鎌倉幕府が成立した。"
+    "description": "源頼朝が征夷大将軍に任命され、名実ともに鎌倉幕府が成立した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_105",
@@ -1257,7 +1361,8 @@
     "era_color_key": "medieval",
     "category": "event",
     "hint": "甥の公暁に暗殺され、源氏の将軍家が断絶した",
-    "description": "3代将軍源実朝が鶴岡八幡宮で公暁に暗殺され、源氏の将軍家が途絶えた。"
+    "description": "3代将軍源実朝が鶴岡八幡宮で公暁に暗殺され、源氏の将軍家が途絶えた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_106",
@@ -1269,7 +1374,8 @@
     "era_color_key": "medieval",
     "category": "event",
     "hint": null,
-    "description": "後鳥羽上皇が兵を挙げるが幕府に敗北"
+    "description": "後鳥羽上皇が兵を挙げるが幕府に敗北",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_107",
@@ -1281,7 +1387,8 @@
     "era_color_key": "medieval",
     "category": "event",
     "hint": "承久の乱後に幕府が京都に設けた監視機関",
-    "description": "承久の乱後、幕府は朝廷を監視するために京都に六波羅探題を設置し、西国支配を固めた。"
+    "description": "承久の乱後、幕府は朝廷を監視するために京都に六波羅探題を設置し、西国支配を固めた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_108",
@@ -1293,7 +1400,8 @@
     "era_color_key": "medieval",
     "category": "event",
     "hint": null,
-    "description": "北条泰時が制定した最初の武家法"
+    "description": "北条泰時が制定した最初の武家法",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_109",
@@ -1305,7 +1413,8 @@
     "era_color_key": "medieval",
     "category": "war",
     "hint": "モンゴル帝国が初めて日本に攻めてきた出来事",
-    "description": "フビライ・ハンの命を受けた元軍が博多湾に上陸し、幕府軍と交戦した。"
+    "description": "フビライ・ハンの命を受けた元軍が博多湾に上陸し、幕府軍と交戦した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_110",
@@ -1317,7 +1426,8 @@
     "era_color_key": "medieval",
     "category": "war",
     "hint": "モンゴル帝国が二度目に日本に攻めてきた出来事",
-    "description": "防塁を築いて元軍を迎え撃ち、暴風雨の影響もあって撃退に成功した。"
+    "description": "防塁を築いて元軍を迎え撃ち、暴風雨の影響もあって撃退に成功した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_111",
@@ -1329,7 +1439,8 @@
     "era_color_key": "medieval",
     "category": "law",
     "hint": "御家人の借金を帳消しにするために幕府が出した法令",
-    "description": "元寇後に生活が苦しくなった御家人を救うため、借金の帳消しを命じた法令。"
+    "description": "元寇後に生活が苦しくなった御家人を救うため、借金の帳消しを命じた法令。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_112",
@@ -1341,7 +1452,8 @@
     "era_color_key": "medieval",
     "category": "law",
     "hint": "後醍醐天皇による天皇中心の新しい政治体制",
-    "description": "鎌倉幕府滅亡後、後醍醐天皇が天皇親政を目指して行った急進的な政治改革。"
+    "description": "鎌倉幕府滅亡後、後醍醐天皇が天皇親政を目指して行った急進的な政治改革。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_113",
@@ -1353,7 +1465,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": null,
-    "description": "法然が開く。「南無阿弥陀仏」"
+    "description": "法然が開く。「南無阿弥陀仏」",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_114",
@@ -1365,7 +1478,8 @@
     "era_color_key": "medieval",
     "category": "event",
     "hint": null,
-    "description": "栄西が宋から伝える。座禅"
+    "description": "栄西が宋から伝える。座禅",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_115",
@@ -1377,7 +1491,8 @@
     "era_color_key": "medieval",
     "category": "culture",
     "hint": "後鳥羽上皇の命で藤原定家らが選んだ勅撰和歌集",
-    "description": "後鳥羽上皇の院宣により藤原定家らが撰した勅撰和歌集。"
+    "description": "後鳥羽上皇の院宣により藤原定家らが撰した勅撰和歌集。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_116",
@@ -1389,7 +1504,8 @@
     "era_color_key": "medieval",
     "category": "culture",
     "hint": "鴨長明が無常観を綴った随筆",
-    "description": "鴨長明が世の無常を綴った随筆文学。"
+    "description": "鴨長明が世の無常を綴った随筆文学。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_117",
@@ -1401,7 +1517,8 @@
     "era_color_key": "medieval",
     "category": "event",
     "hint": "親鸞が開いた阿弥陀信仰の宗派",
-    "description": "親鸞が開く。「他力本願」「悪人正機」"
+    "description": "親鸞が開く。「他力本願」「悪人正機」",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_118",
@@ -1413,7 +1530,8 @@
     "era_color_key": "medieval",
     "category": "event",
     "hint": null,
-    "description": "日蓮が開く。「南無妙法蓮華経」"
+    "description": "日蓮が開く。「南無妙法蓮華経」",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_119",
@@ -1425,7 +1543,8 @@
     "era_color_key": "medieval",
     "category": null,
     "hint": null,
-    "description": "朝廷が南北に分裂し全国で争乱が起こる"
+    "description": "朝廷が南北に分裂し全国で争乱が起こる",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_120",
@@ -1437,7 +1556,8 @@
     "era_color_key": "medieval",
     "category": null,
     "hint": null,
-    "description": "南北朝が合一し室町幕府が最盛期を迎える"
+    "description": "南北朝が合一し室町幕府が最盛期を迎える",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_121",
@@ -1449,7 +1569,8 @@
     "era_color_key": "medieval",
     "category": null,
     "hint": null,
-    "description": "農民の徳政要求や守護大名間の対立で幕府の権威が揺らぐ"
+    "description": "農民の徳政要求や守護大名間の対立で幕府の権威が揺らぐ",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_122",
@@ -1461,7 +1582,8 @@
     "era_color_key": "medieval",
     "category": null,
     "hint": null,
-    "description": "将軍家の継嗣争いから大規模な内乱が起こり、室町幕府の権威が失墜する"
+    "description": "将軍家の継嗣争いから大規模な内乱が起こり、室町幕府の権威が失墜する",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_123",
@@ -1473,7 +1595,8 @@
     "era_color_key": "medieval",
     "category": null,
     "hint": null,
-    "description": "鉄砲伝来し戦術が変化、戦国の争いが激化"
+    "description": "鉄砲伝来し戦術が変化、戦国の争いが激化",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_124",
@@ -1485,7 +1608,8 @@
     "era_color_key": "medieval",
     "category": null,
     "hint": null,
-    "description": "織田信長により室町幕府が滅亡する"
+    "description": "織田信長により室町幕府が滅亡する",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_125",
@@ -1497,7 +1621,8 @@
     "era_color_key": "medieval",
     "category": "event",
     "hint": "後醍醐天皇に呼応した新田義貞らが幕府を倒した出来事",
-    "description": "新田義貞が鎌倉を攻め、北条高時が自害して幕府が滅亡した。"
+    "description": "新田義貞が鎌倉を攻め、北条高時が自害して幕府が滅亡した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_126",
@@ -1509,7 +1634,8 @@
     "era_color_key": "medieval",
     "category": "law",
     "hint": "足利尊氏が政治の方針を示した法令",
-    "description": "足利尊氏が今後の政治の基本方針として制定した、17条からなる法令。"
+    "description": "足利尊氏が今後の政治の基本方針として制定した、17条からなる法令。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_127",
@@ -1521,7 +1647,8 @@
     "era_color_key": "medieval",
     "category": "event",
     "hint": null,
-    "description": "室町幕府が事実上成立"
+    "description": "室町幕府が事実上成立",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_128",
@@ -1533,7 +1660,8 @@
     "era_color_key": "medieval",
     "category": "event",
     "hint": null,
-    "description": "足利義満の時に南朝が北朝に譲る"
+    "description": "足利義満の時に南朝が北朝に譲る",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_129",
@@ -1545,7 +1673,8 @@
     "era_color_key": "medieval",
     "category": "event",
     "hint": null,
-    "description": "明との間で正式な国交・貿易が始まる"
+    "description": "明との間で正式な国交・貿易が始まる",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_130",
@@ -1557,7 +1686,8 @@
     "era_color_key": "medieval",
     "category": "event",
     "hint": null,
-    "description": "農民や馬借が徳政を求めて蜂起"
+    "description": "農民や馬借が徳政を求めて蜂起",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_131",
@@ -1569,7 +1699,8 @@
     "era_color_key": "medieval",
     "category": "event",
     "hint": null,
-    "description": "将軍の跡継ぎ問題等から大規模な内乱"
+    "description": "将軍の跡継ぎ問題等から大規模な内乱",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_132",
@@ -1581,7 +1712,8 @@
     "era_color_key": "medieval",
     "category": "event",
     "hint": null,
-    "description": "国人や農民が守護大名を追い出す"
+    "description": "国人や農民が守護大名を追い出す",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_133",
@@ -1593,7 +1725,8 @@
     "era_color_key": "medieval",
     "category": "culture",
     "hint": "種子島に漂着したポルトガル人がもたらした新兵器",
-    "description": "種子島に漂着したポルトガル人が、日本に火縄銃を伝えた。"
+    "description": "種子島に漂着したポルトガル人が、日本に火縄銃を伝えた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_134",
@@ -1605,7 +1738,8 @@
     "era_color_key": "medieval",
     "category": "culture",
     "hint": "イエズス会の宣教師が日本に伝えた宗教",
-    "description": "イエズス会のフランシスコ・ザビエルが鹿児島に上陸し、布教を始めた。"
+    "description": "イエズス会のフランシスコ・ザビエルが鹿児島に上陸し、布教を始めた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_135",
@@ -1617,7 +1751,8 @@
     "era_color_key": "medieval",
     "category": "event",
     "hint": null,
-    "description": "織田信長が今川義元を破る"
+    "description": "織田信長が今川義元を破る",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_136",
@@ -1629,7 +1764,8 @@
     "era_color_key": "medieval",
     "category": "event",
     "hint": null,
-    "description": "足利義満が北山殿に造営（北山文化）"
+    "description": "足利義満が北山殿に造営（北山文化）",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_137",
@@ -1641,7 +1777,8 @@
     "era_color_key": "medieval",
     "category": "culture",
     "hint": "足利義政が東山に造営した楼閣建築",
-    "description": "足利義政が東山殿に造営を始めた、書院造を取り入れた楼閣。"
+    "description": "足利義政が東山殿に造営を始めた、書院造を取り入れた楼閣。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_138",
@@ -1653,7 +1790,8 @@
     "era_color_key": "medieval",
     "category": "culture",
     "hint": "足利義政の隠居所を中心に栄えたわび・さびの武家文化",
-    "description": "公家文化と禅宗文化が融合し、わび・さびを重んじる新しい武家文化が花開いた。"
+    "description": "公家文化と禅宗文化が融合し、わび・さびを重んじる新しい武家文化が花開いた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_139",
@@ -1665,7 +1803,8 @@
     "era_color_key": "medieval",
     "category": "culture",
     "hint": "宗祇らが芸術として高めた集団詩",
-    "description": "宗祇が連歌を芸術として大成し、地方武士や庶民にも広まった。"
+    "description": "宗祇が連歌を芸術として大成し、地方武士や庶民にも広まった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_140",
@@ -1677,7 +1816,8 @@
     "era_color_key": "medieval",
     "category": "culture",
     "hint": "庶民を担い手とする短編物語の集まり",
-    "description": "庶民の間で短編物語が広まり、文学が公家・武家の枠を超えて広がった。"
+    "description": "庶民の間で短編物語が広まり、文学が公家・武家の枠を超えて広がった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_141",
@@ -1689,7 +1829,8 @@
     "era_color_key": "medieval",
     "category": "event",
     "hint": "信長が将軍足利義昭を京から追放した出来事",
-    "description": "織田信長が将軍足利義昭を京から追放し、室町幕府が事実上滅亡した。"
+    "description": "織田信長が将軍足利義昭を京から追放し、室町幕府が事実上滅亡した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_142",
@@ -1701,7 +1842,8 @@
     "era_color_key": "medieval",
     "category": "event",
     "hint": null,
-    "description": "信長が鉄砲隊を活用し武田氏を破る"
+    "description": "信長が鉄砲隊を活用し武田氏を破る",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_143",
@@ -1713,7 +1855,8 @@
     "era_color_key": "medieval",
     "category": "event",
     "hint": "家臣の謀反により信長が自害した事件",
-    "description": "京都本能寺に滞在中の織田信長が、家臣明智光秀の謀反で自害した事件。"
+    "description": "京都本能寺に滞在中の織田信長が、家臣明智光秀の謀反で自害した事件。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_144",
@@ -1725,7 +1868,8 @@
     "era_color_key": "medieval",
     "category": "law",
     "hint": "一揆を防ぐため農民から武器を取り上げた命令",
-    "description": "豊臣秀吉が農民から刀・槍などの武器を没収し、兵農分離を進めた。"
+    "description": "豊臣秀吉が農民から刀・槍などの武器を没収し、兵農分離を進めた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_145",
@@ -1737,7 +1881,8 @@
     "era_color_key": "medieval",
     "category": "event",
     "hint": "関東の北条氏を滅ぼし全国を統一した出来事",
-    "description": "豊臣秀吉が小田原の北条氏を滅ぼし、全国統一を完了した。"
+    "description": "豊臣秀吉が小田原の北条氏を滅ぼし、全国統一を完了した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_146",
@@ -1749,7 +1894,8 @@
     "era_color_key": "medieval",
     "category": "event",
     "hint": null,
-    "description": "秀吉による朝鮮出兵"
+    "description": "秀吉による朝鮮出兵",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_147",
@@ -1761,7 +1907,8 @@
     "era_color_key": "early_modern",
     "category": null,
     "hint": null,
-    "description": "徳川家康が征夷大将軍となり、江戸幕府が成立する"
+    "description": "徳川家康が征夷大将軍となり、江戸幕府が成立する",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_148",
@@ -1773,7 +1920,8 @@
     "era_color_key": "early_modern",
     "category": null,
     "hint": null,
-    "description": "キリスト教禁教と鎖国体制が完成する"
+    "description": "キリスト教禁教と鎖国体制が完成する",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_149",
@@ -1785,7 +1933,8 @@
     "era_color_key": "early_modern",
     "category": null,
     "hint": null,
-    "description": "文治政治へ転換し元禄文化が栄える"
+    "description": "文治政治へ転換し元禄文化が栄える",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_150",
@@ -1797,7 +1946,8 @@
     "era_color_key": "early_modern",
     "category": null,
     "hint": null,
-    "description": "財政再建のための諸改革（三大改革）が行われる"
+    "description": "財政再建のための諸改革（三大改革）が行われる",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_151",
@@ -1809,7 +1959,8 @@
     "era_color_key": "early_modern",
     "category": null,
     "hint": null,
-    "description": "黒船来航により開国を迫られ幕府が動揺する"
+    "description": "黒船来航により開国を迫られ幕府が動揺する",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_152",
@@ -1821,7 +1972,8 @@
     "era_color_key": "medieval",
     "category": "event",
     "hint": null,
-    "description": "東軍の家康が西軍の石田三成らを破る"
+    "description": "東軍の家康が西軍の石田三成らを破る",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_153",
@@ -1833,7 +1985,8 @@
     "era_color_key": "early_modern",
     "category": "event",
     "hint": "家康が征夷大将軍に任命され、武家政権の根拠地を東国に置いた",
-    "description": "徳川家康が征夷大将軍に任命され、江戸を拠点とする武家政権が成立した。"
+    "description": "徳川家康が征夷大将軍に任命され、江戸を拠点とする武家政権が成立した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_154",
@@ -1845,7 +1998,8 @@
     "era_color_key": "early_modern",
     "category": "event",
     "hint": null,
-    "description": "大名の統制のために制定される"
+    "description": "大名の統制のために制定される",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_155",
@@ -1857,7 +2011,8 @@
     "era_color_key": "early_modern",
     "category": "event",
     "hint": null,
-    "description": "3代将軍家光が武家諸法度を改訂"
+    "description": "3代将軍家光が武家諸法度を改訂",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_156",
@@ -1869,7 +2024,8 @@
     "era_color_key": "early_modern",
     "category": "event",
     "hint": null,
-    "description": "キリシタンや農民が重税等に抗議し蜂起"
+    "description": "キリシタンや農民が重税等に抗議し蜂起",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_157",
@@ -1881,7 +2037,8 @@
     "era_color_key": "early_modern",
     "category": "event",
     "hint": null,
-    "description": "いわゆる「鎖国」体制が完成する"
+    "description": "いわゆる「鎖国」体制が完成する",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_158",
@@ -1893,7 +2050,8 @@
     "era_color_key": "early_modern",
     "category": "event",
     "hint": null,
-    "description": "由井正雪の反乱未遂。文治政治への転換"
+    "description": "由井正雪の反乱未遂。文治政治への転換",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_159",
@@ -1905,7 +2063,8 @@
     "era_color_key": "early_modern",
     "category": "event",
     "hint": null,
-    "description": "5代将軍綱吉による極端な動物愛護令"
+    "description": "5代将軍綱吉による極端な動物愛護令",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_160",
@@ -1917,7 +2076,8 @@
     "era_color_key": "early_modern",
     "category": "event",
     "hint": "浪士たちが主君の仇討ちとして吉良邸に討ち入った事件",
-    "description": "赤穂藩の浪士が、主君浅野長矩の仇である吉良義央を討った事件。"
+    "description": "赤穂藩の浪士が、主君浅野長矩の仇である吉良義央を討った事件。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_161",
@@ -1929,7 +2089,8 @@
     "era_color_key": "early_modern",
     "category": "law",
     "hint": "新井白石が儒学に基づいて行った文治政治",
-    "description": "新井白石が儀式の整備や財政改革を進め、儒学に基づく文治政治を展開した。"
+    "description": "新井白石が儀式の整備や財政改革を進め、儒学に基づく文治政治を展開した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_162",
@@ -1941,7 +2102,8 @@
     "era_color_key": "early_modern",
     "category": "law",
     "hint": "金銀の流出を防ぐため貿易額を制限した法令",
-    "description": "新井白石が金銀の流出を防ぐため、長崎での貿易額や入港船数を制限した法令。"
+    "description": "新井白石が金銀の流出を防ぐため、長崎での貿易額や入港船数を制限した法令。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_163",
@@ -1953,7 +2115,8 @@
     "era_color_key": "early_modern",
     "category": "event",
     "hint": null,
-    "description": "8代将軍吉宗による質素倹約・新田開発"
+    "description": "8代将軍吉宗による質素倹約・新田開発",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_164",
@@ -1965,7 +2128,8 @@
     "era_color_key": "early_modern",
     "category": "event",
     "hint": null,
-    "description": "株仲間の公認など商業重視の政策"
+    "description": "株仲間の公認など商業重視の政策",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_165",
@@ -1977,7 +2141,8 @@
     "era_color_key": "early_modern",
     "category": "event",
     "hint": null,
-    "description": "松平定信による厳格な倹約と農村復興"
+    "description": "松平定信による厳格な倹約と農村復興",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_166",
@@ -1989,7 +2154,8 @@
     "era_color_key": "early_modern",
     "category": "event",
     "hint": null,
-    "description": "元役人による大阪での打ちこわし"
+    "description": "元役人による大阪での打ちこわし",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_167",
@@ -2001,7 +2167,8 @@
     "era_color_key": "early_modern",
     "category": "event",
     "hint": null,
-    "description": "水野忠邦による株仲間の解散など"
+    "description": "水野忠邦による株仲間の解散など",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_168",
@@ -2013,7 +2180,8 @@
     "era_color_key": "early_modern",
     "category": "event",
     "hint": null,
-    "description": "ポルトガル船の来航禁止。オランダ・清のみ"
+    "description": "ポルトガル船の来航禁止。オランダ・清のみ",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_169",
@@ -2025,7 +2193,8 @@
     "era_color_key": "early_modern",
     "category": "event",
     "hint": null,
-    "description": "ロシアの使節が根室に来航し通商を求める"
+    "description": "ロシアの使節が根室に来航し通商を求める",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_170",
@@ -2037,7 +2206,8 @@
     "era_color_key": "early_modern",
     "category": "event",
     "hint": null,
-    "description": "イギリス軍艦が長崎に侵入"
+    "description": "イギリス軍艦が長崎に侵入",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_171",
@@ -2049,7 +2219,8 @@
     "era_color_key": "early_modern",
     "category": "event",
     "hint": null,
-    "description": "外国船を無条件で砲撃して追い払う法令"
+    "description": "外国船を無条件で砲撃して追い払う法令",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_172",
@@ -2061,7 +2232,8 @@
     "era_color_key": "early_modern",
     "category": "event",
     "hint": null,
-    "description": "アヘン戦争の影響で軟化し、補給を認める"
+    "description": "アヘン戦争の影響で軟化し、補給を認める",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_173",
@@ -2073,7 +2245,8 @@
     "era_color_key": "early_modern",
     "category": "event",
     "hint": null,
-    "description": "家康を祀る霊廟が家光により改築される"
+    "description": "家康を祀る霊廟が家光により改築される",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_174",
@@ -2085,7 +2258,8 @@
     "era_color_key": "early_modern",
     "category": "event",
     "hint": null,
-    "description": "井原西鶴の浮世草子、近松門左衛門の人形浄瑠璃"
+    "description": "井原西鶴の浮世草子、近松門左衛門の人形浄瑠璃",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_175",
@@ -2097,7 +2271,8 @@
     "era_color_key": "early_modern",
     "category": "event",
     "hint": null,
-    "description": "松尾芭蕉が東北・北陸を巡る"
+    "description": "松尾芭蕉が東北・北陸を巡る",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_176",
@@ -2109,7 +2284,8 @@
     "era_color_key": "early_modern",
     "category": "event",
     "hint": null,
-    "description": "杉田玄白らが西洋の解剖書を翻訳"
+    "description": "杉田玄白らが西洋の解剖書を翻訳",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_177",
@@ -2121,7 +2297,8 @@
     "era_color_key": "early_modern",
     "category": "event",
     "hint": null,
-    "description": "葛飾北斎による名所絵（浮世絵）"
+    "description": "葛飾北斎による名所絵（浮世絵）",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_178",
@@ -2133,7 +2310,8 @@
     "era_color_key": "modern",
     "category": null,
     "hint": null,
-    "description": "明治新政府が成立し近代化・西洋化が進む"
+    "description": "明治新政府が成立し近代化・西洋化が進む",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_179",
@@ -2145,7 +2323,8 @@
     "era_color_key": "modern",
     "category": null,
     "hint": null,
-    "description": "大日本帝国憲法が発布され議会が開設される"
+    "description": "大日本帝国憲法が発布され議会が開設される",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_180",
@@ -2157,7 +2336,8 @@
     "era_color_key": "modern",
     "category": null,
     "hint": null,
-    "description": "日清・日露などの対外戦争を経て帝国主義化する"
+    "description": "日清・日露などの対外戦争を経て帝国主義化する",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_181",
@@ -2169,7 +2349,8 @@
     "era_color_key": "modern",
     "category": null,
     "hint": null,
-    "description": "大正デモクラシーで政党政治が発達する"
+    "description": "大正デモクラシーで政党政治が発達する",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_182",
@@ -2181,7 +2362,8 @@
     "era_color_key": "contemporary",
     "category": null,
     "hint": null,
-    "description": "満州事変から軍部の台頭、第二次世界大戦へ突き進む"
+    "description": "満州事変から軍部の台頭、第二次世界大戦へ突き進む",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_183",
@@ -2193,7 +2375,8 @@
     "era_color_key": "contemporary",
     "category": null,
     "hint": null,
-    "description": "敗戦による占領を経て、平和国家としての復興を遂げる"
+    "description": "敗戦による占領を経て、平和国家としての復興を遂げる",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_184",
@@ -2205,7 +2388,8 @@
     "era_color_key": "early_modern",
     "category": "event",
     "hint": null,
-    "description": "開国から倒幕運動"
+    "description": "開国から倒幕運動",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_185",
@@ -2217,7 +2401,8 @@
     "era_color_key": "modern",
     "category": "event",
     "hint": null,
-    "description": "近代化、帝国主義化"
+    "description": "近代化、帝国主義化",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_186",
@@ -2229,7 +2414,8 @@
     "era_color_key": "modern",
     "category": "event",
     "hint": null,
-    "description": "デモクラシーと大戦景気"
+    "description": "デモクラシーと大戦景気",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_187",
@@ -2241,7 +2427,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": null,
-    "description": "恐慌、軍部台頭から太平洋戦争"
+    "description": "恐慌、軍部台頭から太平洋戦争",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_188",
@@ -2253,7 +2440,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": null,
-    "description": "敗戦、高度経済成長"
+    "description": "敗戦、高度経済成長",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_189",
@@ -2265,7 +2453,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": null,
-    "description": "冷戦終結、バブル崩壊とIT普及"
+    "description": "冷戦終結、バブル崩壊とIT普及",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_190",
@@ -2277,7 +2466,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": null,
-    "description": "少子高齢化、新たな国際秩序へ"
+    "description": "少子高齢化、新たな国際秩序へ",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_191",
@@ -2289,7 +2479,8 @@
     "era_color_key": "early_modern",
     "category": null,
     "hint": null,
-    "description": "欧米の圧力により開国し不平等条約を結ぶ"
+    "description": "欧米の圧力により開国し不平等条約を結ぶ",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_192",
@@ -2301,7 +2492,8 @@
     "era_color_key": "early_modern",
     "category": null,
     "hint": null,
-    "description": "尊王攘夷運動が倒幕運動へと変わり大政を奉還する"
+    "description": "尊王攘夷運動が倒幕運動へと変わり大政を奉還する",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_193",
@@ -2313,7 +2505,8 @@
     "era_color_key": "modern",
     "category": null,
     "hint": null,
-    "description": "廃藩置県などで中央集権的な近代国家の基礎を築く"
+    "description": "廃藩置県などで中央集権的な近代国家の基礎を築く",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_194",
@@ -2325,7 +2518,8 @@
     "era_color_key": "modern",
     "category": null,
     "hint": null,
-    "description": "大日本帝国憲法発布により立憲国家となる"
+    "description": "大日本帝国憲法発布により立憲国家となる",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_195",
@@ -2337,7 +2531,8 @@
     "era_color_key": "modern",
     "category": null,
     "hint": null,
-    "description": "日清・日露戦争を通じて条約改正と列強入りを果たす"
+    "description": "日清・日露戦争を通じて条約改正と列強入りを果たす",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_196",
@@ -2349,7 +2544,8 @@
     "era_color_key": "early_modern",
     "category": "event",
     "hint": null,
-    "description": "アメリカの使節が浦賀に来航"
+    "description": "アメリカの使節が浦賀に来航",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_197",
@@ -2361,7 +2557,8 @@
     "era_color_key": "early_modern",
     "category": "event",
     "hint": null,
-    "description": "下田・箱館を開港し鎖国が終わる"
+    "description": "下田・箱館を開港し鎖国が終わる",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_198",
@@ -2373,7 +2570,8 @@
     "era_color_key": "early_modern",
     "category": "event",
     "hint": null,
-    "description": "井伊直弼が無勅許で調印。不平等条約"
+    "description": "井伊直弼が無勅許で調印。不平等条約",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_199",
@@ -2385,7 +2583,8 @@
     "era_color_key": "early_modern",
     "category": "event",
     "hint": "坂本龍馬の仲立ちで倒幕のために結ばれた軍事同盟",
-    "description": "互いに対立していた薩摩藩と長州藩が、倒幕を目指して結んだ密約。"
+    "description": "互いに対立していた薩摩藩と長州藩が、倒幕を目指して結んだ密約。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_200",
@@ -2397,7 +2596,8 @@
     "era_color_key": "early_modern",
     "category": "law",
     "hint": "徳川慶喜が政権を朝廷に返上した出来事",
-    "description": "幕府が政治を行う権力を朝廷に返し、江戸幕府が事実上滅亡した出来事。"
+    "description": "幕府が政治を行う権力を朝廷に返し、江戸幕府が事実上滅亡した出来事。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_201",
@@ -2409,7 +2609,8 @@
     "era_color_key": "modern",
     "category": "event",
     "hint": null,
-    "description": "鳥羽・伏見の戦いから始まる新政府軍対旧幕府軍の戦争"
+    "description": "鳥羽・伏見の戦いから始まる新政府軍対旧幕府軍の戦争",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_202",
@@ -2421,7 +2622,8 @@
     "era_color_key": "modern",
     "category": "event",
     "hint": null,
-    "description": "新政府の基本方針が示される"
+    "description": "新政府の基本方針が示される",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_203",
@@ -2433,7 +2635,8 @@
     "era_color_key": "modern",
     "category": "law",
     "hint": "藩をなくして府や県を置き、中央集権体制を整えた政策",
-    "description": "明治政府が全国の藩を廃止し、県令などを派遣して中央集権体制を確立した。"
+    "description": "明治政府が全国の藩を廃止し、県令などを派遣して中央集権体制を確立した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_204",
@@ -2445,7 +2648,8 @@
     "era_color_key": "modern",
     "category": "law",
     "hint": "すべての人々が小学校で教育を受けられるようにした制度",
-    "description": "国民皆学を目指し、身分や性別に関係なく初等教育を義務化しようとした。"
+    "description": "国民皆学を目指し、身分や性別に関係なく初等教育を義務化しようとした。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_205",
@@ -2457,7 +2661,8 @@
     "era_color_key": "modern",
     "category": "law",
     "hint": "満20歳以上の男子に兵役の義務を負わせた制度",
-    "description": "近代的な軍隊を作るため、身分に関係なく男子に兵役を義務付けた。"
+    "description": "近代的な軍隊を作るため、身分に関係なく男子に兵役を義務付けた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_206",
@@ -2469,7 +2674,8 @@
     "era_color_key": "modern",
     "category": "economy",
     "hint": "土地の値段の3％を現金で納めさせるようにした税制改革",
-    "description": "税の基準を収穫量から地価に変更し、現金で納めさせることで税収を安定させた。"
+    "description": "税の基準を収穫量から地価に変更し、現金で納めさせることで税収を安定させた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_207",
@@ -2481,7 +2687,8 @@
     "era_color_key": "modern",
     "category": "law",
     "hint": "板垣退助らが国会を開くよう政府に求めた意見書",
-    "description": "板垣退助らが、政府の専制を批判し国民から選ばれた議会を設けるよう求めた。"
+    "description": "板垣退助らが、政府の専制を批判し国民から選ばれた議会を設けるよう求めた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_208",
@@ -2493,7 +2700,8 @@
     "era_color_key": "modern",
     "category": "event",
     "hint": null,
-    "description": "西郷隆盛を指導者とする不平士族の最大・最後の反乱"
+    "description": "西郷隆盛を指導者とする不平士族の最大・最後の反乱",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_209",
@@ -2505,7 +2713,8 @@
     "era_color_key": "modern",
     "category": "event",
     "hint": "自由民権運動のなかで国会開設を求める全国組織が作られた出来事",
-    "description": "各地の民権家が集まり、国会開設を目指す全国的な政治結社を組織した。"
+    "description": "各地の民権家が集まり、国会開設を目指す全国的な政治結社を組織した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_210",
@@ -2517,7 +2726,8 @@
     "era_color_key": "modern",
     "category": "event",
     "hint": null,
-    "description": "伊藤博文が初代内閣総理大臣となる"
+    "description": "伊藤博文が初代内閣総理大臣となる",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_211",
@@ -2529,7 +2739,8 @@
     "era_color_key": "modern",
     "category": "law",
     "hint": "アジア初の近代的な憲法が天皇から国民に与えられた出来事",
-    "description": "プロイセン憲法を手本に、天皇主権を原則とする近代的な憲法が発布された。"
+    "description": "プロイセン憲法を手本に、天皇主権を原則とする近代的な憲法が発布された。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_212",
@@ -2541,7 +2752,8 @@
     "era_color_key": "modern",
     "category": "law",
     "hint": "憲法に基づき日本で初めて開かれた国会",
-    "description": "衆議院と貴族院の二院制からなる国会が開かれ、本格的な立憲政治が始まった。"
+    "description": "衆議院と貴族院の二院制からなる国会が開かれ、本格的な立憲政治が始まった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_213",
@@ -2553,7 +2765,8 @@
     "era_color_key": "modern",
     "category": "event",
     "hint": null,
-    "description": "陸奥宗光外相の時、日清戦争直前に実現"
+    "description": "陸奥宗光外相の時、日清戦争直前に実現",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_214",
@@ -2565,7 +2778,8 @@
     "era_color_key": "modern",
     "category": "event",
     "hint": null,
-    "description": "朝鮮支配をめぐり清と開戦し、下関条約で台湾を割譲"
+    "description": "朝鮮支配をめぐり清と開戦し、下関条約で台湾を割譲",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_215",
@@ -2577,7 +2791,8 @@
     "era_color_key": "modern",
     "category": "war",
     "hint": "ロシアに対抗するためイギリスと結んだ軍事同盟",
-    "description": "南下政策を進めるロシアを警戒し、日本の自衛とイギリスのアジア権益を守るため結成。"
+    "description": "南下政策を進めるロシアを警戒し、日本の自衛とイギリスのアジア権益を守るため結成。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_216",
@@ -2589,7 +2804,8 @@
     "era_color_key": "modern",
     "category": "event",
     "hint": null,
-    "description": "満洲と韓国をめぐりロシアと開戦、ポーツマス条約を結ぶ"
+    "description": "満洲と韓国をめぐりロシアと開戦、ポーツマス条約を結ぶ",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_217",
@@ -2601,7 +2817,8 @@
     "era_color_key": "modern",
     "category": "war",
     "hint": "日本が韓国を完全に植民地化した出来事",
-    "description": "軍事力を背景に韓国併合条約を結び、大韓帝国を日本の領土に編入した。"
+    "description": "軍事力を背景に韓国併合条約を結び、大韓帝国を日本の領土に編入した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_218",
@@ -2613,7 +2830,8 @@
     "era_color_key": "modern",
     "category": "event",
     "hint": null,
-    "description": "小村寿太郎外相の時、不平等条約の改正が完了"
+    "description": "小村寿太郎外相の時、不平等条約の改正が完了",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_219",
@@ -2625,7 +2843,8 @@
     "era_color_key": "modern",
     "category": null,
     "hint": null,
-    "description": "第一次世界大戦に参戦し経済が飛躍的に発展する"
+    "description": "第一次世界大戦に参戦し経済が飛躍的に発展する",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_220",
@@ -2637,7 +2856,8 @@
     "era_color_key": "modern",
     "category": null,
     "hint": null,
-    "description": "民衆運動が高まり本格的な政党内閣が誕生する"
+    "description": "民衆運動が高まり本格的な政党内閣が誕生する",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_221",
@@ -2649,7 +2869,8 @@
     "era_color_key": "modern",
     "category": null,
     "hint": null,
-    "description": "普通選挙法が成立する一方で治安維持法で思想統制が始まる"
+    "description": "普通選挙法が成立する一方で治安維持法で思想統制が始まる",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_222",
@@ -2661,7 +2882,8 @@
     "era_color_key": "contemporary",
     "category": null,
     "hint": null,
-    "description": "世界恐慌のあおりを受け、深刻な昭和恐慌に陥る"
+    "description": "世界恐慌のあおりを受け、深刻な昭和恐慌に陥る",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_223",
@@ -2673,7 +2895,8 @@
     "era_color_key": "contemporary",
     "category": null,
     "hint": null,
-    "description": "軍部の暴走により満州事変が勃発し、国際的孤立を深める"
+    "description": "軍部の暴走により満州事変が勃発し、国際的孤立を深める",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_224",
@@ -2685,7 +2908,8 @@
     "era_color_key": "contemporary",
     "category": null,
     "hint": null,
-    "description": "太平洋戦争が開戦し、泥沼の総力戦となる"
+    "description": "太平洋戦争が開戦し、泥沼の総力戦となる",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_225",
@@ -2697,7 +2921,8 @@
     "era_color_key": "modern",
     "category": "event",
     "hint": null,
-    "description": "日本は日英同盟を理由に参戦し、中国・太平洋へ進出"
+    "description": "日本は日英同盟を理由に参戦し、中国・太平洋へ進出",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_226",
@@ -2709,7 +2934,8 @@
     "era_color_key": "modern",
     "category": "event",
     "hint": null,
-    "description": "中国に対し満蒙の権益拡大などを迫る"
+    "description": "中国に対し満蒙の権益拡大などを迫る",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_227",
@@ -2721,7 +2947,8 @@
     "era_color_key": "modern",
     "category": "event",
     "hint": "米の値段が急激に上がったために起きた全国的な暴動",
-    "description": "シベリア出兵を見越した米の買い占めなどに反発し、富山県の主婦らの運動が全国に波及した。"
+    "description": "シベリア出兵を見越した米の買い占めなどに反発し、富山県の主婦らの運動が全国に波及した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_228",
@@ -2733,7 +2960,8 @@
     "era_color_key": "modern",
     "category": "law",
     "hint": "原敬が総理大臣となり、政党政治が始まった出来事",
-    "description": "立憲政友会総裁の原敬によって、陸海軍などの大臣以外は政党員からなる内閣が組閣された。"
+    "description": "立憲政友会総裁の原敬によって、陸海軍などの大臣以外は政党員からなる内閣が組閣された。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_229",
@@ -2745,7 +2973,8 @@
     "era_color_key": "modern",
     "category": "law",
     "hint": "満25歳以上の全ての男子に選挙権が与えられた法律",
-    "description": "納税額による制限をなくし、満25歳以上の全ての男子に選挙権を与えた。"
+    "description": "納税額による制限をなくし、満25歳以上の全ての男子に選挙権を与えた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_230",
@@ -2757,7 +2986,8 @@
     "era_color_key": "modern",
     "category": "law",
     "hint": "社会主義などの運動を厳しく取り締まるための法律",
-    "description": "国体（天皇制）の変革や私有財産制度の否認を目的とする結社を取り締まる法律。"
+    "description": "国体（天皇制）の変革や私有財産制度の否認を目的とする結社を取り締まる法律。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_231",
@@ -2769,7 +2999,8 @@
     "era_color_key": "modern",
     "category": "event",
     "hint": "大正時代に関東地方を襲った巨大な地震",
-    "description": "東京や横浜を中心に甚大な被害をもたらし、混乱の中で流言飛語による事件も起きた。"
+    "description": "東京や横浜を中心に甚大な被害をもたらし、混乱の中で流言飛語による事件も起きた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_232",
@@ -2781,7 +3012,8 @@
     "era_color_key": "contemporary",
     "category": "economy",
     "hint": "アメリカから始まった深刻な不景気が世界中に広まった出来事",
-    "description": "ニューヨークの株価大暴落に端を発した恐慌が日本にも波及し、深刻な昭和恐慌を引き起こした。"
+    "description": "ニューヨークの株価大暴落に端を発した恐慌が日本にも波及し、深刻な昭和恐慌を引き起こした。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_233",
@@ -2793,7 +3025,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": "海軍の青年将校が首相を暗殺した事件",
-    "description": "海軍の急進派青年将校らが首相官邸などを襲撃し、政党内閣の時代が終わりを迎えた。"
+    "description": "海軍の急進派青年将校らが首相官邸などを襲撃し、政党内閣の時代が終わりを迎えた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_234",
@@ -2805,7 +3038,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": null,
-    "description": "満州国の不承認に対し、松岡洋右全権が退場"
+    "description": "満州国の不承認に対し、松岡洋右全権が退場",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_235",
@@ -2817,7 +3051,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": "陸軍の青年将校が首都の中心部を占拠したクーデター未遂事件",
-    "description": "陸軍の皇道派青年将校らが政府首脳を暗殺・襲撃し、軍部の政治介入がさらに強まった。"
+    "description": "陸軍の皇道派青年将校らが政府首脳を暗殺・襲撃し、軍部の政治介入がさらに強まった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_236",
@@ -2829,7 +3064,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": null,
-    "description": "柳条湖事件を機に、関東軍が満州を占領する"
+    "description": "柳条湖事件を機に、関東軍が満州を占領する",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_237",
@@ -2841,7 +3077,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": null,
-    "description": "盧溝橋事件を皮切りに全面戦争へ突入"
+    "description": "盧溝橋事件を皮切りに全面戦争へ突入",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_238",
@@ -2853,7 +3090,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": null,
-    "description": "議会の承認なしに物資や労働力を動員可能にする"
+    "description": "議会の承認なしに物資や労働力を動員可能にする",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_239",
@@ -2865,7 +3103,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": null,
-    "description": "ファシズム国家と結び、米英と対立を深める"
+    "description": "ファシズム国家と結び、米英と対立を深める",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_240",
@@ -2877,7 +3116,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": null,
-    "description": "ハワイの米軍基地を奇襲し、米英に宣戦布告"
+    "description": "ハワイの米軍基地を奇襲し、米英に宣戦布告",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_241",
@@ -2889,7 +3129,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": null,
-    "description": "原爆投下とソ連参戦を経て、無条件降伏を受け入れる"
+    "description": "原爆投下とソ連参戦を経て、無条件降伏を受け入れる",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_242",
@@ -2901,7 +3142,8 @@
     "era_color_key": "contemporary",
     "category": null,
     "hint": null,
-    "description": "GHQの占領下で民主化政策と日本国憲法が制定される"
+    "description": "GHQの占領下で民主化政策と日本国憲法が制定される",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_243",
@@ -2913,7 +3155,8 @@
     "era_color_key": "contemporary",
     "category": null,
     "hint": null,
-    "description": "サンフランシスコ平和条約で独立を回復する"
+    "description": "サンフランシスコ平和条約で独立を回復する",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_244",
@@ -2925,7 +3168,8 @@
     "era_color_key": "contemporary",
     "category": null,
     "hint": null,
-    "description": "自民党と社会党による55年体制が成立し安定する"
+    "description": "自民党と社会党による55年体制が成立し安定する",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_245",
@@ -2937,7 +3181,8 @@
     "era_color_key": "contemporary",
     "category": null,
     "hint": null,
-    "description": "高度経済成長が本格化し国民生活が豊かになる"
+    "description": "高度経済成長が本格化し国民生活が豊かになる",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_246",
@@ -2949,7 +3194,8 @@
     "era_color_key": "contemporary",
     "category": null,
     "hint": null,
-    "description": "冷戦終結とバブル崩壊を経て、長期的な経済停滞に入る"
+    "description": "冷戦終結とバブル崩壊を経て、長期的な経済停滞に入る",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_247",
@@ -2961,7 +3207,8 @@
     "era_color_key": "contemporary",
     "category": null,
     "hint": null,
-    "description": "東日本大震災など未曾有の災害に直面し社会が変容する"
+    "description": "東日本大震災など未曾有の災害に直面し社会が変容する",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_248",
@@ -2973,7 +3220,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": null,
-    "description": "ダグラス・マッカーサーを最高司令官として非軍事化・民主化を進める"
+    "description": "ダグラス・マッカーサーを最高司令官として非軍事化・民主化を進める",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_249",
@@ -2985,7 +3233,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": null,
-    "description": "地主の土地を買い上げ、小作農に安く売り渡す"
+    "description": "地主の土地を買い上げ、小作農に安く売り渡す",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_250",
@@ -2997,7 +3246,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": null,
-    "description": "国民主権・基本的人権の尊重・平和主義を定める"
+    "description": "国民主権・基本的人権の尊重・平和主義を定める",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_251",
@@ -3009,7 +3259,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": null,
-    "description": "民主的な教育の目的と方針を定める"
+    "description": "民主的な教育の目的と方針を定める",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_252",
@@ -3021,7 +3272,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": null,
-    "description": "朝鮮戦争を機に発足。後の自衛隊"
+    "description": "朝鮮戦争を機に発足。後の自衛隊",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_253",
@@ -3033,7 +3285,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": null,
-    "description": "48カ国と調印し、日本の主権回復が決定"
+    "description": "48カ国と調印し、日本の主権回復が決定",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_254",
@@ -3045,7 +3298,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": null,
-    "description": "日本に米軍が引き続き駐留することを認める"
+    "description": "日本に米軍が引き続き駐留することを認める",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_255",
@@ -3057,7 +3311,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": null,
-    "description": "自由民主党が結党され、長きにわたる保守政権が始まる"
+    "description": "自由民主党が結党され、長きにわたる保守政権が始まる",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_256",
@@ -3069,7 +3324,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": null,
-    "description": "ソ連との国交を回復し、同年国際連盟（正しくは国際連合）に加盟"
+    "description": "ソ連との国交を回復し、同年国際連盟（正しくは国際連合）に加盟",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_257",
@@ -3081,7 +3337,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": null,
-    "description": "日米安保条約の改定に対し大規模な反対運動が起きる"
+    "description": "日米安保条約の改定に対し大規模な反対運動が起きる",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_258",
@@ -3093,7 +3350,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": null,
-    "description": "東海道新幹線も開業し、先進国の仲間入りを象徴"
+    "description": "東海道新幹線も開業し、先進国の仲間入りを象徴",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_259",
@@ -3105,7 +3363,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": null,
-    "description": "大韓民国との国交を正常化"
+    "description": "大韓民国との国交を正常化",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_260",
@@ -3117,7 +3376,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": null,
-    "description": "アメリカの施政下から復帰を果たす"
+    "description": "アメリカの施政下から復帰を果たす",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_261",
@@ -3129,7 +3389,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": null,
-    "description": "中華人民共和国との国交正常化"
+    "description": "中華人民共和国との国交正常化",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_262",
@@ -3141,7 +3402,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": null,
-    "description": "狂乱物価を招き、高度経済成長が終焉"
+    "description": "狂乱物価を招き、高度経済成長が終焉",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_263",
@@ -3153,7 +3415,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": null,
-    "description": "株価と地価が暴落し、「失われた20年」が始まる"
+    "description": "株価と地価が暴落し、「失われた20年」が始まる",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_264",
@@ -3165,7 +3428,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": null,
-    "description": "氷河期と打製石器"
+    "description": "氷河期と打製石器",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_265",
@@ -3177,7 +3441,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": null,
-    "description": "巨大古墳とヤマト王権"
+    "description": "巨大古墳とヤマト王権",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_266",
@@ -3189,7 +3454,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": null,
-    "description": "聖徳太子と大化の改新"
+    "description": "聖徳太子と大化の改新",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_267",
@@ -3201,7 +3467,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": null,
-    "description": "平城京と天平文化"
+    "description": "平城京と天平文化",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_268",
@@ -3213,7 +3480,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": null,
-    "description": "摂関政治と国風文化"
+    "description": "摂関政治と国風文化",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_269",
@@ -3225,7 +3493,8 @@
     "era_color_key": "medieval",
     "category": "event",
     "hint": null,
-    "description": "頼朝と御家人の幕府"
+    "description": "頼朝と御家人の幕府",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_270",
@@ -3237,7 +3506,8 @@
     "era_color_key": "medieval",
     "category": "event",
     "hint": null,
-    "description": "足利将軍家と下剋上"
+    "description": "足利将軍家と下剋上",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_271",
@@ -3249,7 +3519,8 @@
     "era_color_key": "early_modern",
     "category": "event",
     "hint": null,
-    "description": "鎖国と泰平の260年"
+    "description": "鎖国と泰平の260年",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_272",
@@ -3261,7 +3532,8 @@
     "era_color_key": "modern",
     "category": "event",
     "hint": null,
-    "description": "文明開化と富国強兵"
+    "description": "文明開化と富国強兵",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_273",
@@ -3273,7 +3545,8 @@
     "era_color_key": "modern",
     "category": "event",
     "hint": null,
-    "description": "デモクラシーの祭典"
+    "description": "デモクラシーの祭典",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_274",
@@ -3285,7 +3558,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": null,
-    "description": "戦争と復興、高度成長"
+    "description": "戦争と復興、高度成長",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_275",
@@ -3297,7 +3571,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": null,
-    "description": "バブル崩壊とデジタル化"
+    "description": "バブル崩壊とデジタル化",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_276",
@@ -3309,7 +3584,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": null,
-    "description": "大化の改新で示された、土地と人民は天皇のものとする原則"
+    "description": "大化の改新で示された、土地と人民は天皇のものとする原則",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_277",
@@ -3321,7 +3597,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": null,
-    "description": "戸籍に基づき区分田を与え、死後に返還させる"
+    "description": "戸籍に基づき区分田を与え、死後に返還させる",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_278",
@@ -3333,7 +3610,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": null,
-    "description": "新たに開墾した土地の永久私有を認める"
+    "description": "新たに開墾した土地の永久私有を認める",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_279",
@@ -3345,7 +3623,8 @@
     "era_color_key": "medieval",
     "category": "event",
     "hint": null,
-    "description": "源頼朝が諸国の荘園や公領に地頭を置き支配強化"
+    "description": "源頼朝が諸国の荘園や公領に地頭を置き支配強化",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_280",
@@ -3357,7 +3636,8 @@
     "era_color_key": "medieval",
     "category": "event",
     "hint": null,
-    "description": "豊臣秀吉の一地一作人の原則による検地"
+    "description": "豊臣秀吉の一地一作人の原則による検地",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_281",
@@ -3369,7 +3649,8 @@
     "era_color_key": "modern",
     "category": "event",
     "hint": null,
-    "description": "地価の3%を現金で納税させる"
+    "description": "地価の3%を現金で納税させる",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_282",
@@ -3381,7 +3662,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": null,
-    "description": "自作農を創設するための戦後の改革"
+    "description": "自作農を創設するための戦後の改革",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_283",
@@ -3393,7 +3675,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": null,
-    "description": "奴国の王が後漢に使いを送る"
+    "description": "奴国の王が後漢に使いを送る",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_284",
@@ -3405,7 +3688,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": null,
-    "description": "邪馬台国の卑弥呼が魏に使いを送る"
+    "description": "邪馬台国の卑弥呼が魏に使いを送る",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_285",
@@ -3417,7 +3701,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": null,
-    "description": "対等な外交を求めて小野妹子を派遣"
+    "description": "対等な外交を求めて小野妹子を派遣",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_286",
@@ -3429,7 +3714,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": null,
-    "description": "唐の進んだ制度や文化を吸収するため派遣開始"
+    "description": "唐の進んだ制度や文化を吸収するため派遣開始",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_287",
@@ -3441,7 +3727,8 @@
     "era_color_key": "medieval",
     "category": "event",
     "hint": null,
-    "description": "室町幕府が倭寇の取り締まりを条件に明と朝貢貿易"
+    "description": "室町幕府が倭寇の取り締まりを条件に明と朝貢貿易",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_288",
@@ -3453,7 +3740,8 @@
     "era_color_key": "modern",
     "category": "event",
     "hint": null,
-    "description": "朝鮮半島をめぐり清と開戦"
+    "description": "朝鮮半島をめぐり清と開戦",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_289",
@@ -3465,7 +3753,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": null,
-    "description": "田中角栄首相と周恩来が署名し、日本と中華人民共和国の国交を正常化した"
+    "description": "田中角栄首相と周恩来が署名し、日本と中華人民共和国の国交を正常化した",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_290",
@@ -3477,7 +3766,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": null,
-    "description": "元明天皇による奈良への遷都"
+    "description": "元明天皇による奈良への遷都",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_291",
@@ -3489,7 +3779,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "event",
     "hint": null,
-    "description": "桓武天皇による京都への遷都"
+    "description": "桓武天皇による京都への遷都",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_292",
@@ -3501,7 +3792,8 @@
     "era_color_key": "medieval",
     "category": "event",
     "hint": null,
-    "description": "源頼朝による関東での武家政権"
+    "description": "源頼朝による関東での武家政権",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_293",
@@ -3513,7 +3805,8 @@
     "era_color_key": "medieval",
     "category": "event",
     "hint": null,
-    "description": "足利尊氏による京都での武家政権"
+    "description": "足利尊氏による京都での武家政権",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_294",
@@ -3525,7 +3818,8 @@
     "era_color_key": "early_modern",
     "category": "event",
     "hint": null,
-    "description": "織田信長が近江国安土に天下統一の拠点となる城を築き、新たな政治の中心地を確立した"
+    "description": "織田信長が近江国安土に天下統一の拠点となる城を築き、新たな政治の中心地を確立した",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_295",
@@ -3537,7 +3831,8 @@
     "era_color_key": "modern",
     "category": "event",
     "hint": null,
-    "description": "明治天皇が江戸城に入り東京と改称"
+    "description": "明治天皇が江戸城に入り東京と改称",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_choju_giga",
@@ -3549,7 +3844,8 @@
     "era_color_key": "prehistoric_ancient",
     "category": "culture",
     "hint": "高山寺・擬人化された動物・絵巻物",
-    "description": "動物を擬人化して描いた風刺的な絵巻物が制作され、後世まで日本の戯画文化に大きな影響を残した。"
+    "description": "動物を擬人化して描いた風刺的な絵巻物が制作され、後世まで日本の戯画文化に大きな影響を残した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_heike_monogatari",
@@ -3561,7 +3857,8 @@
     "era_color_key": "medieval",
     "category": "culture",
     "hint": "琵琶法師・諸行無常・武家の興亡",
-    "description": "栄華を極めた一族の没落を、無常観をにじませた語り物として描いた軍記物語が成立した。"
+    "description": "栄華を極めた一族の没落を、無常観をにじませた語り物として描いた軍記物語が成立した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_basho_oku",
@@ -3573,7 +3870,8 @@
     "era_color_key": "early_modern",
     "category": "culture",
     "hint": "俳諧・東北行脚・蕉風",
-    "description": "東北・北陸を巡る紀行を題材にした俳諧紀行文がまとめられ、自然と人生を凝縮した文学が確立された。"
+    "description": "東北・北陸を巡る紀行を題材にした俳諧紀行文がまとめられ、自然と人生を凝縮した文学が確立された。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_sesshu_ink",
@@ -3585,7 +3883,8 @@
     "era_color_key": "medieval",
     "category": "culture",
     "hint": "禅僧・明への留学・破墨山水",
-    "description": "明に渡って学んだ画僧が独自の水墨表現を確立し、日本の山水画を高い境地へ引き上げた。"
+    "description": "明に渡って学んだ画僧が独自の水墨表現を確立し、日本の山水画を高い境地へ引き上げた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_korin_rinpa",
@@ -3597,7 +3896,8 @@
     "era_color_key": "early_modern",
     "category": "culture",
     "hint": "京都・燕子花図屏風・装飾画",
-    "description": "大胆な構図と豊かな装飾で知られる絵画様式が大成され、後世まで続く流派の頂点が築かれた。"
+    "description": "大胆な構図と豊かな装飾で知られる絵画様式が大成され、後世まで続く流派の頂点が築かれた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_hokusai_fugaku",
@@ -3609,7 +3909,8 @@
     "era_color_key": "early_modern",
     "category": "culture",
     "hint": "葛飾北斎・浮世絵風景画・神奈川沖浪裏",
-    "description": "霊峰を多様な視点から描いた連作浮世絵が刊行され、風景版画の傑作として国内外に大きな影響を与えた。"
+    "description": "霊峰を多様な視点から描いた連作浮世絵が刊行され、風景版画の傑作として国内外に大きな影響を与えた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_soseki_wagahai",
@@ -3621,7 +3922,8 @@
     "era_color_key": "modern",
     "category": "culture",
     "hint": "夏目漱石・近代文学・ホトトギス",
-    "description": "猫の視点から人間社会を風刺する小説の連載が始まり、日本の近代小説の本格的な幕開けとなった。"
+    "description": "猫の視点から人間社会を風刺する小説の連載が始まり、日本の近代小説の本格的な幕開けとなった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_jp_taiho_code",
@@ -3633,6 +3935,7 @@
     "era_color_key": "prehistoric_ancient",
     "category": "law",
     "hint": "唐の律令を範・刑部親王・藤原不比等",
-    "description": "唐の制度を範とした体系的な律令法典が編まれ、中央集権的な国家統治の基礎が整えられた。"
+    "description": "唐の制度を範とした体系的な律令法典が編まれ、中央集権的な国家統治の基礎が整えられた。",
+    "status": "ai_generated"
   }
 ]

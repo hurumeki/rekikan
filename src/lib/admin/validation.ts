@@ -241,6 +241,52 @@ function validateQuiz(quiz: Quiz, cards: Card[]): ValidationError[] {
     }
   }
 
+  // card_ids は正解順序そのものなので、年代の昇順になっていなければ
+  // 「正解に到達できないクイズ」になる。
+  const orderedCards = quiz.card_ids
+    .map((id) => cardMap.get(id))
+    .filter((c): c is Card => c !== undefined);
+  for (let i = 1; i < orderedCards.length; i++) {
+    const prev = orderedCards[i - 1]!;
+    const curr = orderedCards[i]!;
+    if (curr.year < prev.year) {
+      errors.push({
+        level: 'error',
+        entity: 'quiz',
+        id: quiz.id,
+        field: 'card_ids',
+        message: `カードが年代順に並んでいません（"${prev.id}"(${prev.year}) の後に "${curr.id}"(${curr.year})）`,
+      });
+    }
+  }
+
+  // 同じ年のカードが同居すると、どちらを先に置いても歴史的には正しい。
+  // 判定側は同年を同値として扱うが、出題意図が曖昧になるため作成時に知らせる。
+  for (let i = 1; i < orderedCards.length; i++) {
+    const prev = orderedCards[i - 1]!;
+    const curr = orderedCards[i]!;
+    if (curr.year === prev.year) {
+      errors.push({
+        level: 'warning',
+        entity: 'quiz',
+        id: quiz.id,
+        field: 'card_ids',
+        message: `同じ年のカードが含まれています（"${prev.id}" と "${curr.id}" がともに ${prev.year} 年）`,
+      });
+    }
+  }
+
+  // Duplicate cards
+  if (new Set(quiz.card_ids).size !== quiz.card_ids.length) {
+    errors.push({
+      level: 'error',
+      entity: 'quiz',
+      id: quiz.id,
+      field: 'card_ids',
+      message: '同じカードが重複して含まれています',
+    });
+  }
+
   // Card count
   if (quiz.card_ids.length < 5) {
     errors.push({
@@ -363,6 +409,48 @@ function validateNode(node: Node, nodes: Node[], quizzes: Quiz[]): ValidationErr
   }
 
   return errors;
+}
+
+export interface ValidatableDataset {
+  regions: Region[];
+  cards: Card[];
+  quizzes: Quiz[];
+  nodes: Node[];
+  categories: CategoryDef[];
+}
+
+/**
+ * データセット全体（エディタの状態、または src/data の同梱コンテンツ）に
+ * カード・クイズ・ノードの全ルールを適用する。
+ * エディタのレビュー画面と CI のデータ検証で同じルールを共有するための入口。
+ */
+export function validateDataset(dataset: ValidatableDataset): ValidationReport {
+  const all: ValidationError[] = [];
+
+  for (const card of dataset.cards) {
+    all.push(...validateCard(card, dataset));
+  }
+  for (const quiz of dataset.quizzes) {
+    all.push(...validateQuiz(quiz, dataset.cards));
+  }
+  for (const node of dataset.nodes) {
+    all.push(...validateNode(node, dataset.nodes, dataset.quizzes));
+  }
+
+  const circularNodeIds = detectCircularRefs(dataset.nodes);
+  for (const id of circularNodeIds) {
+    all.push({
+      level: 'error',
+      entity: 'node',
+      id,
+      field: 'parent_id',
+      message: `ノード "${id}" の親子関係に循環があります`,
+    });
+  }
+
+  const errors = all.filter((e) => e.level === 'error');
+  const warnings = all.filter((e) => e.level === 'warning');
+  return { errors, warnings, valid: errors.length === 0 };
 }
 
 function isPlainObject(v: unknown): v is Record<string, unknown> {

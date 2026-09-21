@@ -21,7 +21,13 @@ export default defineConfig({
   },
   projects: [
     {
+      // ブラウザ不要のデータ検証。CI でコンテンツの整合性を守る。
+      name: 'data',
+      testDir: './tests',
+    },
+    {
       name: 'mobile',
+      testDir: './e2e',
       use: {
         browserName: 'chromium',
         viewport: { width: 393, height: 852 },
@@ -33,10 +39,14 @@ export default defineConfig({
       },
     },
   ],
-  webServer: {
-    command: 'npm run dev',
-    url: 'http://localhost:3000',
-    reuseExistingServer: true,
-    timeout: 30000,
-  },
+  // データ検証プロジェクトはブラウザもサーバーも使わないので、
+  // PW_NO_SERVER=1 のときは dev サーバーを起動しない。
+  webServer: process.env.PW_NO_SERVER
+    ? undefined
+    : {
+        command: 'npm run dev',
+        url: 'http://localhost:3000',
+        reuseExistingServer: true,
+        timeout: 30000,
+      },
 });

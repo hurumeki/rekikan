@@ -113,7 +113,12 @@
     "quiz_ids": ["quiz_southasia_all_eras_term"],
     "unlock_condition": {
       "type": "complete_node",
-      "node_ids": ["node_southasia_ancient", "node_southasia_medieval", "node_southasia_mughal", "node_southasia_modern"]
+      "node_ids": [
+        "node_southasia_ancient",
+        "node_southasia_medieval",
+        "node_southasia_mughal",
+        "node_southasia_modern"
+      ]
     }
   }
 ]
