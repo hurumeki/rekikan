@@ -80,7 +80,7 @@ function HomeContent() {
               </span>
             </button>
           )}
-          <RegionSelector regions={regions} onSelect={handleSelectRegion} />
+          <RegionSelector regions={regions} onSelect={handleSelectRegion} progress={progress} />
         </>
       )}
     </div>

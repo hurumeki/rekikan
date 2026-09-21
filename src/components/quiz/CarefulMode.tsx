@@ -141,7 +141,45 @@ export default function CarefulMode({
 
   return (
     <div className={styles.container}>
-      {!isComplete && <div className={styles.prompt}>この中で1番古いのはどれ？</div>}
+      {confirmedCards.length > 0 && (
+        <div className={styles.confirmedArea}>
+          <div className={styles.confirmedLabel}>古い順に確定したカード</div>
+          {confirmedCards.map((card, i) => (
+            <div
+              key={card.id}
+              ref={(el) => {
+                if (el) confirmedCardRefs.current.set(card.id, el);
+                else confirmedCardRefs.current.delete(card.id);
+              }}
+              className={styles.confirmedRow}
+            >
+              <span className={styles.confirmedIndex} aria-hidden="true">
+                {i + 1}
+              </span>
+              <div className={styles.confirmedCard}>
+                <Card
+                  card={card}
+                  state="correct"
+                  eraColor={eraColors[card.era_color_key] ?? '#888'}
+                  showYear
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {!isComplete && (
+        <div className={styles.promptArea}>
+          <div className={styles.prompt}>この中で1番古いのはどれ？</div>
+          <div className={styles.remainingCount}>のこり{remainingCards.length}枚</div>
+          {wrongCardId && (
+            <div className={styles.wrongHint} role="status">
+              もっと古いカードがあるよ
+            </div>
+          )}
+        </div>
+      )}
 
       {remainingCards.length > 0 && (
         <div className={styles.remainingArea}>
@@ -160,28 +198,6 @@ export default function CarefulMode({
                 eraColor={eraColors[card.era_color_key] ?? '#888'}
                 showHint={hintEnabled}
                 onClick={cardClickHandlers.get(card.id)}
-              />
-            </div>
-          ))}
-        </div>
-      )}
-
-      {confirmedCards.length > 0 && (
-        <div className={styles.confirmedArea}>
-          {confirmedCards.map((card) => (
-            <div
-              key={card.id}
-              ref={(el) => {
-                if (el) confirmedCardRefs.current.set(card.id, el);
-                else confirmedCardRefs.current.delete(card.id);
-              }}
-            >
-              <Card
-                card={card}
-                state="correct"
-                eraColor={eraColors[card.era_color_key] ?? '#888'}
-                showYear
-                showDescription
               />
             </div>
           ))}

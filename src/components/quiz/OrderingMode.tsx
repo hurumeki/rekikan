@@ -60,6 +60,16 @@ export default function OrderingMode({
 
   const remaining = shuffledCards.length - selectionOrder.length;
 
+  const cardById = useMemo(() => new Map(shuffledCards.map((c) => [c.id, c])), [shuffledCards]);
+
+  /** チップに出す短い見出し */
+  const shortLabel = (cardId: string): string => {
+    const card = cardById.get(cardId);
+    if (!card) return '';
+    const text = card.type === 'term' ? (card.name ?? '') : card.description;
+    return text.length > 12 ? `${text.slice(0, 12)}…` : text;
+  };
+
   useEffect(() => {
     if (isConfirmed && results) {
       onComplete(results, score, total);
@@ -73,6 +83,29 @@ export default function OrderingMode({
       {isConfirmed && results && (
         <div className={styles.resultInfo}>
           {score} / {total} 正解
+        </div>
+      )}
+
+      {/* 選んだ順を 1 か所にまとめて見せる。番号バッジだけだと
+          途中を直したいときに全体の並びが読み取りにくい */}
+      {!isConfirmed && selectionOrder.length > 0 && (
+        <div className={styles.tray} data-testid="selection-tray">
+          <span className={styles.trayLabel}>選んだ順</span>
+          <div className={styles.trayItems}>
+            {selectionOrder.map((cardId, i) => (
+              <button
+                key={cardId}
+                type="button"
+                className={styles.trayItem}
+                onClick={() => toggleSelect(cardId)}
+                aria-label={`${i + 1}番目 ${shortLabel(cardId)} を取り消す`}
+              >
+                <span className={styles.trayIndex}>{i + 1}</span>
+                <span className={styles.trayText}>{shortLabel(cardId)}</span>
+                <span aria-hidden="true">×</span>
+              </button>
+            ))}
+          </div>
         </div>
       )}
 

@@ -22,6 +22,52 @@
   padding: 4px 0;
 }
 
+.tray {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.trayLabel {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.trayItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.trayItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--state-selected-border);
+  background: var(--state-selected-bg);
+  font-size: 0.75rem;
+  color: var(--foreground);
+  max-width: 100%;
+}
+
+.trayIndex {
+  font-weight: 700;
+  color: var(--state-selected-border);
+}
+
+.trayText {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .cardList {
   display: flex;
   flex-direction: column;

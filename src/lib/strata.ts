@@ -56,14 +56,26 @@ function writeSeen(seen: Record<string, string[]>): void {
  *
  * 初回訪問（記録がまったくない）は演出なし。最初から解放されている
  * ノードまで一斉に光ってしまうため。
+ *
+ * 記録は和集合で更新する。進捗は localStorage から後追いで読み込まれるため、
+ * ハイドレーション直後には「まだ何も解放されていない」状態で一度呼ばれる。
+ * 上書きにすると、その呼び出しが記録を巻き戻して演出が毎回出てしまう。
  */
 export function takeNewlyUnlockedNodeIds(regionId: string, unlockedIds: string[]): string[] {
   const seen = readSeen();
   const previous = seen[regionId];
-  seen[regionId] = [...unlockedIds];
-  writeSeen(seen);
 
-  if (!previous) return [];
+  if (!previous) {
+    seen[regionId] = [...unlockedIds];
+    writeSeen(seen);
+    return [];
+  }
+
   const previousSet = new Set(previous);
-  return unlockedIds.filter((id) => !previousSet.has(id));
+  const newlyUnlocked = unlockedIds.filter((id) => !previousSet.has(id));
+  if (newlyUnlocked.length > 0) {
+    seen[regionId] = [...previous, ...newlyUnlocked];
+    writeSeen(seen);
+  }
+  return newlyUnlocked;
 }
