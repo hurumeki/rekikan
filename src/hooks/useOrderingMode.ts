@@ -4,7 +4,7 @@ import { useState, useCallback, useMemo } from 'react';
 import type { Card, CardResult, CardState } from '@/lib/types';
 import { shuffleArray, checkAnswers, createYearLookup } from '@/lib/quiz-engine';
 
-interface ChallengeModeState {
+interface OrderingModeState {
   cards: Card[];
   selectionOrder: string[]; // card IDs in user-selected order
   isConfirmed: boolean;
@@ -13,8 +13,12 @@ interface ChallengeModeState {
   total: number;
 }
 
-export function useChallengeMode(cards: Card[], correctOrder: string[]) {
-  const [state, setState] = useState<ChallengeModeState>(() => ({
+/**
+ * 「全部並べてから一括判定」する並べ替えモード共通のフック。
+ * チャレンジモードと同時代モードで共有する（違いは地域バッジの有無だけ）。
+ */
+export function useOrderingMode(cards: Card[], correctOrder: string[]) {
+  const [state, setState] = useState<OrderingModeState>(() => ({
     cards: shuffleArray(cards),
     selectionOrder: [],
     isConfirmed: false,

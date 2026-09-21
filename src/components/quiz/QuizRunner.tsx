@@ -5,10 +5,9 @@ import type { Card, CardResult, EraColor, GameMode, Quiz, QuizProgress } from '@
 import { getRegion, getRegions } from '@/lib/data-loader';
 import ModeSelector from '@/components/quiz/ModeSelector';
 import CarefulMode from '@/components/quiz/CarefulMode';
-import ChallengeMode from '@/components/quiz/ChallengeMode';
+import OrderingMode from '@/components/quiz/OrderingMode';
 import EraBandQuiz from '@/components/quiz/EraBandQuiz';
 import TimelinePlacementQuiz from '@/components/quiz/TimelinePlacementQuiz';
-import CrossRegionQuiz from '@/components/quiz/CrossRegionQuiz';
 import HintToggle from '@/components/quiz/HintToggle';
 import ResultScreen from '@/components/result/ResultScreen';
 import styles from './QuizRunner.module.css';
@@ -184,7 +183,7 @@ export default function QuizRunner({
             <HintToggle enabled={hintEnabled} onToggle={handleToggleHint} />
           </div>
           {selectedMode === 'careful' && <CarefulMode key={playCount} {...commonProps} />}
-          {selectedMode === 'challenge' && <ChallengeMode key={playCount} {...commonProps} />}
+          {selectedMode === 'challenge' && <OrderingMode key={playCount} {...commonProps} />}
           {selectedMode === 'era_band' && (
             <EraBandQuiz key={playCount} {...commonProps} eraConfig={eraConfig} />
           )}
@@ -197,7 +196,7 @@ export default function QuizRunner({
             />
           )}
           {selectedMode === 'cross_region' && (
-            <CrossRegionQuiz key={playCount} {...commonProps} regions={allRegions} />
+            <OrderingMode key={playCount} {...commonProps} regions={allRegions} />
           )}
         </>
       )}

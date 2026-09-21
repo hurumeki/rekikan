@@ -98,7 +98,7 @@ test.describe('UI Review - Mobile', () => {
     }
 
     // Confirm
-    const confirmButton = page.getByRole('button', { name: 'この順番で確定する' });
+    const confirmButton = page.getByTestId('confirm-order');
     await expect(confirmButton).toBeEnabled({ timeout: 3000 });
     await confirmButton.click();
 

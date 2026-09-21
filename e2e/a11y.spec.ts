@@ -25,14 +25,15 @@ test.describe('アクセシビリティ', () => {
     await expect(cards.first()).toHaveAttribute('aria-pressed', 'false');
   });
 
-  test('確定ボタンは全カードを選ぶまで無効', async ({ page }) => {
+  test('確定ボタンは全カードを選ぶまで無効で、残り枚数を示す', async ({ page }) => {
     await page.goto('/');
     await page.getByText('日本史').click();
     await page.getByText('日本の歴史の大きな流れ').click();
     await page.getByText('チャレンジモード').click();
 
-    const confirm = page.getByRole('button', { name: 'この順番で確定する' });
+    const confirm = page.getByTestId('confirm-order');
     await expect(confirm).toBeDisabled();
+    await expect(confirm).toContainText('あと');
 
     const cards = page.getByTestId('quiz-card');
     const count = await cards.count();

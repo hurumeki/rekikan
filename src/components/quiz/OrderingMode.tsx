@@ -2,49 +2,63 @@
 
 import { useEffect, useMemo } from 'react';
 import type { Card as CardType, CardResult, Region } from '@/lib/types';
-import { useCrossRegionMode } from '@/hooks/useCrossRegionMode';
+import { useOrderingMode } from '@/hooks/useOrderingMode';
 import Card from '@/components/card/Card';
-import styles from './CrossRegionQuiz.module.css';
+import styles from './OrderingMode.module.css';
 
-interface CrossRegionQuizProps {
+interface OrderingModeProps {
   cards: CardType[];
   correctOrder: string[];
   eraColors: Record<string, string>;
   hintEnabled: boolean;
   onComplete: (results: CardResult[], score: number, total: number) => void;
-  regions: Region[];
+  /**
+   * 渡すと各カードに地域バッジを表示する（同時代モード）。
+   * 省略した場合は単一地域のチャレンジモードとして振る舞う。
+   */
+  regions?: Region[];
 }
 
-export default function CrossRegionQuiz({
+/**
+ * 全カードを並べてから一括判定するモード。
+ * チャレンジモードと同時代モードの実体で、違いは地域バッジの有無だけ。
+ */
+export default function OrderingMode({
   cards,
   correctOrder,
   eraColors,
   hintEnabled,
   onComplete,
   regions,
-}: CrossRegionQuizProps) {
+}: OrderingModeProps) {
   const {
     cards: shuffledCards,
     isConfirmed,
     results,
     score,
     total,
+    selectionOrder,
     allSelected,
     toggleSelect,
     confirm,
     getCardState,
     getSelectionNumber,
-  } = useCrossRegionMode(cards, correctOrder);
+  } = useOrderingMode(cards, correctOrder);
 
-  const regionMap = useMemo(() => new Map(regions.map((r) => [r.id, r])), [regions]);
+  const regionMap = useMemo(
+    () => (regions ? new Map(regions.map((r) => [r.id, r])) : null),
+    [regions],
+  );
 
   const cardClickHandlers = useMemo(
     () => new Map(shuffledCards.map((card) => [card.id, () => toggleSelect(card.id)])),
     [shuffledCards, toggleSelect],
   );
 
-  // Show region badge only with hint enabled (before answer) or always after confirmation
-  const showRegionBadge = hintEnabled || isConfirmed;
+  // 地域バッジはヒント ON か解答後のみ（普段は地域が手がかりになりすぎる）
+  const showRegionBadge = !!regionMap && (hintEnabled || isConfirmed);
+
+  const remaining = shuffledCards.length - selectionOrder.length;
 
   useEffect(() => {
     if (isConfirmed && results) {
@@ -64,19 +78,18 @@ export default function CrossRegionQuiz({
 
       <div className={styles.cardList}>
         {shuffledCards.map((card) => {
-          const cardState = getCardState(card.id);
-          const region = regionMap.get(card.region);
+          const region = regionMap?.get(card.region);
           return (
             <div key={card.id} className={styles.cardWrapper}>
               {region && showRegionBadge && (
                 <div className={styles.regionBadge} style={{ borderColor: region.color }}>
-                  <span>{region.emoji}</span>
+                  <span aria-hidden="true">{region.emoji}</span>
                   <span className={styles.regionLabel}>{region.label}</span>
                 </div>
               )}
               <Card
                 card={card}
-                state={cardState}
+                state={getCardState(card.id)}
                 eraColor={eraColors[card.era_color_key] ?? '#888'}
                 selectionNumber={getSelectionNumber(card.id)}
                 showHint={hintEnabled}
@@ -90,8 +103,13 @@ export default function CrossRegionQuiz({
       </div>
 
       {!isConfirmed && (
-        <button className={styles.confirmButton} disabled={!allSelected} onClick={confirm}>
-          この順番で確定する
+        <button
+          className={styles.confirmButton}
+          disabled={!allSelected}
+          onClick={confirm}
+          data-testid="confirm-order"
+        >
+          {allSelected ? 'この順番で確定する' : `あと${remaining}枚えらぶ`}
         </button>
       )}
     </div>

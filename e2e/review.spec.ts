@@ -48,7 +48,7 @@ test.describe('苦手カードの復習', () => {
     const cards = page.getByTestId('quiz-card');
     const count = await cards.count();
     for (let i = 0; i < count; i++) await cards.nth(i).click();
-    await page.getByRole('button', { name: 'この順番で確定する' }).click();
+    await page.getByTestId('confirm-order').click();
     await expect(page.getByRole('button', { name: 'もう一度' })).toBeVisible();
 
     const stats = await page.evaluate(() => localStorage.getItem('rekikan_card_stats'));
