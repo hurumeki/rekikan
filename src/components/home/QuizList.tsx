@@ -15,7 +15,8 @@ import {
   remainingLabel,
   type ProgressMap,
 } from '@/lib/unlock';
-import { stratumColor, takeNewlyUnlockedNodeIds } from '@/lib/strata';
+import { stratumColor } from '@/lib/strata';
+import { useNewlyUnlockedNodes } from '@/hooks/useNewlyUnlockedNodes';
 import NodeCoverImage from './NodeCoverImage';
 import styles from './QuizList.module.css';
 
@@ -76,11 +77,11 @@ export default function QuizList({ region, nodes, onSelectQuiz, onBack, progress
   const [lockedNode, setLockedNode] = useState<Node | null>(null);
 
   // 前回この地域を見たとき以降に解放されたノード（地層が開く演出を 1 度だけ出す）
-  const newlyUnlocked = useMemo(() => {
-    const unlocked = nodes.filter((n) => isNodeUnlockedDeep(n, progress)).map((n) => n.id);
-    return new Set(takeNewlyUnlockedNodeIds(region.id, unlocked));
-    // 描画のたびに記録を消費しないよう、地域と進捗が変わったときだけ評価する
-  }, [region.id, nodes, progress]);
+  const unlockedNodeIds = useMemo(
+    () => nodes.filter((n) => isNodeUnlockedDeep(n, progress)).map((n) => n.id),
+    [nodes, progress],
+  );
+  const newlyUnlocked = useNewlyUnlockedNodes(region.id, unlockedNodeIds);
 
   const toggleNode = (nodeId: string) => {
     setUserExpanded((prev) => {
