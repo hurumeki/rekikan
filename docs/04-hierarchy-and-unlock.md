@@ -44,7 +44,17 @@ Japanese History
 
 **Safety net:** The next stage also unlocks if the user attempts the same stage a certain number of times (e.g., 3 times) or clears it with hints ON. This prevents the frustration of being stuck and unable to progress.
 
-## 4.5 Locked Quiz Interaction
+## 4.5 Quiz List Presentation
+
+The hierarchy can hold dozens of quizzes per region, so the list is not fully expanded:
+
+- Each node is a collapsible section. On first visit, only the root and the path leading to the next playable quiz are open.
+- Node headers show the cleared / total count for the whole subtree, not just their own quizzes.
+- The next unlocked, uncleared quiz (depth-first order) is marked「つぎはこれ」so the learner always has one obvious starting point.
+- A locked node shows「あと N 問でひらく」, derived from the numeric part of its unlock conditions.
+- Unlock state is inherited: a node whose ancestor is locked is locked, even when it has no condition of its own.
+
+## 4.6 Locked Quiz Interaction
 
 Locked quizzes are displayed in the quiz list with a 🔒 icon. Tapping a locked quiz displays a modal explaining the unlock conditions in plain language, such as:
 
