@@ -1,30 +1,7 @@
 import { test, expect } from '@playwright/test';
+import { installMemoryStorage } from './helpers/memory-storage';
 
-/**
- * progress.ts は localStorage を使うため、jsdom なしでも動くよう
- * 最小限のスタブを入れてから import する。
- */
-class MemoryStorage {
-  private map = new Map<string, string>();
-  getItem(key: string) {
-    return this.map.get(key) ?? null;
-  }
-  setItem(key: string, value: string) {
-    this.map.set(key, value);
-  }
-  removeItem(key: string) {
-    this.map.delete(key);
-  }
-  clear() {
-    this.map.clear();
-  }
-}
-
-const storage = new MemoryStorage();
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-(globalThis as any).window = globalThis;
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-(globalThis as any).localStorage = storage;
+const storage = installMemoryStorage();
 
 import { getQuizProgress, saveQuizResult, getAllProgress } from '@/lib/progress';
 import type { GameMode, QuizResult } from '@/lib/types';
