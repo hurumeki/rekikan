@@ -48,5 +48,6 @@ public/images/
 - `quizzes/`: One file per region. Cross-region and theme quizzes live in `world.json`.
 - `nodes/`: One file per region. Keeps the entire hierarchy visible in a single file.
 - Every file is registered in `src/lib/data-registry.ts`; adding a region there propagates it to the app, the editor's initial state, and static-param generation.
+- **Loading strategy.** Regions, nodes and quizzes are imported statically because the quiz list needs them immediately. Cards are about two thirds of the content and are only needed once a quiz starts, so each region's card file is a dynamic `import()` behind `CARD_LOADERS`, loaded on demand and cached in `data-loader.ts`. This keeps the card data off the home screen entirely (measured: ~476 KB raw / 97 KB gzip of card data no longer shipped on first load). The editor still loads every region via `loadAllCards()`.
 - The category master lives in code (`src/lib/constants.ts`), not in a JSON file.
 - `public/images/cards/{card_id}.webp` and `public/images/nodes/{node_id}.webp`: image files referenced via `has_image` / `has_cover_image` flags. Paths are not stored in JSON — they are derived from the entity ID. External URLs are not allowed.

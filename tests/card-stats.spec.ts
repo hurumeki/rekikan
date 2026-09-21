@@ -28,6 +28,7 @@ import {
   getWeakCardIds,
   countWeakCards,
   accuracy,
+  getWeakCardRegions,
 } from '@/lib/card-stats';
 import type { CardResult } from '@/lib/types';
 
@@ -68,9 +69,15 @@ test.describe('カード単位の統計', () => {
   });
 
   test('同じ正答率なら最後に出会ってから古い順', () => {
-    recordCardResults([result('older', false)], '2026-01-01T00:00:00Z');
-    recordCardResults([result('newer', false)], '2026-06-01T00:00:00Z');
+    recordCardResults([result('older', false)], [], '2026-01-01T00:00:00Z');
+    recordCardResults([result('newer', false)], [], '2026-06-01T00:00:00Z');
     expect(getWeakCardIds(2)).toEqual(['older', 'newer']);
+  });
+
+  test('カードを渡すと地域も記録される', () => {
+    recordCardResults([result('card_jp_1', false)], [{ id: 'card_jp_1', region: 'japan' }]);
+    expect(getCardStats('card_jp_1')?.region).toBe('japan');
+    expect(getWeakCardRegions()).toEqual(['japan']);
   });
 
   test('保存データが壊れていても落ちない', () => {

@@ -249,7 +249,7 @@ export function AdminStoreProvider({ children }: { children: React.ReactNode }) 
       if (saved) {
         dispatch({ type: 'LOAD_STATE', data: saved, markClean: true });
       } else {
-        const initial = buildInitialAdminState();
+        const initial = await buildInitialAdminState();
         dispatch({ type: 'LOAD_STATE', data: initial, markClean: true });
       }
     })();

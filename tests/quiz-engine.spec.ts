@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { checkAnswers, createYearLookup, isOldestAmong } from '@/lib/quiz-engine';
-import { ALL_CARDS, ALL_QUIZZES } from '@/lib/data-registry';
+import { ALL_QUIZZES } from '@/lib/data-registry';
+import { loadAllCards } from '@/lib/data-loader';
 import type { Card } from '@/lib/types';
 
 function card(id: string, year: number): Card {
@@ -78,9 +79,10 @@ test.describe('isOldestAmong（じっくりモードの判定）', () => {
 });
 
 test.describe('同梱コンテンツの同年ペア', () => {
-  test('同じ年のカードを含むクイズは入れ替えても全問正解になる', () => {
-    const cardMap = new Map(ALL_CARDS.map((c) => [c.id, c]));
-    const yearOf = createYearLookup(ALL_CARDS);
+  test('同じ年のカードを含むクイズは入れ替えても全問正解になる', async () => {
+    const allCards = await loadAllCards();
+    const cardMap = new Map(allCards.map((c) => [c.id, c]));
+    const yearOf = createYearLookup(allCards);
     let checked = 0;
 
     for (const quiz of ALL_QUIZZES) {

@@ -1,4 +1,4 @@
-import type { CardResult, CardStats } from './types';
+import type { Card, CardResult, CardStats } from './types';
 
 const STORAGE_KEY = 'rekikan_card_stats';
 const STORAGE_VERSION = 1;
@@ -45,28 +45,41 @@ function saveAll(stats: Record<string, CardStats>): boolean {
   }
 }
 
-/** 1 回の解答結果をカード単位の統計に反映する。 */
+/**
+ * 1 回の解答結果をカード単位の統計に反映する。
+ * cards を渡すと地域も記録し、復習時に必要な地域だけを読み込めるようになる。
+ */
 export function recordCardResults(
   results: CardResult[],
+  cards: Pick<Card, 'id' | 'region'>[] = [],
   now: string = new Date().toISOString(),
 ): Record<string, CardStats> {
+  const regionById = new Map(cards.map((c) => [c.id, c.region]));
   const all = getAllCardStats();
   for (const result of results) {
-    const existing = all[result.cardId] ?? {
-      cardId: result.cardId,
-      attempts: 0,
-      correct: 0,
-      lastSeen: now,
-    };
+    const existing = all[result.cardId];
     all[result.cardId] = {
       cardId: result.cardId,
-      attempts: existing.attempts + 1,
-      correct: existing.correct + (result.correct ? 1 : 0),
+      attempts: (existing?.attempts ?? 0) + 1,
+      correct: (existing?.correct ?? 0) + (result.correct ? 1 : 0),
       lastSeen: now,
+      region: regionById.get(result.cardId) ?? existing?.region,
     };
   }
   saveAll(all);
   return all;
+}
+
+/** 苦手カードが属する地域（記録があるもののみ）。 */
+export function getWeakCardRegions(stats = getAllCardStats()): string[] {
+  return [
+    ...new Set(
+      Object.values(stats)
+        .filter((s) => s.attempts > 0 && s.correct < s.attempts)
+        .map((s) => s.region)
+        .filter((r): r is string => !!r),
+    ),
+  ];
 }
 
 export function getCardStats(cardId: string): CardStats | null {

@@ -27,6 +27,8 @@ interface QuizRunnerProps {
     score: number;
     total: number;
     hintUsed: boolean;
+    /** 出題したカード（統計に地域を記録するために渡す） */
+    cards: Card[];
   }) => void;
   /** 「クイズ一覧に戻る」など、この画面を抜けるとき */
   onExit: () => void;
@@ -121,10 +123,10 @@ export default function QuizRunner({
       const mode = selectedMode!;
       const previousBest = getPreviousBest(mode);
       setResultData({ results, score, total, mode, previousBest });
-      onComplete({ mode, results, score, total, hintUsed: hintUsedInPlay });
+      onComplete({ mode, results, score, total, hintUsed: hintUsedInPlay, cards });
       setPhase('result');
     },
-    [selectedMode, hintUsedInPlay, onComplete, getPreviousBest],
+    [selectedMode, hintUsedInPlay, onComplete, getPreviousBest, cards],
   );
 
   const handleRetry = useCallback(() => {

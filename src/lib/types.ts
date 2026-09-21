@@ -79,6 +79,8 @@ export interface CardStats {
   correct: number;
   /** 最後に出題された時刻（ISO 8601） */
   lastSeen: string;
+  /** どの地域のカードか。復習時に必要な地域だけ読み込むために持つ */
+  region?: string;
 }
 
 export interface QuizResult {
