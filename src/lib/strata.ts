@@ -1,4 +1,5 @@
 import type { EraColor } from './types';
+import { createLocalStore } from './local-store';
 
 /**
  * 地層メタファ（docs/09 §9.1.2）のための補助。
@@ -21,61 +22,61 @@ export function stratumColor(
   return colors[Math.min(colors.length - 1, Math.max(0, mapped))]!;
 }
 
-const STORAGE_KEY = 'rekikan_seen_unlocked_nodes';
+export const PENDING_REVEALS_STORAGE_KEY = 'rekikan_pending_reveals';
 
-function readSeen(): Record<string, string[]> {
-  if (typeof window === 'undefined') return {};
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return {};
-    const parsed: unknown = JSON.parse(raw);
-    if (!parsed || typeof parsed !== 'object') return {};
-    const result: Record<string, string[]> = {};
-    for (const [region, ids] of Object.entries(parsed as Record<string, unknown>)) {
-      if (Array.isArray(ids))
-        result[region] = ids.filter((id): id is string => typeof id === 'string');
-    }
-    return result;
-  } catch {
-    return {};
-  }
-}
-
-function writeSeen(seen: Record<string, string[]>): void {
-  if (typeof window === 'undefined') return;
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(seen));
-  } catch {
-    // 保存できなくても演出が出ないだけなので黙って続ける
-  }
-}
+type PendingRevealsMap = Record<string, string[]>;
 
 /**
- * 前回この地域を開いたとき以降に解放されたノードを返し、記録を更新する。
- * 「地層が開く」演出を 1 度だけ出すために使う。
+ * 「まだ演出を見せていない解放済みノード」を地域ごとに保持する。
  *
- * 初回訪問（記録がまったくない）は演出なし。最初から解放されている
- * ノードまで一斉に光ってしまうため。
+ * 以前は「前回見たときの解放状態」を記録して差分を取っていたが、
+ * 進捗は localStorage から後追いで読み込まれるため、
+ * 記録を作る時点で進捗が入っているかどうかが実行タイミング次第になり、
+ * 演出が出たり出なかったりしていた。
  *
- * 記録は和集合で更新する。進捗は localStorage から後追いで読み込まれるため、
- * ハイドレーション直後には「まだ何も解放されていない」状態で一度呼ばれる。
- * 上書きにすると、その呼び出しが記録を巻き戻して演出が毎回出てしまう。
+ * クイズを解いた瞬間なら「解く前」と「解いた後」の両方が分かるので、
+ * そこで差分を確定して積んでおき、一覧を開いたときに取り出す。
  */
-export function takeNewlyUnlockedNodeIds(regionId: string, unlockedIds: string[]): string[] {
-  const seen = readSeen();
-  const previous = seen[regionId];
+const pendingStore = createLocalStore<PendingRevealsMap>({
+  key: PENDING_REVEALS_STORAGE_KEY,
+  version: 1,
+  empty: {},
+  parse: (data) => {
+    if (!data || typeof data !== 'object') return {};
+    const result: PendingRevealsMap = {};
+    for (const [region, ids] of Object.entries(data as Record<string, unknown>)) {
+      if (Array.isArray(ids)) {
+        result[region] = ids.filter((id): id is string => typeof id === 'string');
+      }
+    }
+    return result;
+  },
+});
 
-  if (!previous) {
-    seen[regionId] = [...unlockedIds];
-    writeSeen(seen);
-    return [];
-  }
+/** 解放されたノードを、演出待ちとして積む。 */
+export function recordPendingReveals(nodeIdsByRegion: Record<string, string[]>): void {
+  const entries = Object.entries(nodeIdsByRegion).filter(([, ids]) => ids.length > 0);
+  if (entries.length === 0) return;
 
-  const previousSet = new Set(previous);
-  const newlyUnlocked = unlockedIds.filter((id) => !previousSet.has(id));
-  if (newlyUnlocked.length > 0) {
-    seen[regionId] = [...previous, ...newlyUnlocked];
-    writeSeen(seen);
-  }
-  return newlyUnlocked;
+  pendingStore.update((current) => {
+    const next = { ...current };
+    for (const [regionId, ids] of entries) {
+      const merged = new Set([...(next[regionId] ?? []), ...ids]);
+      next[regionId] = [...merged];
+    }
+    return next;
+  });
+}
+
+/** 演出待ちのノードを取り出し、記録から消す（1 度だけ出すため）。 */
+export function takePendingReveals(regionId: string): string[] {
+  const pending = pendingStore.read()[regionId] ?? [];
+  if (pending.length === 0) return [];
+
+  pendingStore.update((current) => {
+    const next = { ...current };
+    delete next[regionId];
+    return next;
+  });
+  return pending;
 }

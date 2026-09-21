@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { getRootNode, getChildNodes, getQuiz } from '@/lib/data-loader';
 import { isNodeUnlockedDeep, findNextQuiz, remainingLabel, describeCondition } from '@/lib/unlock';
-import type { ProgressMap } from '@/lib/unlock';
+import type { ProgressMap } from '@/lib/progress';
 import type { QuizProgress } from '@/lib/types';
 
 function cleared(...quizIds: string[]): ProgressMap {

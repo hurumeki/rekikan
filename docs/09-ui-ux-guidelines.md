@@ -46,7 +46,7 @@ World-building is concentrated on the stage selection screen and screen transiti
 - Each node carries a stratum edge on its left. Depth 1 → 3 make the edge progressively more saturated, so deeper layers read as denser rock.
 - The hue comes from the node's position among its siblings, mapped onto the region's era band colors (`stratumColor()` in `src/lib/strata.ts`). Because siblings are ordered chronologically, the result is a cross-section: green at the top, red at the bottom.
 - Locked nodes keep a neutral, unsaturated edge — "unexcavated". A node whose quizzes are all cleared shows the era hue at full strength — "excavated, contents visible".
-- When a node becomes unlocked since the learner last opened that region, it plays a short opening animation with a ✨ badge, shown once (`takeNewlyUnlockedNodeIds()`). The animation is suppressed under `prefers-reduced-motion`.
+- When a quiz result unlocks a node, that node is queued for a reveal at save time (`diffUnlockedNodes()` → `recordPendingReveals()`), and the quiz list plays a short opening animation with a ✨ badge the next time that region is opened, once (`takePendingReveals()`). Deciding this at save time — rather than by diffing "what was unlocked last time I looked" — keeps the animation independent of when progress finishes loading from `localStorage`. The animation is suppressed under `prefers-reduced-motion`.
 
 ### 9.1.3 Color Design
 

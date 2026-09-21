@@ -1,26 +1,7 @@
 import { test, expect } from '@playwright/test';
 import path from 'path';
-
-/** 指定クイズをクリア済みにした進捗を仕込む */
-async function seedProgress(page: import('@playwright/test').Page, quizIds: string[]) {
-  await page.goto('/');
-  await page.evaluate((ids) => {
-    const quizzes: Record<string, unknown> = {};
-    for (const id of ids) {
-      quizzes[id] = {
-        quizId: id,
-        bestScore: 99,
-        cleared: true,
-        clearedWithHint: false,
-        attemptCount: 1,
-        modes: {
-          challenge: { bestScore: 99, cleared: true, clearedWithHint: false, attemptCount: 1 },
-        },
-      };
-    }
-    localStorage.setItem('rekikan_progress', JSON.stringify({ version: 2, quizzes }));
-  }, quizIds);
-}
+import { seedProgress } from './helpers/storage';
+import { clearQuizPerfectly } from './helpers/play';
 
 test.describe('地層表現', () => {
   test('階層の深さが data-depth として表現される', async ({ page }) => {
@@ -41,6 +22,7 @@ test.describe('地層表現', () => {
   });
 
   test('クリアした層は発掘済みになる', async ({ page }) => {
+    await page.goto('/');
     await seedProgress(page, ['quiz_japan_era_intro_desc']);
     await page.goto('/?region=japan');
 
@@ -52,14 +34,11 @@ test.describe('地層表現', () => {
     });
   });
 
-  test('新しく解放された層に 1 度だけ演出が出る', async ({ page }) => {
-    // 1 回目の訪問で現在の解放状態を記録する
-    await page.goto('/?region=japan');
-    await expect(page.getByTestId('node-section').first()).toBeVisible();
+  test('クイズをクリアして解放された層に 1 度だけ演出が出る', async ({ page }) => {
+    // 実際にクイズを満点クリアする（演出はこの保存時に決まる）
+    await clearQuizPerfectly(page, 'quiz_japan_era_intro_desc');
+    await page.getByRole('button', { name: 'クイズ一覧に戻る' }).click();
 
-    // 入門クイズをクリアした状態にして再訪
-    await seedProgress(page, ['quiz_japan_era_intro_desc']);
-    await page.goto('/?region=japan');
     await expect(page.getByTestId('unlocked-badge').first()).toBeVisible();
 
     // 2 回目以降は出ない

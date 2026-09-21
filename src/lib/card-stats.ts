@@ -1,48 +1,48 @@
 import type { Card, CardResult, CardStats } from './types';
+import { createLocalStore } from './local-store';
 
-const STORAGE_KEY = 'rekikan_card_stats';
-const STORAGE_VERSION = 1;
+export type CardStatsMap = Record<string, CardStats>;
 
-interface StoredCardStats {
-  version: number;
-  cards: Record<string, CardStats>;
-}
+export const CARD_STATS_STORAGE_KEY = 'rekikan_card_stats';
 
-function isCardStats(v: unknown): v is CardStats {
-  if (!v || typeof v !== 'object') return false;
+function parseCardStats(cardId: string, v: unknown): CardStats | null {
+  if (!v || typeof v !== 'object') return null;
   const s = v as Record<string, unknown>;
-  return (
-    typeof s.cardId === 'string' && typeof s.attempts === 'number' && typeof s.correct === 'number'
-  );
+  if (typeof s.attempts !== 'number' || typeof s.correct !== 'number') return null;
+  return {
+    cardId,
+    attempts: s.attempts,
+    correct: s.correct,
+    lastSeen: typeof s.lastSeen === 'string' ? s.lastSeen : '',
+    region: typeof s.region === 'string' ? s.region : undefined,
+  };
 }
 
-export function getAllCardStats(): Record<string, CardStats> {
-  if (typeof window === 'undefined') return {};
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return {};
-    const parsed: unknown = JSON.parse(raw);
-    if (!parsed || typeof parsed !== 'object') return {};
-    const entries = (parsed as StoredCardStats).cards ?? {};
-    const result: Record<string, CardStats> = {};
+const cardStatsStore = createLocalStore<CardStatsMap>({
+  key: CARD_STATS_STORAGE_KEY,
+  version: 1,
+  empty: {},
+  parse: (data) => {
+    if (!data || typeof data !== 'object') return {};
+    const record = data as Record<string, unknown>;
+    const entries = (record.cards ?? record) as Record<string, unknown>;
+    if (!entries || typeof entries !== 'object') return {};
+
+    const result: CardStatsMap = {};
     for (const [cardId, value] of Object.entries(entries)) {
-      if (isCardStats(value)) result[cardId] = { ...value, cardId };
+      const parsed = parseCardStats(cardId, value);
+      if (parsed) result[cardId] = parsed;
     }
     return result;
-  } catch {
-    return {};
-  }
+  },
+});
+
+export function getAllCardStats(): CardStatsMap {
+  return cardStatsStore.read();
 }
 
-function saveAll(stats: Record<string, CardStats>): boolean {
-  if (typeof window === 'undefined') return false;
-  try {
-    const payload: StoredCardStats = { version: STORAGE_VERSION, cards: stats };
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
-    return true;
-  } catch {
-    return false;
-  }
+export function getCardStats(cardId: string): CardStats | null {
+  return cardStatsStore.read()[cardId] ?? null;
 }
 
 /**
@@ -53,41 +53,31 @@ export function recordCardResults(
   results: CardResult[],
   cards: Pick<Card, 'id' | 'region'>[] = [],
   now: string = new Date().toISOString(),
-): Record<string, CardStats> {
+): CardStatsMap {
   const regionById = new Map(cards.map((c) => [c.id, c.region]));
-  const all = getAllCardStats();
-  for (const result of results) {
-    const existing = all[result.cardId];
-    all[result.cardId] = {
-      cardId: result.cardId,
-      attempts: (existing?.attempts ?? 0) + 1,
-      correct: (existing?.correct ?? 0) + (result.correct ? 1 : 0),
-      lastSeen: now,
-      region: regionById.get(result.cardId) ?? existing?.region,
-    };
-  }
-  saveAll(all);
-  return all;
-}
-
-/** 苦手カードが属する地域（記録があるもののみ）。 */
-export function getWeakCardRegions(stats = getAllCardStats()): string[] {
-  return [
-    ...new Set(
-      Object.values(stats)
-        .filter((s) => s.attempts > 0 && s.correct < s.attempts)
-        .map((s) => s.region)
-        .filter((r): r is string => !!r),
-    ),
-  ];
-}
-
-export function getCardStats(cardId: string): CardStats | null {
-  return getAllCardStats()[cardId] ?? null;
+  return cardStatsStore.update((current) => {
+    const next: CardStatsMap = { ...current };
+    for (const result of results) {
+      const existing = next[result.cardId];
+      next[result.cardId] = {
+        cardId: result.cardId,
+        attempts: (existing?.attempts ?? 0) + 1,
+        correct: (existing?.correct ?? 0) + (result.correct ? 1 : 0),
+        lastSeen: now,
+        region: regionById.get(result.cardId) ?? existing?.region,
+      };
+    }
+    return next;
+  });
 }
 
 export function accuracy(stats: CardStats): number {
   return stats.attempts === 0 ? 1 : stats.correct / stats.attempts;
+}
+
+/** 一度でも間違えたカードを「苦手」とみなす */
+function isWeak(stats: CardStats): boolean {
+  return stats.attempts > 0 && stats.correct < stats.attempts;
 }
 
 /**
@@ -97,7 +87,7 @@ export function accuracy(stats: CardStats): number {
  */
 export function getWeakCardIds(limit: number, stats = getAllCardStats()): string[] {
   return Object.values(stats)
-    .filter((s) => s.attempts > 0 && s.correct < s.attempts)
+    .filter(isWeak)
     .sort((a, b) => {
       const diff = accuracy(a) - accuracy(b);
       if (diff !== 0) return diff;
@@ -109,22 +99,22 @@ export function getWeakCardIds(limit: number, stats = getAllCardStats()): string
 
 /** 苦手カードの総数（復習の入口を出すかどうかの判定に使う）。 */
 export function countWeakCards(stats = getAllCardStats()): number {
-  return Object.values(stats).filter((s) => s.attempts > 0 && s.correct < s.attempts).length;
+  return Object.values(stats).filter(isWeak).length;
 }
 
-/* useSyncExternalStore 用。詳細は progress.ts の同名関数を参照 */
-
-export function getWeakCardCountSnapshot(): number {
-  if (typeof window === 'undefined') return 0;
-  return countWeakCards();
+/** 苦手カードが属する地域（記録があるもののみ）。 */
+export function getWeakCardRegions(stats = getAllCardStats()): string[] {
+  return [
+    ...new Set(
+      Object.values(stats)
+        .filter(isWeak)
+        .map((s) => s.region)
+        .filter((r): r is string => !!r),
+    ),
+  ];
 }
 
-export function getServerWeakCardCountSnapshot(): number {
-  return 0;
-}
-
-export function subscribeCardStats(onChange: () => void): () => void {
-  if (typeof window === 'undefined') return () => {};
-  window.addEventListener('storage', onChange);
-  return () => window.removeEventListener('storage', onChange);
-}
+/* useSyncExternalStore 用 */
+export const subscribeCardStats = cardStatsStore.subscribe;
+export const getCardStatsSnapshot = cardStatsStore.getSnapshot;
+export const getServerCardStatsSnapshot = cardStatsStore.getServerSnapshot;

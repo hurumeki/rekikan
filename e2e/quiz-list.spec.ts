@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { seedProgress } from './helpers/storage';
 
 test.describe('クイズ一覧', () => {
   test.beforeEach(async ({ page }) => {
@@ -55,31 +56,7 @@ test.describe('クイズ一覧', () => {
 test.describe('進捗に応じた初期表示', () => {
   test('クリア後は次に遊ぶ問題を含む階層が開いた状態になる', async ({ page }) => {
     await page.goto('/');
-    await page.evaluate(() => {
-      localStorage.setItem(
-        'rekikan_progress',
-        JSON.stringify({
-          version: 2,
-          quizzes: {
-            quiz_japan_era_intro_desc: {
-              quizId: 'quiz_japan_era_intro_desc',
-              bestScore: 6,
-              cleared: true,
-              clearedWithHint: false,
-              attemptCount: 1,
-              modes: {
-                challenge: {
-                  bestScore: 6,
-                  cleared: true,
-                  clearedWithHint: false,
-                  attemptCount: 1,
-                },
-              },
-            },
-          },
-        }),
-      );
-    });
+    await seedProgress(page, ['quiz_japan_era_intro_desc']);
     await page.goto('/?region=japan');
 
     // 次に遊ぶ問題（先史・古代の先頭）が見えていて、バッジが付いている

@@ -3,7 +3,7 @@
 import { useMemo } from 'react';
 import type { Region } from '@/lib/types';
 import { ALL_QUIZZES } from '@/lib/data-registry';
-import type { ProgressMap } from '@/lib/unlock';
+import type { ProgressMap } from '@/lib/progress';
 import styles from './RegionSelector.module.css';
 
 interface RegionSelectorProps {

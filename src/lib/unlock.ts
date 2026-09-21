@@ -1,7 +1,6 @@
-import type { Node, QuizProgress, UnlockCondition } from './types';
+import type { Node, UnlockCondition } from './types';
+import type { ProgressMap } from './progress';
 import { getQuiz, getNode, getChildNodes } from './data-loader';
-
-export type ProgressMap = Record<string, QuizProgress>;
 
 function toConditions(node: Node): UnlockCondition[] {
   if (!node.unlock_condition) return [];
@@ -187,4 +186,24 @@ export function findAncestorNodeIds(quizId: string, root: Node): string[] {
     return false;
   };
   return walk(root) ? path : [];
+}
+
+/**
+ * 進捗が変わったことで新しく解放されたノードを、地域ごとに返す。
+ * 解いたクイズの地域だけでなく、complete_any で他地域のノードが
+ * 開くこともあるため、全ノードを対象に比較する。
+ */
+export function diffUnlockedNodes(
+  nodes: Node[],
+  before: ProgressMap,
+  after: ProgressMap,
+): Record<string, string[]> {
+  const result: Record<string, string[]> = {};
+  for (const node of nodes) {
+    if (node.parent_id === null) continue; // ルートは常に解放されている
+    if (isNodeUnlockedDeep(node, before)) continue;
+    if (!isNodeUnlockedDeep(node, after)) continue;
+    (result[node.region] ??= []).push(node.id);
+  }
+  return result;
 }

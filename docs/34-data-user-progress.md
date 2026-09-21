@@ -104,3 +104,15 @@ Progress is kept in `localStorage` under `rekikan_progress`, versioned so the sh
 - **`cleared` and `clearedWithHint` are monotonic.** Once earned they are never cleared by a later poor attempt.
 - **`hintUsed` means "hints were shown at any point during the attempt"**, not the state of the toggle when the quiz ended. Turning hints on and then off again still counts as a hinted clear.
 - **Migration.** Version 1 stored a bare map of `QuizProgress` without `modes`. It is read as-is, with an empty `modes`, so existing unlock state survives the upgrade.
+
+### 5.5 Storage Layer
+
+All three client-side stores — progress, card stats and the pending strata reveals — are built on `createLocalStore()` (`src/lib/local-store.ts`), which provides one implementation of: a versioned envelope (`{ version, data }`), tolerant parsing that falls back to an empty value, swallowed write failures (private browsing, quota), a reference-stable snapshot for `useSyncExternalStore`, and change notification (same tab and other tabs).
+
+| Key                       | Version | Contents                                                            |
+| ------------------------- | ------- | ------------------------------------------------------------------- |
+| `rekikan_progress`        | 2       | Quiz progress, per mode                                             |
+| `rekikan_card_stats`      | 1       | Per-card accuracy ([Section 5.2](#52-cardstats--per-card-accuracy)) |
+| `rekikan_pending_reveals` | 1       | Nodes unlocked but not yet animated                                 |
+
+Reading these from React goes through `useProgress()` / `useQuizProgress()` / `useCardStats()` / `useWeakCardCount()` so that components never call the store directly.

@@ -3,7 +3,7 @@
 import type React from 'react';
 import { useMemo } from 'react';
 import type { Card as CardType, CardResult, GameMode, Region } from '@/lib/types';
-import { computeStars } from '@/lib/progress';
+import { computeStars } from '@/lib/progress-rules';
 import Card from '@/components/card/Card';
 import styles from './ResultScreen.module.css';
 

@@ -1,16 +1,5 @@
 import { test, expect } from '@playwright/test';
-
-/** 苦手カード統計を直接書き込んでから復習画面を開く */
-async function seedWeakCards(page: import('@playwright/test').Page, cardIds: string[]) {
-  await page.goto('/');
-  await page.evaluate((ids) => {
-    const cards: Record<string, unknown> = {};
-    for (const id of ids) {
-      cards[id] = { cardId: id, attempts: 2, correct: 0, lastSeen: new Date().toISOString() };
-    }
-    localStorage.setItem('rekikan_card_stats', JSON.stringify({ version: 1, cards }));
-  }, cardIds);
-}
+import { readCardStats, seedWeakCards } from './helpers/storage';
 
 test.describe('苦手カードの復習', () => {
   test('苦手カードがないときは入口が出ない', async ({ page }) => {
@@ -19,6 +8,7 @@ test.describe('苦手カードの復習', () => {
   });
 
   test('苦手カードがたまると入口が出て、復習を始められる', async ({ page }) => {
+    await page.goto('/');
     await seedWeakCards(page, ['card_jp_1', 'card_jp_2', 'card_jp_3', 'card_jp_4']);
     await page.reload();
 
@@ -34,6 +24,7 @@ test.describe('苦手カードの復習', () => {
   });
 
   test('カードが足りないときは案内を出す', async ({ page }) => {
+    await page.goto('/');
     await seedWeakCards(page, ['card_jp_1']);
     await page.goto('/review');
     await expect(page.getByText('まだ復習できるカードがありません')).toBeVisible();
@@ -51,9 +42,8 @@ test.describe('苦手カードの復習', () => {
     await page.getByTestId('confirm-order').click();
     await expect(page.getByRole('button', { name: 'もう一度' })).toBeVisible();
 
-    const stats = await page.evaluate(() => localStorage.getItem('rekikan_card_stats'));
+    const stats = await readCardStats(page);
     expect(stats).not.toBeNull();
-    const parsed = JSON.parse(stats!);
-    expect(Object.keys(parsed.cards)).toHaveLength(count);
+    expect(Object.keys(stats!)).toHaveLength(count);
   });
 });

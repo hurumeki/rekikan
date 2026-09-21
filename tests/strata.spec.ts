@@ -22,8 +22,11 @@ const storage = new MemoryStorage();
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 (globalThis as any).localStorage = storage;
 
-import { stratumColor, takeNewlyUnlockedNodeIds } from '@/lib/strata';
-import { REGIONS } from '@/lib/data-registry';
+import { recordPendingReveals, stratumColor, takePendingReveals } from '@/lib/strata';
+import { ALL_NODES, REGIONS } from '@/lib/data-registry';
+import { getRootNode } from '@/lib/data-loader';
+import { diffUnlockedNodes } from '@/lib/unlock';
+import type { ProgressMap } from '@/lib/progress';
 
 const japanEras = REGIONS.find((r) => r.id === 'japan')!.era_colors;
 
@@ -45,35 +48,67 @@ test.describe('地層の色', () => {
   });
 });
 
-test.describe('新しく解放された層の検出', () => {
-  test('初回は演出を出さない', () => {
-    expect(takeNewlyUnlockedNodeIds('japan', ['root'])).toEqual([]);
+test.describe('演出待ちノードの受け渡し', () => {
+  test('積んだノードを取り出すと記録から消える', () => {
+    recordPendingReveals({ japan: ['a', 'b'] });
+    expect(takePendingReveals('japan')).toEqual(['a', 'b']);
+    // 2 回目は空（演出は 1 度だけ）
+    expect(takePendingReveals('japan')).toEqual([]);
   });
 
-  test('2 回目以降、増えたぶんだけ返す', () => {
-    takeNewlyUnlockedNodeIds('japan', ['root']);
-    expect(takeNewlyUnlockedNodeIds('japan', ['root', 'a', 'b'])).toEqual(['a', 'b']);
-    // 同じ状態で再訪しても出ない
-    expect(takeNewlyUnlockedNodeIds('japan', ['root', 'a', 'b'])).toEqual([]);
+  test('複数回の解放は取り出すまで積み上がる', () => {
+    recordPendingReveals({ japan: ['a'] });
+    recordPendingReveals({ japan: ['b'] });
+    expect(takePendingReveals('japan').sort()).toEqual(['a', 'b']);
   });
 
-  test('進捗の読み込み前に空で呼ばれても記録が巻き戻らない', () => {
-    takeNewlyUnlockedNodeIds('japan', ['root']);
-    takeNewlyUnlockedNodeIds('japan', ['root', 'a']); // 解放を検出
-    // ハイドレーション直後の「まだ何も解放されていない」描画
-    expect(takeNewlyUnlockedNodeIds('japan', ['root'])).toEqual([]);
-    // 進捗が読み込まれた後の描画では、もう新規ではない
-    expect(takeNewlyUnlockedNodeIds('japan', ['root', 'a'])).toEqual([]);
+  test('同じノードを二重に積まない', () => {
+    recordPendingReveals({ japan: ['a'] });
+    recordPendingReveals({ japan: ['a'] });
+    expect(takePendingReveals('japan')).toEqual(['a']);
   });
 
-  test('地域ごとに独立している', () => {
-    takeNewlyUnlockedNodeIds('japan', ['root']);
-    expect(takeNewlyUnlockedNodeIds('europe', ['root'])).toEqual([]);
-    expect(takeNewlyUnlockedNodeIds('japan', ['root', 'x'])).toEqual(['x']);
+  test('地域ごとに独立して取り出せる', () => {
+    recordPendingReveals({ japan: ['a'], world: ['w'] });
+    expect(takePendingReveals('japan')).toEqual(['a']);
+    expect(takePendingReveals('world')).toEqual(['w']);
+  });
+
+  test('空の指定では何も積まない', () => {
+    recordPendingReveals({ japan: [] });
+    expect(takePendingReveals('japan')).toEqual([]);
   });
 
   test('保存データが壊れていても落ちない', () => {
-    storage.setItem('rekikan_seen_unlocked_nodes', 'not json');
-    expect(takeNewlyUnlockedNodeIds('japan', ['root'])).toEqual([]);
+    storage.setItem('rekikan_pending_reveals', 'not json');
+    expect(takePendingReveals('japan')).toEqual([]);
+  });
+});
+
+test.describe('解放されたノードの差分', () => {
+  test('クリアによって解放されたノードだけを地域ごとに返す', () => {
+    const japanRoot = getRootNode('japan')!;
+    const before: ProgressMap = {};
+    const after: ProgressMap = {
+      quiz_japan_era_intro_desc: {
+        quizId: 'quiz_japan_era_intro_desc',
+        bestScore: 6,
+        cleared: true,
+        clearedWithHint: false,
+        attemptCount: 1,
+        modes: {},
+      },
+    };
+
+    const diff = diffUnlockedNodes(ALL_NODES, before, after);
+    expect(diff.japan).toContain('node_japan_prehistoric');
+    // ルートは常時解放なので差分に含まない
+    expect(diff.japan).not.toContain(japanRoot.id);
+    // 2 地域必要なテーマ史はまだ開かない
+    expect(diff.world ?? []).toEqual([]);
+  });
+
+  test('進捗が変わらなければ差分は空', () => {
+    expect(diffUnlockedNodes(ALL_NODES, {}, {})).toEqual({});
   });
 });

@@ -4,7 +4,7 @@ import type React from 'react';
 import { useMemo, useState } from 'react';
 import type { Region, Node, UnlockCondition } from '@/lib/types';
 import { getQuiz, getRootNode, getChildNodes } from '@/lib/data-loader';
-import { getHistoricalStars } from '@/lib/progress';
+import { getHistoricalStars } from '@/lib/progress-rules';
 import { getNodeCoverImageSrc } from '@/lib/images';
 import {
   collectTreeStats,
@@ -13,8 +13,8 @@ import {
   findNextQuiz,
   isNodeUnlockedDeep,
   remainingLabel,
-  type ProgressMap,
 } from '@/lib/unlock';
+import type { ProgressMap } from '@/lib/progress';
 import { stratumColor } from '@/lib/strata';
 import { useNewlyUnlockedNodes } from '@/hooks/useNewlyUnlockedNodes';
 import NodeCoverImage from './NodeCoverImage';
@@ -76,12 +76,8 @@ export default function QuizList({ region, nodes, onSelectQuiz, onBack, progress
   const expanded = userExpanded ?? defaultExpanded;
   const [lockedNode, setLockedNode] = useState<Node | null>(null);
 
-  // 前回この地域を見たとき以降に解放されたノード（地層が開く演出を 1 度だけ出す）
-  const unlockedNodeIds = useMemo(
-    () => nodes.filter((n) => isNodeUnlockedDeep(n, progress)).map((n) => n.id),
-    [nodes, progress],
-  );
-  const newlyUnlocked = useNewlyUnlockedNodes(region.id, unlockedNodeIds);
+  // 直前のクイズで解放されたノード（地層が開く演出を 1 度だけ出す）
+  const newlyUnlocked = useNewlyUnlockedNodes(region.id);
 
   const toggleNode = (nodeId: string) => {
     setUserExpanded((prev) => {

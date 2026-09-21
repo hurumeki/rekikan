@@ -1,7 +1,7 @@
 'use client';
 
 import type { GameMode, QuizProgress } from '@/lib/types';
-import { getHistoricalStars, isOrderingMode } from '@/lib/progress';
+import { getHistoricalStars, isOrderingMode } from '@/lib/progress-rules';
 import styles from './ModeSelector.module.css';
 
 interface ModeSelectorProps {

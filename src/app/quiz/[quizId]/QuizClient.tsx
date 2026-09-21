@@ -1,9 +1,13 @@
 'use client';
 
-import { Suspense, use, useCallback, useMemo, useState } from 'react';
+import { Suspense, use, useCallback, useMemo } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { getQuiz, loadCardsForQuiz } from '@/lib/data-loader';
-import { saveQuizResult, getQuizProgress } from '@/lib/progress';
+import { ALL_NODES } from '@/lib/data-registry';
+import { diffUnlockedNodes } from '@/lib/unlock';
+import { recordPendingReveals } from '@/lib/strata';
+import { saveQuizResult, getQuizProgress, getAllProgress } from '@/lib/progress';
+import { useQuizProgress } from '@/hooks/useProgress';
 import { recordCardResults } from '@/lib/card-stats';
 import type { Card, GameMode, Quiz, QuizProgress } from '@/lib/types';
 import QuizRunner from '@/components/quiz/QuizRunner';
@@ -50,18 +54,13 @@ export default function QuizClient() {
   // 必要な地域のカードだけを動的に読み込む
   const cardsPromise = useMemo(() => (quiz ? loadCardsForQuiz(quiz) : Promise.resolve([])), [quiz]);
 
-  // 結果保存のたびに増やして、モード選択画面の記録を読み直す
-  const [progressVersion, setProgressVersion] = useState(0);
-  const progress = useMemo(
-    () => (quiz ? getQuizProgress(quiz.id) : null),
-    // progressVersion は保存後の読み直しトリガー
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [quiz, progressVersion],
-  );
+  // 保存すればストアの購読側（この行）に自動で反映される
+  const progress = useQuizProgress(quizId);
 
   const handleComplete = useCallback<React.ComponentProps<typeof QuizRunner>['onComplete']>(
     ({ mode, results, score, total, hintUsed, cards }) => {
       if (!quiz) return;
+      const before = getAllProgress();
       saveQuizResult({
         quizId: quiz.id,
         mode,
@@ -71,9 +70,10 @@ export default function QuizClient() {
         cardResults: results,
         timestamp: new Date().toISOString(),
       });
+      // この結果で新しく開いた階層を控えておき、一覧で「地層が開く」演出に使う
+      recordPendingReveals(diffUnlockedNodes(ALL_NODES, before, getAllProgress()));
       // 苦手カードの復習に使う統計も同時に更新する
       recordCardResults(results, cards);
-      setProgressVersion((n) => n + 1);
     },
     [quiz],
   );

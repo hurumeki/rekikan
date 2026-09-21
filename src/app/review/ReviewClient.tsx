@@ -1,18 +1,10 @@
 'use client';
 
-import { Suspense, use, useCallback, useMemo, useState, useSyncExternalStore } from 'react';
+import { Suspense, use, useCallback, useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { loadCardsByIds } from '@/lib/data-loader';
-import {
-  getWeakCardIds,
-  recordCardResults,
-  getAllCardStats,
-  accuracy,
-  getWeakCardCountSnapshot,
-  getServerWeakCardCountSnapshot,
-  subscribeCardStats,
-  getWeakCardRegions,
-} from '@/lib/card-stats';
+import { getWeakCardIds, recordCardResults, accuracy, getWeakCardRegions } from '@/lib/card-stats';
+import { useCardStats, useWeakCardCount } from '@/hooks/useCardStats';
 import type { Card, GameMode, Quiz } from '@/lib/types';
 import QuizRunner from '@/components/quiz/QuizRunner';
 import styles from './review.module.css';
@@ -60,6 +52,7 @@ function ReviewSession({
   onHome,
 }: ReviewSessionProps) {
   const cards = use(cardsPromise);
+  const stats = useCardStats();
 
   const quiz = useMemo<Quiz | null>(() => {
     if (cards.length < REVIEW_MIN_CARDS) return null;
@@ -83,7 +76,6 @@ function ReviewSession({
     return <EmptyState weakCount={weakCount} onHome={onHome} />;
   }
 
-  const stats = getAllCardStats();
   const weakest = cards
     .map((c) => stats[c.id])
     .filter((s) => s !== undefined)
@@ -114,11 +106,7 @@ export default function ReviewClient() {
   // 出題セットは画面に入った時点で固定する（解答のたびに入れ替わらないように）
   const [sessionKey, setSessionKey] = useState(0);
   // 苦手カード数はマウント後に確定する（静的 HTML との不一致を避ける）
-  const weakCount = useSyncExternalStore(
-    subscribeCardStats,
-    getWeakCardCountSnapshot,
-    getServerWeakCardCountSnapshot,
-  );
+  const weakCount = useWeakCardCount();
 
   // 苦手カードが属する地域だけを読み込む
   const cardsPromise = useMemo<Promise<Card[]>>(() => {

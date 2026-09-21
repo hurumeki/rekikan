@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { takeNewlyUnlockedNodeIds } from '@/lib/strata';
+import { takePendingReveals } from '@/lib/strata';
 
 const EMPTY: ReadonlySet<string> = new Set();
 
@@ -11,30 +11,21 @@ interface RevealState {
 }
 
 /**
- * 前回その地域を見たとき以降に解放されたノードを返す。
+ * この地域で「まだ演出を見せていない解放済みノード」を取り出す。
  *
- * 「どこまで解放済みか」の記録は localStorage にあり、読むと同時に
- * 更新する必要がある（= 副作用）。レンダー中に書くと、React が
- * レンダーをやり直したり捨てたりしたときの挙動が保証されないため、
- * 書き込みは effect に置き、結果は state で保持する。
+ * 記録の取り出しは消費（= 副作用）なので effect で行い、
+ * 結果は state に持つ。レンダー中には何も書き込まない。
  */
-export function useNewlyUnlockedNodes(
-  regionId: string,
-  unlockedNodeIds: string[],
-): ReadonlySet<string> {
+export function useNewlyUnlockedNodes(regionId: string): ReadonlySet<string> {
   const [reveal, setReveal] = useState<RevealState | null>(null);
 
-  // 配列は毎レンダー新しくなるため、依存配列には内容から作ったキーを使う
-  const unlockedKey = unlockedNodeIds.join('|');
-
   useEffect(() => {
-    const ids = takeNewlyUnlockedNodeIds(regionId, unlockedKey ? unlockedKey.split('|') : []);
+    const ids = takePendingReveals(regionId);
     if (ids.length === 0) return;
     // 外部システム（localStorage）から 1 度だけ取り出した値を画面に反映する。
-    // レンダー中に副作用を起こさないための意図的な setState。
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setReveal({ regionId, ids: new Set(ids) });
-  }, [regionId, unlockedKey]);
+  }, [regionId]);
 
   // 別の地域に切り替えたら前の地域の演出は持ち越さない
   return reveal && reveal.regionId === regionId ? reveal.ids : EMPTY;
