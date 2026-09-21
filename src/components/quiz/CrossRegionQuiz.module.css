@@ -42,7 +42,7 @@
   border-radius: 4px 4px 0 0;
   border: 1.5px solid;
   border-bottom: none;
-  background: var(--card-bg);
+  background: var(--surface);
   font-size: 0.75rem;
   font-weight: 600;
   align-self: flex-start;
@@ -54,7 +54,7 @@
 
 .confirmButton {
   background: var(--badge-bg);
-  color: white;
+  color: var(--badge-text);
   border: none;
   border-radius: 12px;
   padding: 14px;
@@ -66,6 +66,10 @@
 }
 
 .confirmButton:disabled {
-  opacity: 0.4;
+  /* 半透明にすると「押せそうな青」のまま文字が読めなくなるため、
+     無効であることが分かる灰色に置き換える */
+  background: var(--state-unselected-bg);
+  color: var(--text-muted);
+  border: 1px solid var(--state-unselected-border);
   cursor: not-allowed;
 }

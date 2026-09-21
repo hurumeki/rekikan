@@ -9,7 +9,7 @@ export default function NumberBadge({ number }: { number: number }) {
         height: 24,
         borderRadius: '50%',
         backgroundColor: 'var(--badge-bg)',
-        color: 'white',
+        color: 'var(--badge-text)',
         fontSize: 12,
         fontWeight: 'bold',
         display: 'flex',

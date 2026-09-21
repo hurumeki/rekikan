@@ -88,7 +88,10 @@
   border-color: var(--state-selected-border);
 }
 .locked {
-  opacity: 0.5;
+  /* opacity で一律に薄くするとコントラストが落ちるため、色で表現する */
+  background: var(--locked-bg);
+  border-color: var(--locked-border);
+  color: var(--locked-fg);
   cursor: pointer;
 }
 
@@ -160,10 +163,10 @@
   gap: 1px;
 }
 .starFilled {
-  color: #f59e0b;
+  color: var(--star-filled);
   font-size: 1rem;
 }
 .starEmpty {
-  color: #d1d5db;
+  color: var(--star-empty);
   font-size: 1rem;
 }

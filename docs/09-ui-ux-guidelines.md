@@ -94,11 +94,17 @@ Cards and hierarchy nodes may carry AI-generated images to anchor visual memory.
 
 External URLs are not allowed in either case — paths are derived from the entity ID via a fixed convention. Because the images are rendered with a plain `<img>` tag, which Next.js does not rewrite, the paths are built through `resolvePublicPath()` so that they keep working when the app is served from a sub-path (e.g. GitHub Pages under `/rekikan`). See [03-card-design.md](03-card-design.md) Section 3.4 and [31-data-entities.md](31-data-entities.md) Sections 2.2 and 2.4.
 
-### 9.1.5 Future Considerations
+### 9.1.5 Implementation Notes
 
-- Verify specific color contrast ratios (WCAG AA compliance)
+- **Theme tokens.** Every color is a CSS custom property declared in `src/app/globals.css`. The light values sit on `:root`; the dark values are redefined under `@media (prefers-color-scheme: dark)`, together with `color-scheme: dark`. Components must not hard-code hex values.
+- **Contrast.** Text tokens meet WCAG AA (4.5:1) against their own surfaces, and non-text state indicators (stars, markers) meet 3:1. Locked quizzes are dimmed with dedicated `--locked-*` colors rather than `opacity`, which would drop contrast below the threshold.
+- **Era band colors.** Era colors come from the data as a single hex per era, so dark mode brightens them through `filter: var(--era-filter)` instead of duplicating the palette per theme.
+- **Color vision diversity.** Correct / incorrect are conveyed by the ✓ / ✗ marks and position badges in addition to color.
+- **Reduced motion.** `@media (prefers-reduced-motion: reduce)` disables transitions and animations globally, and Careful Mode skips its FLIP slide when the preference is set.
+
+### 9.1.6 Future Considerations
+
 - Create a prototype of the strata-metaphor stage selection screen
-- Address color vision diversity (distinguish states using icons/shapes in addition to color)
 - Performance testing for animations (strata-opening effects)
 
 ---

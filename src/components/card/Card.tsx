@@ -7,6 +7,7 @@ import CategoryIcon from '@/components/ui/CategoryIcon';
 import NumberBadge from '@/components/ui/NumberBadge';
 import { formatYearRange } from '@/lib/quiz-engine';
 import { getCardImageSrc } from '@/lib/images';
+import { CATEGORY_LABELS } from '@/lib/constants';
 import styles from './Card.module.css';
 
 interface CardProps {
@@ -21,6 +22,30 @@ interface CardProps {
   onClick?: () => void;
 }
 
+const STATE_LABELS: Record<CardState, string> = {
+  unselected: '未選択',
+  selected: '選択中',
+  correct: '正解',
+  incorrect: '不正解',
+};
+
+/** スクリーンリーダー向けに、カードの内容と状態を 1 行にまとめる。 */
+function buildAriaLabel(card: CardType, state: CardState, selectionNumber?: number): string {
+  const parts: string[] = [];
+  if (card.type === 'term') {
+    parts.push(card.name ?? '');
+    if (card.category) parts.push(CATEGORY_LABELS[card.category]);
+  } else {
+    parts.push(card.description);
+  }
+  if (selectionNumber !== undefined && state === 'selected') {
+    parts.push(`${selectionNumber}番目に選択中`);
+  } else if (state !== 'unselected') {
+    parts.push(STATE_LABELS[state]);
+  }
+  return parts.filter(Boolean).join('、');
+}
+
 const Card = memo(function Card({
   card,
   state,
@@ -32,7 +57,11 @@ const Card = memo(function Card({
   hideEraBadge,
   onClick,
 }: CardProps) {
-  const classNames = [styles.card, state !== 'unselected' ? styles[state] : '']
+  const classNames = [
+    styles.card,
+    state !== 'unselected' ? styles[state] : '',
+    onClick ? styles.interactive : styles.static,
+  ]
     .filter(Boolean)
     .join(' ');
 
@@ -42,8 +71,8 @@ const Card = memo(function Card({
   const imageSrc = getCardImageSrc(card);
   const showImage = !!imageSrc && !imageFailed && (showHint || showYear);
 
-  return (
-    <div className={classNames} data-testid="quiz-card" onClick={onClick}>
+  const body = (
+    <>
       {!hideEraBadge && (showHint || showYear) && <EraBadge color={eraColor} />}
 
       <div className={styles.content}>
@@ -82,9 +111,40 @@ const Card = memo(function Card({
         <NumberBadge number={selectionNumber} />
       )}
 
-      {state === 'correct' && <div className={`${styles.mark} ${styles.correctMark}`}>✓</div>}
+      {state === 'correct' && (
+        <div className={`${styles.mark} ${styles.correctMark}`} aria-hidden="true">
+          ✓
+        </div>
+      )}
 
-      {state === 'incorrect' && <div className={`${styles.mark} ${styles.incorrectMark}`}>✗</div>}
+      {state === 'incorrect' && (
+        <div className={`${styles.mark} ${styles.incorrectMark}`} aria-hidden="true">
+          ✗
+        </div>
+      )}
+    </>
+  );
+
+  // 操作できるカードは button として描画する。これだけでキーボード操作・
+  // フォーカスリング・スクリーンリーダーの読み上げがまとめて有効になる。
+  if (onClick) {
+    return (
+      <button
+        type="button"
+        className={classNames}
+        data-testid="quiz-card"
+        onClick={onClick}
+        aria-pressed={state === 'selected'}
+        aria-label={buildAriaLabel(card, state, selectionNumber)}
+      >
+        {body}
+      </button>
+    );
+  }
+
+  return (
+    <div className={classNames} data-testid="quiz-card">
+      {body}
     </div>
   );
 });

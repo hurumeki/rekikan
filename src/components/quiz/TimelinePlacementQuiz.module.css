@@ -40,6 +40,7 @@
 }
 
 .eraBand {
+  filter: var(--era-filter);
   position: absolute;
   top: 0;
   height: 100%;
@@ -61,6 +62,7 @@
 }
 
 .timeline:hover .eraBand {
+  filter: var(--era-filter);
   opacity: 0.75;
 }
 
@@ -81,18 +83,18 @@
 }
 
 .markerCorrect {
-  background: #22c55e;
-  box-shadow: 0 0 0 2px #16a34a;
+  background: var(--correct-mark-bg);
+  box-shadow: 0 0 0 2px var(--correct-fg);
 }
 
 .markerWrong {
-  background: #ef4444;
-  box-shadow: 0 0 0 2px #dc2626;
+  background: var(--incorrect-mark-bg);
+  box-shadow: 0 0 0 2px var(--incorrect-fg);
 }
 
 .markerCorrectAnswer {
-  background: #22c55e;
-  box-shadow: 0 0 0 2px #16a34a;
+  background: var(--correct-mark-bg);
+  box-shadow: 0 0 0 2px var(--correct-fg);
   width: 4px;
 }
 
@@ -103,7 +105,7 @@
   border: 2px solid var(--border);
   border-top: 1px solid var(--border);
   border-radius: 0 0 8px 8px;
-  background: var(--surface, var(--card-bg));
+  background: var(--surface, var(--surface));
 }
 
 .eraYearLabel {
@@ -137,8 +139,8 @@
   width: 36px;
   border: 1px solid var(--border);
   border-radius: 8px;
-  background: var(--card-bg);
-  color: var(--text-primary);
+  background: var(--surface);
+  color: var(--foreground);
   font-size: 0.7rem;
   font-weight: 600;
   cursor: pointer;
@@ -171,19 +173,19 @@
 }
 
 .feedbackCorrect {
-  background: color-mix(in srgb, #22c55e 15%, var(--card-bg));
-  color: #16a34a;
+  background: color-mix(in srgb, var(--correct-mark-bg) 15%, var(--surface));
+  color: var(--correct-fg);
 }
 
 .feedbackWrong {
-  background: color-mix(in srgb, #ef4444 15%, var(--card-bg));
-  color: #dc2626;
+  background: color-mix(in srgb, var(--incorrect-mark-bg) 15%, var(--surface));
+  color: var(--incorrect-fg);
 }
 
 .confirmButton,
 .nextButton {
   background: var(--badge-bg);
-  color: white;
+  color: var(--badge-text);
   border: none;
   border-radius: 12px;
   padding: 14px;
@@ -195,7 +197,9 @@
 }
 
 .confirmButton:disabled {
-  opacity: 0.4;
+  background: var(--state-unselected-bg);
+  color: var(--text-muted);
+  border: 1px solid var(--state-unselected-border);
   cursor: not-allowed;
 }
 

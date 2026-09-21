@@ -60,6 +60,12 @@ export default function CarefulMode({
     const flip = pendingFlipRef.current;
     if (!flip) return;
 
+    // 動きを減らす設定のときはスライド演出を行わない（docs/10 §10.3）
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
+      pendingFlipRef.current = null;
+      return;
+    }
+
     const prevRects = prevRectsRef.current;
     type AnimStep = { el: HTMLElement; deltaX: number; deltaY: number };
 

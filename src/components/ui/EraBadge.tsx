@@ -1,13 +1,5 @@
+import styles from './EraBadge.module.css';
+
 export default function EraBadge({ color }: { color: string }) {
-  return (
-    <div
-      style={{
-        width: 4,
-        minHeight: '100%',
-        backgroundColor: color,
-        borderRadius: 2,
-        flexShrink: 0,
-      }}
-    />
-  );
+  return <div className={styles.badge} style={{ backgroundColor: color }} aria-hidden="true" />;
 }

@@ -23,7 +23,7 @@
 
 .confirmButton {
   background: var(--badge-bg);
-  color: white;
+  color: var(--badge-text);
   border: none;
   border-radius: 12px;
   padding: 14px;
@@ -35,7 +35,11 @@
 }
 
 .confirmButton:disabled {
-  opacity: 0.4;
+  /* 半透明にすると「押せそうな青」のまま文字が読めなくなるため、
+     無効であることが分かる灰色に置き換える */
+  background: var(--state-unselected-bg);
+  color: var(--text-muted);
+  border: 1px solid var(--state-unselected-border);
   cursor: not-allowed;
 }
 

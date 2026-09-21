@@ -1,0 +1,8 @@
+.badge {
+  width: 4px;
+  min-height: 100%;
+  border-radius: 2px;
+  flex-shrink: 0;
+  /* データ由来の 1 色しか持たないため、暗いテーマではフィルタで明るくする */
+  filter: var(--era-filter);
+}

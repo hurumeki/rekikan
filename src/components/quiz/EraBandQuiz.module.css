@@ -34,8 +34,8 @@
   padding: 12px 16px;
   border: 2px solid var(--border);
   border-radius: 12px;
-  background: var(--card-bg);
-  color: var(--text-primary);
+  background: var(--surface);
+  color: var(--foreground);
   font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
@@ -48,17 +48,17 @@
 
 .eraButton:hover:not(:disabled) {
   border-color: var(--era-color, #888);
-  background: color-mix(in srgb, var(--era-color, #888) 10%, var(--card-bg));
+  background: color-mix(in srgb, var(--era-color, #888) 10%, var(--surface));
 }
 
 .eraButton.correct {
-  border-color: #22c55e;
-  background: color-mix(in srgb, #22c55e 15%, var(--card-bg));
+  border-color: var(--state-correct-border);
+  background: color-mix(in srgb, var(--correct-mark-bg) 15%, var(--surface));
 }
 
 .eraButton.incorrect {
-  border-color: #ef4444;
-  background: color-mix(in srgb, #ef4444 15%, var(--card-bg));
+  border-color: var(--state-incorrect-border);
+  background: color-mix(in srgb, var(--incorrect-mark-bg) 15%, var(--surface));
 }
 
 .eraButton.dimmed {
@@ -70,6 +70,7 @@
 }
 
 .eraColorDot {
+  filter: var(--era-filter);
   display: inline-block;
   width: 14px;
   height: 14px;
@@ -85,17 +86,17 @@
 }
 
 .feedbackCorrect {
-  color: #22c55e;
+  color: var(--correct-fg);
 }
 
 .feedbackWrong {
-  color: #ef4444;
+  color: var(--incorrect-fg);
 }
 
 .nextButton {
   padding: 12px 24px;
   background: var(--badge-bg, #6366f1);
-  color: #fff;
+  color: var(--on-accent);
   border: none;
   border-radius: 12px;
   font-size: 1rem;
