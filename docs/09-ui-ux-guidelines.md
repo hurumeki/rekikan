@@ -41,6 +41,13 @@ Era band colors (Prehistoric/Ancient = green, Medieval = indigo, Early Modern = 
 **Restrained application**
 World-building is concentrated on the stage selection screen and screen transitions. The quiz screen prioritizes card readability and operability, so world-building is limited to subtle background color tones to avoid interfering with learning.
 
+**Implementation (quiz list)**
+
+- Each node carries a stratum edge on its left. Depth 1 → 3 make the edge progressively more saturated, so deeper layers read as denser rock.
+- The hue comes from the node's position among its siblings, mapped onto the region's era band colors (`stratumColor()` in `src/lib/strata.ts`). Because siblings are ordered chronologically, the result is a cross-section: green at the top, red at the bottom.
+- Locked nodes keep a neutral, unsaturated edge — "unexcavated". A node whose quizzes are all cleared shows the era hue at full strength — "excavated, contents visible".
+- When a node becomes unlocked since the learner last opened that region, it plays a short opening animation with a ✨ badge, shown once (`takeNewlyUnlockedNodeIds()`). The animation is suppressed under `prefers-reduced-motion`.
+
 ### 9.1.3 Color Design
 
 **Theme support**
@@ -104,8 +111,8 @@ External URLs are not allowed in either case — paths are derived from the enti
 
 ### 9.1.6 Future Considerations
 
-- Create a prototype of the strata-metaphor stage selection screen
-- Performance testing for animations (strata-opening effects)
+- Extend the strata metaphor to screen transitions (currently only the quiz list)
+- Node cover images as the "excavated" surface of a stratum
 
 ---
 

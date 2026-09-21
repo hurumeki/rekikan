@@ -1,5 +1,6 @@
 'use client';
 
+import type React from 'react';
 import { useMemo, useState } from 'react';
 import type { Region, Node, UnlockCondition } from '@/lib/types';
 import { getQuiz, getRootNode, getChildNodes } from '@/lib/data-loader';
@@ -14,6 +15,7 @@ import {
   remainingLabel,
   type ProgressMap,
 } from '@/lib/unlock';
+import { stratumColor, takeNewlyUnlockedNodeIds } from '@/lib/strata';
 import NodeCoverImage from './NodeCoverImage';
 import styles from './QuizList.module.css';
 
@@ -67,19 +69,29 @@ export default function QuizList({ region, nodes, onSelectQuiz, onBack, progress
     return ids;
   }, [rootNodes, nextQuizId]);
 
-  const [expanded, setExpanded] = useState<Set<string>>(defaultExpanded);
+  // ハイドレーション直後は進捗が空のため、既定の開閉状態は毎レンダー計算し直す。
+  // ユーザーが開閉したあとだけ、その操作結果を優先する。
+  const [userExpanded, setUserExpanded] = useState<Set<string> | null>(null);
+  const expanded = userExpanded ?? defaultExpanded;
   const [lockedNode, setLockedNode] = useState<Node | null>(null);
 
+  // 前回この地域を見たとき以降に解放されたノード（地層が開く演出を 1 度だけ出す）
+  const newlyUnlocked = useMemo(() => {
+    const unlocked = nodes.filter((n) => isNodeUnlockedDeep(n, progress)).map((n) => n.id);
+    return new Set(takeNewlyUnlockedNodeIds(region.id, unlocked));
+    // 描画のたびに記録を消費しないよう、地域と進捗が変わったときだけ評価する
+  }, [region.id, nodes, progress]);
+
   const toggleNode = (nodeId: string) => {
-    setExpanded((prev) => {
-      const next = new Set(prev);
+    setUserExpanded((prev) => {
+      const next = new Set(prev ?? defaultExpanded);
       if (next.has(nodeId)) next.delete(nodeId);
       else next.add(nodeId);
       return next;
     });
   };
 
-  const renderNode = (node: Node, depth: number) => {
+  const renderNode = (node: Node, depth: number, siblingIndex = 0, siblingCount = 1) => {
     const unlocked = isNodeUnlockedDeep(node, progress);
     const children = getChildNodes(node.id);
     const isOpen = expanded.has(node.id);
@@ -89,14 +101,30 @@ export default function QuizList({ region, nodes, onSelectQuiz, onBack, progress
       stats.totalQuizzes > 0 ? (stats.clearedQuizzes / stats.totalQuizzes) * 100 : 0;
     const coverSrc = getNodeCoverImageSrc(node);
     const locked = remainingLabel(node, progress);
+    const cleared = stats.totalQuizzes > 0 && stats.clearedQuizzes === stats.totalQuizzes;
+    // 兄弟の並び順を時代帯カラーに写像して「地層の断面」に見せる
+    const stratum = stratumColor(siblingIndex, siblingCount, region.era_colors);
+    const isNew = newlyUnlocked.has(node.id);
 
     return (
       <div
         key={node.id}
         className={styles.nodeSection}
         data-depth={Math.min(depth, MAX_DEPTH_STYLE)}
+        data-locked={!unlocked || undefined}
+        data-cleared={cleared || undefined}
+        data-new={isNew || undefined}
+        // 未発掘の層は時代帯の色を乗せない（CSS 側でくすんだ色になる）
+        style={
+          stratum && unlocked ? ({ '--stratum-color': stratum } as React.CSSProperties) : undefined
+        }
         data-testid="node-section"
       >
+        {isNew && (
+          <span className={styles.unlockedBadge} data-testid="unlocked-badge">
+            ✨ 新しく解放されました
+          </span>
+        )}
         <button
           type="button"
           className={styles.nodeHeader}
@@ -164,7 +192,7 @@ export default function QuizList({ region, nodes, onSelectQuiz, onBack, progress
                 </button>
               );
             })}
-            {children.map((child) => renderNode(child, depth + 1))}
+            {children.map((child, i) => renderNode(child, depth + 1, i, children.length))}
           </div>
         )}
       </div>
@@ -188,7 +216,7 @@ export default function QuizList({ region, nodes, onSelectQuiz, onBack, progress
         </span>
         <span className={styles.regionLabel}>{region.label}</span>
       </div>
-      {rootNodes.map((node) => renderNode(node, 0))}
+      {rootNodes.map((node, i) => renderNode(node, 0, i, rootNodes.length))}
 
       {lockedNode && (
         <div className={styles.modalOverlay} onClick={() => setLockedNode(null)}>

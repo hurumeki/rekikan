@@ -35,13 +35,75 @@
   gap: 8px;
 }
 
-/* 階層の深さを字下げと左の罫線で示す（地層の断面のイメージ） */
+/*
+ * 地層メタファ（docs/09 §9.1.2）
+ * 深い階層ほど字下げされ、左端の「地層」が濃くなる。
+ * 地層の色は兄弟の並び順から割り当てた時代帯カラー。
+ */
+.nodeSection {
+  position: relative;
+  --stratum-color: var(--border);
+  --stratum-strength: 26%;
+}
+
 .nodeSection[data-depth='1'],
 .nodeSection[data-depth='2'],
 .nodeSection[data-depth='3'] {
   margin-left: 10px;
-  padding-left: 10px;
-  border-left: 2px solid var(--border);
+  padding-left: 12px;
+  border-left: 4px solid
+    color-mix(in srgb, var(--stratum-color) var(--stratum-strength), var(--border));
+}
+
+/* 深いほど濃く詰まった層に見せる */
+.nodeSection[data-depth='2'] {
+  --stratum-strength: 52%;
+}
+.nodeSection[data-depth='3'] {
+  --stratum-strength: 78%;
+}
+
+/* 未発掘の地層 */
+.nodeSection[data-locked] > .nodeHeader .nodeLabel {
+  color: var(--locked-fg);
+}
+
+.nodeSection[data-locked] {
+  --stratum-color: var(--locked-border);
+}
+
+/* 発掘済みの地層は中身が見えている＝色が乗る */
+.nodeSection[data-cleared] {
+  --stratum-strength: 100%;
+}
+
+@keyframes strataOpen {
+  0% {
+    opacity: 0;
+    transform: translateY(-6px) scaleY(0.9);
+    transform-origin: top;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+  }
+}
+
+.nodeSection[data-new] {
+  animation: strataOpen 0.55s ease-out both;
+}
+
+.unlockedBadge {
+  align-self: flex-start;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--highlight-bg);
+  color: var(--highlight-fg);
 }
 
 .nodeHeader {
