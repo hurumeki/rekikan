@@ -38,10 +38,10 @@ A format where the user places each card on a visual horizontal timeline by tapp
 
 - Cards are shown one at a time without their date
 - A horizontal timeline bar is displayed, color-coded by era band
-- The user taps the approximate position where they believe the event/period belongs
-- Correct judgment: if the tapped year is within a threshold of the card's actual year (roughly ±1/6 of the total timeline range)
-- Feedback: after confirming, the user's marker and the correct position marker are shown together
-- Cards auto-advance to the next after feedback is shown
+- **The scale is piecewise linear: every era band gets the same width.** A purely proportional scale would give prehistory almost the whole bar and squeeze the modern era into a few pixels, which makes the modern period impossible to place. Equal-width bands keep every era usable.
+- The user taps the approximate position where they believe the event/period belongs, then nudges it with the ◀◀ / ◀ / ▶ / ▶▶ buttons (which move by a share of the bar's width, so they are fine-grained inside short eras and coarse inside long ones) or jumps between eras with ⏮ / ⏭
+- **Correct judgment: the tap must land within 8% of the bar's width from the correct position.** Judging on screen distance rather than a number of years keeps the difficulty even: an earlier implementation used ±1/6 of the year range, which meant ±8,042 years in one quiz and ±11 years in another.
+- Feedback: after confirming, the user's marker, the correct position marker and the accepted zone are shown together, along with the tolerance expressed in years for that card
 - Develops the sense of "where in the grand sweep of history does this belong?"
 
 ## 5.5 Era Band Mode

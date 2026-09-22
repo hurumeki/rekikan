@@ -41,6 +41,13 @@ Era band colors (Prehistoric/Ancient = green, Medieval = indigo, Early Modern = 
 **Restrained application**
 World-building is concentrated on the stage selection screen and screen transitions. The quiz screen prioritizes card readability and operability, so world-building is limited to subtle background color tones to avoid interfering with learning.
 
+**Implementation (quiz list)**
+
+- Each node carries a stratum edge on its left. Depth 1 → 3 make the edge progressively more saturated, so deeper layers read as denser rock.
+- The hue comes from the node's position among its siblings, mapped onto the region's era band colors (`stratumColor()` in `src/lib/strata.ts`). Because siblings are ordered chronologically, the result is a cross-section: green at the top, red at the bottom.
+- Locked nodes keep a neutral, unsaturated edge — "unexcavated". A node whose quizzes are all cleared shows the era hue at full strength — "excavated, contents visible".
+- When a quiz result unlocks a node, that node is queued for a reveal at save time (`diffUnlockedNodes()` → `recordPendingReveals()`), and the quiz list plays a short opening animation with a ✨ badge the next time that region is opened, once (`takePendingReveals()`). Deciding this at save time — rather than by diffing "what was unlocked last time I looked" — keeps the animation independent of when progress finishes loading from `localStorage`. The animation is suppressed under `prefers-reduced-motion`.
+
 ### 9.1.3 Color Design
 
 **Theme support**
@@ -92,27 +99,33 @@ Cards and hierarchy nodes may carry AI-generated images to anchor visual memory.
 - Standard size: 1280 × 720 px WebP, target < 150 KB. Stored at `public/images/nodes/{node_id}.webp`.
 - Optional. Used to reinforce the "strata" world-building by giving each era / region node a representative scene.
 
-External URLs are not allowed in either case — paths are derived from the entity ID via a fixed convention. See [03-card-design.md](03-card-design.md) Section 3.4 and [31-data-entities.md](31-data-entities.md) Sections 2.2 and 2.4.
+External URLs are not allowed in either case — paths are derived from the entity ID via a fixed convention. Because the images are rendered with a plain `<img>` tag, which Next.js does not rewrite, the paths are built through `resolvePublicPath()` so that they keep working when the app is served from a sub-path (e.g. GitHub Pages under `/rekikan`). See [03-card-design.md](03-card-design.md) Section 3.4 and [31-data-entities.md](31-data-entities.md) Sections 2.2 and 2.4.
 
-### 9.1.5 Future Considerations
+### 9.1.5 Implementation Notes
 
-- Verify specific color contrast ratios (WCAG AA compliance)
-- Create a prototype of the strata-metaphor stage selection screen
-- Address color vision diversity (distinguish states using icons/shapes in addition to color)
-- Performance testing for animations (strata-opening effects)
+- **Theme tokens.** Every color is a CSS custom property declared in `src/app/globals.css`. The light values sit on `:root`; the dark values are redefined under `@media (prefers-color-scheme: dark)`, together with `color-scheme: dark`. Components must not hard-code hex values.
+- **Contrast.** Text tokens meet WCAG AA (4.5:1) against their own surfaces, and non-text state indicators (stars, markers) meet 3:1. Locked quizzes are dimmed with dedicated `--locked-*` colors rather than `opacity`, which would drop contrast below the threshold.
+- **Era band colors.** Era colors come from the data as a single hex per era, so dark mode brightens them through `filter: var(--era-filter)` instead of duplicating the palette per theme.
+- **Color vision diversity.** Correct / incorrect are conveyed by the ✓ / ✗ marks and position badges in addition to color.
+- **Reduced motion.** `@media (prefers-reduced-motion: reduce)` disables transitions and animations globally, and Careful Mode skips its FLIP slide when the preference is set.
+
+### 9.1.6 Future Considerations
+
+- Extend the strata metaphor to screen transitions (currently only the quiz list)
+- Node cover images as the "excavated" surface of a stratum
 
 ---
 
 ## 9.2 Screen Structure
 
-| Screen                         | Content                                                                                                                                                         |
-| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Home screen (region selection) | Region selector. The "れきかん" title and subtitle are displayed.                                                                                               |
-| Home screen (quiz list)        | Hierarchy tree for the selected region. Title is hidden; region name and emoji are shown instead. Tapping a locked quiz shows the unlock conditions in a modal. |
-| Mode selection                 | After selecting a stage, choose "Careful" or "Challenge"                                                                                                        |
-| Quiz screen (Careful)          | "Which is the oldest?" prompt + remaining card list + confirmed area                                                                                            |
-| Quiz screen (Challenge)        | Shuffled card list + tap-to-order interaction + confirm button                                                                                                  |
-| Results screen                 | Score + all cards in correct order with dates and explanations + position comparison (Challenge Mode only) + "Try Again" / "Back to list" buttons               |
+| Screen                         | Content                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Home screen (region selection) | Region selector. The "れきかん" title and subtitle are displayed.                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| Home screen (quiz list)        | Hierarchy tree for the selected region. Title is hidden; region name and emoji are shown instead. Nodes are collapsible: on first visit only the path to the next quiz is expanded, so a region with 50+ quizzes still fits on one screen. Depth is shown with indentation and a left rule. The next unlocked, uncleared quiz carries a「つぎはこれ」badge. A locked node shows how many quizzes remain before it opens, and tapping a locked quiz shows the unlock conditions in a modal. |
+| Mode selection                 | After selecting a stage, choose "Careful" or "Challenge"                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| Quiz screen (Careful)          | "Which is the oldest?" prompt + remaining card list + confirmed area                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Quiz screen (Challenge)        | Shuffled card list + tap-to-order interaction + confirm button                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Results screen                 | Score + all cards in correct order with dates and explanations + position comparison (Challenge Mode only) + "Try Again" / "Back to list" buttons                                                                                                                                                                                                                                                                                                                                          |
 
 ---
 

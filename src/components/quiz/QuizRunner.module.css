@@ -1,0 +1,32 @@
+.container {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px;
+  width: 100%;
+}
+
+.exitButton {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  color: var(--badge-bg);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 4px 0;
+  margin-bottom: 12px;
+}
+
+.playHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.playTitle {
+  margin: 0;
+  font-size: 1rem;
+}

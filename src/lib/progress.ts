@@ -1,92 +1,112 @@
-import type { QuizProgress, QuizResult } from './types';
+import type { GameMode, ModeProgress, QuizProgress, QuizResult } from './types';
+import { createLocalStore } from './local-store';
+import { applyQuizResult } from './progress-rules';
+import { isSyntheticQuizId } from './constants';
 
-/** スコアから星数を計算（1〜3）。total が 0 のときは 0 を返す。 */
-export function computeStars(score: number, total: number): number {
-  if (total === 0) return 0;
-  if (score === total) return 3;
-  if (score / total >= 0.7) return 2;
-  return 1;
-}
+export type ProgressMap = Record<string, QuizProgress>;
 
-/** 過去のベストスコアに基づく星数（クイズ一覧の表示用）。未プレイなら 0。 */
-export function getHistoricalStars(
-  progress: QuizProgress | null | undefined,
-  total: number,
-): number {
-  if (!progress || progress.attemptCount === 0) return 0;
-  // cleared === true なら過去に全問正解が達成済み → 3星確定
-  const effectiveScore = progress.cleared ? total : progress.bestScore;
-  return computeStars(effectiveScore, total);
-}
+export const PROGRESS_STORAGE_KEY = 'rekikan_progress';
 
-const STORAGE_KEY = 'rekikan_progress';
-
-function isQuizProgress(v: unknown): v is QuizProgress {
+function isModeProgress(v: unknown): v is ModeProgress {
   if (!v || typeof v !== 'object') return false;
   const p = v as Record<string, unknown>;
   return (
-    typeof p.quizId === 'string' &&
     typeof p.bestScore === 'number' &&
     typeof p.cleared === 'boolean' &&
     typeof p.attemptCount === 'number'
   );
 }
 
-function loadAll(): Record<string, QuizProgress> {
-  if (typeof window === 'undefined') return {};
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return {};
-    const parsed: unknown = JSON.parse(raw);
-    if (!parsed || typeof parsed !== 'object') return {};
-    const result: Record<string, QuizProgress> = {};
-    for (const [key, value] of Object.entries(parsed)) {
-      if (!isQuizProgress(value)) continue;
-      result[key] = {
-        ...value,
-        // Default for entries saved before this field was added
-        clearedWithHint: typeof value.clearedWithHint === 'boolean' ? value.clearedWithHint : false,
-      };
-    }
-    return result;
-  } catch {
-    return {};
+function parseQuizProgress(quizId: string, v: unknown): QuizProgress | null {
+  if (!v || typeof v !== 'object') return null;
+  const p = v as Record<string, unknown>;
+  if (
+    typeof p.bestScore !== 'number' ||
+    typeof p.cleared !== 'boolean' ||
+    typeof p.attemptCount !== 'number'
+  ) {
+    return null;
   }
+
+  const modes: Partial<Record<GameMode, ModeProgress>> = {};
+  if (p.modes && typeof p.modes === 'object') {
+    for (const [mode, value] of Object.entries(p.modes)) {
+      if (isModeProgress(value)) {
+        modes[mode as GameMode] = {
+          ...value,
+          clearedWithHint:
+            typeof value.clearedWithHint === 'boolean' ? value.clearedWithHint : false,
+        };
+      }
+    }
+  }
+
+  return {
+    quizId,
+    bestScore: p.bestScore,
+    cleared: p.cleared,
+    clearedWithHint: typeof p.clearedWithHint === 'boolean' ? p.clearedWithHint : false,
+    attemptCount: p.attemptCount,
+    modes,
+  };
 }
 
-function saveAll(data: Record<string, QuizProgress>): void {
-  if (typeof window === 'undefined') return;
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+/**
+ * v1（バージョン封筒なし）はクイズ ID をキーにしたマップをそのまま保存していた。
+ * v2 以降は `{ quizzes: { ... } }`。どちらもモード別記録は空のまま引き継ぐ。
+ */
+const progressStore = createLocalStore<ProgressMap>({
+  key: PROGRESS_STORAGE_KEY,
+  version: 2,
+  empty: {},
+  parse: (data) => {
+    if (!data || typeof data !== 'object') return {};
+    const record = data as Record<string, unknown>;
+    const entries = (record.quizzes ?? record) as Record<string, unknown>;
+    if (!entries || typeof entries !== 'object') return {};
+
+    const result: ProgressMap = {};
+    for (const [quizId, value] of Object.entries(entries)) {
+      const parsed = parseQuizProgress(quizId, value);
+      if (parsed) result[quizId] = parsed;
+    }
+    return result;
+  },
+});
+
+export function getAllProgress(): ProgressMap {
+  return progressStore.read();
 }
 
 export function getQuizProgress(quizId: string): QuizProgress | null {
-  const all = loadAll();
-  return all[quizId] ?? null;
+  return progressStore.read()[quizId] ?? null;
+}
+
+/** 指定モードの記録だけを取り出す。未プレイなら null。 */
+export function getModeProgress(quizId: string, mode: GameMode): ModeProgress | null {
+  return getQuizProgress(quizId)?.modes[mode] ?? null;
 }
 
 export function saveQuizResult(result: QuizResult): QuizProgress {
-  const all = loadAll();
-  const existing = all[result.quizId];
-  const cleared = result.score === result.total;
+  // 実行時に組み立てたクイズ（復習など）は同梱データに存在しないので、
+  // 進捗に混ぜない。アンロック判定が架空の ID に依存してしまうため。
+  if (isSyntheticQuizId(result.quizId)) {
+    return applyQuizResult(undefined, result);
+  }
 
-  const progress: QuizProgress = {
-    quizId: result.quizId,
-    bestScore: Math.max(result.score, existing?.bestScore ?? 0),
-    cleared: cleared || (existing?.cleared ?? false),
-    clearedWithHint: (cleared && result.hintUsed) || (existing?.clearedWithHint ?? false),
-    attemptCount: (existing?.attemptCount ?? 0) + 1,
-  };
-
-  all[result.quizId] = progress;
-  saveAll(all);
-  return progress;
+  let saved: QuizProgress | null = null;
+  progressStore.update((current) => {
+    saved = applyQuizResult(current[result.quizId], result);
+    return { ...current, [result.quizId]: saved };
+  });
+  return saved!;
 }
 
 export function isQuizCleared(quizId: string): boolean {
-  const progress = getQuizProgress(quizId);
-  return progress?.cleared ?? false;
+  return getQuizProgress(quizId)?.cleared ?? false;
 }
 
-export function getAllProgress(): Record<string, QuizProgress> {
-  return loadAll();
-}
+/* useSyncExternalStore 用 */
+export const subscribeProgress = progressStore.subscribe;
+export const getProgressSnapshot = progressStore.getSnapshot;
+export const getServerProgressSnapshot = progressStore.getServerSnapshot;

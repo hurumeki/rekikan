@@ -7,36 +7,31 @@
 Recommended layout when managing the data as JSON files.
 
 ```
-data/
-├── regions/
-│   ├── japan.json            # Region definition + era_colors
-│   ├── europe.json
-│   └── china.json
-│
-├── cards/
-│   ├── japan/
-│   │   ├── era.json          # Era division cards (term)
-│   │   ├── prehistoric.json  # Prehistoric & ancient individual cards
-│   │   ├── medieval.json     # Medieval & early modern individual cards
-│   │   ├── modern.json       # Modern & contemporary individual cards
-│   │   └── descriptions.json # Description cards (all hierarchy levels)
-│   ├── europe/
+src/
+├── data/
+│   ├── regions.json          # All region definitions + era_colors
+│   │
+│   ├── cards/
+│   │   ├── japan.json        # All cards for Japanese history
+│   │   ├── europe.json
+│   │   └── ...               # One file per region
+│   │
+│   ├── quizzes/
+│   │   ├── japan.json        # All quiz definitions for Japanese history
+│   │   ├── europe.json
+│   │   ├── world.json        # Theme / cross-region quizzes
 │   │   └── ...
-│   └── china/
+│   │
+│   └── nodes/
+│       ├── japan.json        # Hierarchy node definitions for Japanese history
+│       ├── europe.json
+│       ├── world.json
 │       └── ...
 │
-├── quizzes/
-│   ├── japan.json            # All quiz definitions for Japanese history
-│   ├── europe.json
-│   └── china.json
-│
-├── tree/
-│   ├── japan.json            # Hierarchy node definitions for Japanese history
-│   ├── europe.json
-│   └── china.json
-│
-└── meta/
-    └── categories.json       # Category–icon mapping table
+└── lib/
+    ├── data-registry.ts      # Single source of truth for shipped regions
+    ├── constants.ts          # Category → icon / label mapping
+    └── admin/categories.ts   # Category master data for the editor
 
 public/images/
 ├── cards/                    # AI-generated card images
@@ -49,7 +44,12 @@ public/images/
 
 **Splitting criteria:**
 
-- cards/: Split by region and theme. Roughly a few dozen cards per file. This also serves as a convenient unit for AI generation and review.
-- quizzes/: One file per region. Can be split further by theme as the number of quizzes grows.
-- tree/: One file per region. Keeps the entire hierarchy visible in a single file.
+- `cards/`: One file per region. Split further by theme if a single file becomes hard to review.
+- `quizzes/`: One file per region. Cross-region and theme quizzes live in `world.json`.
+- `nodes/`: One file per region. Keeps the entire hierarchy visible in a single file.
+- Every file is registered in `src/lib/data-registry.ts`; adding a region there propagates it to the app, the editor's initial state, and static-param generation.
+- **Type safety.** `data-registry.ts` casts the imported JSON to the domain types through `unknown`, so TypeScript does **not** check the shape of the content files. The real guard is the CI data check (`npm run test:unit`), which runs every Card / Quiz / Node validation rule over `src/data/**` — see [25-editor-validation-rules.md](25-editor-validation-rules.md) Section 7.4. Adding a required field to a type therefore needs a validation rule as well, or bad data will only surface at runtime.
+- **Reserved IDs.** IDs starting with `__` are reserved for quizzes assembled at runtime (the weak-card review), which are never written to progress. The validator rejects them in shipped data.
+- **Loading strategy.** Regions, nodes and quizzes are imported statically because the quiz list needs them immediately. Cards are about two thirds of the content and are only needed once a quiz starts, so each region's card file is a dynamic `import()` behind `CARD_LOADERS`, loaded on demand and cached in `data-loader.ts`. This keeps the card data off the home screen entirely (measured: ~476 KB raw / 97 KB gzip of card data no longer shipped on first load). The editor still loads every region via `loadAllCards()`.
+- The category master lives in code (`src/lib/constants.ts`), not in a JSON file.
 - `public/images/cards/{card_id}.webp` and `public/images/nodes/{node_id}.webp`: image files referenced via `has_image` / `has_cover_image` flags. Paths are not stored in JSON — they are derived from the entity ID. External URLs are not allowed.

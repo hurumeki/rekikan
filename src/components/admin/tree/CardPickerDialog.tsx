@@ -10,7 +10,13 @@ import {
 } from '@/components/admin-ui/dialog';
 import { Button } from '@/components/admin-ui/button';
 import { Input } from '@/components/admin-ui/input';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/admin-ui/select';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/admin-ui/select';
 import { Badge } from '@/components/admin-ui/badge';
 import { useAdminStore } from '@/lib/admin/store';
 import type { Card } from '@/lib/types';
@@ -51,7 +57,7 @@ export function CardPickerDialog({ open, onOpenChange, excludeIds = [], onSelect
       }
       return true;
     });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.cards, search, regionId, status, excludeIds]);
 
   function toggleSelect(id: string) {
@@ -86,18 +92,26 @@ export function CardPickerDialog({ open, onOpenChange, excludeIds = [], onSelect
             onChange={(e) => setSearch(e.target.value)}
             className="w-48"
           />
-          <Select value={regionId || '__all__'} onValueChange={(v) => setRegionId(v === '__all__' ? '' : v)}>
+          <Select
+            value={regionId || '__all__'}
+            onValueChange={(v) => setRegionId(v === '__all__' ? '' : v)}
+          >
             <SelectTrigger className="w-36">
               <SelectValue placeholder="リージョン" />
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="__all__">すべて</SelectItem>
               {state.regions.map((r) => (
-                <SelectItem key={r.id} value={r.id}>{r.emoji} {r.label}</SelectItem>
+                <SelectItem key={r.id} value={r.id}>
+                  {r.emoji} {r.label}
+                </SelectItem>
               ))}
             </SelectContent>
           </Select>
-          <Select value={status || '__all__'} onValueChange={(v) => setStatus(v === '__all__' ? '' : v)}>
+          <Select
+            value={status || '__all__'}
+            onValueChange={(v) => setStatus(v === '__all__' ? '' : v)}
+          >
             <SelectTrigger className="w-36">
               <SelectValue placeholder="ステータス" />
             </SelectTrigger>
@@ -116,10 +130,18 @@ export function CardPickerDialog({ open, onOpenChange, excludeIds = [], onSelect
             <thead className="sticky top-0 bg-background border-b border-border">
               <tr>
                 <th className="px-3 py-2 w-8"></th>
-                <th className="px-3 py-2 text-left text-xs font-medium text-muted-foreground">地域</th>
-                <th className="px-3 py-2 text-left text-xs font-medium text-muted-foreground">用語/説明</th>
-                <th className="px-3 py-2 text-left text-xs font-medium text-muted-foreground">年</th>
-                <th className="px-3 py-2 text-left text-xs font-medium text-muted-foreground">ステータス</th>
+                <th className="px-3 py-2 text-left text-xs font-medium text-muted-foreground">
+                  地域
+                </th>
+                <th className="px-3 py-2 text-left text-xs font-medium text-muted-foreground">
+                  用語/説明
+                </th>
+                <th className="px-3 py-2 text-left text-xs font-medium text-muted-foreground">
+                  年
+                </th>
+                <th className="px-3 py-2 text-left text-xs font-medium text-muted-foreground">
+                  ステータス
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -145,7 +167,9 @@ export function CardPickerDialog({ open, onOpenChange, excludeIds = [], onSelect
                     </td>
                     <td className="px-3 py-2 max-w-xs">
                       <span className="text-xs line-clamp-1">
-                        {card.type === 'term' && card.name ? card.name : card.description.slice(0, 60)}
+                        {card.type === 'term' && card.name
+                          ? card.name
+                          : card.description.slice(0, 60)}
                       </span>
                     </td>
                     <td className="px-3 py-2 text-xs">{card.year}</td>
@@ -180,7 +204,9 @@ export function CardPickerDialog({ open, onOpenChange, excludeIds = [], onSelect
 
         <DialogFooter>
           <span className="text-xs text-muted-foreground mr-auto">{selected.size}件選択中</span>
-          <Button variant="outline" onClick={() => onOpenChange(false)}>キャンセル</Button>
+          <Button variant="outline" onClick={() => onOpenChange(false)}>
+            キャンセル
+          </Button>
           <Button onClick={handleConfirm} disabled={selected.size === 0}>
             追加 ({selected.size})
           </Button>

@@ -1,92 +1,46 @@
 'use client';
 
-import { useState, useCallback, useRef } from 'react';
-import type { Card, CardResult } from '@/lib/types';
+import { useState, useCallback, useRef, useMemo } from 'react';
+import type { Card } from '@/lib/types';
 import { shuffleArray } from '@/lib/quiz-engine';
+import {
+  carefulResults,
+  carefulScore,
+  clearCarefulWrong,
+  createCarefulState,
+  isCarefulComplete,
+  selectCarefulCard,
+} from '@/lib/modes/careful';
 
-interface CarefulModeState {
-  remainingCards: Card[];
-  confirmedCards: Card[];
-  mistakeCardIds: Set<string>; // cards where user made at least one mistake
-  wrongCardId: string | null; // currently shaking card
-  isComplete: boolean;
-  score: number;
-  total: number;
-}
-
+/** 状態遷移は lib/modes/careful.ts、ここは React への橋渡しだけ。 */
 export function useCarefulMode(cards: Card[], correctOrder: string[]) {
+  // 正解直後の連打で 2 枚目が飛ばないようにするための冷却期間
   const cooldownUntil = useRef(0);
+  const [state, setState] = useState(() => createCarefulState(shuffleArray(cards)));
 
-  const [state, setState] = useState<CarefulModeState>(() => ({
-    remainingCards: shuffleArray(cards),
-    confirmedCards: [],
-    mistakeCardIds: new Set(),
-    wrongCardId: null,
-    isComplete: false,
-    score: 0,
-    total: cards.length,
-  }));
-
-  const selectCard = useCallback(
-    (cardId: string) => {
-      if (Date.now() < cooldownUntil.current) return;
-
-      setState((prev) => {
-        if (prev.isComplete) return prev;
-
-        const selectedCard = prev.remainingCards.find((c) => c.id === cardId);
-        if (!selectedCard) return prev;
-
-        const expectedId = correctOrder[prev.confirmedCards.length];
-        if (!expectedId) return prev;
-
-        const isCorrect = cardId === expectedId;
-
-        if (isCorrect) {
-          cooldownUntil.current = Date.now() + 300;
-          const newConfirmed = [...prev.confirmedCards, selectedCard];
-          const newRemaining = prev.remainingCards.filter((c) => c.id !== cardId);
-          return {
-            ...prev,
-            confirmedCards: newConfirmed,
-            remainingCards: newRemaining,
-            wrongCardId: null,
-            isComplete: newRemaining.length === 0,
-            score: prev.mistakeCardIds.has(expectedId) ? prev.score : prev.score + 1,
-          };
-        } else {
-          const newMistakes = new Set(prev.mistakeCardIds);
-          newMistakes.add(expectedId);
-          return {
-            ...prev,
-            wrongCardId: cardId,
-            mistakeCardIds: newMistakes,
-          };
-        }
-      });
-    },
-    [correctOrder],
-  );
-
-  const clearWrong = useCallback(() => {
-    setState((prev) => ({ ...prev, wrongCardId: null }));
+  const selectCard = useCallback((cardId: string) => {
+    if (Date.now() < cooldownUntil.current) return;
+    setState((prev) => {
+      const next = selectCarefulCard(prev, cardId);
+      // 確定した（＝正解した）ときだけ冷却する
+      if (next.confirmedCards.length > prev.confirmedCards.length) {
+        cooldownUntil.current = Date.now() + 300;
+      }
+      return next;
+    });
   }, []);
 
-  const results: CardResult[] = state.confirmedCards.map((card, i) => ({
-    cardId: card.id,
-    correct: !state.mistakeCardIds.has(card.id),
-    correctPosition: i,
-    userPosition: i,
-  }));
+  const clearWrong = useCallback(() => setState(clearCarefulWrong), []);
+
+  const results = useMemo(() => carefulResults(state, correctOrder), [state, correctOrder]);
 
   return {
     remainingCards: state.remainingCards,
     confirmedCards: state.confirmedCards,
-    mistakeCardIds: state.mistakeCardIds,
     wrongCardId: state.wrongCardId,
-    isComplete: state.isComplete,
-    score: state.score,
-    total: state.total,
+    isComplete: isCarefulComplete(state),
+    score: carefulScore(state),
+    total: state.confirmedCards.length + state.remainingCards.length,
     results,
     selectCard,
     clearWrong,

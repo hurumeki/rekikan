@@ -59,6 +59,8 @@ export interface Node {
 
 export type UnlockCondition =
   | { type: 'complete_quizzes'; quiz_ids: string[] }
+  /** 列挙したクイズのうち count 件をクリアすれば解放（「複数地域のLv.1クリア」用） */
+  | { type: 'complete_any'; quiz_ids: string[]; count: number }
   | { type: 'complete_node'; node_ids: string[] }
   | { type: 'attempts'; quiz_id: string; count: number }
   | { type: 'hint_clear'; quiz_id: string };
@@ -68,6 +70,17 @@ export interface CardResult {
   correct: boolean;
   correctPosition: number;
   userPosition: number;
+}
+
+/** カード単位の正答統計（苦手カードの復習に使う） */
+export interface CardStats {
+  cardId: string;
+  attempts: number;
+  correct: number;
+  /** 最後に出題された時刻（ISO 8601） */
+  lastSeen: string;
+  /** どの地域のカードか。復習時に必要な地域だけ読み込むために持つ */
+  region?: string;
 }
 
 export interface QuizResult {
@@ -80,11 +93,24 @@ export interface QuizResult {
   timestamp: string;
 }
 
-export interface QuizProgress {
-  quizId: string;
+/** 1 つのモードでの記録 */
+export interface ModeProgress {
   bestScore: number;
   cleared: boolean;
   /** Perfect score achieved at least once with hint enabled (used for hint_clear unlock) */
   clearedWithHint: boolean;
   attemptCount: number;
+}
+
+export interface QuizProgress {
+  quizId: string;
+  /** 全モードを通じた最高スコア（一覧の星表示用） */
+  bestScore: number;
+  /** 並べ替え系モードで満点を取ったか。アンロック判定に使う */
+  cleared: boolean;
+  clearedWithHint: boolean;
+  /** 全モードの挑戦回数の合計 */
+  attemptCount: number;
+  /** モード別の記録 */
+  modes: Partial<Record<GameMode, ModeProgress>>;
 }

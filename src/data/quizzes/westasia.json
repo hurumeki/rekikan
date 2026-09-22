@@ -166,8 +166,8 @@
       "card_westasia_muhammad",
       "card_westasia_abbasid",
       "card_westasia_ottoman_found",
-      "card_westasia_egypt_revolution",
-      "card_westasia_israel"
+      "card_westasia_israel",
+      "card_westasia_egypt_revolution"
     ],
     "modes": ["careful", "challenge", "timeline", "era_band"],
     "difficulty": 3

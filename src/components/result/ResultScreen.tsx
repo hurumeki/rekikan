@@ -3,8 +3,10 @@
 import type React from 'react';
 import { useMemo } from 'react';
 import type { Card as CardType, CardResult, GameMode, Region } from '@/lib/types';
-import { computeStars } from '@/lib/progress';
+import { computeStars } from '@/lib/progress-rules';
 import Card from '@/components/card/Card';
+import StarRating from '@/components/ui/StarRating';
+import ActionButton from '@/components/ui/ActionButton';
 import styles from './ResultScreen.module.css';
 
 interface ResultScreenProps {
@@ -17,6 +19,7 @@ interface ResultScreenProps {
   mode: GameMode;
   previousBest: number | null;
   onRetry: () => void;
+  onChangeMode: () => void;
   onHome: () => void;
   regions?: Region[];
 }
@@ -31,6 +34,7 @@ export default function ResultScreen({
   mode,
   previousBest,
   onRetry,
+  onChangeMode,
   onHome,
   regions,
 }: ResultScreenProps) {
@@ -40,6 +44,10 @@ export default function ResultScreen({
   const stars = computeStars(score, total);
   const isNewBest = previousBest !== null && score > previousBest;
   const isFirstAttempt = previousBest === null;
+  // 初回かつ満点でないときは称える内容がないので、バッジ自体を出さない
+  // （中身だけ null にすると空の色つきピルが残ってしまう）。
+  const badgeLabel =
+    isPerfect && isFirstAttempt ? '初クリア！🎉' : isNewBest ? '自己ベスト更新！🎉' : null;
 
   const cardMap = useMemo(() => new Map(cards.map((c) => [c.id, c])), [cards]);
   const resultMap = useMemo(() => new Map(results.map((r) => [r.cardId, r])), [results]);
@@ -56,24 +64,12 @@ export default function ResultScreen({
         </div>
 
         <div className={styles.starsRow}>
-          {[1, 2, 3].map((i) => (
-            <span
-              key={i}
-              className={i <= stars ? styles.starFilled : styles.starEmpty}
-              style={{ '--star-delay': `${(i - 1) * 0.12}s` } as React.CSSProperties}
-            >
-              ★
-            </span>
-          ))}
+          <StarRating stars={stars} size="lg" animated />
         </div>
 
         {isPerfect && <div className={styles.perfect}>パーフェクト！</div>}
 
-        {(isNewBest || isFirstAttempt) && (
-          <div className={styles.newBestBadge}>
-            {isPerfect && isFirstAttempt ? '初クリア！🎉' : isNewBest ? `自己ベスト更新！🎉` : null}
-          </div>
-        )}
+        {badgeLabel && <div className={styles.newBestBadge}>{badgeLabel}</div>}
       </div>
 
       <div className={styles.cardList}>
@@ -124,13 +120,14 @@ export default function ResultScreen({
       </div>
 
       <div className={styles.buttons}>
-        <button className={styles.retryButton} onClick={onRetry}>
+        <ActionButton variant="secondary" onClick={onRetry}>
           もう一度
-        </button>
-        <button className={styles.homeButton} onClick={onHome}>
-          クイズ一覧に戻る
-        </button>
+        </ActionButton>
+        <ActionButton onClick={onChangeMode}>別のモードで遊ぶ</ActionButton>
       </div>
+      <button className={styles.homeLink} onClick={onHome}>
+        クイズ一覧に戻る
+      </button>
     </div>
   );
 }

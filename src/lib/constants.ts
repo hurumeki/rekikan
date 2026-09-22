@@ -21,3 +21,14 @@ export const CATEGORY_LABELS: Record<Category, string> = {
 };
 
 export const RECOMMENDED_CARD_COUNT = { min: 5, max: 8 };
+
+/**
+ * 実行時に組み立てたクイズ（苦手カードの復習など）の ID に付ける接頭辞。
+ * 同梱データの ID には使えない（バリデーションで弾く）ため、
+ * この接頭辞を見れば「保存してはいけないクイズ」だと判別できる。
+ */
+export const SYNTHETIC_QUIZ_ID_PREFIX = '__';
+
+export function isSyntheticQuizId(quizId: string): boolean {
+  return quizId.startsWith(SYNTHETIC_QUIZ_ID_PREFIX);
+}

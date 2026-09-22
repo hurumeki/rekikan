@@ -1,18 +1,11 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useRef, useLayoutEffect } from 'react';
-import type { Card as CardType, CardResult } from '@/lib/types';
+import type { OrderingQuizModeProps } from './mode-props';
 import { useCarefulMode } from '@/hooks/useCarefulMode';
 import Card from '@/components/card/Card';
+import layout from './quiz-layout.module.css';
 import styles from './CarefulMode.module.css';
-
-interface CarefulModeProps {
-  cards: CardType[];
-  correctOrder: string[];
-  eraColors: Record<string, string>;
-  hintEnabled: boolean;
-  onComplete: (results: CardResult[], score: number, total: number) => void;
-}
 
 export default function CarefulMode({
   cards,
@@ -20,7 +13,7 @@ export default function CarefulMode({
   eraColors,
   hintEnabled,
   onComplete,
-}: CarefulModeProps) {
+}: OrderingQuizModeProps) {
   const {
     remainingCards,
     confirmedCards,
@@ -59,6 +52,12 @@ export default function CarefulMode({
   useLayoutEffect(() => {
     const flip = pendingFlipRef.current;
     if (!flip) return;
+
+    // 動きを減らす設定のときはスライド演出を行わない（docs/10 §10.3）
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
+      pendingFlipRef.current = null;
+      return;
+    }
 
     const prevRects = prevRectsRef.current;
     type AnimStep = { el: HTMLElement; deltaX: number; deltaY: number };
@@ -134,8 +133,46 @@ export default function CarefulMode({
   }, [wrongCardId, clearWrong]);
 
   return (
-    <div className={styles.container}>
-      {!isComplete && <div className={styles.prompt}>この中で1番古いのはどれ？</div>}
+    <div className={layout.modeContainer}>
+      {confirmedCards.length > 0 && (
+        <div className={styles.confirmedArea}>
+          <div className={styles.confirmedLabel}>古い順に確定したカード</div>
+          {confirmedCards.map((card, i) => (
+            <div
+              key={card.id}
+              ref={(el) => {
+                if (el) confirmedCardRefs.current.set(card.id, el);
+                else confirmedCardRefs.current.delete(card.id);
+              }}
+              className={styles.confirmedRow}
+            >
+              <span className={styles.confirmedIndex} aria-hidden="true">
+                {i + 1}
+              </span>
+              <div className={styles.confirmedCard}>
+                <Card
+                  card={card}
+                  state="correct"
+                  eraColor={eraColors[card.era_color_key] ?? '#888'}
+                  showYear
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {!isComplete && (
+        <div className={styles.promptArea}>
+          <div className={layout.prompt}>この中で1番古いのはどれ？</div>
+          <div className={styles.remainingCount}>のこり{remainingCards.length}枚</div>
+          {wrongCardId && (
+            <div className={styles.wrongHint} role="status">
+              もっと古いカードがあるよ
+            </div>
+          )}
+        </div>
+      )}
 
       {remainingCards.length > 0 && (
         <div className={styles.remainingArea}>
@@ -154,28 +191,6 @@ export default function CarefulMode({
                 eraColor={eraColors[card.era_color_key] ?? '#888'}
                 showHint={hintEnabled}
                 onClick={cardClickHandlers.get(card.id)}
-              />
-            </div>
-          ))}
-        </div>
-      )}
-
-      {confirmedCards.length > 0 && (
-        <div className={styles.confirmedArea}>
-          {confirmedCards.map((card) => (
-            <div
-              key={card.id}
-              ref={(el) => {
-                if (el) confirmedCardRefs.current.set(card.id, el);
-                else confirmedCardRefs.current.delete(card.id);
-              }}
-            >
-              <Card
-                card={card}
-                state="correct"
-                eraColor={eraColors[card.era_color_key] ?? '#888'}
-                showYear
-                showDescription
               />
             </div>
           ))}

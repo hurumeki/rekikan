@@ -1,0 +1,26 @@
+/*
+ * モード共通のレイアウト。
+ * 画面の外枠（幅・余白）は QuizRunner が持つので、ここでは
+ * モードの中身の並べ方と、どのモードにも出る見出しだけを定義する。
+ */
+
+.modeContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+/** 「この中で1番古いのはどれ？」などの問いかけ */
+.prompt {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/** 「3 / 6」のような進み具合 */
+.progress {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}

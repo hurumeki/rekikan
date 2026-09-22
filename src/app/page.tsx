@@ -3,8 +3,10 @@
 import { Suspense, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { getRegions, getRegion, getNodesForRegion } from '@/lib/data-loader';
-import { getAllProgress } from '@/lib/progress';
-import type { Region, QuizProgress } from '@/lib/types';
+import { useProgress } from '@/hooks/useProgress';
+import { useWeakCardCount } from '@/hooks/useCardStats';
+import type { Region } from '@/lib/types';
+import { REVIEW_MIN_CARDS } from '@/lib/review';
 import RegionSelector from '@/components/home/RegionSelector';
 import QuizList from '@/components/home/QuizList';
 import styles from './page.module.css';
@@ -16,7 +18,8 @@ function HomeContent() {
   const initialRegionId = searchParams.get('region');
   const initialRegion = initialRegionId ? (getRegion(initialRegionId) ?? null) : null;
   const [selectedRegion, setSelectedRegion] = useState<Region | null>(initialRegion);
-  const [progress] = useState<Record<string, QuizProgress>>(getAllProgress);
+  const progress = useProgress();
+  const weakCardCount = useWeakCardCount();
 
   const handleSelectRegion = (regionId: string) => {
     const region = getRegion(regionId);
@@ -45,7 +48,26 @@ function HomeContent() {
           progress={progress}
         />
       ) : (
-        <RegionSelector regions={regions} onSelect={handleSelectRegion} />
+        <>
+          {weakCardCount >= REVIEW_MIN_CARDS && (
+            <button
+              className={styles.reviewCard}
+              onClick={() => router.push('/review')}
+              data-testid="review-entry"
+            >
+              <span className={styles.reviewIcon} aria-hidden="true">
+                🔁
+              </span>
+              <span className={styles.reviewBody}>
+                <span className={styles.reviewTitle}>苦手カードの復習</span>
+                <span className={styles.reviewDesc}>
+                  間違えたカード{weakCardCount}枚から出題します
+                </span>
+              </span>
+            </button>
+          )}
+          <RegionSelector regions={regions} onSelect={handleSelectRegion} progress={progress} />
+        </>
       )}
     </div>
   );

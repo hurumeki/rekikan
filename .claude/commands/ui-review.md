@@ -5,7 +5,7 @@ Playwrightを使ってスマホ表示のUIレビューを実施する。
 1. Playwrightテストを実行してスクリーンショットを取得する:
 
 ```bash
-PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/root/.cache/ms-playwright/chromium-1194/chrome-linux/chrome npx playwright test e2e/ui-review.spec.ts
+PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/opt/pw-browsers/chromium-1194/chrome-linux/chrome npx playwright test --project=mobile
 ```
 
 2. テストが失敗した場合はエラー内容を確認し、アプリのコードに問題がないかチェックする。

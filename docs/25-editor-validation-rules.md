@@ -38,10 +38,24 @@ Validation rules applied during editing and saving.
 
 ## 7.3 Quiz
 
-| Rule               | Severity | Description                                                                                           |
-| ------------------ | -------- | ----------------------------------------------------------------------------------------------------- |
-| Required fields    | Error    | `id`, `region`, `title`, `card_type`, `card_ids`, `modes`, `difficulty`                               |
-| Card count         | Warning  | Fewer than 5 or 9 or more cards (full-sequence quizzes are an exception)                              |
-| Card region match  | Warning  | Quiz's `region` does not match the `region` of included cards (cross-region quizzes are an exception) |
-| `card_ids` exist   | Error    | All IDs in `card_ids` must exist in `cards`                                                           |
-| Non-approved cards | Warning  | Quiz contains cards that are not yet `approved`                                                       |
+| Rule                           | Severity | Description                                                                                                                                                                 |
+| ------------------------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Required fields                | Error    | `id`, `region`, `title`, `card_type`, `card_ids`, `modes`, `difficulty`                                                                                                     |
+| Card count                     | Warning  | Fewer than 5 or 9 or more cards (full-sequence quizzes are an exception)                                                                                                    |
+| Card region match              | Warning  | Quiz's `region` does not match the `region` of included cards (cross-region quizzes are an exception)                                                                       |
+| `card_ids` exist               | Error    | All IDs in `card_ids` must exist in `cards`                                                                                                                                 |
+| `card_ids` chronological order | Error    | `card_ids` is the correct answer order, so the referenced cards' `year` values must be non-decreasing. A descending pair makes the quiz unanswerable.                       |
+| `card_ids` duplicates          | Error    | The same card must not appear twice in one quiz                                                                                                                             |
+| Same-year cards                | Warning  | Two adjacent cards share the same `year`. Scoring treats them as interchangeable (see [07-feedback-design.md](07-feedback-design.md)), but the intended answer is ambiguous |
+| Non-approved cards             | Warning  | Quiz contains cards that are not yet `approved`                                                                                                                             |
+
+---
+
+## 7.4 Applying the Rules to Shipped Content
+
+`validateDataset()` in `src/lib/admin/validation.ts` applies every Card / Quiz / Node rule above to a whole dataset. It is used in two places:
+
+- The editor's review screen, against the state being edited
+- CI (`npm run test:data`), against the content bundled in `src/data/**`
+
+CI fails on any `error`-level finding, so content that cannot be cleared can never reach the main branch. Warnings are reported but do not fail the build.

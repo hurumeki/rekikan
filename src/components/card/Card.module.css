@@ -6,15 +6,23 @@
   border-radius: 12px;
   border: 2px solid var(--state-unselected-border);
   background: var(--state-unselected-bg);
-  cursor: pointer;
   transition: all 0.2s ease;
   user-select: none;
   -webkit-user-select: none;
   min-height: 64px;
   align-items: stretch;
+  /* button 要素として描画されるため、既定の見た目を打ち消す */
+  width: 100%;
+  font: inherit;
+  color: inherit;
+  text-align: left;
 }
 
-.card:active {
+.interactive {
+  cursor: pointer;
+}
+
+.interactive:active {
   transform: scale(0.98);
 }
 
@@ -54,12 +62,12 @@
 
 .name {
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--foreground);
 }
 
 .hint {
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   color: var(--text-secondary);
   overflow: hidden;
   text-overflow: ellipsis;
@@ -73,7 +81,7 @@
 }
 
 .yearLabel {
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   color: var(--text-secondary);
   font-weight: 500;
 }
@@ -107,13 +115,13 @@
   justify-content: center;
   font-size: 14px;
   font-weight: bold;
-  color: white;
+  color: var(--on-accent);
 }
 
 .correctMark {
-  background-color: #22c55e;
+  background-color: var(--correct-mark-bg);
 }
 
 .incorrectMark {
-  background-color: #ef4444;
+  background-color: var(--incorrect-mark-bg);
 }

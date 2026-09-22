@@ -113,7 +113,12 @@
     "quiz_ids": ["quiz_westasia_all_eras_term"],
     "unlock_condition": {
       "type": "complete_node",
-      "node_ids": ["node_westasia_ancient", "node_westasia_islam", "node_westasia_ottoman", "node_westasia_northafrica"]
+      "node_ids": [
+        "node_westasia_ancient",
+        "node_westasia_islam",
+        "node_westasia_ottoman",
+        "node_westasia_northafrica"
+      ]
     }
   }
 ]

@@ -15,7 +15,22 @@
     "label": "古代：オリエントから古典帝国へ",
     "sort_order": 1,
     "quiz_ids": ["quiz_cross_ancient_orient", "quiz_cross_classical", "quiz_cross_late_antiquity"],
-    "unlock_condition": null
+    "unlock_condition": {
+      "type": "complete_any",
+      "quiz_ids": [
+        "quiz_japan_era_intro_desc",
+        "quiz_europe_intro_desc",
+        "quiz_china_intro_desc",
+        "quiz_westasia_intro_desc",
+        "quiz_southasia_intro_desc",
+        "quiz_centralasia_intro_desc",
+        "quiz_southeastasia_intro_desc",
+        "quiz_oceania_intro_desc",
+        "quiz_northamerica_intro_desc",
+        "quiz_southamerica_intro_desc"
+      ],
+      "count": 2
+    }
   },
   {
     "id": "node_world_medieval",
@@ -24,7 +39,22 @@
     "label": "中世：イスラームと諸文明の交錯",
     "sort_order": 2,
     "quiz_ids": ["quiz_cross_early_medieval", "quiz_cross_medieval", "quiz_cross_age_of_discovery"],
-    "unlock_condition": null
+    "unlock_condition": {
+      "type": "complete_any",
+      "quiz_ids": [
+        "quiz_japan_era_intro_desc",
+        "quiz_europe_intro_desc",
+        "quiz_china_intro_desc",
+        "quiz_westasia_intro_desc",
+        "quiz_southasia_intro_desc",
+        "quiz_centralasia_intro_desc",
+        "quiz_southeastasia_intro_desc",
+        "quiz_oceania_intro_desc",
+        "quiz_northamerica_intro_desc",
+        "quiz_southamerica_intro_desc"
+      ],
+      "count": 2
+    }
   },
   {
     "id": "node_world_early_modern",
@@ -33,7 +63,22 @@
     "label": "近世：宗教改革・植民地競争・産業革命",
     "sort_order": 3,
     "quiz_ids": ["quiz_cross_early_modern", "quiz_cross_18c_global"],
-    "unlock_condition": null
+    "unlock_condition": {
+      "type": "complete_any",
+      "quiz_ids": [
+        "quiz_japan_era_intro_desc",
+        "quiz_europe_intro_desc",
+        "quiz_china_intro_desc",
+        "quiz_westasia_intro_desc",
+        "quiz_southasia_intro_desc",
+        "quiz_centralasia_intro_desc",
+        "quiz_southeastasia_intro_desc",
+        "quiz_oceania_intro_desc",
+        "quiz_northamerica_intro_desc",
+        "quiz_southamerica_intro_desc"
+      ],
+      "count": 2
+    }
   },
   {
     "id": "node_world_modern",
@@ -42,7 +87,22 @@
     "label": "近代：革命・国民国家・帝国主義",
     "sort_order": 4,
     "quiz_ids": ["quiz_cross_revolutions", "quiz_cross_modern", "quiz_cross_imperialism"],
-    "unlock_condition": null
+    "unlock_condition": {
+      "type": "complete_any",
+      "quiz_ids": [
+        "quiz_japan_era_intro_desc",
+        "quiz_europe_intro_desc",
+        "quiz_china_intro_desc",
+        "quiz_westasia_intro_desc",
+        "quiz_southasia_intro_desc",
+        "quiz_centralasia_intro_desc",
+        "quiz_southeastasia_intro_desc",
+        "quiz_oceania_intro_desc",
+        "quiz_northamerica_intro_desc",
+        "quiz_southamerica_intro_desc"
+      ],
+      "count": 2
+    }
   },
   {
     "id": "node_world_20c",
@@ -51,7 +111,22 @@
     "label": "20世紀前半：二度の世界大戦",
     "sort_order": 5,
     "quiz_ids": ["quiz_cross_wwi_era", "quiz_cross_wwii_era"],
-    "unlock_condition": null
+    "unlock_condition": {
+      "type": "complete_any",
+      "quiz_ids": [
+        "quiz_japan_era_intro_desc",
+        "quiz_europe_intro_desc",
+        "quiz_china_intro_desc",
+        "quiz_westasia_intro_desc",
+        "quiz_southasia_intro_desc",
+        "quiz_centralasia_intro_desc",
+        "quiz_southeastasia_intro_desc",
+        "quiz_oceania_intro_desc",
+        "quiz_northamerica_intro_desc",
+        "quiz_southamerica_intro_desc"
+      ],
+      "count": 2
+    }
   },
   {
     "id": "node_world_postwar",
@@ -64,7 +139,22 @@
       "quiz_cross_cold_war_hot_spots",
       "quiz_cross_cold_war_end"
     ],
-    "unlock_condition": null
+    "unlock_condition": {
+      "type": "complete_any",
+      "quiz_ids": [
+        "quiz_japan_era_intro_desc",
+        "quiz_europe_intro_desc",
+        "quiz_china_intro_desc",
+        "quiz_westasia_intro_desc",
+        "quiz_southasia_intro_desc",
+        "quiz_centralasia_intro_desc",
+        "quiz_southeastasia_intro_desc",
+        "quiz_oceania_intro_desc",
+        "quiz_northamerica_intro_desc",
+        "quiz_southamerica_intro_desc"
+      ],
+      "count": 2
+    }
   },
   {
     "id": "node_world_themes",
@@ -73,7 +163,22 @@
     "label": "テーマ別：宗教伝播と探検",
     "sort_order": 7,
     "quiz_ids": ["quiz_cross_islamic_dynasties", "quiz_cross_pacific_exploration"],
-    "unlock_condition": null
+    "unlock_condition": {
+      "type": "complete_any",
+      "quiz_ids": [
+        "quiz_japan_era_intro_desc",
+        "quiz_europe_intro_desc",
+        "quiz_china_intro_desc",
+        "quiz_westasia_intro_desc",
+        "quiz_southasia_intro_desc",
+        "quiz_centralasia_intro_desc",
+        "quiz_southeastasia_intro_desc",
+        "quiz_oceania_intro_desc",
+        "quiz_northamerica_intro_desc",
+        "quiz_southamerica_intro_desc"
+      ],
+      "count": 3
+    }
   },
   {
     "id": "node_world_theme_economy",
@@ -82,7 +187,22 @@
     "label": "テーマ史：経済",
     "sort_order": 8,
     "quiz_ids": ["quiz_theme_economy_capitalism"],
-    "unlock_condition": null
+    "unlock_condition": {
+      "type": "complete_any",
+      "quiz_ids": [
+        "quiz_japan_era_intro_desc",
+        "quiz_europe_intro_desc",
+        "quiz_china_intro_desc",
+        "quiz_westasia_intro_desc",
+        "quiz_southasia_intro_desc",
+        "quiz_centralasia_intro_desc",
+        "quiz_southeastasia_intro_desc",
+        "quiz_oceania_intro_desc",
+        "quiz_northamerica_intro_desc",
+        "quiz_southamerica_intro_desc"
+      ],
+      "count": 3
+    }
   },
   {
     "id": "node_world_theme_revolution",
@@ -91,7 +211,22 @@
     "label": "テーマ史：革命・民主化",
     "sort_order": 9,
     "quiz_ids": ["quiz_theme_revolution_20c"],
-    "unlock_condition": null
+    "unlock_condition": {
+      "type": "complete_any",
+      "quiz_ids": [
+        "quiz_japan_era_intro_desc",
+        "quiz_europe_intro_desc",
+        "quiz_china_intro_desc",
+        "quiz_westasia_intro_desc",
+        "quiz_southasia_intro_desc",
+        "quiz_centralasia_intro_desc",
+        "quiz_southeastasia_intro_desc",
+        "quiz_oceania_intro_desc",
+        "quiz_northamerica_intro_desc",
+        "quiz_southamerica_intro_desc"
+      ],
+      "count": 3
+    }
   },
   {
     "id": "node_world_theme_empire",
@@ -100,7 +235,22 @@
     "label": "テーマ史：帝国・覇権",
     "sort_order": 10,
     "quiz_ids": ["quiz_theme_empire_mongol", "quiz_theme_empire_colonial"],
-    "unlock_condition": null
+    "unlock_condition": {
+      "type": "complete_any",
+      "quiz_ids": [
+        "quiz_japan_era_intro_desc",
+        "quiz_europe_intro_desc",
+        "quiz_china_intro_desc",
+        "quiz_westasia_intro_desc",
+        "quiz_southasia_intro_desc",
+        "quiz_centralasia_intro_desc",
+        "quiz_southeastasia_intro_desc",
+        "quiz_oceania_intro_desc",
+        "quiz_northamerica_intro_desc",
+        "quiz_southamerica_intro_desc"
+      ],
+      "count": 3
+    }
   },
   {
     "id": "node_world_theme_religion",
@@ -109,7 +259,22 @@
     "label": "テーマ史：宗教・思想",
     "sort_order": 11,
     "quiz_ids": ["quiz_theme_religion_christianity", "quiz_theme_religion_buddhism"],
-    "unlock_condition": null
+    "unlock_condition": {
+      "type": "complete_any",
+      "quiz_ids": [
+        "quiz_japan_era_intro_desc",
+        "quiz_europe_intro_desc",
+        "quiz_china_intro_desc",
+        "quiz_westasia_intro_desc",
+        "quiz_southasia_intro_desc",
+        "quiz_centralasia_intro_desc",
+        "quiz_southeastasia_intro_desc",
+        "quiz_oceania_intro_desc",
+        "quiz_northamerica_intro_desc",
+        "quiz_southamerica_intro_desc"
+      ],
+      "count": 3
+    }
   },
   {
     "id": "node_world_theme_trade",
@@ -118,7 +283,22 @@
     "label": "テーマ史：交流・交易",
     "sort_order": 12,
     "quiz_ids": ["quiz_theme_trade_silkroad", "quiz_theme_trade_atlantic"],
-    "unlock_condition": null
+    "unlock_condition": {
+      "type": "complete_any",
+      "quiz_ids": [
+        "quiz_japan_era_intro_desc",
+        "quiz_europe_intro_desc",
+        "quiz_china_intro_desc",
+        "quiz_westasia_intro_desc",
+        "quiz_southasia_intro_desc",
+        "quiz_centralasia_intro_desc",
+        "quiz_southeastasia_intro_desc",
+        "quiz_oceania_intro_desc",
+        "quiz_northamerica_intro_desc",
+        "quiz_southamerica_intro_desc"
+      ],
+      "count": 3
+    }
   },
   {
     "id": "node_world_theme_scitech",
@@ -131,7 +311,22 @@
       "quiz_theme_scitech_life_science",
       "quiz_theme_scitech_20c_full"
     ],
-    "unlock_condition": null
+    "unlock_condition": {
+      "type": "complete_any",
+      "quiz_ids": [
+        "quiz_japan_era_intro_desc",
+        "quiz_europe_intro_desc",
+        "quiz_china_intro_desc",
+        "quiz_westasia_intro_desc",
+        "quiz_southasia_intro_desc",
+        "quiz_centralasia_intro_desc",
+        "quiz_southeastasia_intro_desc",
+        "quiz_oceania_intro_desc",
+        "quiz_northamerica_intro_desc",
+        "quiz_southamerica_intro_desc"
+      ],
+      "count": 3
+    }
   },
   {
     "id": "node_world_theme_literature",
@@ -145,7 +340,22 @@
       "quiz_theme_literature_chinese_classic",
       "quiz_theme_literature_modern_novel"
     ],
-    "unlock_condition": null
+    "unlock_condition": {
+      "type": "complete_any",
+      "quiz_ids": [
+        "quiz_japan_era_intro_desc",
+        "quiz_europe_intro_desc",
+        "quiz_china_intro_desc",
+        "quiz_westasia_intro_desc",
+        "quiz_southasia_intro_desc",
+        "quiz_centralasia_intro_desc",
+        "quiz_southeastasia_intro_desc",
+        "quiz_oceania_intro_desc",
+        "quiz_northamerica_intro_desc",
+        "quiz_southamerica_intro_desc"
+      ],
+      "count": 3
+    }
   },
   {
     "id": "node_world_theme_art",
@@ -154,7 +364,22 @@
     "label": "テーマ史：芸術",
     "sort_order": 15,
     "quiz_ids": ["quiz_theme_art_western_painting", "quiz_theme_art_east_asian"],
-    "unlock_condition": null
+    "unlock_condition": {
+      "type": "complete_any",
+      "quiz_ids": [
+        "quiz_japan_era_intro_desc",
+        "quiz_europe_intro_desc",
+        "quiz_china_intro_desc",
+        "quiz_westasia_intro_desc",
+        "quiz_southasia_intro_desc",
+        "quiz_centralasia_intro_desc",
+        "quiz_southeastasia_intro_desc",
+        "quiz_oceania_intro_desc",
+        "quiz_northamerica_intro_desc",
+        "quiz_southamerica_intro_desc"
+      ],
+      "count": 3
+    }
   },
   {
     "id": "node_world_theme_architecture",
@@ -163,7 +388,22 @@
     "label": "テーマ史：建築",
     "sort_order": 16,
     "quiz_ids": ["quiz_theme_architecture_western", "quiz_theme_architecture_asian_religious"],
-    "unlock_condition": null
+    "unlock_condition": {
+      "type": "complete_any",
+      "quiz_ids": [
+        "quiz_japan_era_intro_desc",
+        "quiz_europe_intro_desc",
+        "quiz_china_intro_desc",
+        "quiz_westasia_intro_desc",
+        "quiz_southasia_intro_desc",
+        "quiz_centralasia_intro_desc",
+        "quiz_southeastasia_intro_desc",
+        "quiz_oceania_intro_desc",
+        "quiz_northamerica_intro_desc",
+        "quiz_southamerica_intro_desc"
+      ],
+      "count": 3
+    }
   },
   {
     "id": "node_world_theme_music",
@@ -172,7 +412,22 @@
     "label": "テーマ史：音楽",
     "sort_order": 17,
     "quiz_ids": ["quiz_theme_music_classical", "quiz_theme_music_popular_20c"],
-    "unlock_condition": null
+    "unlock_condition": {
+      "type": "complete_any",
+      "quiz_ids": [
+        "quiz_japan_era_intro_desc",
+        "quiz_europe_intro_desc",
+        "quiz_china_intro_desc",
+        "quiz_westasia_intro_desc",
+        "quiz_southasia_intro_desc",
+        "quiz_centralasia_intro_desc",
+        "quiz_southeastasia_intro_desc",
+        "quiz_oceania_intro_desc",
+        "quiz_northamerica_intro_desc",
+        "quiz_southamerica_intro_desc"
+      ],
+      "count": 3
+    }
   },
   {
     "id": "node_world_theme_philosophy",
@@ -186,7 +441,22 @@
       "quiz_theme_philosophy_modern",
       "quiz_theme_philosophy_east_asian"
     ],
-    "unlock_condition": null
+    "unlock_condition": {
+      "type": "complete_any",
+      "quiz_ids": [
+        "quiz_japan_era_intro_desc",
+        "quiz_europe_intro_desc",
+        "quiz_china_intro_desc",
+        "quiz_westasia_intro_desc",
+        "quiz_southasia_intro_desc",
+        "quiz_centralasia_intro_desc",
+        "quiz_southeastasia_intro_desc",
+        "quiz_oceania_intro_desc",
+        "quiz_northamerica_intro_desc",
+        "quiz_southamerica_intro_desc"
+      ],
+      "count": 3
+    }
   },
   {
     "id": "node_world_theme_law",
@@ -199,6 +469,21 @@
       "quiz_theme_law_modern_constitutions",
       "quiz_theme_law_contemporary_international"
     ],
-    "unlock_condition": null
+    "unlock_condition": {
+      "type": "complete_any",
+      "quiz_ids": [
+        "quiz_japan_era_intro_desc",
+        "quiz_europe_intro_desc",
+        "quiz_china_intro_desc",
+        "quiz_westasia_intro_desc",
+        "quiz_southasia_intro_desc",
+        "quiz_centralasia_intro_desc",
+        "quiz_southeastasia_intro_desc",
+        "quiz_oceania_intro_desc",
+        "quiz_northamerica_intro_desc",
+        "quiz_southamerica_intro_desc"
+      ],
+      "count": 3
+    }
   }
 ]

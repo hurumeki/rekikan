@@ -1,12 +1,16 @@
 'use client';
 
-import type { GameMode } from '@/lib/types';
+import type { GameMode, QuizProgress } from '@/lib/types';
+import { getHistoricalStars, isOrderingMode } from '@/lib/progress-rules';
+import StarRating from '@/components/ui/StarRating';
 import styles from './ModeSelector.module.css';
 
 interface ModeSelectorProps {
   quizTitle: string;
   modes: GameMode[];
   onSelect: (mode: GameMode) => void;
+  cardCount: number;
+  progress: QuizProgress | null;
 }
 
 const modeInfo: Record<GameMode, { name: string; desc: string }> = {
@@ -32,18 +36,72 @@ const modeInfo: Record<GameMode, { name: string; desc: string }> = {
   },
 };
 
-export default function ModeSelector({ quizTitle, modes, onSelect }: ModeSelectorProps) {
+/** やさしい順。初めての人がいきなり難しいモードを選ばないようにする。 */
+const MODE_ORDER: GameMode[] = ['careful', 'era_band', 'challenge', 'timeline', 'cross_region'];
+
+export default function ModeSelector({
+  quizTitle,
+  modes,
+  onSelect,
+  cardCount,
+  progress,
+}: ModeSelectorProps) {
+  const sorted = [...modes].sort((a, b) => MODE_ORDER.indexOf(a) - MODE_ORDER.indexOf(b));
+
+  // まだ遊んでいないモードのうち、いちばんやさしいものをすすめる
+  const recommended =
+    sorted.find((mode) => !progress?.modes[mode]) ??
+    sorted.find((mode) => !progress?.modes[mode]?.cleared) ??
+    null;
+
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>{quizTitle}</h2>
+      <p className={styles.subtitle}>カード{cardCount}枚</p>
       <div className={styles.modes}>
-        {modes.map((mode) => (
-          <button key={mode} className={styles.modeButton} onClick={() => onSelect(mode)}>
-            <div className={styles.modeName}>{modeInfo[mode].name}</div>
-            <div className={styles.modeDesc}>{modeInfo[mode].desc}</div>
-          </button>
-        ))}
+        {sorted.map((mode) => {
+          const modeProgress = progress?.modes[mode] ?? null;
+          const stars = getHistoricalStars(modeProgress, cardCount);
+          const isRecommended = mode === recommended;
+
+          return (
+            <button
+              key={mode}
+              className={`${styles.modeButton} ${isRecommended ? styles.recommended : ''}`}
+              onClick={() => onSelect(mode)}
+              data-testid="mode-button"
+            >
+              <div className={styles.modeMain}>
+                <div className={styles.modeName}>
+                  {modeInfo[mode].name}
+                  {isRecommended && <span className={styles.recommendBadge}>おすすめ</span>}
+                </div>
+                <div className={styles.modeDesc}>{modeInfo[mode].desc}</div>
+                {!isOrderingMode(mode) && (
+                  <div className={styles.modeNote}>※解放条件には含まれません</div>
+                )}
+              </div>
+              <div className={styles.modeStatus}>
+                {modeProgress ? (
+                  <StarRating stars={stars} />
+                ) : (
+                  <span className={styles.unplayed}>未プレイ</span>
+                )}
+                {modeProgress && (
+                  <span className={styles.bestScore}>
+                    ベスト {modeProgress.bestScore} / {cardCount}
+                  </span>
+                )}
+              </div>
+            </button>
+          );
+        })}
       </div>
+      {progress && progress.attemptCount > 0 && (
+        <p className={styles.totalAttempts}>
+          このクイズの挑戦回数: {progress.attemptCount}回{progress.cleared && ' ・ クリア済み'}
+        </p>
+      )}
     </div>
   );
 }

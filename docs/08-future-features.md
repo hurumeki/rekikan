@@ -10,21 +10,26 @@ A mode that mixes events from different regions that occurred in the same era. S
 
 - Example: Present "Kamakura Period (鎌倉時代)", "Age of the Crusades", and "Song Dynasty (宋)" together, and have the player arrange them chronologically across regions
 - Enables experiential understanding of contemporaneity between Japan and the world
-- Unlock policy: All cross-region quizzes are open from the start; per-quiz progress is tracked independently
+- Unlock policy: gated behind region intros — the era-based nodes need 2+ regions' intro quizzes cleared, the theme-history nodes 3+ (see [04-hierarchy-and-unlock.md](04-hierarchy-and-unlock.md) Section 4.4)
 
 ### Expansion candidates
 
 - Add intermediate description-style cross-region quizzes (currently term-only)
 - Era-band and timeline modes for cross-region quizzes (currently `cross_region` mode only)
-- Lock cross-region quizzes behind region clears once region content is more mature
 
-## 8.2 Focused Drilling on Weak Areas
+## 8.2 Focused Drilling on Weak Areas (Implemented)
 
-Record accuracy rates per card and prioritize cards/eras the player frequently gets wrong.
+Per-card accuracy is recorded so that cards the player keeps getting wrong come back.
 
-- Store per-card accuracy and attempt count on the device
-- Display stages containing low-accuracy cards as "Recommended"
-- Review mode: Automatically generate custom stages from weak cards only
+- **CardStats.** Every answer in every mode updates `{ attempts, correct, lastSeen }` per card, stored in `localStorage` under `rekikan_card_stats` (see [34-data-user-progress.md](34-data-user-progress.md) Section 5.2).
+- **Review mode.** `/review` builds a quiz on the fly from the weakest cards — lowest accuracy first, ties broken by how long ago the card was last seen — up to 7 cards, and needs at least 3 weak cards to start. Cards that have never been answered incorrectly are excluded.
+- **Entry point.** The home screen shows a "苦手カードの復習" entry above the region list once 3 or more weak cards exist, with the current count.
+- **Scope.** A review session updates card statistics but not quiz progress, so it never unlocks hierarchy nodes. When the weak cards span several regions the session uses Cross-Region mode so that region badges are shown.
+
+### Expansion candidates
+
+- Spaced repetition (weight by elapsed time since `lastSeen`, not just accuracy)
+- Mark quizzes that contain weak cards as "Recommended" in the quiz list
 
 ## 8.3 Other Expansion Candidates
 

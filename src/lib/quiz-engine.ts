@@ -1,4 +1,4 @@
-import type { CardResult } from './types';
+import type { Card, CardResult } from './types';
 
 export function shuffleArray<T>(array: T[]): T[] {
   const shuffled = [...array];
@@ -9,16 +9,53 @@ export function shuffleArray<T>(array: T[]): T[] {
   return shuffled;
 }
 
-export function checkAnswers(userOrder: string[], correctOrder: string[]): CardResult[] {
+/** カードIDから年を引く辞書。同年判定のために各モードで共有する。 */
+export type YearLookup = (cardId: string) => number | undefined;
+
+export function createYearLookup(cards: Card[]): YearLookup {
+  const years = new Map(cards.map((c) => [c.id, c.year]));
+  return (cardId) => years.get(cardId);
+}
+
+/**
+ * 並べ替えの正誤判定。
+ *
+ * 同じ年のカードは歴史的にどちらを先に置いても正しいため、
+ * 配列の位置ではなく「その位置に来るべき年」と一致するかで判定する。
+ * 年が引けないカードは従来どおり位置の一致で判定する。
+ */
+export function checkAnswers(
+  userOrder: string[],
+  correctOrder: string[],
+  yearOf?: YearLookup,
+): CardResult[] {
   return userOrder.map((cardId, userIndex) => {
     const correctIndex = correctOrder.indexOf(cardId);
+    let correct = userIndex === correctIndex;
+
+    if (!correct && yearOf) {
+      const placedYear = yearOf(cardId);
+      const expectedYear = yearOf(correctOrder[userIndex]!);
+      correct = placedYear !== undefined && placedYear === expectedYear;
+    }
+
     return {
       cardId,
-      correct: userIndex === correctIndex,
+      correct,
       correctPosition: correctIndex,
       userPosition: userIndex,
     };
   });
+}
+
+/**
+ * じっくりモードの判定。残りカードの中で最も古い年と同じなら正解。
+ * 同じ年のカードが複数残っている場合は、そのどれを選んでも正解になる。
+ */
+export function isOldestAmong(card: Card, remaining: Card[]): boolean {
+  if (remaining.length === 0) return false;
+  const oldestYear = Math.min(...remaining.map((c) => c.year));
+  return card.year === oldestYear;
 }
 
 export function calculateScore(results: CardResult[]): { correct: number; total: number } {

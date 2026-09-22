@@ -9,7 +9,8 @@
     "era_color_key": "ancient",
     "category": null,
     "hint": null,
-    "description": "都市国家が生まれ、哲学や民主政治の基礎が築かれた時代"
+    "description": "都市国家が生まれ、哲学や民主政治の基礎が築かれた時代",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_desc_intro_2",
@@ -21,7 +22,8 @@
     "era_color_key": "medieval",
     "category": null,
     "hint": null,
-    "description": "巨大な帝国が崩壊し、各地に小さな王国が生まれた混乱の時代"
+    "description": "巨大な帝国が崩壊し、各地に小さな王国が生まれた混乱の時代",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_desc_intro_3",
@@ -33,7 +35,8 @@
     "era_color_key": "medieval",
     "category": null,
     "hint": null,
-    "description": "キリスト教会が大きな力を持ち、十字軍が東方へ向かった時代"
+    "description": "キリスト教会が大きな力を持ち、十字軍が東方へ向かった時代",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_desc_intro_4",
@@ -45,7 +48,8 @@
     "era_color_key": "early_modern",
     "category": null,
     "hint": null,
-    "description": "新大陸の発見や宗教改革で、世界の秩序が大きく変わり始めた時代"
+    "description": "新大陸の発見や宗教改革で、世界の秩序が大きく変わり始めた時代",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_desc_intro_5",
@@ -57,7 +61,8 @@
     "era_color_key": "modern",
     "category": null,
     "hint": null,
-    "description": "市民が王の支配に立ち向かい、自由と平等の理想を掲げた激動の時代"
+    "description": "市民が王の支配に立ち向かい、自由と平等の理想を掲げた激動の時代",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_greece",
@@ -69,7 +74,8 @@
     "era_color_key": "ancient",
     "category": "era",
     "hint": "ポリス・民主政治・オリンピック",
-    "description": "都市国家が栄え、民主政治や哲学の基礎が築かれた。"
+    "description": "都市国家が栄え、民主政治や哲学の基礎が築かれた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_roman_republic",
@@ -81,7 +87,8 @@
     "era_color_key": "ancient",
     "category": "era",
     "hint": "元老院・カルタゴ・領土拡大",
-    "description": "元老院を中心に地中海世界へ勢力を広げた。"
+    "description": "元老院を中心に地中海世界へ勢力を広げた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_roman_empire",
@@ -93,7 +100,8 @@
     "era_color_key": "ancient",
     "category": "era",
     "hint": "皇帝・パクスロマーナ・キリスト教公認",
-    "description": "広大な帝国のもと、長い平和と繁栄を実現した。"
+    "description": "広大な帝国のもと、長い平和と繁栄を実現した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_migration",
@@ -105,7 +113,8 @@
     "era_color_key": "ancient",
     "category": "era",
     "hint": "蛮族・西ローマ滅亡",
-    "description": "ゲルマン諸族の移動により西ローマ帝国が崩壊した。"
+    "description": "ゲルマン諸族の移動により西ローマ帝国が崩壊した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_franks",
@@ -117,7 +126,8 @@
     "era_color_key": "medieval",
     "category": "era",
     "hint": "クローヴィス・カール大帝・分裂",
-    "description": "西ヨーロッパを統一したが、やがて三つに分裂した。"
+    "description": "西ヨーロッパを統一したが、やがて三つに分裂した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_feudal",
@@ -129,7 +139,8 @@
     "era_color_key": "medieval",
     "category": "era",
     "hint": "領主・騎士・荘園制",
-    "description": "領主と騎士による封建制度が西ヨーロッパに広がった。"
+    "description": "領主と騎士による封建制度が西ヨーロッパに広がった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_crusades",
@@ -141,7 +152,8 @@
     "era_color_key": "medieval",
     "category": "war",
     "hint": "聖地奪還・東方との交流",
-    "description": "キリスト教勢力が聖地エルサレムの奪還を目指して軍を派遣した。"
+    "description": "キリスト教勢力が聖地エルサレムの奪還を目指して軍を派遣した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_renaissance",
@@ -153,7 +165,8 @@
     "era_color_key": "medieval",
     "category": "culture",
     "hint": "イタリア・芸術復興・人間中心",
-    "description": "古代ギリシア・ローマの文化が復興し、芸術と学問が花開いた。"
+    "description": "古代ギリシア・ローマの文化が復興し、芸術と学問が花開いた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_exploration",
@@ -165,7 +178,8 @@
     "era_color_key": "early_modern",
     "category": "era",
     "hint": "コロンブス・新大陸・香辛料",
-    "description": "ヨーロッパ人が海を越え、新たな航路と大陸を発見した。"
+    "description": "ヨーロッパ人が海を越え、新たな航路と大陸を発見した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_reformation",
@@ -177,7 +191,8 @@
     "era_color_key": "early_modern",
     "category": "culture",
     "hint": "ルター・プロテスタント・三十年戦争",
-    "description": "カトリック教会への批判から新しいキリスト教の宗派が生まれた。"
+    "description": "カトリック教会への批判から新しいキリスト教の宗派が生まれた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_french_revolution",
@@ -189,7 +204,8 @@
     "era_color_key": "modern",
     "category": "event",
     "hint": "バスティーユ・人権宣言・ナポレオン",
-    "description": "市民が絶対王政を倒し、近代民主主義の幕を開ける革命が始まった。"
+    "description": "市民が絶対王政を倒し、近代民主主義の幕を開ける革命が始まった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_industrial",
@@ -201,7 +217,8 @@
     "era_color_key": "modern",
     "category": "economy",
     "hint": "蒸気機関・工場・イギリス",
-    "description": "イギリスで機械化が始まり、生産力が飛躍的に向上して社会が一変した。"
+    "description": "イギリスで機械化が始まり、生産力が飛躍的に向上して社会が一変した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_nationalism",
@@ -213,7 +230,8 @@
     "era_color_key": "modern",
     "category": "era",
     "hint": "国民国家・統一運動・帝国主義",
-    "description": "国民意識の高まりとともに、国家の統一や植民地獲得が進んだ。"
+    "description": "国民意識の高まりとともに、国家の統一や植民地獲得が進んだ。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_ww1",
@@ -225,7 +243,8 @@
     "era_color_key": "contemporary",
     "category": "war",
     "hint": "同盟vs協商・総力戦・サライェヴォ",
-    "description": "ヨーロッパ全土を巻き込んだ初の世界規模の戦争が始まった。"
+    "description": "ヨーロッパ全土を巻き込んだ初の世界規模の戦争が始まった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_ww2",
@@ -237,7 +256,8 @@
     "era_color_key": "contemporary",
     "category": "war",
     "hint": "ナチス・ドイツのポーランド侵攻",
-    "description": "ファシズムとの戦いが世界を二分した人類最大の戦争が勃発した。"
+    "description": "ファシズムとの戦いが世界を二分した人類最大の戦争が勃発した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_pericles",
@@ -249,7 +269,8 @@
     "era_color_key": "ancient",
     "category": "person",
     "hint": "アテネ・民主政治の完成・パルテノン神殿",
-    "description": "ペリクレスが実権を握り、アテネ民主政治の黄金期を築き始めた。"
+    "description": "ペリクレスが実権を握り、アテネ民主政治の黄金期を築き始めた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_alexander",
@@ -261,7 +282,8 @@
     "era_color_key": "ancient",
     "category": "war",
     "hint": "マケドニア・ヘレニズム・ペルシア",
-    "description": "大帝国を築くためギリシアから東方へ遠征に出発した。"
+    "description": "大帝国を築くためギリシアから東方へ遠征に出発した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_caesar",
@@ -273,7 +295,8 @@
     "era_color_key": "ancient",
     "category": "person",
     "hint": "賽は投げられた・三頭政治・終身独裁官へ",
-    "description": "「賽は投げられた」と軍を進め、のちの帝政への道を開いた出来事。"
+    "description": "「賽は投げられた」と軍を進め、のちの帝政への道を開いた出来事。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_augustus",
@@ -285,7 +308,8 @@
     "era_color_key": "ancient",
     "category": "person",
     "hint": "アウグストゥス・尊厳者・帝政の開始",
-    "description": "実質的な初代皇帝となり、パクス・ロマーナの基礎を築いた。"
+    "description": "実質的な初代皇帝となり、パクス・ロマーナの基礎を築いた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_constantine",
@@ -297,7 +321,8 @@
     "era_color_key": "ancient",
     "category": "law",
     "hint": "キリスト教公認・コンスタンティヌス帝",
-    "description": "コンスタンティヌス帝がキリスト教を公認し、迫害を終結させた。"
+    "description": "コンスタンティヌス帝がキリスト教を公認し、迫害を終結させた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_charlemagne",
@@ -309,7 +334,8 @@
     "era_color_key": "medieval",
     "category": "event",
     "hint": "フランク王国・ローマ皇帝・西欧の父",
-    "description": "教皇よりローマ皇帝の冠を授かり、西ヨーロッパの統一を象徴した。"
+    "description": "教皇よりローマ皇帝の冠を授かり、西ヨーロッパの統一を象徴した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_magna_carta",
@@ -321,7 +347,8 @@
     "era_color_key": "medieval",
     "category": "law",
     "hint": "大憲章・イギリス・王権の制限",
-    "description": "イングランド王の権限を制限し、法の支配の先駆けとなった文書。"
+    "description": "イングランド王の権限を制限し、法の支配の先駆けとなった文書。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_joan_of_arc",
@@ -333,7 +360,8 @@
     "era_color_key": "medieval",
     "category": "person",
     "hint": "百年戦争・聖女・フランス",
-    "description": "神の啓示を受けたとされる少女がフランス軍を率いてオルレアンを解放した。"
+    "description": "神の啓示を受けたとされる少女がフランス軍を率いてオルレアンを解放した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_luther",
@@ -345,7 +373,8 @@
     "era_color_key": "early_modern",
     "category": "culture",
     "hint": "95ヶ条の論題・免罪符批判・プロテスタント",
-    "description": "カトリックの腐敗を批判し、キリスト教世界の分裂を招いた。"
+    "description": "カトリックの腐敗を批判し、キリスト教世界の分裂を招いた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_louis_xiv",
@@ -357,7 +386,8 @@
     "era_color_key": "early_modern",
     "category": "person",
     "hint": "太陽王・ベルサイユ宮殿・絶対王政",
-    "description": "「朕は国家なり」と称して自ら政治を執り、フランス絶対王政の絶頂期を築いた。"
+    "description": "「朕は国家なり」と称して自ら政治を執り、フランス絶対王政の絶頂期を築いた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_napoleon",
@@ -369,7 +399,8 @@
     "era_color_key": "modern",
     "category": "person",
     "hint": "フランス帝国・ナポレオン法典・全欧支配",
-    "description": "国民の支持を得て皇帝となり、ヨーロッパの大半を席巻した。"
+    "description": "国民の支持を得て皇帝となり、ヨーロッパの大半を席巻した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_bismarck",
@@ -381,7 +412,8 @@
     "era_color_key": "modern",
     "category": "person",
     "hint": "鉄血宰相・プロイセン・ドイツ帝国誕生",
-    "description": "鉄血政策を推進し、プロイセンを中心にドイツ統一を達成した。"
+    "description": "鉄血政策を推進し、プロイセンを中心にドイツ統一を達成した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_sarajevo",
@@ -393,7 +425,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": "第一次世界大戦の火種・セルビア",
-    "description": "オーストリア皇太子が暗殺され、世界大戦勃発の直接的契機となった。"
+    "description": "オーストリア皇太子が暗殺され、世界大戦勃発の直接的契機となった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_hundred_years_war",
@@ -405,7 +438,8 @@
     "era_color_key": "medieval",
     "category": "war",
     "hint": "英仏の対立・ジャンヌダルク",
-    "description": "王位継承問題や領土をめぐり、イギリスとフランスの間で長い戦争が始まった。"
+    "description": "王位継承問題や領土をめぐり、イギリスとフランスの間で長い戦争が始まった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_black_death",
@@ -417,7 +451,8 @@
     "era_color_key": "medieval",
     "category": "event",
     "hint": "人口激減・農奴解放の促進",
-    "description": "ヨーロッパ全土に疫病が蔓延し、人口の約三分の一が失われる甚大な被害をもたらした。"
+    "description": "ヨーロッパ全土に疫病が蔓延し、人口の約三分の一が失われる甚大な被害をもたらした。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_justinian",
@@ -429,7 +464,8 @@
     "era_color_key": "medieval",
     "category": "person",
     "hint": "ビザンツ帝国最盛期・ローマ法大全",
-    "description": "東ローマ（ビザンツ）帝国の最盛期を築き、旧西ローマ領の一部を回復した。"
+    "description": "東ローマ（ビザンツ）帝国の最盛期を築き、旧西ローマ領の一部を回復した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_canossa",
@@ -441,7 +477,8 @@
     "era_color_key": "medieval",
     "category": "event",
     "hint": "グレゴリウス7世・ハインリヒ4世・教皇権",
-    "description": "破門された神聖ローマ皇帝が、雪の中でローマ教皇に許しを乞うた事件。"
+    "description": "破門された神聖ローマ皇帝が、雪の中でローマ教皇に許しを乞うた事件。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_enlightenment",
@@ -453,7 +490,8 @@
     "era_color_key": "modern",
     "category": "culture",
     "hint": "ルソー・モンテスキュー・理性の尊重",
-    "description": "古い権威を批判し、理性と科学による社会の進歩を目指す思想が普及した。"
+    "description": "古い権威を批判し、理性と科学による社会の進歩を目指す思想が普及した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_imperialism",
@@ -465,7 +503,8 @@
     "era_color_key": "modern",
     "category": "era",
     "hint": "列強の植民地支配・アフリカ分割",
-    "description": "欧米列強が軍事力と経済力を背景に、アジアやアフリカを植民地化していった。"
+    "description": "欧米列強が軍事力と経済力を背景に、アジアやアフリカを植民地化していった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_victoria",
@@ -477,7 +516,8 @@
     "era_color_key": "modern",
     "category": "person",
     "hint": "パクスブリタニカ・世界の工場",
-    "description": "イギリスが「日の沈まない国」と称される圧倒的な繁栄を謳歌した時代の女王。"
+    "description": "イギリスが「日の沈まない国」と称される圧倒的な繁栄を謳歌した時代の女王。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_russian_revolution",
@@ -489,7 +529,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": "レーニン・ソビエト・初の社会主義",
-    "description": "皇帝の支配が倒され、世界初の社会主義国家が誕生する契機となった。"
+    "description": "皇帝の支配が倒され、世界初の社会主義国家が誕生する契機となった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_great_depression",
@@ -501,7 +542,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": "暗黒の木曜日・ウォール街大暴落",
-    "description": "アメリカの株価大暴落をきっかけに、深刻な経済危機が世界中に波及した。"
+    "description": "アメリカの株価大暴落をきっかけに、深刻な経済危機が世界中に波及した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_cold_war",
@@ -513,7 +555,8 @@
     "era_color_key": "contemporary",
     "category": "event",
     "hint": "鉄のカーテン・米ソ対立",
-    "description": "第二次世界大戦後、アメリカを中心とする資本主義陣営とソ連の社会主義陣営が激しく対立した。"
+    "description": "第二次世界大戦後、アメリカを中心とする資本主義陣営とソ連の社会主義陣営が激しく対立した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_columbus",
@@ -525,7 +568,8 @@
     "era_color_key": "early_modern",
     "category": "event",
     "hint": "スペイン支援・サンサルバドル島",
-    "description": "スペインの支援を受けて大西洋を横断し、アメリカ大陸（西インド諸島）に到達した。"
+    "description": "スペインの支援を受けて大西洋を横断し、アメリカ大陸（西インド諸島）に到達した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_vasco_da_gama",
@@ -537,7 +581,8 @@
     "era_color_key": "early_modern",
     "category": "event",
     "hint": "ポルトガル・喜望峰・カリカット",
-    "description": "アフリカ南端の喜望峰を回り、ヨーロッパからインドへの直接航路を開拓した。"
+    "description": "アフリカ南端の喜望峰を回り、ヨーロッパからインドへの直接航路を開拓した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_american_independence",
@@ -549,7 +594,8 @@
     "era_color_key": "modern",
     "category": "war",
     "hint": "13植民地・イギリスからの離脱・ワシントン",
-    "description": "本国の重税に反発した北米の植民地が、独立を目指してイギリスとの戦争を始めた。"
+    "description": "本国の重税に反発した北米の植民地が、独立を目指してイギリスとの戦争を始めた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_vienna_congress",
@@ -561,7 +607,8 @@
     "era_color_key": "modern",
     "category": "event",
     "hint": "会議は踊る・メッテルニヒ・復古主義",
-    "description": "ナポレオン戦争後のヨーロッパの秩序を再建するため、各国の代表が集まった会議。"
+    "description": "ナポレオン戦争後のヨーロッパの秩序を再建するため、各国の代表が集まった会議。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_polis",
@@ -1287,7 +1334,8 @@
     "era_color_key": "ancient",
     "category": "culture",
     "hint": "イリアス・オデュッセイア・吟遊詩人",
-    "description": "口承で伝えられたトロイア戦争にまつわる長大な叙事詩が文字に定着し、西洋文学の出発点となった。"
+    "description": "口承で伝えられたトロイア戦争にまつわる長大な叙事詩が文字に定着し、西洋文学の出発点となった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_virgil_aeneid",
@@ -1299,7 +1347,8 @@
     "era_color_key": "ancient",
     "category": "culture",
     "hint": "ウェルギリウス・ローマ建国神話・ラテン語",
-    "description": "ローマ建国の神話を語るラテン語の長編叙事詩が完成し、後世のヨーロッパ文学の規範となった。"
+    "description": "ローマ建国の神話を語るラテン語の長編叙事詩が完成し、後世のヨーロッパ文学の規範となった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_dante_divine_comedy",
@@ -1311,7 +1360,8 @@
     "era_color_key": "medieval",
     "category": "culture",
     "hint": "ダンテ・トスカナ語・地獄煉獄天国",
-    "description": "俗語で書かれた壮大な宗教的叙事詩が著され、中世ヨーロッパの世界観と人間像を集大成した。"
+    "description": "俗語で書かれた壮大な宗教的叙事詩が著され、中世ヨーロッパの世界観と人間像を集大成した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_chaucer_canterbury",
@@ -1323,7 +1373,8 @@
     "era_color_key": "medieval",
     "category": "culture",
     "hint": "チョーサー・中英語・巡礼者の語り",
-    "description": "巡礼者たちが順番に物語を語る形式の作品が中英語で著され、後の英文学の基礎を築いた。"
+    "description": "巡礼者たちが順番に物語を語る形式の作品が中英語で著され、後の英文学の基礎を築いた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_shakespeare_hamlet",
@@ -1335,7 +1386,8 @@
     "era_color_key": "early_modern",
     "category": "culture",
     "hint": "シェイクスピア・グローブ座・四大悲劇",
-    "description": "復讐と苦悩を描いた悲劇がロンドンの劇場で上演され、近代英文学の頂点を示す戯曲となった。"
+    "description": "復讐と苦悩を描いた悲劇がロンドンの劇場で上演され、近代英文学の頂点を示す戯曲となった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_milton_paradise_lost",
@@ -1347,7 +1399,8 @@
     "era_color_key": "early_modern",
     "category": "culture",
     "hint": "ミルトン・無韻詩・聖書を題材",
-    "description": "聖書の堕罪を題材とした壮大な宗教叙事詩が刊行され、近代英語による古典叙事詩の頂点となった。"
+    "description": "聖書の堕罪を題材とした壮大な宗教叙事詩が刊行され、近代英語による古典叙事詩の頂点となった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_goethe_werther",
@@ -1359,7 +1412,8 @@
     "era_color_key": "early_modern",
     "category": "culture",
     "hint": "ゲーテ・疾風怒濤・書簡体小説",
-    "description": "若者の感情の揺らぎを書簡体で描いた小説が刊行され、感受性を重んじる文学運動の象徴となった。"
+    "description": "若者の感情の揺らぎを書簡体で描いた小説が刊行され、感受性を重んじる文学運動の象徴となった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_dickens_oliver",
@@ -1371,7 +1425,8 @@
     "era_color_key": "modern",
     "category": "culture",
     "hint": "ディケンズ・ロンドンの貧困・社会派小説",
-    "description": "産業革命下の貧困と児童労働を描いた長編小説が刊行され、社会派リアリズム文学の代表作となった。"
+    "description": "産業革命下の貧困と児童労働を描いた長編小説が刊行され、社会派リアリズム文学の代表作となった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_dostoevsky_crime",
@@ -1383,7 +1438,8 @@
     "era_color_key": "modern",
     "category": "culture",
     "hint": "ドストエフスキー・ロシア・心理小説",
-    "description": "貧しい青年の犯罪と良心の苦悩を描いた長編小説が刊行され、近代心理小説の頂点を築いた。"
+    "description": "貧しい青年の犯罪と良心の苦悩を描いた長編小説が刊行され、近代心理小説の頂点を築いた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_tolstoy_war_peace",
@@ -1395,7 +1451,8 @@
     "era_color_key": "modern",
     "category": "culture",
     "hint": "トルストイ・ナポレオン戦争・大河小説",
-    "description": "ナポレオン戦争を背景に貴族や民衆の運命を描いた大河小説が完結し、近代リアリズム文学の到達点となった。"
+    "description": "ナポレオン戦争を背景に貴族や民衆の運命を描いた大河小説が完結し、近代リアリズム文学の到達点となった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_kafka_metamorphosis",
@@ -1407,7 +1464,8 @@
     "era_color_key": "contemporary",
     "category": "culture",
     "hint": "カフカ・ドイツ語・不条理文学",
-    "description": "ある朝、虫に変身した男の物語を冷徹に描いた小説が刊行され、不条理を主題とする現代文学の先駆けとなった。"
+    "description": "ある朝、虫に変身した男の物語を冷徹に描いた小説が刊行され、不条理を主題とする現代文学の先駆けとなった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_giotto_frescos",
@@ -1419,7 +1477,8 @@
     "era_color_key": "medieval",
     "category": "culture",
     "hint": "スクロヴェーニ礼拝堂・遠近法の萌芽・人間味",
-    "description": "人物に量感と感情をもたせた壁画が描かれ、中世のビザンティン的様式から脱却する転換点となった。"
+    "description": "人物に量感と感情をもたせた壁画が描かれ、中世のビザンティン的様式から脱却する転換点となった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_da_vinci_last_supper",
@@ -1431,7 +1490,8 @@
     "era_color_key": "early_modern",
     "category": "culture",
     "hint": "レオナルド・ミラノ・遠近法と心理表現",
-    "description": "弟子たちの心理を緻密に描き分けた壁画が完成し、盛期ルネサンス絵画の頂点を示した。"
+    "description": "弟子たちの心理を緻密に描き分けた壁画が完成し、盛期ルネサンス絵画の頂点を示した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_caravaggio_baroque",
@@ -1443,7 +1503,8 @@
     "era_color_key": "early_modern",
     "category": "culture",
     "hint": "ローマ・明暗対比・宗教画の革新",
-    "description": "強い光と影の対比で劇的に対象を描く画法が確立され、その後のヨーロッパ絵画に大きな潮流を生んだ。"
+    "description": "強い光と影の対比で劇的に対象を描く画法が確立され、その後のヨーロッパ絵画に大きな潮流を生んだ。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_rembrandt_night_watch",
@@ -1455,7 +1516,8 @@
     "era_color_key": "early_modern",
     "category": "culture",
     "hint": "レンブラント・アムステルダム・市民集団肖像",
-    "description": "市民隊の集団肖像画として動きと光を取り入れた大作が完成し、オランダ黄金時代を代表する絵画となった。"
+    "description": "市民隊の集団肖像画として動きと光を取り入れた大作が完成し、オランダ黄金時代を代表する絵画となった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_monet_impression",
@@ -1467,7 +1529,8 @@
     "era_color_key": "modern",
     "category": "culture",
     "hint": "モネ・ル・アーヴル港・新しい画派の名前の由来",
-    "description": "光と色の瞬間的な印象を捉えた絵が発表され、これを揶揄した呼称が新しい画派の名となった。"
+    "description": "光と色の瞬間的な印象を捉えた絵が発表され、これを揶揄した呼称が新しい画派の名となった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_picasso_guernica",
@@ -1479,7 +1542,8 @@
     "era_color_key": "contemporary",
     "category": "culture",
     "hint": "ピカソ・スペイン内戦・空爆への抗議",
-    "description": "故郷の町への空爆をテーマにした大壁画が制作され、20世紀美術が戦争を告発する象徴的作品となった。"
+    "description": "故郷の町への空爆をテーマにした大壁画が制作され、20世紀美術が戦争を告発する象徴的作品となった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_parthenon_completion",
@@ -1491,7 +1555,8 @@
     "era_color_key": "ancient",
     "category": "culture",
     "hint": "アテネ・アクロポリス・ドーリス式",
-    "description": "守護女神に捧げられた神殿がアクロポリスの丘に完成し、古典ギリシア建築の到達点を示した。"
+    "description": "守護女神に捧げられた神殿がアクロポリスの丘に完成し、古典ギリシア建築の到達点を示した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_colosseum_completion",
@@ -1503,7 +1568,8 @@
     "era_color_key": "ancient",
     "category": "culture",
     "hint": "ローマ・フラウィウス朝・剣闘士競技",
-    "description": "巨大な楕円形の円形闘技場が首都に完成し、ローマの土木建築技術と娯楽文化の象徴となった。"
+    "description": "巨大な楕円形の円形闘技場が首都に完成し、ローマの土木建築技術と娯楽文化の象徴となった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_hagia_sophia_completion",
@@ -1515,7 +1581,8 @@
     "era_color_key": "medieval",
     "category": "culture",
     "hint": "ユスティニアヌス・コンスタンティノープル・大ドーム",
-    "description": "巨大なドームを備えたビザンツの大聖堂が首都に完成し、東方キリスト教世界の建築を代表する存在となった。"
+    "description": "巨大なドームを備えたビザンツの大聖堂が首都に完成し、東方キリスト教世界の建築を代表する存在となった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_notre_dame_completion",
@@ -1527,7 +1594,8 @@
     "era_color_key": "medieval",
     "category": "culture",
     "hint": "パリ・ゴシック様式・尖頭アーチとステンドグラス",
-    "description": "尖頭アーチとリブヴォールトを駆使したゴシック大聖堂が首都に完成し、中世西欧建築の到達点を示した。"
+    "description": "尖頭アーチとリブヴォールトを駆使したゴシック大聖堂が首都に完成し、中世西欧建築の到達点を示した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_florence_dome_completion",
@@ -1539,7 +1607,8 @@
     "era_color_key": "medieval",
     "category": "culture",
     "hint": "ブルネレスキ・八角形ドーム・ルネサンス建築の幕開け",
-    "description": "古代の技法を再評価して設計された巨大ドームが完成し、ルネサンス建築の幕開けを告げた。"
+    "description": "古代の技法を再評価して設計された巨大ドームが完成し、ルネサンス建築の幕開けを告げた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_versailles_palace",
@@ -1551,7 +1620,8 @@
     "era_color_key": "early_modern",
     "category": "culture",
     "hint": "ルイ14世・絶対王政・バロック庭園",
-    "description": "壮麗な宮殿が郊外に整備されて宮廷が移され、絶対王政期の華やかな宮廷文化の中心地となった。"
+    "description": "壮麗な宮殿が郊外に整備されて宮廷が移され、絶対王政期の華やかな宮廷文化の中心地となった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_eiffel_tower",
@@ -1563,7 +1633,8 @@
     "era_color_key": "modern",
     "category": "culture",
     "hint": "パリ万博・鉄骨建築・産業革命の象徴",
-    "description": "万国博覧会のために鉄を組み上げた巨塔が首都に完成し、近代建築と産業の力を象徴する存在となった。"
+    "description": "万国博覧会のために鉄を組み上げた巨塔が首都に完成し、近代建築と産業の力を象徴する存在となった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_bach_matthew",
@@ -1575,7 +1646,8 @@
     "era_color_key": "early_modern",
     "category": "culture",
     "hint": "ライプツィヒ・教会カンタータ・対位法",
-    "description": "受難の物語を壮大に描いた宗教音楽が教会で初演され、バロック音楽の集大成の一つとなった。"
+    "description": "受難の物語を壮大に描いた宗教音楽が教会で初演され、バロック音楽の集大成の一つとなった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_mozart_figaro",
@@ -1587,7 +1659,8 @@
     "era_color_key": "early_modern",
     "category": "culture",
     "hint": "モーツァルト・ウィーン・古典派オペラ",
-    "description": "身分制を風刺する戯曲を題材にしたオペラが初演され、古典派音楽の完成期を象徴する作品となった。"
+    "description": "身分制を風刺する戯曲を題材にしたオペラが初演され、古典派音楽の完成期を象徴する作品となった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_beethoven_ninth",
@@ -1599,7 +1672,8 @@
     "era_color_key": "modern",
     "category": "culture",
     "hint": "ウィーン・歓喜の歌・合唱付交響曲",
-    "description": "合唱を取り入れた革新的な交響曲が初演され、音楽史における古典派からロマン派への橋渡しとなった。"
+    "description": "合唱を取り入れた革新的な交響曲が初演され、音楽史における古典派からロマン派への橋渡しとなった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_wagner_ring",
@@ -1611,7 +1685,8 @@
     "era_color_key": "modern",
     "category": "culture",
     "hint": "ワーグナー・バイロイト祝祭劇場・楽劇",
-    "description": "巨大な四部作の楽劇が専用の劇場で全曲初演され、19世紀後半の音楽劇の頂点を築いた。"
+    "description": "巨大な四部作の楽劇が専用の劇場で全曲初演され、19世紀後半の音楽劇の頂点を築いた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_debussy_la_mer",
@@ -1623,7 +1698,8 @@
     "era_color_key": "modern",
     "category": "culture",
     "hint": "印象主義音楽・パリ・色彩感の和声",
-    "description": "色彩的な和声と自由な形式で海の情景を描いた管弦楽曲が初演され、印象主義音楽を代表する作品となった。"
+    "description": "色彩的な和声と自由な形式で海の情景を描いた管弦楽曲が初演され、印象主義音楽を代表する作品となった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_stravinsky_rite",
@@ -1635,7 +1711,8 @@
     "era_color_key": "modern",
     "category": "culture",
     "hint": "ストラヴィンスキー・パリ・バレエ・リュス",
-    "description": "強烈なリズムと不協和音をもつバレエ音楽がパリで初演され、20世紀音楽の出発点を告げた。"
+    "description": "強烈なリズムと不協和音をもつバレエ音楽がパリで初演され、20世紀音楽の出発点を告げた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_socrates_active",
@@ -1647,7 +1724,8 @@
     "era_color_key": "ancient",
     "category": "person",
     "hint": "アテネ・無知の知・対話による吟味",
-    "description": "市民との対話を通して通念を吟味する哲学が広まり、自分の無知を自覚することが知の出発点とされた。"
+    "description": "市民との対話を通して通念を吟味する哲学が広まり、自分の無知を自覚することが知の出発点とされた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_plato_academy",
@@ -1659,7 +1737,8 @@
     "era_color_key": "ancient",
     "category": "person",
     "hint": "アテネ郊外・イデア論・哲人王",
-    "description": "アテネ郊外に学園が開かれ、イデア論と国家哲学を中心とする体系的な思想教育が始まった。"
+    "description": "アテネ郊外に学園が開かれ、イデア論と国家哲学を中心とする体系的な思想教育が始まった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_aristotle_lyceum",
@@ -1671,7 +1750,8 @@
     "era_color_key": "ancient",
     "category": "person",
     "hint": "アテネ・形而上学・万学の祖",
-    "description": "アテネに学園が開かれ、論理学・自然学・倫理学などを体系化した諸学問の基礎が築かれた。"
+    "description": "アテネに学園が開かれ、論理学・自然学・倫理学などを体系化した諸学問の基礎が築かれた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_zeno_stoicism",
@@ -1683,7 +1763,8 @@
     "era_color_key": "ancient",
     "category": "person",
     "hint": "キティオンのゼノン・ヘレニズム期・徳と自然",
-    "description": "理性に従い情念に動じない生き方を説くヘレニズム期の哲学派が生まれ、後のローマ思想に大きな影響を与えた。"
+    "description": "理性に従い情念に動じない生き方を説くヘレニズム期の哲学派が生まれ、後のローマ思想に大きな影響を与えた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_plotinus_neoplatonism",
@@ -1695,7 +1776,8 @@
     "era_color_key": "ancient",
     "category": "person",
     "hint": "ローマ・一者からの流出論・後期古代",
-    "description": "万物が一者から流出するとする神秘的な体系が説かれ、後期古代から中世にかけての思想の源流となった。"
+    "description": "万物が一者から流出するとする神秘的な体系が説かれ、後期古代から中世にかけての思想の源流となった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_descartes_method",
@@ -1707,7 +1789,8 @@
     "era_color_key": "early_modern",
     "category": "person",
     "hint": "われ思うゆえにわれあり・大陸合理論・近代哲学の父",
-    "description": "確実な知の出発点を「考える私」に置く哲学書が刊行され、近代合理主義哲学の幕が開かれた。"
+    "description": "確実な知の出発点を「考える私」に置く哲学書が刊行され、近代合理主義哲学の幕が開かれた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_spinoza_ethics",
@@ -1719,7 +1802,8 @@
     "era_color_key": "early_modern",
     "category": "person",
     "hint": "汎神論・幾何学的論証・神即自然",
-    "description": "幾何学的な論証で神と自然を一体として論じる哲学書が没後に刊行され、近世形而上学の大きな里程標となった。"
+    "description": "幾何学的な論証で神と自然を一体として論じる哲学書が没後に刊行され、近世形而上学の大きな里程標となった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_kant_critique",
@@ -1731,7 +1815,8 @@
     "era_color_key": "early_modern",
     "category": "person",
     "hint": "カント・ケーニヒスベルク・ドイツ観念論の出発点",
-    "description": "認識の限界と条件を体系的に論じる哲学書が刊行され、ドイツ観念論の出発点を成した。"
+    "description": "認識の限界と条件を体系的に論じる哲学書が刊行され、ドイツ観念論の出発点を成した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_hegel_phenomenology",
@@ -1743,7 +1828,8 @@
     "era_color_key": "modern",
     "category": "person",
     "hint": "イェーナ・弁証法・絶対精神",
-    "description": "意識から絶対知へ至る精神の歩みを弁証法で描いた哲学書が刊行され、ドイツ観念論の頂点を示した。"
+    "description": "意識から絶対知へ至る精神の歩みを弁証法で描いた哲学書が刊行され、ドイツ観念論の頂点を示した。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_marx_capital",
@@ -1755,7 +1841,8 @@
     "era_color_key": "modern",
     "category": "person",
     "hint": "資本主義批判・剰余価値・社会主義運動",
-    "description": "資本主義経済の運動法則を分析した経済学・哲学書が刊行され、後の社会主義思想と運動の理論的支柱となった。"
+    "description": "資本主義経済の運動法則を分析した経済学・哲学書が刊行され、後の社会主義思想と運動の理論的支柱となった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_nietzsche_zarathustra",
@@ -1767,7 +1854,8 @@
     "era_color_key": "modern",
     "category": "person",
     "hint": "ニーチェ・神の死・超人思想",
-    "description": "従来の価値観を転倒させ超人を説く哲学的物語が刊行され、現代思想に大きな影響を与えた。"
+    "description": "従来の価値観を転倒させ超人を説く哲学的物語が刊行され、現代思想に大きな影響を与えた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_freud_dreams",
@@ -1779,7 +1867,8 @@
     "era_color_key": "modern",
     "category": "person",
     "hint": "フロイト・無意識・ウィーン",
-    "description": "夢を無意識の表れとして読み解く理論が刊行され、精神分析の体系の出発点となった。"
+    "description": "夢を無意識の表れとして読み解く理論が刊行され、精神分析の体系の出発点となった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_wittgenstein_tractatus",
@@ -1791,7 +1880,8 @@
     "era_color_key": "contemporary",
     "category": "person",
     "hint": "ウィトゲンシュタイン・分析哲学・言語の限界",
-    "description": "世界と言語の対応を厳密に論じた哲学書が刊行され、20世紀の分析哲学の出発点となった。"
+    "description": "世界と言語の対応を厳密に論じた哲学書が刊行され、20世紀の分析哲学の出発点となった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_sartre_being",
@@ -1803,7 +1893,8 @@
     "era_color_key": "contemporary",
     "category": "person",
     "hint": "実存主義・自由と責任・第二次大戦下",
-    "description": "人間の自由とその重荷を主題とする実存主義の哲学書が刊行され、戦後思想に大きな潮流を生んだ。"
+    "description": "人間の自由とその重荷を主題とする実存主義の哲学書が刊行され、戦後思想に大きな潮流を生んだ。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_twelve_tables",
@@ -1815,7 +1906,8 @@
     "era_color_key": "ancient",
     "category": "law",
     "hint": "ローマ・最古の成文法・平民の要求",
-    "description": "貴族と平民の対立の中で慣習法を成文化した最古の法典が制定され、後のローマ法の出発点となった。"
+    "description": "貴族と平民の対立の中で慣習法を成文化した最古の法典が制定され、後のローマ法の出発点となった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_corpus_juris",
@@ -1827,7 +1919,8 @@
     "era_color_key": "medieval",
     "category": "law",
     "hint": "ユスティニアヌス・東ローマ帝国・トリボニアヌス",
-    "description": "東ローマ皇帝の命でローマ法が体系的に集成された法典群が編まれ、近代ヨーロッパ法の源流となった。"
+    "description": "東ローマ皇帝の命でローマ法が体系的に集成された法典群が編まれ、近代ヨーロッパ法の源流となった。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_bill_of_rights",
@@ -1839,7 +1932,8 @@
     "era_color_key": "early_modern",
     "category": "law",
     "hint": "名誉革命・議会主権・国王の権限制限",
-    "description": "国王の権限を議会の同意の下に置く法律が制定され、立憲君主制の基礎が築かれた。"
+    "description": "国王の権限を議会の同意の下に置く法律が制定され、立憲君主制の基礎が築かれた。",
+    "status": "ai_generated"
   },
   {
     "id": "card_europe_napoleon_code",
@@ -1851,6 +1945,7 @@
     "era_color_key": "modern",
     "category": "law",
     "hint": "民法典・所有権の絶対・契約の自由",
-    "description": "市民革命の成果を体系化した近代民法典が制定され、ヨーロッパ大陸法系のひな形となった。"
+    "description": "市民革命の成果を体系化した近代民法典が制定され、ヨーロッパ大陸法系のひな形となった。",
+    "status": "ai_generated"
   }
 ]

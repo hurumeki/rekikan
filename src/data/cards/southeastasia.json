@@ -849,6 +849,7 @@
     "era_color_key": "medieval",
     "category": "culture",
     "hint": "ジャワ島・シャイレーンドラ朝・大乗仏教",
-    "description": "ジャワ島中部に巨大な階段状の仏教遺跡が築かれ、東南アジア大乗仏教文化の頂点を示した。"
+    "description": "ジャワ島中部に巨大な階段状の仏教遺跡が築かれ、東南アジア大乗仏教文化の頂点を示した。",
+    "status": "ai_generated"
   }
 ]

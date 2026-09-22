@@ -1,20 +1,49 @@
 'use client';
 
-import { useState, useCallback, useMemo } from 'react';
+import { Suspense, use, useCallback, useMemo } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import { getQuiz, getCardsForQuiz, getRegion, getRegions } from '@/lib/data-loader';
-import { saveQuizResult, getQuizProgress } from '@/lib/progress';
-import type { GameMode, CardResult, EraColor } from '@/lib/types';
-import ModeSelector from '@/components/quiz/ModeSelector';
-import CarefulMode from '@/components/quiz/CarefulMode';
-import ChallengeMode from '@/components/quiz/ChallengeMode';
-import EraBandQuiz from '@/components/quiz/EraBandQuiz';
-import TimelinePlacementQuiz from '@/components/quiz/TimelinePlacementQuiz';
-import CrossRegionQuiz from '@/components/quiz/CrossRegionQuiz';
-import HintToggle from '@/components/quiz/HintToggle';
-import ResultScreen from '@/components/result/ResultScreen';
+import { getQuiz, loadCardsForQuiz } from '@/lib/data-loader';
+import { ALL_NODES } from '@/lib/data-registry';
+import { diffUnlockedNodes } from '@/lib/unlock';
+import { recordPendingReveals } from '@/lib/strata';
+import { saveQuizResult, getQuizProgress, getAllProgress } from '@/lib/progress';
+import { useQuizProgress } from '@/hooks/useProgress';
+import { recordCardResults } from '@/lib/card-stats';
+import type { Card, GameMode, Quiz, QuizProgress } from '@/lib/types';
+import QuizRunner from '@/components/quiz/QuizRunner';
 
-type Phase = 'mode-select' | 'playing' | 'result';
+/** カードの読み込みを待つ間の表示 */
+function CardsLoading() {
+  return (
+    <div style={{ padding: 24, textAlign: 'center' }} aria-busy="true">
+      読み込み中…
+    </div>
+  );
+}
+
+interface RunnerProps {
+  quiz: Quiz;
+  cardsPromise: Promise<Card[]>;
+  progress: QuizProgress | null;
+  onComplete: React.ComponentProps<typeof QuizRunner>['onComplete'];
+  onExit: () => void;
+  getPreviousBest: (mode: GameMode) => number | null;
+}
+
+/** カードが揃ってから本体を描画する（Suspense 境界の内側） */
+function LoadedQuizRunner({ quiz, cardsPromise, ...rest }: RunnerProps) {
+  const cards = use(cardsPromise);
+
+  if (cards.length === 0) {
+    return (
+      <div style={{ padding: 24, textAlign: 'center' }}>
+        <p>カードが見つかりませんでした</p>
+      </div>
+    );
+  }
+
+  return <QuizRunner quiz={quiz} cards={cards} exitLabel="クイズ一覧" {...rest} />;
+}
 
 export default function QuizClient() {
   const params = useParams();
@@ -22,97 +51,43 @@ export default function QuizClient() {
   const quizId = params.quizId as string;
 
   const quiz = getQuiz(quizId);
-  const cards = useMemo(() => (quiz ? getCardsForQuiz(quiz) : []), [quiz]);
-  const region = quiz ? getRegion(quiz.region) : undefined;
-  const allRegions = getRegions();
+  // 必要な地域のカードだけを動的に読み込む
+  const cardsPromise = useMemo(() => (quiz ? loadCardsForQuiz(quiz) : Promise.resolve([])), [quiz]);
 
-  const correctOrder = quiz?.card_ids ?? [];
+  // 保存すればストアの購読側（この行）に自動で反映される
+  const progress = useQuizProgress(quizId);
 
-  // eraColors: flat map of key → color string (for Card component)
-  const eraColors = useMemo<Record<string, string>>(() => {
-    if (!region) return {};
-    const colors: Record<string, string> = {};
-    for (const [key, ec] of Object.entries(region.era_colors)) {
-      colors[key] = ec.color;
-    }
-    // For cross_region quizzes, merge era colors from all involved regions
-    if (quiz?.regions) {
-      for (const rid of quiz.regions) {
-        const r = allRegions.find((x) => x.id === rid);
-        if (r) {
-          for (const [key, ec] of Object.entries(r.era_colors)) {
-            colors[key] = ec.color;
-          }
-        }
-      }
-    }
-    return colors;
-  }, [region, quiz, allRegions]);
-
-  // eraConfig: full EraColor objects (label + color) for EraBandQuiz / TimelinePlacementQuiz
-  const eraConfig = useMemo<Record<string, EraColor>>(() => {
-    return region?.era_colors ?? {};
-  }, [region]);
-
-  // Timeline range: use quiz override or calculate from cards
-  const timelineRange = useMemo(() => {
-    if (quiz?.timeline_range) return quiz.timeline_range;
-    if (cards.length === 0) return { start: 0, end: 2000 };
-    const years = cards.map((c) => c.year);
-    const min = Math.min(...years);
-    const max = Math.max(...years);
-    const padding = Math.round((max - min) * 0.15) || 50;
-    const currentYear = new Date().getFullYear();
-    // Don't extend timeline into the future beyond current year
-    return { start: min - padding, end: Math.min(max + padding, Math.max(max + 10, currentYear)) };
-  }, [quiz, cards]);
-
-  const [phase, setPhase] = useState<Phase>('mode-select');
-  const [selectedMode, setSelectedMode] = useState<GameMode | null>(null);
-  const [hintEnabled, setHintEnabled] = useState(false);
-  const [resultData, setResultData] = useState<{
-    results: CardResult[];
-    score: number;
-    total: number;
-    mode: GameMode;
-    previousBest: number | null;
-  } | null>(null);
-
-  const handleModeSelect = useCallback((mode: GameMode) => {
-    setSelectedMode(mode);
-    setPhase('playing');
-  }, []);
-
-  const handleComplete = useCallback(
-    (results: CardResult[], score: number, total: number) => {
-      const previousBest = quiz ? (getQuizProgress(quiz.id)?.bestScore ?? null) : null;
-      setResultData({ results, score, total, mode: selectedMode!, previousBest });
-      if (quiz) {
-        saveQuizResult({
-          quizId: quiz.id,
-          mode: selectedMode!,
-          score,
-          total,
-          hintUsed: hintEnabled,
-          cardResults: results,
-          timestamp: new Date().toISOString(),
-        });
-      }
-      setPhase('result');
+  const handleComplete = useCallback<React.ComponentProps<typeof QuizRunner>['onComplete']>(
+    ({ mode, results, score, total, hintUsed, cards }) => {
+      if (!quiz) return;
+      const before = getAllProgress();
+      saveQuizResult({
+        quizId: quiz.id,
+        mode,
+        score,
+        total,
+        hintUsed,
+        cardResults: results,
+        timestamp: new Date().toISOString(),
+      });
+      // この結果で新しく開いた階層を控えておき、一覧で「地層が開く」演出に使う
+      recordPendingReveals(diffUnlockedNodes(ALL_NODES, before, getAllProgress()));
+      // 苦手カードの復習に使う統計も同時に更新する
+      recordCardResults(results, cards);
     },
-    [quiz, selectedMode, hintEnabled],
+    [quiz],
   );
 
-  const handleRetry = useCallback(() => {
-    setResultData(null);
-    setPhase('playing');
-  }, []);
+  const getPreviousBest = useCallback(
+    (mode: GameMode) => (quiz ? (getQuizProgress(quiz.id)?.modes[mode]?.bestScore ?? null) : null),
+    [quiz],
+  );
 
-  const handleBackToList = useCallback(() => {
+  const handleExit = useCallback(() => {
     router.push(quiz ? `/?region=${quiz.region}` : '/');
   }, [router, quiz]);
 
-  if (!quiz || cards.length === 0) {
+  if (!quiz) {
     return (
       <div style={{ padding: 24, textAlign: 'center' }}>
         <p>クイズが見つかりませんでした</p>
@@ -122,115 +97,15 @@ export default function QuizClient() {
   }
 
   return (
-    <div style={{ maxWidth: 480, margin: '0 auto', padding: '16px', width: '100%' }}>
-      <button
-        onClick={handleBackToList}
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: 4,
-          background: 'none',
-          border: 'none',
-          color: 'var(--badge-bg)',
-          fontSize: '0.9rem',
-          fontWeight: 600,
-          padding: '4px 0',
-          marginBottom: 12,
-          cursor: 'pointer',
-        }}
-      >
-        ← クイズ一覧
-      </button>
-
-      {phase === 'mode-select' && (
-        <ModeSelector quizTitle={quiz.title} modes={quiz.modes} onSelect={handleModeSelect} />
-      )}
-
-      {phase === 'playing' && selectedMode && (
-        <>
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              marginBottom: 12,
-            }}
-          >
-            <h3 style={{ margin: 0, fontSize: '1rem' }}>{quiz.title}</h3>
-            <HintToggle enabled={hintEnabled} onToggle={() => setHintEnabled(!hintEnabled)} />
-          </div>
-          {selectedMode === 'careful' && (
-            <CarefulMode
-              key={resultData === null ? 'a' : 'b'}
-              cards={cards}
-              correctOrder={correctOrder}
-              eraColors={eraColors}
-              hintEnabled={hintEnabled}
-              onComplete={handleComplete}
-            />
-          )}
-          {selectedMode === 'challenge' && (
-            <ChallengeMode
-              key={resultData === null ? 'a' : 'b'}
-              cards={cards}
-              correctOrder={correctOrder}
-              eraColors={eraColors}
-              hintEnabled={hintEnabled}
-              onComplete={handleComplete}
-            />
-          )}
-          {selectedMode === 'era_band' && (
-            <EraBandQuiz
-              key={resultData === null ? 'a' : 'b'}
-              cards={cards}
-              correctOrder={correctOrder}
-              eraColors={eraColors}
-              hintEnabled={hintEnabled}
-              onComplete={handleComplete}
-              eraConfig={eraConfig}
-            />
-          )}
-          {selectedMode === 'timeline' && (
-            <TimelinePlacementQuiz
-              key={resultData === null ? 'a' : 'b'}
-              cards={cards}
-              correctOrder={correctOrder}
-              eraColors={eraColors}
-              hintEnabled={hintEnabled}
-              onComplete={handleComplete}
-              eraConfig={eraConfig}
-              timelineRange={timelineRange}
-            />
-          )}
-          {selectedMode === 'cross_region' && (
-            <CrossRegionQuiz
-              key={resultData === null ? 'a' : 'b'}
-              cards={cards}
-              correctOrder={correctOrder}
-              eraColors={eraColors}
-              hintEnabled={hintEnabled}
-              onComplete={handleComplete}
-              regions={allRegions}
-            />
-          )}
-        </>
-      )}
-
-      {phase === 'result' && resultData && (
-        <ResultScreen
-          cards={cards}
-          results={resultData.results}
-          correctOrder={correctOrder}
-          score={resultData.score}
-          total={resultData.total}
-          eraColors={eraColors}
-          mode={resultData.mode}
-          previousBest={resultData.previousBest}
-          onRetry={handleRetry}
-          onHome={handleBackToList}
-          regions={resultData.mode === 'cross_region' ? allRegions : undefined}
-        />
-      )}
-    </div>
+    <Suspense fallback={<CardsLoading />}>
+      <LoadedQuizRunner
+        quiz={quiz}
+        cardsPromise={cardsPromise}
+        progress={progress}
+        onComplete={handleComplete}
+        onExit={handleExit}
+        getPreviousBest={getPreviousBest}
+      />
+    </Suspense>
   );
 }

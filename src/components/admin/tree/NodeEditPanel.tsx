@@ -31,6 +31,9 @@ interface Props {
   onOpenChange: (open: boolean) => void;
 }
 
+/** この画面のフォームで編集できる条件タイプ */
+const EDITABLE_UNLOCK_TYPES = ['complete_quizzes', 'attempts', 'hint_clear'];
+
 const EMPTY_NODE: Partial<Node> = {
   label: '',
   region: '',
@@ -48,6 +51,9 @@ export function NodeEditPanel({ nodeId, open, onOpenChange }: Props) {
   const [unlockType, setUnlockType] = useState<string>('none');
   const [unlockQuizId, setUnlockQuizId] = useState('');
   const [unlockCount, setUnlockCount] = useState(3);
+  // この画面のフォームで表現できない条件（complete_node / complete_any）は
+  // そのまま保持する。null を返すと保存時に条件が消えてしまう。
+  const [preservedCondition, setPreservedCondition] = useState<UnlockCondition | null>(null);
   const [editingQuizId, setEditingQuizId] = useState<string | null>(null);
   const [quizPanelOpen, setQuizPanelOpen] = useState(false);
 
@@ -59,6 +65,7 @@ export function NodeEditPanel({ nodeId, open, onOpenChange }: Props) {
       /* eslint-disable react-hooks/set-state-in-effect */
       setForm({ ...EMPTY_NODE, quiz_ids: [] });
       setUnlockType('none');
+      setPreservedCondition(null);
       /* eslint-enable react-hooks/set-state-in-effect */
     } else if (nodeId) {
       const node = state.nodes.find((n) => n.id === nodeId);
@@ -69,10 +76,12 @@ export function NodeEditPanel({ nodeId, open, onOpenChange }: Props) {
           : node.unlock_condition;
         if (uc) {
           setUnlockType(uc.type);
+          setPreservedCondition(EDITABLE_UNLOCK_TYPES.includes(uc.type) ? null : uc);
           if ('quiz_id' in uc) setUnlockQuizId(uc.quiz_id);
-          if ('count' in uc) setUnlockCount(uc.count);
+          if ('count' in uc && uc.type === 'attempts') setUnlockCount(uc.count);
         } else {
           setUnlockType('none');
+          setPreservedCondition(null);
         }
       }
     }
@@ -86,6 +95,8 @@ export function NodeEditPanel({ nodeId, open, onOpenChange }: Props) {
 
   function buildUnlockCondition(): UnlockCondition | null {
     if (unlockType === 'none') return null;
+    // フォーム外の条件は読み取り専用でそのまま返す
+    if (preservedCondition && preservedCondition.type === unlockType) return preservedCondition;
     if (unlockType === 'complete_quizzes')
       return { type: 'complete_quizzes', quiz_ids: unlockQuizId ? [unlockQuizId] : [] };
     if (unlockType === 'attempts')
@@ -265,9 +276,20 @@ export function NodeEditPanel({ nodeId, open, onOpenChange }: Props) {
                   <SelectItem value="complete_quizzes">クイズクリア</SelectItem>
                   <SelectItem value="attempts">N回挑戦後に解放</SelectItem>
                   <SelectItem value="hint_clear">ヒント使用クリア</SelectItem>
+                  {preservedCondition?.type === 'complete_node' && (
+                    <SelectItem value="complete_node">ノード全クリア（JSON 管理）</SelectItem>
+                  )}
+                  {preservedCondition?.type === 'complete_any' && (
+                    <SelectItem value="complete_any">いずれか N 件クリア（JSON 管理）</SelectItem>
+                  )}
                 </SelectContent>
               </Select>
-              {unlockType !== 'none' && (
+              {preservedCondition && preservedCondition.type === unlockType && (
+                <p className="text-xs text-muted-foreground mt-2">
+                  この条件はこの画面では編集できません。保存しても内容はそのまま保持されます。
+                </p>
+              )}
+              {unlockType !== 'none' && !preservedCondition && (
                 <div className="space-y-2 mt-2">
                   <Label className="text-xs">対象クイズ</Label>
                   <Select value={unlockQuizId} onValueChange={setUnlockQuizId}>

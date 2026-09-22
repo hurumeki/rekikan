@@ -1,0 +1,17 @@
+.feedback {
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  text-align: center;
+  font-size: 0.9375rem;
+}
+
+.correct {
+  background: color-mix(in srgb, var(--correct-mark-bg) 15%, var(--surface));
+  color: var(--correct-fg);
+}
+
+.wrong {
+  background: color-mix(in srgb, var(--incorrect-mark-bg) 15%, var(--surface));
+  color: var(--incorrect-fg);
+}

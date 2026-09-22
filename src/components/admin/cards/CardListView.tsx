@@ -17,10 +17,26 @@ type SortDir = 'asc' | 'desc';
 
 function SortIcon({ col, sortKey, sortDir }: { col: SortKey; sortKey: SortKey; sortDir: SortDir }) {
   if (sortKey !== col) return <ChevronUp className="h-3 w-3 opacity-20" />;
-  return sortDir === 'asc' ? <ChevronUp className="h-3 w-3" /> : <ChevronDown className="h-3 w-3" />;
+  return sortDir === 'asc' ? (
+    <ChevronUp className="h-3 w-3" />
+  ) : (
+    <ChevronDown className="h-3 w-3" />
+  );
 }
 
-function Th({ col, label, sortKey, sortDir, onSort }: { col: SortKey; label: string; sortKey: SortKey; sortDir: SortDir; onSort: (col: SortKey) => void }) {
+function Th({
+  col,
+  label,
+  sortKey,
+  sortDir,
+  onSort,
+}: {
+  col: SortKey;
+  label: string;
+  sortKey: SortKey;
+  sortDir: SortDir;
+  onSort: (col: SortKey) => void;
+}) {
   return (
     <th
       className="px-3 py-2 text-left text-xs font-medium text-muted-foreground cursor-pointer select-none hover:text-foreground whitespace-nowrap"
@@ -91,13 +107,27 @@ export function CardListView() {
     return [...filtered].sort((a, b) => {
       let cmp = 0;
       switch (sortKey) {
-        case 'region': cmp = a.region.localeCompare(b.region); break;
-        case 'era_color_key': cmp = a.era_color_key.localeCompare(b.era_color_key); break;
-        case 'category': cmp = (a.category ?? '').localeCompare(b.category ?? ''); break;
-        case 'name': cmp = (a.name ?? a.description).localeCompare(b.name ?? b.description); break;
-        case 'year': cmp = a.year - b.year; break;
-        case 'status': cmp = (a.status ?? '').localeCompare(b.status ?? ''); break;
-        case 'usage': cmp = (usageMap.get(a.id) ?? 0) - (usageMap.get(b.id) ?? 0); break;
+        case 'region':
+          cmp = a.region.localeCompare(b.region);
+          break;
+        case 'era_color_key':
+          cmp = a.era_color_key.localeCompare(b.era_color_key);
+          break;
+        case 'category':
+          cmp = (a.category ?? '').localeCompare(b.category ?? '');
+          break;
+        case 'name':
+          cmp = (a.name ?? a.description).localeCompare(b.name ?? b.description);
+          break;
+        case 'year':
+          cmp = a.year - b.year;
+          break;
+        case 'status':
+          cmp = (a.status ?? '').localeCompare(b.status ?? '');
+          break;
+        case 'usage':
+          cmp = (usageMap.get(a.id) ?? 0) - (usageMap.get(b.id) ?? 0);
+          break;
       }
       return sortDir === 'asc' ? cmp : -cmp;
     });
@@ -109,7 +139,10 @@ export function CardListView() {
 
   function toggleSort(key: SortKey) {
     if (sortKey === key) setSortDir((d) => (d === 'asc' ? 'desc' : 'asc'));
-    else { setSortKey(key); setSortDir('asc'); }
+    else {
+      setSortKey(key);
+      setSortDir('asc');
+    }
     setPage(1);
   }
 
@@ -165,7 +198,10 @@ export function CardListView() {
 
       <CardFilters
         filters={filters}
-        onChange={(f) => { setFilters(f); setPage(1); }}
+        onChange={(f) => {
+          setFilters(f);
+          setPage(1);
+        }}
         regions={state.regions}
         categories={state.categories}
       />
@@ -187,14 +223,52 @@ export function CardListView() {
                   className="accent-primary"
                 />
               </th>
-              <Th col="region" label="地域" sortKey={sortKey} sortDir={sortDir} onSort={toggleSort} />
-              <Th col="era_color_key" label="時代帯" sortKey={sortKey} sortDir={sortDir} onSort={toggleSort} />
-              <Th col="category" label="分類" sortKey={sortKey} sortDir={sortDir} onSort={toggleSort} />
-              <Th col="name" label="用語/説明" sortKey={sortKey} sortDir={sortDir} onSort={toggleSort} />
+              <Th
+                col="region"
+                label="地域"
+                sortKey={sortKey}
+                sortDir={sortDir}
+                onSort={toggleSort}
+              />
+              <Th
+                col="era_color_key"
+                label="時代帯"
+                sortKey={sortKey}
+                sortDir={sortDir}
+                onSort={toggleSort}
+              />
+              <Th
+                col="category"
+                label="分類"
+                sortKey={sortKey}
+                sortDir={sortDir}
+                onSort={toggleSort}
+              />
+              <Th
+                col="name"
+                label="用語/説明"
+                sortKey={sortKey}
+                sortDir={sortDir}
+                onSort={toggleSort}
+              />
               <Th col="year" label="年" sortKey={sortKey} sortDir={sortDir} onSort={toggleSort} />
-              <Th col="status" label="ステータス" sortKey={sortKey} sortDir={sortDir} onSort={toggleSort} />
-              <Th col="usage" label="使用数" sortKey={sortKey} sortDir={sortDir} onSort={toggleSort} />
-              <th className="px-3 py-2 text-left text-xs font-medium text-muted-foreground">操作</th>
+              <Th
+                col="status"
+                label="ステータス"
+                sortKey={sortKey}
+                sortDir={sortDir}
+                onSort={toggleSort}
+              />
+              <Th
+                col="usage"
+                label="使用数"
+                sortKey={sortKey}
+                sortDir={sortDir}
+                onSort={toggleSort}
+              />
+              <th className="px-3 py-2 text-left text-xs font-medium text-muted-foreground">
+                操作
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -208,7 +282,7 @@ export function CardListView() {
                   key={card.id}
                   className={cn(
                     'border-b border-border/50 hover:bg-muted/30 transition-colors',
-                    selectedIds.has(card.id) && 'bg-primary/5'
+                    selectedIds.has(card.id) && 'bg-primary/5',
                   )}
                 >
                   <td className="px-3 py-2">
@@ -220,19 +294,22 @@ export function CardListView() {
                     />
                   </td>
                   <td className="px-3 py-2 whitespace-nowrap">
-                    <span className="text-xs">{region?.emoji} {region?.label ?? card.region}</span>
+                    <span className="text-xs">
+                      {region?.emoji} {region?.label ?? card.region}
+                    </span>
                   </td>
                   <td className="px-3 py-2 whitespace-nowrap">
                     {era && (
                       <span className="inline-flex items-center gap-1 text-xs">
-                        <span className="h-2 w-2 rounded-full inline-block" style={{ background: era.color }} />
+                        <span
+                          className="h-2 w-2 rounded-full inline-block"
+                          style={{ background: era.color }}
+                        />
                         {era.label}
                       </span>
                     )}
                   </td>
-                  <td className="px-3 py-2 text-xs">
-                    {catDef ? `${catDef.icon}` : '—'}
-                  </td>
+                  <td className="px-3 py-2 text-xs">{catDef ? `${catDef.icon}` : '—'}</td>
                   <td className="px-3 py-2 max-w-xs">
                     <span className="text-xs line-clamp-2">
                       {card.type === 'term' && card.name ? (
@@ -245,7 +322,13 @@ export function CardListView() {
                   <td className="px-3 py-2 text-xs whitespace-nowrap">{card.year}</td>
                   <td className="px-3 py-2">
                     <Badge
-                      variant={(card.status ?? 'draft') as 'draft' | 'ai_generated' | 'reviewed' | 'approved'}
+                      variant={
+                        (card.status ?? 'draft') as
+                          | 'draft'
+                          | 'ai_generated'
+                          | 'reviewed'
+                          | 'approved'
+                      }
                       className="text-xs"
                     >
                       {STATUS_LABELS[card.status ?? 'draft']}
@@ -294,20 +377,33 @@ export function CardListView() {
       {/* Pagination */}
       {totalPages > 1 && (
         <div className="flex items-center justify-between border-t border-border px-3 py-2 text-xs text-muted-foreground">
-          <span>{sorted.length}件中 {(page - 1) * PAGE_SIZE + 1}–{Math.min(page * PAGE_SIZE, sorted.length)}件表示</span>
+          <span>
+            {sorted.length}件中 {(page - 1) * PAGE_SIZE + 1}–
+            {Math.min(page * PAGE_SIZE, sorted.length)}件表示
+          </span>
           <div className="flex gap-1">
-            <button disabled={page === 1} onClick={() => setPage((p) => p - 1)} className="px-2 py-1 rounded border border-border disabled:opacity-40 hover:bg-muted">前</button>
-            <span className="px-2 py-1">{page} / {totalPages}</span>
-            <button disabled={page === totalPages} onClick={() => setPage((p) => p + 1)} className="px-2 py-1 rounded border border-border disabled:opacity-40 hover:bg-muted">次</button>
+            <button
+              disabled={page === 1}
+              onClick={() => setPage((p) => p - 1)}
+              className="px-2 py-1 rounded border border-border disabled:opacity-40 hover:bg-muted"
+            >
+              前
+            </button>
+            <span className="px-2 py-1">
+              {page} / {totalPages}
+            </span>
+            <button
+              disabled={page === totalPages}
+              onClick={() => setPage((p) => p + 1)}
+              className="px-2 py-1 rounded border border-border disabled:opacity-40 hover:bg-muted"
+            >
+              次
+            </button>
           </div>
         </div>
       )}
 
-      <CardEditPanel
-        cardId={editingCardId}
-        open={editOpen}
-        onOpenChange={setEditOpen}
-      />
+      <CardEditPanel cardId={editingCardId} open={editOpen} onOpenChange={setEditOpen} />
     </div>
   );
 }

@@ -1,5 +1,7 @@
 import { test, expect } from '@playwright/test';
 import path from 'path';
+import { loadAllCards, allQuizzes } from '@/lib/data-loader';
+import { ALL_NODES } from '@/lib/data-registry';
 
 const SCREENSHOT_DIR = path.join(__dirname, '..', 'screenshots');
 
@@ -98,7 +100,7 @@ test.describe('UI Review - Mobile', () => {
     }
 
     // Confirm
-    const confirmButton = page.getByRole('button', { name: 'この順番で確定する' });
+    const confirmButton = page.getByTestId('confirm-order');
     await expect(confirmButton).toBeEnabled({ timeout: 3000 });
     await confirmButton.click();
 
@@ -108,24 +110,47 @@ test.describe('UI Review - Mobile', () => {
     await page.screenshot({ path: screenshotPath('08-challenge-result.png'), fullPage: true });
   });
 
-  test('09 - Card images: absent by default (regression guard)', async ({ page }) => {
-    // No card has has_image set yet — when AI-generated images are added,
-    // images should appear after answer check on the result screen.
+  test('09 - Card images: shown once a card has one', async ({ page }) => {
+    const withImage = (await loadAllCards()).find((c) => c.has_image);
+
     await page.goto('/');
     await page.getByText('日本史').click();
     await page.getByText('日本の歴史の大きな流れ').click();
     await page.getByText('チャレンジモード').click();
     await expect(page.getByText('古い順にカードをタップしてください')).toBeVisible();
 
-    // No card image should render before any are produced.
+    if (!withImage) {
+      // まだ画像付きのカードが 1 枚もない状態。画像なしでも表示が崩れないことだけ確かめる
+      await expect(page.getByTestId('card-image')).toHaveCount(0);
+      await expect(page.getByTestId('quiz-card').first()).toBeVisible();
+      return;
+    }
+
+    // 画像はヒント ON か解答後に出る（docs/09 §9.1.4）
+    const quiz = allQuizzes.find((q) => q.card_ids.includes(withImage.id));
+    test.skip(!quiz, '画像付きカードを含むクイズがない');
+    await page.goto(`/quiz/${quiz!.id}`);
+    await page.getByText('チャレンジモード').click();
     await expect(page.getByTestId('card-image')).toHaveCount(0);
+    await page.getByRole('button', { name: /ヒント/ }).click();
+    await expect(page.getByTestId('card-image').first()).toBeVisible();
   });
 
-  test('10 - Node cover images: absent by default (regression guard)', async ({ page }) => {
-    // No node has has_cover_image set yet.
+  test('10 - Node cover images: shown once a node has one', async ({ page }) => {
+    const withCover = ALL_NODES.find((n) => n.has_cover_image);
+
     await page.goto('/');
     await page.getByText('日本史').click();
     await expect(page.getByText('← 戻る')).toBeVisible();
-    await expect(page.getByTestId('node-cover-image')).toHaveCount(0);
+
+    if (!withCover) {
+      await expect(page.getByTestId('node-cover-image')).toHaveCount(0);
+      return;
+    }
+
+    await page.goto(`/?region=${withCover.region}`);
+    // カバー画像を持つノードを開く
+    await page.getByTestId('node-toggle').filter({ hasText: withCover.label }).first().click();
+    await expect(page.getByTestId('node-cover-image').first()).toBeVisible();
   });
 });

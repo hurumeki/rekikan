@@ -36,17 +36,25 @@ Data stored on the device (or on a backend) to track the user's learning history
 
 ## 5.2 CardStats — Per-Card Accuracy
 
-Foundation data for weighted review of weak cards.
+Foundation data for weighted review of weak cards. Stored in `localStorage` under `rekikan_card_stats`:
 
 ```json
 {
-  "card_id": "card_japan_nanbokucho",
-  "attempts": 5,
-  "correct": 2,
-  "accuracy": 0.4,
-  "last_seen": "2026-04-01T10:30:00Z"
+  "version": 1,
+  "cards": {
+    "card_japan_nanbokucho": {
+      "cardId": "card_japan_nanbokucho",
+      "attempts": 5,
+      "correct": 2,
+      "lastSeen": "2026-04-01T10:30:00Z"
+    }
+  }
 }
 ```
+
+- Updated on every completed quiz, in every mode, including review sessions.
+- Accuracy is derived (`correct / attempts`) rather than stored, so the two counters cannot drift apart.
+- A card counts as "weak" while `correct < attempts`; review mode picks the weakest ones (see [08-future-features.md](08-future-features.md) Section 8.2).
 
 ## 5.3 UnlockState
 
@@ -59,4 +67,52 @@ Foundation data for weighted review of weak cards.
 }
 ```
 
-The `unlock_reason` field records which UnlockCondition `type` was satisfied to unlock the node. Valid values match the UnlockCondition types defined in [31-data-entities.md](31-data-entities.md) (Section 2.5): `complete_quizzes`, `complete_node`, `attempts`, `hint_clear`.
+The `unlock_reason` field records which UnlockCondition `type` was satisfied to unlock the node. Valid values match the UnlockCondition types defined in [31-data-entities.md](31-data-entities.md) (Section 2.5): `complete_quizzes`, `complete_any`, `complete_node`, `attempts`, `hint_clear`.
+
+---
+
+## 5.4 Stored Shape (Implementation)
+
+Progress is kept in `localStorage` under `rekikan_progress`, versioned so the shape can evolve:
+
+```json
+{
+  "version": 2,
+  "quizzes": {
+    "quiz_japan_era_intro_desc": {
+      "quizId": "quiz_japan_era_intro_desc",
+      "bestScore": 6,
+      "cleared": true,
+      "clearedWithHint": false,
+      "attemptCount": 5,
+      "modes": {
+        "careful": { "bestScore": 6, "cleared": true, "clearedWithHint": false, "attemptCount": 3 },
+        "era_band": {
+          "bestScore": 4,
+          "cleared": false,
+          "clearedWithHint": false,
+          "attemptCount": 2
+        }
+      }
+    }
+  }
+}
+```
+
+- **Per-mode records.** Every mode keeps its own best score, cleared flag and attempt count, so the mode selection screen can show what has already been done and the results screen can compare against the same mode's previous best.
+- **`cleared` gates unlocking, and only ordering modes set it.** Careful / Challenge / Cross-Region are ordering modes; a perfect score in Timeline or Era Band mode does not open the next layer, because it does not demonstrate the ordering skill the hierarchy is built on. The mode selection screen states this next to those modes.
+- **`cleared` and `clearedWithHint` are monotonic.** Once earned they are never cleared by a later poor attempt.
+- **`hintUsed` means "hints were shown at any point during the attempt"**, not the state of the toggle when the quiz ended. Turning hints on and then off again still counts as a hinted clear.
+- **Migration.** Version 1 stored a bare map of `QuizProgress` without `modes`. It is read as-is, with an empty `modes`, so existing unlock state survives the upgrade.
+
+### 5.5 Storage Layer
+
+All three client-side stores — progress, card stats and the pending strata reveals — are built on `createLocalStore()` (`src/lib/local-store.ts`), which provides one implementation of: a versioned envelope (`{ version, data }`), tolerant parsing that falls back to an empty value, swallowed write failures (private browsing, quota), a reference-stable snapshot for `useSyncExternalStore`, and change notification (same tab and other tabs).
+
+| Key                       | Version | Contents                                                            |
+| ------------------------- | ------- | ------------------------------------------------------------------- |
+| `rekikan_progress`        | 2       | Quiz progress, per mode                                             |
+| `rekikan_card_stats`      | 1       | Per-card accuracy ([Section 5.2](#52-cardstats--per-card-accuracy)) |
+| `rekikan_pending_reveals` | 1       | Nodes unlocked but not yet animated                                 |
+
+Reading these from React goes through `useProgress()` / `useQuizProgress()` / `useCardStats()` / `useWeakCardCount()` so that components never call the store directly.
