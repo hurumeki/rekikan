@@ -138,7 +138,7 @@
     "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "era",
-    "hint": "打製石器・移動生活・氷河期",
+    "hint": "打製石器を使いながら移動して暮らした時代",
     "description": "氷河期で、人々は打製石器を用いた狩猟・採集社会を営んだ。",
     "status": "ai_generated"
   },
@@ -151,7 +151,7 @@
     "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "era",
-    "hint": "縄文土器・竪穴住居・貝塚",
+    "hint": "土器が作られ竪穴住居で定住が始まった時代",
     "description": "縄文土器と弓矢の使用が始まり、竪穴住居での定住生活が始まった。",
     "status": "ai_generated"
   },
@@ -164,7 +164,7 @@
     "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "era",
-    "hint": "稲作・金属器・環濠集落",
+    "hint": "大陸から稲作と金属器が伝わった時代",
     "description": "本格的な水稲耕作が普及し、クニが形成され始めた。",
     "status": "ai_generated"
   },
@@ -177,7 +177,7 @@
     "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "era",
-    "hint": "前方後円墳・大和王権・渡来人",
+    "hint": "巨大な墓が造られ大和王権が成立した時代",
     "description": "巨大な前方後円墳が築造され、大和王権による統一が進んだ。",
     "status": "ai_generated"
   },
@@ -190,7 +190,7 @@
     "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "era",
-    "hint": "聖徳太子・仏教の受容・大化の改新",
+    "hint": "天皇中心の国づくりが進んだ時代",
     "description": "仏教が伝来し、遣隋使や遣唐使を通じて中国の文化が取り入れられた。",
     "status": "ai_generated"
   },
@@ -203,7 +203,7 @@
     "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "era",
-    "hint": "平城京・律令国家・天平文化",
+    "hint": "平城京を中心に律令国家が機能した時代",
     "description": "平城京を都とし、大宝律令や養老律令による本格的な律令政治が行われた。",
     "status": "ai_generated"
   },
@@ -216,7 +216,7 @@
     "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "era",
-    "hint": "平安京・摂関政治・国風文化",
+    "hint": "平安京を中心に貴族文化が栄えた時代",
     "description": "平安京への遷都から始まり、藤原氏の摂関政治や国風文化が花開いた。",
     "status": "ai_generated"
   },
@@ -320,7 +320,7 @@
     "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "event",
-    "hint": "青森県・大型の掘立柱建物・クリの栽培",
+    "hint": "青森県にある巨大な縄文時代の集落跡",
     "description": "青森県にある縄文時代最大級の集落跡で、クリの栽培なども行われていた。",
     "status": "ai_generated"
   },
@@ -333,7 +333,7 @@
     "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "event",
-    "hint": "佐賀県・環濠集落・物見やぐら",
+    "hint": "佐賀県にある弥生時代の大規模な環濠集落跡",
     "description": "佐賀県にある大規模な環濠集落跡で、物見やぐらなどが発掘されている。",
     "status": "ai_generated"
   },
@@ -346,7 +346,7 @@
     "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "war",
-    "hint": "奴国の王・光武帝・志賀島で発見",
+    "hint": "奴国の王・後漢の光武帝・志賀島で発見",
     "description": "奴国の王が後漢に使いを送り、光武帝から「漢委奴国王」の金印を授かった。",
     "status": "ai_generated"
   },
@@ -359,7 +359,7 @@
     "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "war",
-    "hint": "卑弥呼・邪馬台国・魏の皇帝",
+    "hint": "邪馬台国の卑弥呼が魏の皇帝から称号を授かった出来事",
     "description": "卑弥呼が魏に使いを送り、皇帝から「親魏倭王」の称号と銅鏡を授かった。",
     "status": "ai_generated"
   },
@@ -502,7 +502,7 @@
     "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "law",
-    "hint": "聖徳太子・才能による役人登用・冠の色",
+    "hint": "才能や功績により役人を登用する制度が設けられた出来事",
     "description": "世襲にとらわれず、才能や功績により冠を授ける役人登用の制度。",
     "status": "ai_generated"
   },
@@ -515,7 +515,7 @@
     "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "law",
-    "hint": "聖徳太子・和をもって貴しとなす・役人の心構え",
+    "hint": "和を尊ぶことなど、役人の心構えが示された出来事",
     "description": "聖徳太子らが定めたとされる、仏教の尊重や役人の心構えを説いた規範。",
     "status": "ai_generated"
   },
@@ -528,7 +528,7 @@
     "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "war",
-    "hint": "小野妹子・隋の煬帝・対等外交の国書",
+    "hint": "小野妹子らが大陸の進んだ制度を学ぶため派遣された出来事",
     "description": "中国南朝・北朝を統一した隋の制度や文化を学ぶため、小野妹子らが派遣された。",
     "status": "ai_generated"
   },
@@ -554,7 +554,7 @@
     "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "law",
-    "hint": "大化の改新・公地公民・新政府の方針",
+    "hint": "公地公民などの新政府の基本方針が示された出来事",
     "description": "大化の改新において、土地と人民を国家の直接支配とする公地公民制などが示された。",
     "status": "ai_generated"
   },
@@ -593,7 +593,7 @@
     "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "event",
-    "hint": "元明天皇・唐の長安・碁盤の目の都",
+    "hint": "唐の都長安にならった本格的な都へ移った出来事",
     "description": "唐の長安にならって碁盤の目状に区画された本格的な都へ遷った。",
     "status": "ai_generated"
   },
@@ -606,7 +606,7 @@
     "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "economy",
-    "hint": "口分田の不足・開墾計画・長屋王",
+    "hint": "良田を増やすための壮大な開発計画が立てられた出来事",
     "description": "人口の増加による口分田の不足を補うため、大規模な開墾計画が立てられた。",
     "status": "ai_generated"
   },
@@ -619,7 +619,7 @@
     "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "law",
-    "hint": "開墾の奨励・期限つきの私有・長屋王",
+    "hint": "新しく開墾した土地を一定期間私有できるとした法令",
     "description": "孫の代までなど三世代に限り、新しく開墾した土地の私有を認めた法令。",
     "status": "ai_generated"
   },
@@ -645,7 +645,7 @@
     "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "culture",
-    "hint": "聖武天皇・鎮護国家・国分尼寺",
+    "hint": "聖武天皇が仏教の力で国を守るため全国に寺を建てさせた出来事",
     "description": "社会不安を鎮めるため、聖武天皇が各国に国分寺・国分尼寺を建立させた。",
     "status": "ai_generated"
   },
@@ -658,7 +658,7 @@
     "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "law",
-    "hint": "聖武天皇・開墾地の永久私有・荘園",
+    "hint": "開墾した土地の永久私有を認める法令が出された出来事",
     "description": "新規に開墾した土地の永久私有を認めたことで、公地公民制の原則が崩れ始めた。",
     "status": "ai_generated"
   },
@@ -671,7 +671,7 @@
     "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "culture",
-    "hint": "聖徳太子・斑鳩・釈迦三尊像",
+    "hint": "聖徳太子が建てた世界最古の木造建築物",
     "description": "飛鳥文化を代表する世界最古の木造建築物で、釈迦三尊像などが安置されている。",
     "status": "ai_generated"
   },
@@ -684,7 +684,7 @@
     "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "culture",
-    "hint": "薬師寺・天武天皇と持統天皇・若々しい仏像",
+    "hint": "薬師寺の仏像などに代表される若々しい仏像が作られた時期",
     "description": "初唐文化の影響を受けた白鳳文化のもと、薬師寺金堂薬師三尊像などが造立された。",
     "status": "ai_generated"
   },
@@ -697,7 +697,7 @@
     "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "culture",
-    "hint": "稗田阿礼・太安万侶・神話と伝承",
+    "hint": "神話や伝承をまとめた日本最古の歴史書が成立した出来事",
     "description": "稗田阿礼が暗誦し、太安万侶が書き記した日本最古の歴史書。",
     "status": "ai_generated"
   },
@@ -723,7 +723,7 @@
     "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "culture",
-    "hint": "聖武天皇・盧舎那仏・行基",
+    "hint": "平城京で巨大な大仏の完成を祝う儀式が行われた出来事",
     "description": "聖武天皇の発願によって造えられた盧舎那仏の完成を祝う大規模な儀式。",
     "status": "ai_generated"
   },
@@ -736,7 +736,7 @@
     "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "culture",
-    "hint": "大伴家持・防人の歌・万葉仮名",
+    "hint": "防人や農民の歌も含まれる日本最古の和歌集の完成",
     "description": "天皇や貴族だけでなく、防人や農民の歌も収められた日本最古の和歌集。",
     "status": "ai_generated"
   },
@@ -814,7 +814,7 @@
     "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "event",
-    "hint": "桓武天皇・京都・仏教勢力からの離脱",
+    "hint": "桓武天皇が京都へ都を移した出来事",
     "description": "桓武天皇が、仏教勢力などの影響を断ち切るために新しい都へ遷った。",
     "status": "ai_generated"
   },
@@ -827,7 +827,7 @@
     "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "person",
-    "hint": "桓武天皇・蝦夷の平定・胆沢城",
+    "hint": "東北地方の蝦夷を平定するため最高司令官に任命された出来事",
     "description": "桓武天皇により征夷大将軍に任命され、東北地方の蝦夷を平定した。",
     "status": "ai_generated"
   },
@@ -853,7 +853,7 @@
     "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "culture",
-    "hint": "空海・真言宗・紀伊国の山中",
+    "hint": "空海が真言宗の拠点となる寺院を開いた出来事",
     "description": "唐から帰国した空海が、紀伊国の山中に真言宗の根本道場を開創した。",
     "status": "ai_generated"
   },
@@ -931,7 +931,7 @@
     "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "event",
-    "hint": "源高明・左遷・藤原氏の他氏排斥",
+    "hint": "源高明・左遷・他氏排斥の完成",
     "description": "源高明が左遷され他氏排斥が完了",
     "status": "ai_generated"
   },
@@ -944,7 +944,7 @@
     "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "person",
-    "hint": "望月の歌・外戚政治・娘を天皇の后に",
+    "hint": "「この世をば わが世とぞ思ふ」と詠んだ人物が全盛期を迎えた出来事",
     "description": "娘たちを次々と天皇の后とし、外祖父として摂関政治の全盛期を築いた。",
     "status": "ai_generated"
   },
@@ -957,7 +957,7 @@
     "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "culture",
-    "hint": "藤原頼通・宇治・浄土教",
+    "hint": "藤原頼通が極楽浄土を夢見て建てた阿弥陀堂",
     "description": "藤原頼通が宇治に建立した阿弥陀堂で、国風文化と浄土教の広まりを示す。",
     "status": "ai_generated"
   },
@@ -970,7 +970,7 @@
     "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "law",
-    "hint": "上皇・院庁・摂関家の抑制",
+    "hint": "退位した天皇が上皇として政界を主導する政治体制が始まった出来事",
     "description": "白河天皇が上皇となった後も実権を握り続け、摂関家を抑えて政治を行った。",
     "status": "ai_generated"
   },
@@ -1061,7 +1061,7 @@
     "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "culture",
-    "hint": "紫式部・宮廷・かな文学",
+    "hint": "紫式部が執筆した長編小説が書かれた時期",
     "description": "宮廷を舞台にした長編物語で、仮名文字の発達とともに生み出された。",
     "status": "ai_generated"
   },
@@ -1074,7 +1074,7 @@
     "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "culture",
-    "hint": "仏法がすたれる世・阿弥陀仏・浄土教",
+    "hint": "仏法が衰え世が乱れるという思想が広まった出来事",
     "description": "仏教の教えが衰えるという不安から、阿弥陀仏にすがる浄土教が流行した。",
     "status": "ai_generated"
   },
@@ -1087,7 +1087,7 @@
     "year_end": null,
     "era_color_key": "prehistoric_ancient",
     "category": "culture",
-    "hint": "奥州藤原氏・平泉・金色の阿弥陀堂",
+    "hint": "奥州藤原氏が平泉に建てた金箔張りの阿弥陀堂",
     "description": "東北地方で繁栄した奥州藤原氏によって建立された浄土教建築。",
     "status": "ai_generated"
   },
@@ -1178,7 +1178,7 @@
     "year_end": null,
     "era_color_key": "medieval",
     "category": "era",
-    "hint": "源頼朝・御恩と奉公・執権政治",
+    "hint": "源頼朝が幕府を開き、武士による本格的な政治が始まった時代",
     "description": "御恩と奉公の主従関係で結ばれた武士たちが執権政治を展開した時代。",
     "status": "ai_generated"
   },
@@ -1217,7 +1217,7 @@
     "year_end": null,
     "era_color_key": "medieval",
     "category": "era",
-    "hint": "下剋上・戦国大名・群雄割拠",
+    "hint": "下剋上の風潮が強まり各地で戦国大名が争った時代",
     "description": "応仁の乱をきっかけに幕府の権威が失墜し、実力で領国を支配する大名たちが覇を競った時代。",
     "status": "ai_generated"
   },
@@ -1230,7 +1230,7 @@
     "year_end": null,
     "era_color_key": "medieval",
     "category": "era",
-    "hint": "織田信長と豊臣秀吉・天下統一・南蛮文化",
+    "hint": "織田信長と豊臣秀吉が全国統一を進めた時代",
     "description": "ヨーロッパ文化の影響も受けつつ、城郭建築などが発達し天下統一事業が進められた時代。",
     "status": "ai_generated"
   },
@@ -1243,7 +1243,7 @@
     "year_end": null,
     "era_color_key": "early_modern",
     "category": "era",
-    "hint": "徳川将軍家・幕藩体制・鎖国",
+    "hint": "徳川家康が幕府を開き、長期の平和と鎖国が続いた時代",
     "description": "幕藩体制のもとで身分制度が固定化され、町人文化を中心に独自の発展を遂げた時代。",
     "status": "ai_generated"
   },
@@ -1347,7 +1347,7 @@
     "year_end": null,
     "era_color_key": "medieval",
     "category": "person",
-    "hint": "武士の棟梁・朝廷からの任命・鎌倉",
+    "hint": "源頼朝が武士の棟梁として朝廷から任命された役職",
     "description": "源頼朝が征夷大将軍に任命され、名実ともに鎌倉幕府が成立した。",
     "status": "ai_generated"
   },
@@ -1360,7 +1360,7 @@
     "year_end": null,
     "era_color_key": "medieval",
     "category": "event",
-    "hint": "鶴岡八幡宮・公暁・源氏将軍の断絶",
+    "hint": "甥の公暁に暗殺され、源氏の将軍家が断絶した",
     "description": "3代将軍源実朝が鶴岡八幡宮で公暁に暗殺され、源氏の将軍家が途絶えた。",
     "status": "ai_generated"
   },
@@ -1438,7 +1438,7 @@
     "year_end": null,
     "era_color_key": "medieval",
     "category": "law",
-    "hint": "御家人の困窮・借金の帳消し・元寇の負担",
+    "hint": "御家人の借金を帳消しにするために幕府が出した法令",
     "description": "元寇後に生活が苦しくなった御家人を救うため、借金の帳消しを命じた法令。",
     "status": "ai_generated"
   },
@@ -1451,7 +1451,7 @@
     "year_end": null,
     "era_color_key": "medieval",
     "category": "law",
-    "hint": "後醍醐天皇・天皇親政・武士の不満",
+    "hint": "後醍醐天皇による天皇中心の新しい政治体制",
     "description": "鎌倉幕府滅亡後、後醍醐天皇が天皇親政を目指して行った急進的な政治改革。",
     "status": "ai_generated"
   },
@@ -1490,7 +1490,7 @@
     "year_end": null,
     "era_color_key": "medieval",
     "category": "culture",
-    "hint": "後鳥羽上皇・藤原定家・勅撰和歌集",
+    "hint": "後鳥羽上皇の命で藤原定家らが選んだ勅撰和歌集",
     "description": "後鳥羽上皇の院宣により藤原定家らが撰した勅撰和歌集。",
     "status": "ai_generated"
   },
@@ -1503,7 +1503,7 @@
     "year_end": null,
     "era_color_key": "medieval",
     "category": "culture",
-    "hint": "鴨長明・無常観・随筆",
+    "hint": "鴨長明が無常観を綴った随筆",
     "description": "鴨長明が世の無常を綴った随筆文学。",
     "status": "ai_generated"
   },
@@ -1516,7 +1516,7 @@
     "year_end": null,
     "era_color_key": "medieval",
     "category": "culture",
-    "hint": "親鸞・悪人正機・他力本願",
+    "hint": "親鸞が開いた阿弥陀信仰の宗派",
     "description": "親鸞が開く。「他力本願」「悪人正機」",
     "status": "ai_generated"
   },
@@ -1620,7 +1620,7 @@
     "year_end": null,
     "era_color_key": "medieval",
     "category": "event",
-    "hint": "新田義貞・北条高時・鎌倉攻め",
+    "hint": "後醍醐天皇に呼応した新田義貞らが幕府を倒した出来事",
     "description": "新田義貞が鎌倉を攻め、北条高時が自害して幕府が滅亡した。",
     "status": "ai_generated"
   },
@@ -1633,7 +1633,7 @@
     "year_end": null,
     "era_color_key": "medieval",
     "category": "law",
-    "hint": "足利尊氏・政治の基本方針・京都に幕府",
+    "hint": "足利尊氏が政治の方針を示した法令",
     "description": "足利尊氏が今後の政治の基本方針として制定した、17条からなる法令。",
     "status": "ai_generated"
   },
@@ -1724,7 +1724,7 @@
     "year_end": null,
     "era_color_key": "medieval",
     "category": "culture",
-    "hint": "種子島・ポルトガル人・火縄銃",
+    "hint": "種子島に漂着したポルトガル人がもたらした新兵器",
     "description": "種子島に漂着したポルトガル人が、日本に火縄銃を伝えた。",
     "status": "ai_generated"
   },
@@ -1737,7 +1737,7 @@
     "year_end": null,
     "era_color_key": "medieval",
     "category": "culture",
-    "hint": "フランシスコ・ザビエル・イエズス会・鹿児島",
+    "hint": "イエズス会の宣教師が日本に伝えた宗教",
     "description": "イエズス会のフランシスコ・ザビエルが鹿児島に上陸し、布教を始めた。",
     "status": "ai_generated"
   },
@@ -1776,7 +1776,7 @@
     "year_end": null,
     "era_color_key": "medieval",
     "category": "culture",
-    "hint": "足利義政・東山殿・書院造",
+    "hint": "足利義政が東山に造営した楼閣建築",
     "description": "足利義政が東山殿に造営を始めた、書院造を取り入れた楼閣。",
     "status": "ai_generated"
   },
@@ -1802,7 +1802,7 @@
     "year_end": null,
     "era_color_key": "medieval",
     "category": "event",
-    "hint": "織田信長・足利義昭の追放・京都",
+    "hint": "信長が将軍足利義昭を京から追放した出来事",
     "description": "織田信長が将軍足利義昭を京から追放し、室町幕府が事実上滅亡した。",
     "status": "ai_generated"
   },
@@ -1828,7 +1828,7 @@
     "year_end": null,
     "era_color_key": "medieval",
     "category": "event",
-    "hint": "明智光秀・織田信長の自害・京都",
+    "hint": "家臣の謀反により信長が自害した事件",
     "description": "京都本能寺に滞在中の織田信長が、家臣明智光秀の謀反で自害した事件。",
     "status": "ai_generated"
   },
@@ -1841,7 +1841,7 @@
     "year_end": null,
     "era_color_key": "medieval",
     "category": "law",
-    "hint": "豊臣秀吉・農民の武器没収・兵農分離",
+    "hint": "一揆を防ぐため農民から武器を取り上げた命令",
     "description": "豊臣秀吉が農民から刀・槍などの武器を没収し、兵農分離を進めた。",
     "status": "ai_generated"
   },
@@ -1854,7 +1854,7 @@
     "year_end": null,
     "era_color_key": "medieval",
     "category": "event",
-    "hint": "小田原攻め・北条氏・奥州の平定",
+    "hint": "関東の北条氏を滅ぼし全国を統一した出来事",
     "description": "豊臣秀吉が小田原の北条氏を滅ぼし、全国統一を完了した。",
     "status": "ai_generated"
   },
@@ -1958,7 +1958,7 @@
     "year_end": null,
     "era_color_key": "early_modern",
     "category": "event",
-    "hint": "徳川家康・征夷大将軍・江戸",
+    "hint": "家康が征夷大将軍に任命され、武家政権の根拠地を東国に置いた",
     "description": "徳川家康が征夷大将軍に任命され、江戸を拠点とする武家政権が成立した。",
     "status": "ai_generated"
   },
@@ -2010,7 +2010,7 @@
     "year_end": null,
     "era_color_key": "early_modern",
     "category": "law",
-    "hint": "キリスト教の禁止・貿易の統制・オランダと清に限定",
+    "hint": "鎖国体制の完成・キリスト教禁止・オランダと清",
     "description": "いわゆる「鎖国」体制が完成する",
     "status": "ai_generated"
   },
@@ -2049,7 +2049,7 @@
     "year_end": null,
     "era_color_key": "early_modern",
     "category": "event",
-    "hint": "浪士の討ち入り・吉良邸・忠臣蔵",
+    "hint": "浪士たちが主君の仇討ちとして吉良邸に討ち入った事件",
     "description": "赤穂藩の浪士が、主君浅野長矩の仇である吉良義央を討った事件。",
     "status": "ai_generated"
   },
@@ -2062,7 +2062,7 @@
     "year_end": null,
     "era_color_key": "early_modern",
     "category": "law",
-    "hint": "新井白石・儒学・朝鮮通信使の待遇",
+    "hint": "新井白石が儒学に基づいて行った文治政治",
     "description": "新井白石が儀式の整備や財政改革を進め、儒学に基づく文治政治を展開した。",
     "status": "ai_generated"
   },
@@ -2075,7 +2075,7 @@
     "year_end": null,
     "era_color_key": "early_modern",
     "category": "law",
-    "hint": "新井白石・長崎貿易の制限・金銀の流出防止",
+    "hint": "金銀の流出を防ぐため貿易額を制限した法令",
     "description": "新井白石が金銀の流出を防ぐため、長崎での貿易額や入港船数を制限した法令。",
     "status": "ai_generated"
   },
@@ -2517,7 +2517,7 @@
     "year_end": null,
     "era_color_key": "early_modern",
     "category": "event",
-    "hint": "坂本龍馬・薩摩と長州・倒幕の密約",
+    "hint": "坂本龍馬の仲立ちで倒幕のために結ばれた軍事同盟",
     "description": "互いに対立していた薩摩藩と長州藩が、倒幕を目指して結んだ密約。",
     "status": "ai_generated"
   },
@@ -2530,7 +2530,7 @@
     "year_end": null,
     "era_color_key": "early_modern",
     "category": "law",
-    "hint": "徳川慶喜・政権の返上・朝廷",
+    "hint": "徳川慶喜が政権を朝廷に返上した出来事",
     "description": "幕府が政治を行う権力を朝廷に返し、江戸幕府が事実上滅亡した出来事。",
     "status": "ai_generated"
   },
@@ -2569,7 +2569,7 @@
     "year_end": null,
     "era_color_key": "modern",
     "category": "law",
-    "hint": "藩の廃止・府知事と県令・中央集権",
+    "hint": "藩をなくして府や県を置き、中央集権体制を整えた政策",
     "description": "明治政府が全国の藩を廃止し、県令などを派遣して中央集権体制を確立した。",
     "status": "ai_generated"
   },
@@ -2582,7 +2582,7 @@
     "year_end": null,
     "era_color_key": "modern",
     "category": "law",
-    "hint": "国民皆学・小学校・フランスの制度",
+    "hint": "すべての人々が小学校で教育を受けられるようにした制度",
     "description": "国民皆学を目指し、身分や性別に関係なく初等教育を義務化しようとした。",
     "status": "ai_generated"
   },
@@ -2621,7 +2621,7 @@
     "year_end": null,
     "era_color_key": "modern",
     "category": "law",
-    "hint": "板垣退助・国会開設の要求・自由民権運動",
+    "hint": "板垣退助らが国会を開くよう政府に求めた意見書",
     "description": "板垣退助らが、政府の専制を批判し国民から選ばれた議会を設けるよう求めた。",
     "status": "ai_generated"
   },
@@ -2647,7 +2647,7 @@
     "year_end": null,
     "era_color_key": "modern",
     "category": "event",
-    "hint": "自由民権運動・国会開設の請願・全国組織",
+    "hint": "自由民権運動のなかで国会開設を求める全国組織が作られた出来事",
     "description": "各地の民権家が集まり、国会開設を目指す全国的な政治結社を組織した。",
     "status": "ai_generated"
   },
@@ -2673,7 +2673,7 @@
     "year_end": null,
     "era_color_key": "modern",
     "category": "law",
-    "hint": "伊藤博文・欽定憲法・プロイセン憲法",
+    "hint": "アジア初の近代的な憲法が天皇から国民に与えられた出来事",
     "description": "プロイセン憲法を手本に、天皇主権を原則とする近代的な憲法が発布された。",
     "status": "ai_generated"
   },
@@ -2725,7 +2725,7 @@
     "year_end": null,
     "era_color_key": "modern",
     "category": "war",
-    "hint": "ロシアへの対抗・イギリス・軍事同盟",
+    "hint": "ロシアに対抗するためイギリスと結んだ軍事同盟",
     "description": "南下政策を進めるロシアを警戒し、日本の自衛とイギリスのアジア権益を守るため結成。",
     "status": "ai_generated"
   },
@@ -2751,7 +2751,7 @@
     "year_end": null,
     "era_color_key": "modern",
     "category": "war",
-    "hint": "朝鮮総督府・植民地支配・伊藤博文の暗殺",
+    "hint": "日本が韓国を完全に植民地化した出来事",
     "description": "軍事力を背景に韓国併合条約を結び、大韓帝国を日本の領土に編入した。",
     "status": "ai_generated"
   },
@@ -2764,7 +2764,7 @@
     "year_end": null,
     "era_color_key": "modern",
     "category": "war",
-    "hint": "小村寿太郎・日米通商航海条約・関税の自主決定",
+    "hint": "小村寿太郎・条約改正の達成・アメリカとの新条約",
     "description": "小村寿太郎外相の時、不平等条約の改正が完了",
     "status": "ai_generated"
   },
@@ -2881,7 +2881,7 @@
     "year_end": null,
     "era_color_key": "modern",
     "category": "event",
-    "hint": "米価の急騰・富山県の女性たち・シベリア出兵",
+    "hint": "米の値段が急激に上がったために起きた全国的な暴動",
     "description": "米の値段の急騰に反発する騒動が富山県から全国へ広がり、内閣が倒れて原敬の本格的な政党内閣が生まれた。",
     "status": "ai_generated"
   },
@@ -2920,7 +2920,7 @@
     "year_end": null,
     "era_color_key": "modern",
     "category": "economy",
-    "hint": "ニューヨークの株価暴落・昭和恐慌・農村の困窮",
+    "hint": "アメリカから始まった深刻な不景気が世界中に広まった出来事",
     "description": "ニューヨークの株価大暴落に端を発した恐慌が日本にも波及し、深刻な昭和恐慌を引き起こした。",
     "status": "ai_generated"
   },
@@ -2933,7 +2933,7 @@
     "year_end": null,
     "era_color_key": "modern",
     "category": "event",
-    "hint": "海軍の青年将校・犬養毅・首相官邸",
+    "hint": "海軍の青年将校が首相を暗殺した事件",
     "description": "海軍の急進派青年将校らが首相官邸などを襲撃し、政党内閣の時代が終わりを迎えた。",
     "status": "ai_generated"
   },
@@ -2959,7 +2959,7 @@
     "year_end": null,
     "era_color_key": "modern",
     "category": "event",
-    "hint": "陸軍の青年将校・皇道派・東京の中心部占拠",
+    "hint": "陸軍の青年将校が首都の中心部を占拠したクーデター未遂事件",
     "description": "陸軍の皇道派青年将校らが政府首脳を暗殺・襲撃し、軍部の政治介入がさらに強まった。",
     "status": "ai_generated"
   },
@@ -3245,7 +3245,7 @@
     "year_end": null,
     "era_color_key": "contemporary",
     "category": "event",
-    "hint": "東海道新幹線・高度経済成長の象徴・アジアでの開催",
+    "hint": "東海道新幹線・アジアで初の開催・高度経済成長の象徴",
     "description": "東海道新幹線も開業し、先進国の仲間入りを象徴",
     "status": "ai_generated"
   },

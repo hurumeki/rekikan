@@ -288,7 +288,7 @@
     "year_end": null,
     "era_color_key": "ancient",
     "category": "person",
-    "hint": "王の道・サトラップ制・ペルセポリス",
+    "hint": "王の道・サトラップ制・駅伝制・全盛期",
     "description": "駅伝制と地方総督制で巨大帝国を効率的に統治し、ペルシア帝国の全盛期を築いた。",
     "tags": [],
     "status": "ai_generated"
@@ -330,7 +330,7 @@
     "year_end": null,
     "era_color_key": "islamic",
     "category": "event",
-    "hint": "天使ジブリール・唯一神アッラー・メッカ",
+    "hint": "天使からの神の言葉・唯一神・イスラームの始まり",
     "description": "アラビアの商人が天使を通じて神の啓示を受けたとし、唯一神への信仰を説き始めた。",
     "tags": [],
     "status": "ai_generated"
@@ -386,7 +386,7 @@
     "year_end": 1258,
     "era_color_key": "islamic",
     "category": "era",
-    "hint": "バグダード・カリフ・非アラブ人の参加",
+    "hint": "バグダード・イスラームの黄金時代・非アラブ人の参加",
     "description": "バグダードを都としてイスラーム世界の中心となり、学問と文化が大いに発展した。",
     "tags": [],
     "status": "ai_generated"
@@ -470,7 +470,7 @@
     "year_end": null,
     "era_color_key": "ottoman",
     "category": "person",
-    "hint": "立法者・モハーチの戦い・ハンガリー征服",
+    "hint": "立法王・ウィーン包囲・帝国の最盛期",
     "description": "オスマン帝国の最盛期を築き、ウィーンに迫るほどの広大な版図を支配した。",
     "tags": [],
     "status": "ai_generated"
@@ -652,7 +652,7 @@
     "year_end": -332,
     "era_color_key": "ancient",
     "category": "era",
-    "hint": "フェニキア文字・地中海交易・港市ティルス",
+    "hint": "アルファベットの起源・地中海交易・港市ティルス",
     "description": "地中海沿岸の交易都市国家が栄え、アルファベットの原型を作り地中海貿易を支配した。",
     "tags": [],
     "status": "ai_generated"
@@ -708,7 +708,7 @@
     "year_end": null,
     "era_color_key": "ottoman",
     "category": "event",
-    "hint": "ヨーロッパ列強の北アフリカ進出・アブド・アルカーディルの抵抗",
+    "hint": "ヨーロッパ列強の北アフリカ進出・植民地支配の始まり",
     "description": "フランスがアルジェリアに侵攻し、北アフリカにおけるヨーロッパ列強の植民地支配が始まった。",
     "tags": [],
     "status": "ai_generated"
@@ -764,7 +764,7 @@
     "year_end": null,
     "era_color_key": "ancient",
     "category": "war",
-    "hint": "ヒッタイトとエジプト・ラメセス2世・シリアの覇権",
+    "hint": "ヒッタイトとエジプト・ラメセス2世・最古の講和条約",
     "description": "シリアの覇権をめぐりヒッタイトとエジプトが戦い、のちに世界最古級の講和条約が結ばれた。",
     "status": "ai_generated"
   },
@@ -894,7 +894,7 @@
     "year_end": null,
     "era_color_key": "ottoman",
     "category": "war",
-    "hint": "ハプスブルク家・ポーランド援軍・カラ・ムスタファ",
+    "hint": "ハプスブルク家・ポーランド援軍・領土縮小の始まり",
     "description": "オスマン軍がウィーンを再び包囲したが敗れ、以後ヨーロッパでの領土を失っていった。",
     "status": "ai_generated"
   },
@@ -946,7 +946,7 @@
     "year_end": null,
     "era_color_key": "ottoman",
     "category": "war",
-    "hint": "ハンガリーの割譲・オーストリア・神聖同盟",
+    "hint": "ハンガリーの割譲・オーストリア・初の大規模な領土喪失",
     "description": "オーストリアなどとの戦争に敗れ、ハンガリーなどを失った。帝国が後退に転じたことを示す条約。",
     "status": "ai_generated"
   },
@@ -959,7 +959,7 @@
     "year_end": null,
     "era_color_key": "ottoman",
     "category": "law",
-    "hint": "ミドハト・パシャ・議会の開設・アブデュルハミト2世",
+    "hint": "アジア初の憲法・ミドハト・パシャ・議会の開設",
     "description": "宰相ミドハト・パシャのもとで憲法が発布され議会が開かれたが、まもなく停止された。",
     "status": "ai_generated"
   },

@@ -568,7 +568,7 @@
     "year_end": null,
     "era_color_key": "colonial",
     "category": "event",
-    "hint": "サン=ドマング・黒人奴隷の蜂起・トゥサン・ルーヴェルチュール",
+    "hint": "サン=ドマング・黒人奴隷蜂起・ラテンアメリカ独立の先駆け",
     "description": "カリブ海のフランス植民地で奴隷たちが蜂起して独立を達成し、ラテンアメリカ独立運動の先駆となった。",
     "tags": [],
     "status": "ai_generated"
@@ -792,7 +792,7 @@
     "year_end": null,
     "era_color_key": "contemporary",
     "category": "war",
-    "hint": "アルゼンチン対イギリス・南大西洋・サッチャー",
+    "hint": "アルゼンチン対イギリス・南大西洋・軍政の終焉",
     "description": "南部の共和国がイギリス領の南大西洋の島々をめぐって戦争を起こし、敗北して軍政の終焉を招いた。",
     "tags": [],
     "status": "ai_generated"
@@ -820,7 +820,7 @@
     "year_end": null,
     "era_color_key": "indigenous",
     "category": "culture",
-    "hint": "ペルー中部海岸・ピラミッド状の神殿・土器を持たない文明",
+    "hint": "ペルー中部海岸・ピラミッド状の神殿・アメリカ大陸最古級の都市",
     "description": "ペルー中部の海岸近くに大きな神殿をもつ都市が築かれた。アメリカ大陸で最も古い文明の一つ。",
     "status": "ai_generated"
   },

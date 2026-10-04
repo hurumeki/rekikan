@@ -112,7 +112,7 @@
     "year_end": 568,
     "era_color_key": "ancient",
     "category": "era",
-    "hint": "ゲルマン人・フン人の圧迫・民族の移動",
+    "hint": "蛮族・西ローマ滅亡",
     "description": "ゲルマン諸族の移動により西ローマ帝国が崩壊した。",
     "status": "ai_generated"
   },
@@ -151,7 +151,7 @@
     "year_end": null,
     "era_color_key": "medieval",
     "category": "war",
-    "hint": "聖地エルサレム・ウルバヌス2世・クレルモン公会議",
+    "hint": "聖地奪還・東方との交流",
     "description": "キリスト教勢力が聖地エルサレムの奪還を目指して軍を派遣した。",
     "status": "ai_generated"
   },
@@ -255,7 +255,7 @@
     "year_end": null,
     "era_color_key": "contemporary",
     "category": "war",
-    "hint": "ナチス・ドイツ・ポーランド侵攻・英仏の宣戦",
+    "hint": "ナチス・ドイツのポーランド侵攻",
     "description": "ファシズムとの戦いが世界を二分した人類最大の戦争が勃発した。",
     "status": "ai_generated"
   },
@@ -268,7 +268,7 @@
     "year_end": null,
     "era_color_key": "ancient",
     "category": "person",
-    "hint": "アテネ・民主政治・パルテノン神殿",
+    "hint": "アテネ・民主政治の完成・パルテノン神殿",
     "description": "ペリクレスが実権を握り、アテネ民主政治の黄金期を築き始めた。",
     "status": "ai_generated"
   },
@@ -320,7 +320,7 @@
     "year_end": null,
     "era_color_key": "ancient",
     "category": "law",
-    "hint": "コンスタンティヌス帝・キリスト教の公認・信教の自由",
+    "hint": "キリスト教公認・コンスタンティヌス帝",
     "description": "コンスタンティヌス帝がキリスト教を公認し、迫害を終結させた。",
     "status": "ai_generated"
   },
@@ -411,7 +411,7 @@
     "year_end": null,
     "era_color_key": "modern",
     "category": "person",
-    "hint": "鉄血政策・プロイセン・普仏戦争",
+    "hint": "鉄血宰相・プロイセン・ドイツ帝国誕生",
     "description": "鉄血政策を推進し、プロイセンを中心にドイツ統一を達成した。",
     "status": "ai_generated"
   },
@@ -450,7 +450,7 @@
     "year_end": null,
     "era_color_key": "medieval",
     "category": "event",
-    "hint": "ペスト・人口の激減・農奴の地位向上",
+    "hint": "人口激減・農奴解放の促進",
     "description": "ヨーロッパ全土に疫病が蔓延し、人口の約三分の一が失われる甚大な被害をもたらした。",
     "status": "ai_generated"
   },
@@ -463,7 +463,7 @@
     "year_end": null,
     "era_color_key": "medieval",
     "category": "person",
-    "hint": "ビザンツ帝国・ローマ法大全・旧ローマ領の回復",
+    "hint": "ビザンツ帝国最盛期・ローマ法大全",
     "description": "東ローマ（ビザンツ）帝国の最盛期を築き、旧西ローマ領の一部を回復した。",
     "status": "ai_generated"
   },
@@ -502,7 +502,7 @@
     "year_end": null,
     "era_color_key": "modern",
     "category": "era",
-    "hint": "列強の植民地支配・アフリカ分割・独占資本",
+    "hint": "列強の植民地支配・アフリカ分割",
     "description": "欧米列強が軍事力と経済力を背景に、アジアやアフリカを植民地化していった。",
     "status": "ai_generated"
   },
@@ -515,7 +515,7 @@
     "year_end": null,
     "era_color_key": "modern",
     "category": "person",
-    "hint": "パクス・ブリタニカ・世界の工場・大英帝国",
+    "hint": "パクスブリタニカ・世界の工場",
     "description": "イギリスが「日の沈まない国」と称される圧倒的な繁栄を謳歌した時代の女王。",
     "status": "ai_generated"
   },
@@ -528,7 +528,7 @@
     "year_end": null,
     "era_color_key": "contemporary",
     "category": "event",
-    "hint": "レーニン・ソビエト・社会主義政権",
+    "hint": "レーニン・ソビエト・初の社会主義",
     "description": "皇帝の支配が倒され、世界初の社会主義国家が誕生する契機となった。",
     "status": "ai_generated"
   },
@@ -541,7 +541,7 @@
     "year_end": null,
     "era_color_key": "contemporary",
     "category": "event",
-    "hint": "暗黒の木曜日・ウォール街・株価の大暴落",
+    "hint": "暗黒の木曜日・ウォール街大暴落",
     "description": "アメリカの株価大暴落をきっかけに、深刻な経済危機が世界中に波及した。",
     "status": "ai_generated"
   },
@@ -554,7 +554,7 @@
     "year_end": null,
     "era_color_key": "contemporary",
     "category": "event",
-    "hint": "鉄のカーテン・トルーマン・ドクトリン・米ソ対立",
+    "hint": "鉄のカーテン・米ソ対立",
     "description": "第二次世界大戦後、アメリカを中心とする資本主義陣営とソ連の社会主義陣営が激しく対立した。",
     "status": "ai_generated"
   },
@@ -567,7 +567,7 @@
     "year_end": null,
     "era_color_key": "early_modern",
     "category": "event",
-    "hint": "スペイン女王の支援・サンサルバドル島・西回り航路",
+    "hint": "スペイン支援・サンサルバドル島",
     "description": "スペインの支援を受けて大西洋を横断し、アメリカ大陸（西インド諸島）に到達した。",
     "status": "ai_generated"
   },
@@ -633,7 +633,7 @@
     "year_end": -479,
     "era_color_key": "ancient",
     "category": "war",
-    "hint": "マラトンの戦い・サラミスの海戦・アケメネス朝の遠征",
+    "hint": "マラトンの戦い・サラミスの海戦",
     "description": "ギリシア諸ポリスがペルシア帝国の大軍を海と陸で撃退し、独立を守り抜いた戦争。",
     "tags": [],
     "status": "ai_generated"
@@ -647,7 +647,7 @@
     "year_end": -404,
     "era_color_key": "ancient",
     "category": "war",
-    "hint": "アテネとスパルタ・二大都市国家の激突・デロス同盟",
+    "hint": "二大都市国家の激突・ポリス体制の衰退",
     "description": "覇権をめぐる二大陣営の争いが長年続き、ポリス体制の衰退を招いた戦争。",
     "tags": [],
     "status": "ai_generated"
@@ -675,7 +675,7 @@
     "year_end": -146,
     "era_color_key": "ancient",
     "category": "war",
-    "hint": "カルタゴ・ハンニバル・地中海の覇権",
+    "hint": "北アフリカの大国との激突・地中海の覇権",
     "description": "ローマが北アフリカの強国との三度の戦争に勝利し、地中海の覇権を握った。",
     "tags": [],
     "status": "ai_generated"
@@ -773,7 +773,7 @@
     "year_end": null,
     "era_color_key": "early_modern",
     "category": "culture",
-    "hint": "抵抗権・人民主権・『統治二論』",
+    "hint": "抵抗権・人民主権・近代民主主義の礎",
     "description": "人民は不正な政府に抵抗できるという抵抗権を説き、近代民主主義思想の基礎を築いた。",
     "tags": [],
     "status": "ai_generated"
@@ -1165,7 +1165,7 @@
     "year_end": null,
     "era_color_key": "contemporary",
     "category": "economy",
-    "hint": "ソ連・人工衛星・スプートニク・ショック",
+    "hint": "ソ連・世界初の人工衛星・宇宙時代の幕開け",
     "description": "ソ連が世界初の人工衛星の打ち上げに成功し、米ソによる宇宙開発競争が本格化した。",
     "tags": ["科学技術"],
     "status": "ai_generated"
@@ -1179,7 +1179,7 @@
     "year_end": null,
     "era_color_key": "contemporary",
     "category": "culture",
-    "hint": "ワトソンとクリック・遺伝子の構造・X線回折",
+    "hint": "ワトソンとクリック・遺伝子の構造・分子生物学の出発点",
     "description": "ワトソンとクリックが遺伝情報を担う分子の二重らせん構造を発表し、分子生物学が始動した。",
     "tags": ["科学技術"],
     "status": "ai_generated"
@@ -1305,7 +1305,7 @@
     "year_end": null,
     "era_color_key": "modern",
     "category": "law",
-    "hint": "ウィルバーフォース・奴隷貿易禁止法・人道主義",
+    "hint": "ウィルバーフォース・大西洋奴隷貿易禁止法",
     "description": "イギリス議会が奴隷貿易の禁止を法制化し、大西洋の人身売買体制が崩れ始めた。",
     "tags": ["交易"],
     "status": "ai_generated"
@@ -1606,7 +1606,7 @@
     "year_end": null,
     "era_color_key": "medieval",
     "category": "culture",
-    "hint": "ブルネレスキ・八角形ドーム・メディチ家のフィレンツェ",
+    "hint": "ブルネレスキ・八角形ドーム・ルネサンス建築の幕開け",
     "description": "古代の技法を再評価して設計された巨大ドームが完成し、ルネサンス建築の幕開けを告げた。",
     "status": "ai_generated"
   },
@@ -1814,7 +1814,7 @@
     "year_end": null,
     "era_color_key": "early_modern",
     "category": "person",
-    "hint": "カント・ケーニヒスベルク・認識の批判",
+    "hint": "カント・ケーニヒスベルク・ドイツ観念論の出発点",
     "description": "認識の限界と条件を体系的に論じる哲学書が刊行され、ドイツ観念論の出発点を成した。",
     "status": "ai_generated"
   },
@@ -1905,7 +1905,7 @@
     "year_end": null,
     "era_color_key": "ancient",
     "category": "law",
-    "hint": "ローマ・成文法・貴族と平民の対立",
+    "hint": "ローマ・最古の成文法・平民の要求",
     "description": "貴族と平民の対立の中で慣習法を成文化した最古の法典が制定され、後のローマ法の出発点となった。",
     "status": "ai_generated"
   },
@@ -1996,7 +1996,7 @@
     "year_end": null,
     "era_color_key": "medieval",
     "category": "culture",
-    "hint": "フランス王フィリップ4世・南フランス・教皇庁の移転",
+    "hint": "フランス王の圧力・南フランス・教皇権の衰え",
     "description": "フランス王の影響下で教皇庁が南フランスのアヴィニョンに移され、教皇権の衰えが明らかになった。",
     "status": "ai_generated"
   },
@@ -2074,7 +2074,7 @@
     "year_end": null,
     "era_color_key": "modern",
     "category": "event",
-    "hint": "パリの蜂起・自由主義と民族運動・メッテルニヒの失脚",
+    "hint": "パリの蜂起・ウィーン体制の崩壊・民族運動",
     "description": "パリの二月革命が各地に波及し、自由と民族の独立を求める運動がヨーロッパ中で起こった。",
     "status": "ai_generated"
   },
@@ -2204,7 +2204,7 @@
     "year_end": null,
     "era_color_key": "medieval",
     "category": "law",
-    "hint": "リューリク・ヴァリャーグ・ノルマン人",
+    "hint": "リューリク・ヴァリャーグ・ルーシの始まり",
     "description": "ノルマン人の一派ルーシの首長リューリクがノヴゴロドに国を建てたと伝えられる。",
     "status": "ai_generated"
   },
@@ -2256,7 +2256,7 @@
     "year_end": null,
     "era_color_key": "early_modern",
     "category": "law",
-    "hint": "ミハイル・ロマノフ・全国会議",
+    "hint": "ミハイル・ロマノフ・動乱時代の収束",
     "description": "全国会議でミハイル・ロマノフがツァーリに選ばれ、ロマノフ朝が始まった。",
     "status": "ai_generated"
   },

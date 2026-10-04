@@ -540,7 +540,7 @@
     "year_end": null,
     "era_color_key": "turkic",
     "category": "event",
-    "hint": "可汗国の内紛・草原の二分化・隋の離間策",
+    "hint": "可汗国の内紛・草原の二分化",
     "description": "巨大な遊牧国家が内紛で東西に分かれ、それぞれ独自の道を歩むようになった。",
     "tags": [],
     "status": "ai_generated"
@@ -624,7 +624,7 @@
     "year_end": null,
     "era_color_key": "islamic",
     "category": "law",
-    "hint": "テュルク系のイスラーム王朝・ブハラの占領・オアシス地域の支配",
+    "hint": "テュルク系の本格的イスラーム王朝・ブハラ占領",
     "description": "テュルク系として本格的にイスラームを受け入れた王朝が、イラン系王朝を倒した。",
     "tags": [],
     "status": "ai_generated"
@@ -820,7 +820,7 @@
     "year_end": null,
     "era_color_key": "modern",
     "category": "economy",
-    "hint": "コルホーズ・強制的な定住・大量の犠牲・スターリン",
+    "hint": "コルホーズ・遊牧の終焉・大量犠牲・スターリン",
     "description": "強権的な政策によって遊牧の伝統が断たれ、住民は集団農場での定住生活を強いられた。",
     "tags": [],
     "status": "ai_generated"
@@ -887,7 +887,7 @@
     "year_end": null,
     "era_color_key": "ancient",
     "category": "law",
-    "hint": "西域都護・オアシス諸国の服属・甘英の派遣",
+    "hint": "後漢・西域経営・甘英の派遣",
     "description": "後漢の班超が西域都護となってオアシス諸国を服属させ、部下を西方の大秦へ派遣した。",
     "status": "ai_generated"
   },

@@ -330,7 +330,7 @@
     "year_end": null,
     "era_color_key": "colonial",
     "category": "event",
-    "hint": "スペイン女王の支援・サンサルバドル島・西回り航路",
+    "hint": "スペイン後援・カリブ海・地理上の発見",
     "description": "ヨーロッパの航海者がスペイン王室の後援で大西洋を横断し、新大陸の存在を伝えた。",
     "tags": [],
     "status": "ai_generated"
@@ -652,7 +652,7 @@
     "year_end": null,
     "era_color_key": "independence",
     "category": "event",
-    "hint": "西部開拓・天命思想・オレゴンとテキサス",
+    "hint": "西部開拓・天命思想・大陸国家完成",
     "description": "西方への領土拡大は神から与えられた使命であるという思想が広まり、太平洋岸への到達が進んだ。",
     "tags": [],
     "status": "ai_generated"
@@ -862,7 +862,7 @@
     "year_end": null,
     "era_color_key": "modern",
     "category": "economy",
-    "hint": "キティホーク・有人動力飛行・兄弟の発明家",
+    "hint": "キティホーク・有人動力飛行・航空時代の幕開け",
     "description": "兄弟が世界で初めて有人動力飛行に成功し、航空機の時代が始まった。",
     "tags": ["科学技術"],
     "status": "ai_generated"
@@ -904,7 +904,7 @@
     "year_end": null,
     "era_color_key": "contemporary",
     "category": "economy",
-    "hint": "国防総省・分散型ネットワーク・パケット通信",
+    "hint": "国防総省・分散型ネットワーク・インターネットの前身",
     "description": "国防総省主導で構築された分散型コンピュータ・ネットワークが運用を始め、後のインターネットの基礎となった。",
     "tags": ["科学技術"],
     "status": "ai_generated"
@@ -918,7 +918,7 @@
     "year_end": null,
     "era_color_key": "contemporary",
     "category": "culture",
-    "hint": "国際協力・遺伝情報・DNAの全塩基配列",
+    "hint": "国際協力・遺伝情報・生命科学の到達点",
     "description": "国際プロジェクトによってヒトの全遺伝情報の解読が完了し、生命科学の新時代が幕を開けた。",
     "tags": ["科学技術"],
     "status": "ai_generated"
@@ -958,7 +958,7 @@
     "year_end": null,
     "era_color_key": "contemporary",
     "category": "culture",
-    "hint": "リズム&ブルースとカントリーの融合・エルヴィス・プレスリー・若者文化",
+    "hint": "リズム&ブルースとカントリーの融合・若者文化",
     "description": "リズム&ブルースをルーツとする若者向けの音楽様式が確立され、戦後文化の象徴として世界に広がった。",
     "status": "ai_generated"
   },

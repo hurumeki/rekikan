@@ -414,7 +414,7 @@
     "year_end": null,
     "era_color_key": "ancient",
     "category": "law",
-    "hint": "チャンドラグプタ・統一帝国・カウティリヤ",
+    "hint": "チャンドラグプタ・インド亜大陸初の統一帝国・中央集権",
     "description": "初めてインド亜大陸の大部分を統一した王朝が成立し、整備された官僚制と中央集権的な行政が確立された。",
     "tags": [],
     "status": "ai_generated"
@@ -526,7 +526,7 @@
     "year_end": null,
     "era_color_key": "mughal",
     "category": "law",
-    "hint": "バーブル・パーニーパットの戦い・北インド制圧",
+    "hint": "バーブル・パーニーパットの戦い・ティムール朝の後継・北インド制圧",
     "description": "ティムールの子孫がインドに侵入して北インドを制圧し、三世紀以上にわたって続く帝国を樹立した。",
     "tags": [],
     "status": "ai_generated"
@@ -540,7 +540,7 @@
     "year_end": null,
     "era_color_key": "mughal",
     "category": "person",
-    "hint": "ジズヤ廃止・ヒンドゥー融和・マンサブダール制",
+    "hint": "ジズヤ廃止・ヒンドゥー融和・中央集権行政・帝国の黄金期",
     "description": "非イスラーム税を廃止して宗教的寛容を実践し、全インドの統合と帝国の最盛期を切り開いた皇帝。",
     "tags": [],
     "status": "ai_generated"
@@ -582,7 +582,7 @@
     "year_end": null,
     "era_color_key": "mughal",
     "category": "person",
-    "hint": "ジズヤ再課税・厳格なイスラーム政策・デカン遠征",
+    "hint": "ジズヤ再課税・厳格なイスラーム政策・帝国最大版図・反乱の激化",
     "description": "最大の領土を実現したが、非寛容な宗教政策が各地の反乱を招き、帝国衰退の要因となった皇帝。",
     "tags": [],
     "status": "ai_generated"
@@ -824,7 +824,7 @@
     "year_end": null,
     "era_color_key": "mughal",
     "category": "war",
-    "hint": "アフシャール朝・孔雀の玉座・イランからの侵攻",
+    "hint": "アフシャール朝・孔雀の玉座・帝国の衰退",
     "description": "イランのナーディル・シャーがデリーを攻略して財宝を奪い、ムガル帝国の衰えが決定的になった。",
     "status": "ai_generated"
   },
