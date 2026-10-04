@@ -346,7 +346,7 @@
     "year_end": null,
     "era_color_key": "ancient",
     "category": "law",
-    "hint": "甄萱・地方豪族の自立・後三国時代",
+    "hint": "甄萱・地方豪族の自立・全州",
     "description": "地方の豪族甄萱が後百済を建て、新羅・後高句麗と並ぶ後三国時代が始まった。",
     "status": "ai_generated"
   },
@@ -424,7 +424,7 @@
     "year_end": null,
     "era_color_key": "goryeo",
     "category": "law",
-    "hint": "王建・開城・後三国の統一",
+    "hint": "王建・開城・半島の再統一",
     "description": "王建が高麗を建て、都を開城に置いて後三国を統一した。",
     "status": "ai_generated"
   },
@@ -788,7 +788,7 @@
     "year_end": null,
     "era_color_key": "modern",
     "category": "war",
-    "hint": "韓国併合条約・朝鮮総督府・植民地支配",
+    "hint": "朝鮮総督府・植民地支配・伊藤博文の暗殺",
     "description": "日本が韓国を併合し、朝鮮総督府を置いて植民地として支配した。",
     "status": "ai_generated"
   },

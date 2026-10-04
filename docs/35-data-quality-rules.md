@@ -8,11 +8,17 @@ Rules to follow during AI generation, and checklist items for human review.
 
 ## 6.1 Information Prohibited in Hints (Term Cards)
 
-| Prohibited                        | Example                                        | Reason                              |
-| --------------------------------- | ---------------------------------------------- | ----------------------------------- |
-| Ordinal numbers that fix sequence | "Third shogun (三代将軍)", "The 15th (第15代)" | Gives away the sorting answer       |
-| Explicit year numbers             | "In 1603... (1603年に〜)"                      | The year directly reveals the order |
-| Words indicating before/after     | "After... (〜の後に)", "Before... (〜の前の)"  | Too strong a hint about ordering    |
+| Prohibited                             | Example                                                        | Reason                                                                         |
+| -------------------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| Ordinal numbers that fix sequence      | "Third shogun (三代将軍)", "The 15th (第15代)"                 | Gives away the sorting answer                                                  |
+| Explicit year numbers                  | "In 1603... (1603年に〜)"                                      | The year directly reveals the order                                            |
+| Words indicating before/after          | "After... (〜の後に)", "Before... (〜の前の)"                  | Too strong a hint about ordering                                               |
+| Phase words relative to something else | "前身", "先駆け", "幕開け", "始まり", "最盛期", "衰退", "終焉" | Places the card early or late in an arc that other cards in the quiz belong to |
+| Superlatives of age or firstness       | "最古の〜", "初の〜", "世界初"                                 | Ranks the card against similar cards in the same quiz                          |
+| Dynasty prefixes that encode phase     | "前漢 / 後漢", "北宋 / 南宋", "後三国"                         | The prefix itself states which half came first                                 |
+| Another card's name in the same quiz   | "承久の乱後に…" on 六波羅探題                                  | Reveals the relative order through cause and effect                            |
+
+**Hint format:** keyword style — two to four short keywords joined by 「・」 (e.g. 「源頼朝・御恩と奉公・執権政治」). Prefer people, places, institutions and characteristic terms that the learner can associate with the card. Do not repeat the card name, and do not write the hint as a sentence that restates the description.
 
 ## 6.2 Information Prohibited in Description Cards
 

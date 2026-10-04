@@ -638,7 +638,7 @@
     "year_end": null,
     "era_color_key": "modern",
     "category": "law",
-    "hint": "イギリス自治領・国家としての地位向上",
+    "hint": "イギリス自治領・ドミニオン・国家としての地位向上",
     "description": "南方の二つの島々の植民地が自治領に昇格し、独立した国家としての地位を高めた。",
     "tags": [],
     "status": "ai_generated"
@@ -722,7 +722,7 @@
     "year_end": null,
     "era_color_key": "contemporary",
     "category": "event",
-    "hint": "国連信託統治終了・太平洋島嶼独立の先駆け",
+    "hint": "国連信託統治の終了・ポリネシア・ニュージーランドからの独立",
     "description": "国連の信託統治が終了し、太平洋島嶼地域で本格的な独立国家の誕生が始まった。",
     "tags": [],
     "status": "ai_generated"
@@ -764,7 +764,7 @@
     "year_end": null,
     "era_color_key": "contemporary",
     "category": "event",
-    "hint": "オーストラリア委任統治終了・島嶼独立",
+    "hint": "オーストラリアの統治終了・ニューギニア島東部・島嶼の独立",
     "description": "南方の大陸の隣の大きな島が委任統治を脱して独立を達成し、地域の独立国の数が増えた。",
     "tags": [],
     "status": "ai_generated"
@@ -791,7 +791,7 @@
     "year_end": null,
     "era_color_key": "indigenous",
     "category": "economy",
-    "hint": "タロイモとバナナ・湿地の排水・世界最古級の農耕",
+    "hint": "タロイモとバナナ・湿地の排水・クック遺跡",
     "description": "ニューギニア高地の人々が湿地を排水してタロイモやバナナを栽培し始めた。世界でも最も早い農耕の一つ。",
     "status": "ai_generated"
   },
