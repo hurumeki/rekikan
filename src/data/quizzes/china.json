@@ -170,5 +170,23 @@
     ],
     "modes": ["careful", "challenge", "timeline"],
     "difficulty": 1
+  },
+  {
+    "id": "quiz_china_contemporary",
+    "region": "china",
+    "title": "現代中国の歩み",
+    "card_type": "term",
+    "card_ids": [
+      "card_china_prc_established",
+      "card_china_great_leap",
+      "card_china_cultural_rev",
+      "card_china_nixon",
+      "card_china_reform",
+      "card_china_tiananmen",
+      "card_china_hongkong",
+      "card_china_wto"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
   }
 ]

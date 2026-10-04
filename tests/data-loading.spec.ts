@@ -4,7 +4,7 @@ import { loadCardsForQuiz, loadRegionCards, getCard, isRegionCardsLoaded } from 
 
 test.describe('カードの遅延読み込み', () => {
   test('地域ごとにローダーが用意されている', () => {
-    expect(CARD_REGION_IDS.length).toBe(10);
+    expect(CARD_REGION_IDS.length).toBe(12);
     // world は自前のカードを持たない
     expect(CARD_LOADERS.world).toBeUndefined();
     expect(isRegionCardsLoaded('world')).toBe(true);

@@ -1,0 +1,225 @@
+[
+  {
+    "id": "quiz_korea_intro_desc",
+    "region": "korea",
+    "title": "朝鮮半島史の大きな流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_korea_desc_intro_1",
+      "card_korea_desc_intro_2",
+      "card_korea_desc_intro_3",
+      "card_korea_desc_intro_4",
+      "card_korea_desc_intro_5",
+      "card_korea_desc_intro_6"
+    ],
+    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_korea_ancient_desc",
+    "region": "korea",
+    "title": "古代の王国の流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_korea_desc_ancient_1",
+      "card_korea_desc_ancient_2",
+      "card_korea_desc_ancient_3",
+      "card_korea_desc_ancient_4",
+      "card_korea_desc_ancient_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_korea_ancient_term",
+    "region": "korea",
+    "title": "古朝鮮から三国の争い",
+    "card_type": "term",
+    "card_ids": [
+      "card_korea_wiman",
+      "card_korea_lelang",
+      "card_korea_buddhism",
+      "card_korea_gwanggaeto",
+      "card_korea_baekje_fall",
+      "card_korea_goguryeo_fall"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_korea_silla_desc",
+    "region": "korea",
+    "title": "統一新羅と渤海の流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_korea_desc_silla_1",
+      "card_korea_desc_silla_2",
+      "card_korea_desc_silla_3",
+      "card_korea_desc_silla_4",
+      "card_korea_desc_silla_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_korea_silla_term",
+    "region": "korea",
+    "title": "統一新羅と渤海",
+    "card_type": "term",
+    "card_ids": [
+      "card_korea_silla_unify",
+      "card_korea_balhae",
+      "card_korea_bulguksa",
+      "card_korea_jang_bogo",
+      "card_korea_later_three"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_korea_goryeo_desc",
+    "region": "korea",
+    "title": "高麗の流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_korea_desc_goryeo_1",
+      "card_korea_desc_goryeo_2",
+      "card_korea_desc_goryeo_3",
+      "card_korea_desc_goryeo_4",
+      "card_korea_desc_goryeo_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_korea_goryeo_term",
+    "region": "korea",
+    "title": "高麗の興亡",
+    "card_type": "term",
+    "card_ids": [
+      "card_korea_goryeo_found",
+      "card_korea_gwageo",
+      "card_korea_khitan",
+      "card_korea_military",
+      "card_korea_mongol",
+      "card_korea_tripitaka",
+      "card_korea_wako"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_korea_joseon_desc",
+    "region": "korea",
+    "title": "朝鮮王朝の流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_korea_desc_joseon_1",
+      "card_korea_desc_joseon_2",
+      "card_korea_desc_joseon_3",
+      "card_korea_desc_joseon_4",
+      "card_korea_desc_joseon_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_korea_joseon_term",
+    "region": "korea",
+    "title": "朝鮮王朝の展開",
+    "card_type": "term",
+    "card_ids": [
+      "card_korea_joseon_found",
+      "card_korea_hangul",
+      "card_korea_imjin",
+      "card_korea_tongsinsa",
+      "card_korea_qing_invasion",
+      "card_korea_hwaseong",
+      "card_korea_daewongun"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_korea_modern_desc",
+    "region": "korea",
+    "title": "開国と植民地支配の流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_korea_desc_modern_1",
+      "card_korea_desc_modern_2",
+      "card_korea_desc_modern_3",
+      "card_korea_desc_modern_4",
+      "card_korea_desc_modern_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_korea_modern_term",
+    "region": "korea",
+    "title": "開国から植民地支配",
+    "card_type": "term",
+    "card_ids": [
+      "card_korea_ganghwa",
+      "card_korea_gapsin",
+      "card_korea_donghak",
+      "card_korea_korean_empire",
+      "card_korea_annexation",
+      "card_korea_march_first",
+      "card_korea_soshi"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_korea_contemporary_desc",
+    "region": "korea",
+    "title": "分断と現代の流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_korea_desc_contemporary_1",
+      "card_korea_desc_contemporary_2",
+      "card_korea_desc_contemporary_3",
+      "card_korea_desc_contemporary_4",
+      "card_korea_desc_contemporary_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_korea_contemporary_term",
+    "region": "korea",
+    "title": "南北分断と現代",
+    "card_type": "term",
+    "card_ids": [
+      "card_korea_liberation",
+      "card_korea_two_states",
+      "card_korea_korean_war",
+      "card_korea_armistice",
+      "card_korea_park",
+      "card_korea_gwangju",
+      "card_korea_democratization",
+      "card_korea_summit"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_korea_all_eras_term",
+    "region": "korea",
+    "title": "朝鮮半島史全般",
+    "card_type": "term",
+    "card_ids": [
+      "card_korea_wiman",
+      "card_korea_silla_unify",
+      "card_korea_goryeo_found",
+      "card_korea_joseon_found",
+      "card_korea_imjin",
+      "card_korea_annexation",
+      "card_korea_korean_war"
+    ],
+    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "difficulty": 3
+  }
+]

@@ -1,0 +1,190 @@
+[
+  {
+    "id": "quiz_africa_intro_desc",
+    "region": "africa",
+    "title": "アフリカ史の大きな流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_africa_desc_intro_1",
+      "card_africa_desc_intro_2",
+      "card_africa_desc_intro_3",
+      "card_africa_desc_intro_4",
+      "card_africa_desc_intro_5"
+    ],
+    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_africa_ancient_desc",
+    "region": "africa",
+    "title": "古代の王国の流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_africa_desc_ancient_1",
+      "card_africa_desc_ancient_2",
+      "card_africa_desc_ancient_3",
+      "card_africa_desc_ancient_4",
+      "card_africa_desc_ancient_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_africa_ancient_term",
+    "region": "africa",
+    "title": "古代アフリカの王国",
+    "card_type": "term",
+    "card_ids": [
+      "card_africa_bantu",
+      "card_africa_kush_egypt",
+      "card_africa_meroe",
+      "card_africa_nok",
+      "card_africa_aksum"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_africa_trade_desc",
+    "region": "africa",
+    "title": "交易王国の繁栄の流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_africa_desc_trade_1",
+      "card_africa_desc_trade_2",
+      "card_africa_desc_trade_3",
+      "card_africa_desc_trade_4",
+      "card_africa_desc_trade_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_africa_trade_term",
+    "region": "africa",
+    "title": "サハラ交易とインド洋交易の王国",
+    "card_type": "term",
+    "card_ids": [
+      "card_africa_almoravid",
+      "card_africa_mali",
+      "card_africa_mansa_musa",
+      "card_africa_zheng_he",
+      "card_africa_songhai",
+      "card_africa_songhai_fall"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_africa_slave_trade_desc",
+    "region": "africa",
+    "title": "奴隷貿易と大陸の変動の流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_africa_desc_slave_trade_1",
+      "card_africa_desc_slave_trade_2",
+      "card_africa_desc_slave_trade_3",
+      "card_africa_desc_slave_trade_4",
+      "card_africa_desc_slave_trade_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_africa_slave_trade_term",
+    "region": "africa",
+    "title": "奴隷貿易の時代のアフリカ",
+    "card_type": "term",
+    "card_ids": [
+      "card_africa_elmina",
+      "card_africa_kongo",
+      "card_africa_nzinga",
+      "card_africa_cape",
+      "card_africa_asante",
+      "card_africa_zulu",
+      "card_africa_liberia"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_africa_colonial_desc",
+    "region": "africa",
+    "title": "植民地支配と抵抗の流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_africa_desc_colonial_1",
+      "card_africa_desc_colonial_2",
+      "card_africa_desc_colonial_3",
+      "card_africa_desc_colonial_4",
+      "card_africa_desc_colonial_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_africa_colonial_term",
+    "region": "africa",
+    "title": "アフリカ分割と抵抗",
+    "card_type": "term",
+    "card_ids": [
+      "card_africa_livingstone",
+      "card_africa_adwa",
+      "card_africa_fashoda",
+      "card_africa_herero",
+      "card_africa_union_sa",
+      "card_africa_ethiopia_italy"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_africa_contemporary_desc",
+    "region": "africa",
+    "title": "独立と現代の流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_africa_desc_contemporary_1",
+      "card_africa_desc_contemporary_2",
+      "card_africa_desc_contemporary_3",
+      "card_africa_desc_contemporary_4",
+      "card_africa_desc_contemporary_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_africa_contemporary_term",
+    "region": "africa",
+    "title": "独立から現代のアフリカ",
+    "card_type": "term",
+    "card_ids": [
+      "card_africa_ghana_ind",
+      "card_africa_year_of_africa",
+      "card_africa_oau",
+      "card_africa_biafra",
+      "card_africa_soweto",
+      "card_africa_mandela",
+      "card_africa_au"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_africa_all_eras_term",
+    "region": "africa",
+    "title": "アフリカ史全般",
+    "card_type": "term",
+    "card_ids": [
+      "card_africa_kush_egypt",
+      "card_africa_aksum",
+      "card_africa_mansa_musa",
+      "card_africa_elmina",
+      "card_africa_cape",
+      "card_africa_adwa",
+      "card_africa_year_of_africa"
+    ],
+    "modes": ["careful", "challenge", "timeline", "era_band"],
+    "difficulty": 3
+  }
+]

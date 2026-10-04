@@ -111,7 +111,8 @@
       "quiz_japan_nanboku_muromachi",
       "quiz_japan_sengoku",
       "quiz_japan_muromachi_culture",
-      "quiz_japan_shokuho"
+      "quiz_japan_shokuho",
+      "quiz_japan_medieval_society"
     ],
     "unlock_condition": {
       "type": "complete_node",
@@ -130,7 +131,8 @@
       "quiz_japan_edo_genroku",
       "quiz_japan_edo_reforms",
       "quiz_japan_edo_foreign",
-      "quiz_japan_edo_culture"
+      "quiz_japan_edo_culture",
+      "quiz_japan_edo_learning"
     ],
     "unlock_condition": {
       "type": "complete_node",
@@ -177,7 +179,8 @@
       "quiz_japan_taisho_showa_prewar_desc",
       "quiz_japan_taisho_democracy",
       "quiz_japan_showa_depression",
-      "quiz_japan_showa_war"
+      "quiz_japan_showa_war",
+      "quiz_japan_modern_society"
     ],
     "unlock_condition": {
       "type": "complete_node",
@@ -194,7 +197,8 @@
       "quiz_japan_postwar_desc",
       "quiz_japan_postwar_occupation",
       "quiz_japan_postwar_independence",
-      "quiz_japan_postwar_economy"
+      "quiz_japan_postwar_economy",
+      "quiz_japan_heisei"
     ],
     "unlock_condition": {
       "type": "complete_node",
@@ -216,6 +220,18 @@
     "unlock_condition": {
       "type": "complete_node",
       "node_ids": ["node_japan_prehistoric", "node_japan_medieval", "node_japan_modern"]
+    }
+  },
+  {
+    "id": "node_japan_ainu_ryukyu",
+    "region": "japan",
+    "parent_id": "node_japan_root",
+    "label": "アイヌと琉球",
+    "sort_order": 5,
+    "quiz_ids": ["quiz_japan_ainu_ryukyu_desc", "quiz_japan_ainu_ryukyu"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_japan_era_intro_desc"]
     }
   }
 ]

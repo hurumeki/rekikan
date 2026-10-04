@@ -21,6 +21,8 @@ import southeastasiaQuizzes from '@/data/quizzes/southeastasia.json';
 import oceaniaQuizzes from '@/data/quizzes/oceania.json';
 import northamericaQuizzes from '@/data/quizzes/northamerica.json';
 import southamericaQuizzes from '@/data/quizzes/southamerica.json';
+import koreaQuizzes from '@/data/quizzes/korea.json';
+import africaQuizzes from '@/data/quizzes/africa.json';
 import worldQuizzes from '@/data/quizzes/world.json';
 
 import japanNodes from '@/data/nodes/japan.json';
@@ -33,6 +35,8 @@ import southeastasiaNodes from '@/data/nodes/southeastasia.json';
 import oceaniaNodes from '@/data/nodes/oceania.json';
 import northamericaNodes from '@/data/nodes/northamerica.json';
 import southamericaNodes from '@/data/nodes/southamerica.json';
+import koreaNodes from '@/data/nodes/korea.json';
+import africaNodes from '@/data/nodes/africa.json';
 import worldNodes from '@/data/nodes/world.json';
 
 interface RegionDataset {
@@ -75,6 +79,8 @@ export const REGION_DATASETS: RegionDataset[] = [
     quizzes: cast<Quiz>(southamericaQuizzes),
     nodes: cast<Node>(southamericaNodes),
   },
+  { id: 'korea', quizzes: cast<Quiz>(koreaQuizzes), nodes: cast<Node>(koreaNodes) },
+  { id: 'africa', quizzes: cast<Quiz>(africaQuizzes), nodes: cast<Node>(africaNodes) },
   { id: 'world', quizzes: cast<Quiz>(worldQuizzes), nodes: cast<Node>(worldNodes) },
 ];
 
@@ -124,6 +130,14 @@ export const CARD_LOADERS: Record<string, () => Promise<Card[]>> = {
     ),
   southamerica: () =>
     import('@/data/cards/southamerica.json', { with: { type: 'json' } }).then((m) =>
+      cast<Card>(m.default),
+    ),
+  korea: () =>
+    import('@/data/cards/korea.json', { with: { type: 'json' } }).then((m) =>
+      cast<Card>(m.default),
+    ),
+  africa: () =>
+    import('@/data/cards/africa.json', { with: { type: 'json' } }).then((m) =>
       cast<Card>(m.default),
     ),
 };

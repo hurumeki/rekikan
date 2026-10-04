@@ -86,7 +86,7 @@
     "parent_id": "node_westasia_ottoman",
     "label": "近現代の中東",
     "sort_order": 2,
-    "quiz_ids": ["quiz_westasia_modern_term"],
+    "quiz_ids": ["quiz_westasia_modern_term", "quiz_westasia_middle_east_wars"],
     "unlock_condition": {
       "type": "complete_quizzes",
       "quiz_ids": ["quiz_westasia_ottoman"]
@@ -119,6 +119,18 @@
         "node_westasia_ottoman",
         "node_westasia_northafrica"
       ]
+    }
+  },
+  {
+    "id": "node_westasia_iran",
+    "region": "westasia",
+    "parent_id": "node_westasia_root",
+    "label": "サファヴィー朝と近代イラン",
+    "sort_order": 6,
+    "quiz_ids": ["quiz_westasia_iran_desc", "quiz_westasia_iran_term"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_westasia_intro_desc"]
     }
   }
 ]

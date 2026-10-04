@@ -807,5 +807,18 @@
     "hint": "スペイン・ペルーからの航海・黄金伝説",
     "description": "ペルーを出たスペインの航海者メンダーニャがソロモン諸島に到達し、島々の名を名付けた。",
     "status": "ai_generated"
+  },
+  {
+    "id": "card_oceania_nz_women",
+    "region": "oceania",
+    "type": "term",
+    "name": "ニュージーランドの女性参政権",
+    "year": 1893,
+    "year_end": null,
+    "era_color_key": "colonial",
+    "category": "law",
+    "hint": "国政での女性の選挙権・署名運動・ケイト・シェパード",
+    "description": "ニュージーランドで、国政選挙における女性の選挙権が世界に先がけて認められた。",
+    "status": "ai_generated"
   }
 ]
