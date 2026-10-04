@@ -296,7 +296,6 @@
     "title": "太平洋の探検と植民地化",
     "card_type": "term",
     "card_ids": [
-      "card_europe_exploration",
       "card_oceania_magellan",
       "card_oceania_janszoon",
       "card_oceania_tasman",
@@ -350,7 +349,7 @@
       "card_europe_mercantilism",
       "card_europe_industrial",
       "card_europe_wealth_of_nations",
-      "card_europe_imperialism",
+      "card_europe_berlin_conference",
       "card_europe_great_depression",
       "card_northamerica_new_deal",
       "card_westasia_oil_crisis"
@@ -404,7 +403,7 @@
       "card_southeastasia_portuguese_malacca",
       "card_southeastasia_voc",
       "card_southasia_plassey",
-      "card_europe_imperialism"
+      "card_europe_berlin_conference"
     ],
     "modes": ["cross_region"],
     "difficulty": 2
@@ -420,7 +419,7 @@
       "card_europe_theodosius",
       "card_europe_great_schism",
       "card_europe_crusades",
-      "card_europe_reformation",
+      "card_europe_luther",
       "card_europe_westphalia"
     ],
     "modes": ["cross_region"],

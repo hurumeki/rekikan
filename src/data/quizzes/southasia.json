@@ -20,12 +20,12 @@
     "title": "古代インドの流れ",
     "card_type": "term",
     "card_ids": [
-      "card_southasia_indus",
-      "card_southasia_aryan",
-      "card_southasia_upanishad",
+      "card_southasia_indus_cities",
+      "card_southasia_vedas",
       "card_southasia_buddha",
       "card_southasia_maurya",
-      "card_southasia_ashoka"
+      "card_southasia_ashoka",
+      "card_southasia_gupta"
     ],
     "modes": ["careful", "challenge", "timeline"],
     "difficulty": 1
@@ -51,12 +51,13 @@
     "title": "インダス文明から仏教の成立",
     "card_type": "term",
     "card_ids": [
-      "card_southasia_indus",
-      "card_southasia_aryan",
+      "card_southasia_indus_cities",
+      "card_southasia_indus_decline",
+      "card_southasia_vedas",
+      "card_southasia_ganges",
       "card_southasia_upanishad",
-      "card_southasia_buddha",
-      "card_southasia_maurya",
-      "card_southasia_ashoka"
+      "card_southasia_magadha",
+      "card_southasia_buddha"
     ],
     "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
@@ -84,10 +85,10 @@
     "card_ids": [
       "card_southasia_maurya",
       "card_southasia_ashoka",
+      "card_southasia_kanishka",
       "card_southasia_gupta",
-      "card_southasia_islam_invasion",
-      "card_southasia_delhi",
-      "card_southasia_timur"
+      "card_southasia_harsha",
+      "card_southasia_islam_invasion"
     ],
     "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
@@ -100,6 +101,7 @@
     "card_ids": [
       "card_southasia_islam_invasion",
       "card_southasia_ghaznavid",
+      "card_southasia_tarain",
       "card_southasia_delhi",
       "card_southasia_vijayanagara",
       "card_southasia_timur",
@@ -144,12 +146,12 @@
     "title": "ムガル帝国の詳細",
     "card_type": "term",
     "card_ids": [
-      "card_southasia_mughal_found",
       "card_southasia_akbar",
-      "card_southasia_east_india",
+      "card_southasia_fatehpur",
       "card_southasia_taj_mahal",
       "card_southasia_aurangzeb",
-      "card_southasia_plassey"
+      "card_southasia_maratha",
+      "card_southasia_nadir_shah"
     ],
     "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
@@ -160,8 +162,9 @@
     "title": "イギリス植民地支配の確立",
     "card_type": "term",
     "card_ids": [
-      "card_southasia_east_india",
       "card_southasia_plassey",
+      "card_southasia_mysore",
+      "card_southasia_sikh",
       "card_southasia_sepoy",
       "card_southasia_british_raj",
       "card_southasia_congress"
@@ -190,10 +193,10 @@
     "title": "独立運動と現代南アジア",
     "card_type": "term",
     "card_ids": [
-      "card_southasia_sepoy",
-      "card_southasia_british_raj",
       "card_southasia_congress",
+      "card_southasia_bengal_partition",
       "card_southasia_gandhi",
+      "card_southasia_salt_march",
       "card_southasia_independence",
       "card_southasia_bangladesh"
     ],
@@ -206,9 +209,10 @@
     "title": "南アジア史全般",
     "card_type": "term",
     "card_ids": [
-      "card_southasia_indus",
+      "card_southasia_indus_cities",
       "card_southasia_buddha",
       "card_southasia_ashoka",
+      "card_southasia_gupta",
       "card_southasia_delhi",
       "card_southasia_mughal_found",
       "card_southasia_sepoy",

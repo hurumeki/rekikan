@@ -9,7 +9,8 @@
       "card_europe_desc_intro_2",
       "card_europe_desc_intro_3",
       "card_europe_desc_intro_4",
-      "card_europe_desc_intro_5"
+      "card_europe_desc_intro_5",
+      "card_europe_desc_intro_6"
     ],
     "modes": ["careful", "challenge", "timeline", "era_band"],
     "difficulty": 1
@@ -47,11 +48,14 @@
   {
     "id": "quiz_europe_medieval",
     "region": "europe",
-    "title": "中世の変化",
+    "title": "中世ヨーロッパの流れ",
     "card_type": "term",
     "card_ids": [
+      "card_europe_fall_of_rome",
+      "card_europe_charlemagne",
+      "card_europe_great_schism",
       "card_europe_crusades",
-      "card_europe_renaissance",
+      "card_europe_magna_carta",
       "card_europe_hundred_years_war",
       "card_europe_black_death"
     ],
@@ -66,9 +70,10 @@
     "card_ids": [
       "card_europe_justinian",
       "card_europe_charlemagne",
+      "card_europe_verdun",
+      "card_europe_otto",
       "card_europe_canossa",
-      "card_europe_magna_carta",
-      "card_europe_joan_of_arc"
+      "card_europe_magna_carta"
     ],
     "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
@@ -81,8 +86,9 @@
     "card_ids": [
       "card_europe_columbus",
       "card_europe_vasco_da_gama",
-      "card_europe_reformation",
       "card_europe_luther",
+      "card_europe_armada",
+      "card_europe_thirty_years_war",
       "card_europe_louis_xiv"
     ],
     "modes": ["careful", "challenge", "timeline"],
@@ -125,7 +131,10 @@
     "card_type": "term",
     "card_ids": [
       "card_europe_ww1",
+      "card_europe_russian_revolution",
+      "card_europe_versailles",
       "card_europe_great_depression",
+      "card_europe_nazi",
       "card_europe_ww2",
       "card_europe_cold_war"
     ],
@@ -139,12 +148,16 @@
     "card_type": "term",
     "card_ids": [
       "card_europe_greece",
+      "card_europe_roman_republic",
       "card_europe_roman_empire",
-      "card_europe_charlemagne",
-      "card_europe_crusades",
+      "card_europe_byzantine",
+      "card_europe_franks",
+      "card_europe_feudal",
+      "card_europe_renaissance",
+      "card_europe_exploration",
       "card_europe_reformation",
-      "card_europe_french_revolution",
-      "card_europe_ww1"
+      "card_europe_nationalism",
+      "card_europe_imperialism"
     ],
     "modes": ["careful", "challenge", "timeline", "era_band"],
     "difficulty": 3
@@ -205,7 +218,7 @@
       "card_europe_caesar",
       "card_europe_augustus",
       "card_europe_constantine",
-      "card_europe_byzantine",
+      "card_europe_rome_split",
       "card_europe_fall_of_rome"
     ],
     "modes": ["careful", "challenge", "timeline"],
@@ -218,9 +231,10 @@
     "card_type": "term",
     "card_ids": [
       "card_europe_crusades",
-      "card_europe_renaissance",
+      "card_europe_avignon",
       "card_europe_hundred_years_war",
       "card_europe_black_death",
+      "card_europe_wat_tyler",
       "card_europe_joan_of_arc"
     ],
     "modes": ["careful", "challenge", "timeline"],
@@ -247,7 +261,7 @@
     "title": "宗教改革と主権国家の成立",
     "card_type": "term",
     "card_ids": [
-      "card_europe_renaissance",
+      "card_europe_gutenberg",
       "card_europe_luther",
       "card_europe_calvin",
       "card_europe_scientific_revolution",
@@ -293,11 +307,12 @@
     "title": "国民国家と帝国主義の展開",
     "card_type": "term",
     "card_ids": [
-      "card_europe_nationalism",
+      "card_europe_vienna_congress",
       "card_europe_victoria",
+      "card_europe_revolutions_1848",
       "card_europe_italian_unification",
-      "card_europe_imperialism",
       "card_europe_bismarck",
+      "card_europe_berlin_conference",
       "card_europe_sarajevo"
     ],
     "modes": ["careful", "challenge", "timeline"],
@@ -309,9 +324,10 @@
     "title": "冷戦と現代ヨーロッパ",
     "card_type": "term",
     "card_ids": [
-      "card_europe_versailles",
-      "card_europe_nazi",
       "card_europe_cold_war",
+      "card_europe_nato",
+      "card_europe_eec",
+      "card_europe_berlin_wall_built",
       "card_europe_berlin_wall_fall",
       "card_europe_eu"
     ],
