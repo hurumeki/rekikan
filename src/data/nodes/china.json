@@ -103,5 +103,17 @@
       "type": "complete_node",
       "node_ids": ["node_china_ancient", "node_china_medieval", "node_china_early_modern"]
     }
+  },
+  {
+    "id": "node_china_contemporary",
+    "region": "china",
+    "parent_id": "node_china_early_modern",
+    "label": "現代中国",
+    "sort_order": 3,
+    "quiz_ids": ["quiz_china_contemporary"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_china_early_modern_eras"]
+    }
   }
 ]

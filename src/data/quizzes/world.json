@@ -53,13 +53,14 @@
   {
     "id": "quiz_cross_early_medieval",
     "region": "world",
-    "regions": ["centralasia", "china", "westasia", "southeastasia", "japan", "europe"],
+    "regions": ["centralasia", "china", "westasia", "southeastasia", "japan", "europe", "korea"],
     "title": "ユーラシアの再編：7〜9世紀",
     "card_type": "term",
     "card_ids": [
       "card_centralasia_turkic",
       "card_china_sui_unify",
       "card_westasia_hijra",
+      "card_korea_silla_unify",
       "card_southeastasia_srivijaya",
       "card_jp_46",
       "card_europe_charlemagne"
@@ -225,7 +226,7 @@
   {
     "id": "quiz_cross_decolonization",
     "region": "world",
-    "regions": ["southeastasia", "northamerica", "southasia", "westasia", "china"],
+    "regions": ["southeastasia", "northamerica", "southasia", "westasia", "china", "africa"],
     "title": "戦後のアジア・アフリカ独立",
     "card_type": "term",
     "card_ids": [
@@ -234,6 +235,7 @@
       "card_westasia_israel",
       "card_china_prc_established",
       "card_southeastasia_geneva",
+      "card_africa_ghana_ind",
       "card_westasia_algeria_independence"
     ],
     "modes": ["cross_region"],
@@ -774,5 +776,40 @@
     ],
     "modes": ["cross_region"],
     "difficulty": 2
+  },
+  {
+    "id": "quiz_theme_mass_democracy",
+    "region": "world",
+    "regions": ["oceania", "europe", "northamerica", "japan"],
+    "title": "大衆化と参政権の拡大",
+    "card_type": "term",
+    "card_ids": [
+      "card_oceania_nz_women",
+      "card_europe_uk_women",
+      "card_northamerica_us_women",
+      "card_jp_229",
+      "card_jp_women_suffrage",
+      "card_europe_swiss_women"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_theme_global_issues",
+    "region": "world",
+    "regions": ["europe", "westasia", "southamerica", "japan", "northamerica"],
+    "title": "グローバル化と地球規模の課題",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_stockholm",
+      "card_westasia_oil_crisis",
+      "card_europe_chernobyl",
+      "card_southamerica_earth_summit",
+      "card_jp_kyoto_protocol",
+      "card_northamerica_lehman",
+      "card_europe_paris_agreement"
+    ],
+    "modes": ["cross_region"],
+    "difficulty": 3
   }
 ]

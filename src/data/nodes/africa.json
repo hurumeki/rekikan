@@ -1,0 +1,89 @@
+[
+  {
+    "id": "node_africa_root",
+    "region": "africa",
+    "parent_id": null,
+    "label": "アフリカ史",
+    "sort_order": 0,
+    "quiz_ids": ["quiz_africa_intro_desc"],
+    "unlock_condition": null
+  },
+  {
+    "id": "node_africa_ancient",
+    "region": "africa",
+    "parent_id": "node_africa_root",
+    "label": "古代の王国",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_africa_ancient_desc", "quiz_africa_ancient_term"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_africa_intro_desc"]
+    }
+  },
+  {
+    "id": "node_africa_trade",
+    "region": "africa",
+    "parent_id": "node_africa_root",
+    "label": "交易王国の繁栄",
+    "sort_order": 2,
+    "quiz_ids": ["quiz_africa_trade_desc", "quiz_africa_trade_term"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_africa_intro_desc"]
+    }
+  },
+  {
+    "id": "node_africa_slave_trade",
+    "region": "africa",
+    "parent_id": "node_africa_root",
+    "label": "奴隷貿易と大陸の変動",
+    "sort_order": 3,
+    "quiz_ids": ["quiz_africa_slave_trade_desc", "quiz_africa_slave_trade_term"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_africa_intro_desc"]
+    }
+  },
+  {
+    "id": "node_africa_colonial",
+    "region": "africa",
+    "parent_id": "node_africa_root",
+    "label": "植民地支配と抵抗",
+    "sort_order": 4,
+    "quiz_ids": ["quiz_africa_colonial_desc", "quiz_africa_colonial_term"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_africa_intro_desc"]
+    }
+  },
+  {
+    "id": "node_africa_contemporary",
+    "region": "africa",
+    "parent_id": "node_africa_root",
+    "label": "独立と現代",
+    "sort_order": 5,
+    "quiz_ids": ["quiz_africa_contemporary_desc", "quiz_africa_contemporary_term"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_africa_intro_desc"]
+    }
+  },
+  {
+    "id": "node_africa_all_eras",
+    "region": "africa",
+    "parent_id": "node_africa_root",
+    "label": "全時代通し",
+    "sort_order": 6,
+    "quiz_ids": ["quiz_africa_all_eras_term"],
+    "unlock_condition": {
+      "type": "complete_node",
+      "node_ids": [
+        "node_africa_ancient",
+        "node_africa_trade",
+        "node_africa_slave_trade",
+        "node_africa_colonial",
+        "node_africa_contemporary"
+      ]
+    }
+  }
+]

@@ -333,5 +333,89 @@
     ],
     "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
+  },
+  {
+    "id": "quiz_europe_russia_desc",
+    "region": "europe",
+    "title": "ロシアの歴史の流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_europe_desc_russia_1",
+      "card_europe_desc_russia_2",
+      "card_europe_desc_russia_3",
+      "card_europe_desc_russia_4",
+      "card_europe_desc_russia_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_europe_russia_term",
+    "region": "europe",
+    "title": "ロシアの成立と発展",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_rurik",
+      "card_europe_vladimir",
+      "card_europe_batu",
+      "card_europe_ivan3",
+      "card_europe_romanov",
+      "card_europe_petersburg",
+      "card_europe_catherine",
+      "card_europe_serf_emancipation"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_europe_early_modern_states",
+    "region": "europe",
+    "title": "近世ヨーロッパの国際関係",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_mohacs",
+      "card_europe_dutch_ind",
+      "card_europe_prussia",
+      "card_europe_utrecht",
+      "card_europe_austrian_succession",
+      "card_europe_seven_years",
+      "card_europe_poland_partition"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_europe_interwar",
+    "region": "europe",
+    "title": "戦間期とファシズム",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_mussolini",
+      "card_europe_ruhr",
+      "card_europe_locarno",
+      "card_europe_great_depression",
+      "card_europe_ottawa",
+      "card_europe_spanish_civil",
+      "card_europe_munich"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_europe_coldwar_development",
+    "region": "europe",
+    "title": "冷戦の展開とソ連の解体",
+    "card_type": "term",
+    "card_ids": [
+      "card_europe_marshall",
+      "card_europe_warsaw",
+      "card_europe_destalinization",
+      "card_europe_cuba_crisis",
+      "card_europe_prague",
+      "card_europe_perestroika",
+      "card_europe_ussr_collapse"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
   }
 ]

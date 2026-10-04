@@ -836,5 +836,18 @@
     "hint": "ペルー北海岸・都チャンチャン・灌漑農業",
     "description": "ペルー北海岸に都チャンチャンを中心とする王国が成立し、大規模な灌漑で農業を営んだ。",
     "status": "ai_generated"
+  },
+  {
+    "id": "card_southamerica_earth_summit",
+    "region": "southamerica",
+    "type": "term",
+    "name": "地球サミット",
+    "year": 1992,
+    "year_end": null,
+    "era_color_key": "contemporary",
+    "category": "law",
+    "hint": "リオデジャネイロ・持続可能な開発・気候変動枠組条約",
+    "description": "リオデジャネイロで環境と開発に関する国連会議が開かれ、持続可能な開発が共通の目標とされた。",
+    "status": "ai_generated"
   }
 ]
