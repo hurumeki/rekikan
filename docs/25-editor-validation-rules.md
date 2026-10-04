@@ -8,18 +8,22 @@ Validation rules applied during editing and saving.
 
 ## 7.1 Card
 
-| Rule                     | Severity | Description                                                                                |
-| ------------------------ | -------- | ------------------------------------------------------------------------------------------ |
-| Required fields          | Error    | `id`, `region`, `year`, `year_label`, `era_color_key`, `category`, `description`, `status` |
-| Term card `name`         | Error    | When `card_type` is `term`, `name` is required                                             |
-| ID format                | Error    | Alphanumeric characters and underscores only, max 64 characters                            |
-| ID uniqueness            | Error    | Must be unique across all cards                                                            |
-| `region` exists          | Error    | Must be a value that exists in `regions`                                                   |
-| `era_color_key` exists   | Error    | Must be a key that exists in `era_colors`                                                  |
-| `category` exists        | Error    | Must be a value that exists in `categories`                                                |
-| Hint order info          | Warning  | Detect patterns such as "Nth-generation (○代目)", "in [year] (○○年)", etc.                 |
-| Hint-description overlap | Warning  | `hint` and `description` match by 80% or more                                              |
-| Image file presence      | Warning  | When `has_image` is `true`, `public/images/cards/{id}.webp` should exist                   |
+| Rule                     | Severity | Description                                                                                                                                                                         |
+| ------------------------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Required fields          | Error    | `id`, `region`, `year`, `year_label`, `era_color_key`, `category`, `description`, `status`                                                                                          |
+| Term card `name`         | Error    | When `card_type` is `term`, `name` is required                                                                                                                                      |
+| ID format                | Error    | Alphanumeric characters and underscores only, max 64 characters                                                                                                                     |
+| ID uniqueness            | Error    | Must be unique across all cards                                                                                                                                                     |
+| `region` exists          | Error    | Must be a value that exists in `regions`                                                                                                                                            |
+| `era_color_key` exists   | Error    | Must be a key that exists in `era_colors`                                                                                                                                           |
+| `category` exists        | Error    | Must be a value that exists in `categories`                                                                                                                                         |
+| Hint order info          | Warning  | Detect patterns such as "Nth-generation (○代目)", "in [year] (○○年)", "first / last (最初・最後)", "after / later (〜後に・後の・のちの)", "early / late period (初期・末期)", etc. |
+| Hint-description overlap | Warning  | `hint` and `description` match by 80% or more                                                                                                                                       |
+| Image file presence      | Warning  | When `has_image` is `true`, `public/images/cards/{id}.webp` should exist                                                                                                            |
+| Description-card numbers | Warning  | A description card contains digits (years, counts). Description cards must be solvable without dates ([35](35-data-quality-rules.md) §6.2)                                          |
+| Era band mismatch        | Warning  | `era_color_key` differs from the band that contains `year` according to the region's `year_start` values                                                                            |
+| Duplicate term name      | Warning  | Two term cards in the same region share a `name`. Use one card in every quiz so per-card stats are not split                                                                        |
+| Unused card              | Warning  | The card is not referenced by any quiz                                                                                                                                              |
 
 ---
 
@@ -38,16 +42,19 @@ Validation rules applied during editing and saving.
 
 ## 7.3 Quiz
 
-| Rule                           | Severity | Description                                                                                                                                                                 |
-| ------------------------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Required fields                | Error    | `id`, `region`, `title`, `card_type`, `card_ids`, `modes`, `difficulty`                                                                                                     |
-| Card count                     | Warning  | Fewer than 5 or 9 or more cards (full-sequence quizzes are an exception)                                                                                                    |
-| Card region match              | Warning  | Quiz's `region` does not match the `region` of included cards (cross-region quizzes are an exception)                                                                       |
-| `card_ids` exist               | Error    | All IDs in `card_ids` must exist in `cards`                                                                                                                                 |
-| `card_ids` chronological order | Error    | `card_ids` is the correct answer order, so the referenced cards' `year` values must be non-decreasing. A descending pair makes the quiz unanswerable.                       |
-| `card_ids` duplicates          | Error    | The same card must not appear twice in one quiz                                                                                                                             |
-| Same-year cards                | Warning  | Two adjacent cards share the same `year`. Scoring treats them as interchangeable (see [07-feedback-design.md](07-feedback-design.md)), but the intended answer is ambiguous |
-| Non-approved cards             | Warning  | Quiz contains cards that are not yet `approved`                                                                                                                             |
+| Rule                           | Severity | Description                                                                                                                                                                                      |
+| ------------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Required fields                | Error    | `id`, `region`, `title`, `card_type`, `card_ids`, `modes`, `difficulty`                                                                                                                          |
+| Card count                     | Warning  | Fewer than 5 or 9 or more cards (full-sequence quizzes are an exception)                                                                                                                         |
+| Card region match              | Warning  | Quiz's `region` does not match the `region` of included cards (cross-region quizzes are an exception)                                                                                            |
+| `card_ids` exist               | Error    | All IDs in `card_ids` must exist in `cards`                                                                                                                                                      |
+| `card_ids` chronological order | Error    | `card_ids` is the correct answer order, so the referenced cards' `year` values must be non-decreasing. A descending pair makes the quiz unanswerable.                                            |
+| `card_ids` duplicates          | Error    | The same card must not appear twice in one quiz                                                                                                                                                  |
+| Same-year cards                | Warning  | Two adjacent cards share the same `year`. Scoring treats them as interchangeable (see [07-feedback-design.md](07-feedback-design.md)), but the intended answer is ambiguous                      |
+| Range overlap                  | Warning  | Another card's `year` falls strictly inside a card's `year`–`year_end` range ([35](35-data-quality-rules.md) §6.3). Pairs of `era` cards are exempt, since era quizzes are ordered by start year |
+| Era / event mixing             | Warning  | The quiz mixes `era` cards with other categories ([35](35-data-quality-rules.md) §6.3)                                                                                                           |
+| Hint mentions another card     | Warning  | A card's hint contains the name of another card in the same quiz, which reveals their relative order                                                                                             |
+| Non-approved cards             | Warning  | Quiz contains cards that are not yet `approved`                                                                                                                                                  |
 
 ---
 
@@ -58,4 +65,6 @@ Validation rules applied during editing and saving.
 - The editor's review screen, against the state being edited
 - CI (`npm run test:data`), against the content bundled in `src/data/**`
 
-CI fails on any `error`-level finding, so content that cannot be cleared can never reach the main branch. Warnings are reported but do not fail the build.
+CI fails on any `error`-level finding, so content that cannot be cleared can never reach the main branch.
+
+Warnings that correspond to the content quality rules (each carries a `rule` code: hint order, hint mentions another card, description-card numbers, era band mismatch, same-year cards, range overlap, era / event mixing, card count, duplicate term name, unused card) must also be zero for bundled content; `tests/data-integrity.spec.ts` enforces this. The only exception is a card count above 8 on full-sequence quizzes (`*_all_eras_term`, `*_full`). Other warnings (e.g. non-approved cards, cross-region card regions) are reported but do not fail the build.

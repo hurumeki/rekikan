@@ -20,9 +20,11 @@
     "title": "アンデス文明の流れ",
     "card_type": "term",
     "card_ids": [
+      "card_southamerica_caral",
       "card_southamerica_chavin",
       "card_southamerica_moche",
       "card_southamerica_tiwanaku",
+      "card_southamerica_chimu",
       "card_southamerica_inca"
     ],
     "modes": ["careful", "challenge", "timeline"],

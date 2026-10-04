@@ -51,12 +51,11 @@
     "title": "騎馬遊牧民と絹の道",
     "card_type": "term",
     "card_ids": [
-      "card_centralasia_scythian",
-      "card_centralasia_xiongnu",
+      "card_centralasia_baideng",
       "card_centralasia_yuezhi",
-      "card_centralasia_silkroad",
-      "card_centralasia_kushan",
-      "card_centralasia_sogdian"
+      "card_centralasia_zhangqian",
+      "card_centralasia_xiongnu_split",
+      "card_centralasia_ban_chao"
     ],
     "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
@@ -131,9 +130,8 @@
       "card_centralasia_mongol",
       "card_centralasia_chagatai",
       "card_centralasia_timur",
-      "card_centralasia_ulugh_beg",
-      "card_centralasia_kazakh",
-      "card_centralasia_uzbek"
+      "card_centralasia_uzbek",
+      "card_centralasia_three_khanates"
     ],
     "modes": ["careful", "challenge", "timeline"],
     "difficulty": 1
@@ -159,13 +157,11 @@
     "title": "モンゴルからウズベク3ハン国",
     "card_type": "term",
     "card_ids": [
-      "card_centralasia_mongol",
-      "card_centralasia_chagatai",
-      "card_centralasia_timur",
+      "card_centralasia_otrar",
+      "card_centralasia_kaidu",
+      "card_centralasia_chagatai_split",
       "card_centralasia_ulugh_beg",
-      "card_centralasia_kazakh",
-      "card_centralasia_uzbek",
-      "card_centralasia_three_khanates"
+      "card_centralasia_kazakh"
     ],
     "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2

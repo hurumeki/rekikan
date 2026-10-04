@@ -53,13 +53,15 @@ Two axes of visual information are attached to cards, enabling intuitive recogni
 **Axis 1: Era-Band Color**
 A color bar is displayed on the left edge of each card. Colors are assigned per era band.
 
-| Era Band (Japanese history example)                                   | Color         |
-| --------------------------------------------------------------------- | ------------- |
-| Prehistory and Antiquity (先史・古代): Jōmon (縄文) to Heian (平安)   | Green family  |
-| Medieval (中世): Kamakura (鎌倉) to Muromachi (室町) / Sengoku (戦国) | Indigo family |
-| Early Modern (近世): Azuchi-Momoyama (安土桃山) to Edo (江戸)         | Purple family |
-| Modern (近代): Meiji (明治) to Taishō (大正)                          | Orange family |
-| Contemporary (現代): Shōwa (昭和) onward                              | Red family    |
+| Era Band (Japanese history example)                                | Color         |
+| ------------------------------------------------------------------ | ------------- |
+| Prehistory and Antiquity (先史・古代): Paleolithic to Heian (平安) | Green family  |
+| Medieval (中世): Kamakura (鎌倉) to Azuchi-Momoyama (安土桃山)     | Indigo family |
+| Early Modern (近世): Edo (江戸)                                    | Purple family |
+| Modern (近代): Meiji (明治) to the end of the Pacific War (1945)   | Orange family |
+| Contemporary (現代): postwar Shōwa (昭和) onward                   | Red family    |
+
+The band boundaries are defined per region by `year_start` in `regions.json` (Japan: 1185 / 1603 / 1868 / 1945). A card's `era_color_key` must be the band its `year` falls in; the validator warns on any mismatch (see [25-editor-validation-rules.md](25-editor-validation-rules.md)), because a wrong color teaches the wrong era association.
 
 Cards in the same era band share the same color, so it is visually apparent that "the Jōei Code (indigo) and the Ōnin War (indigo) belong to the same Medieval era band." If they are in different era bands, the colors differ, making it easier to avoid confusing "the Jōei Code (indigo / Medieval) and the Laws for Military Houses (purple / Early Modern)."
 

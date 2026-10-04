@@ -21,7 +21,10 @@
     "card_type": "term",
     "card_ids": [
       "card_northamerica_native_origin",
+      "card_northamerica_clovis",
+      "card_northamerica_adena",
       "card_northamerica_mound_builders",
+      "card_northamerica_chaco",
       "card_northamerica_iroquois"
     ],
     "modes": ["careful", "challenge", "timeline"],

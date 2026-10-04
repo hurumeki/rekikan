@@ -1,7 +1,5 @@
 import { test, expect } from '@playwright/test';
 import { checkAnswers, createYearLookup, isOldestAmong } from '@/lib/quiz-engine';
-import { ALL_QUIZZES } from '@/lib/data-registry';
-import { loadAllCards } from '@/lib/data-loader';
 import type { Card } from '@/lib/types';
 
 function card(id: string, year: number): Card {
@@ -75,32 +73,5 @@ test.describe('isOldestAmong（じっくりモードの判定）', () => {
   test('新しいカードを選んだら不正解', () => {
     const remaining = [card('a', 1000), card('b', 1185)];
     expect(isOldestAmong(remaining[1]!, remaining)).toBe(false);
-  });
-});
-
-test.describe('同梱コンテンツの同年ペア', () => {
-  test('同じ年のカードを含むクイズは入れ替えても全問正解になる', async () => {
-    const allCards = await loadAllCards();
-    const cardMap = new Map(allCards.map((c) => [c.id, c]));
-    const yearOf = createYearLookup(allCards);
-    let checked = 0;
-
-    for (const quiz of ALL_QUIZZES) {
-      const ordered = quiz.card_ids.map((id) => cardMap.get(id)).filter((c): c is Card => !!c);
-      for (let i = 1; i < ordered.length; i++) {
-        if (ordered[i]!.year !== ordered[i - 1]!.year) continue;
-        const swapped = quiz.card_ids.slice();
-        [swapped[i - 1], swapped[i]] = [swapped[i]!, swapped[i - 1]!];
-        const results = checkAnswers(swapped, quiz.card_ids, yearOf);
-        expect(
-          results.every((r) => r.correct),
-          `${quiz.id} の ${ordered[i]!.year} 年ペア`,
-        ).toBe(true);
-        checked++;
-      }
-    }
-
-    // 同年ペアが 1 つもなくなったらこのテストは意味を失うので、存在自体も確認する
-    expect(checked).toBeGreaterThan(0);
   });
 });

@@ -1001,5 +1001,18 @@
     "hint": "シーア派カリフ・アズハル学院・エジプト征服",
     "description": "エジプトを征服したファーティマ朝が新都カイロを建設し、のちにイスラーム世界有数の大都市となった。",
     "status": "ai_generated"
+  },
+  {
+    "id": "card_westasia_sassanid_found",
+    "region": "westasia",
+    "type": "term",
+    "name": "ササン朝の成立",
+    "year": 224,
+    "year_end": null,
+    "era_color_key": "ancient",
+    "category": "law",
+    "hint": "アルダシール1世・パルティアの打倒・ゾロアスター教の国教化",
+    "description": "アルダシール1世がパルティアを倒してササン朝を開き、ゾロアスター教を国教とした。",
+    "status": "ai_generated"
   }
 ]

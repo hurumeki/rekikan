@@ -51,11 +51,11 @@
     "card_type": "term",
     "card_ids": [
       "card_southeastasia_srivijaya",
-      "card_southeastasia_shailendra",
       "card_southeastasia_khmer",
+      "card_southeastasia_daiviet",
       "card_southeastasia_pagan",
-      "card_southeastasia_angkor_wat",
-      "card_southeastasia_majapahit"
+      "card_southeastasia_majapahit",
+      "card_southeastasia_ayutthaya"
     ],
     "modes": ["careful", "challenge", "timeline"],
     "difficulty": 1
@@ -81,14 +81,11 @@
     "title": "中世東南アジアの詳細",
     "card_type": "term",
     "card_ids": [
-      "card_southeastasia_srivijaya",
-      "card_southeastasia_shailendra",
-      "card_southeastasia_khmer",
-      "card_southeastasia_daiviet",
-      "card_southeastasia_pagan",
+      "card_southeastasia_yijing",
+      "card_southeastasia_borobudur",
       "card_southeastasia_angkor_wat",
-      "card_southeastasia_majapahit",
-      "card_southeastasia_ayutthaya"
+      "card_southeastasia_sukhothai",
+      "card_southeastasia_tran_mongol"
     ],
     "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2

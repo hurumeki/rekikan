@@ -8,8 +8,10 @@
       "card_china_desc_intro_1",
       "card_china_desc_intro_2",
       "card_china_desc_intro_3",
+      "card_china_desc_intro_song",
       "card_china_desc_intro_4",
-      "card_china_desc_intro_5"
+      "card_china_desc_intro_5",
+      "card_china_desc_intro_prc"
     ],
     "modes": ["careful", "challenge", "timeline", "era_band"],
     "difficulty": 1
@@ -25,6 +27,7 @@
       "card_china_qin",
       "card_china_han",
       "card_china_three_kingdoms",
+      "card_china_jin_nanbei",
       "card_china_sui"
     ],
     "modes": ["careful", "challenge", "timeline"],
@@ -37,9 +40,29 @@
     "card_type": "term",
     "card_ids": [
       "card_china_confucius",
+      "card_china_shang_yang",
       "card_china_qin_shi_huang",
+      "card_china_chen_sheng",
       "card_china_emperor_wu_han",
+      "card_china_yellow_turban",
       "card_china_cao_cao"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_china_sui_tang",
+    "region": "china",
+    "title": "隋・唐の出来事",
+    "card_type": "term",
+    "card_ids": [
+      "card_china_sui_unify",
+      "card_china_grand_canal",
+      "card_china_emperor_taizong_tang",
+      "card_china_xuanzang",
+      "card_china_wu_zetian",
+      "card_china_an_lushan",
+      "card_china_huang_chao"
     ],
     "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
@@ -47,13 +70,16 @@
   {
     "id": "quiz_china_medieval_detailed",
     "region": "china",
-    "title": "隋・唐・宋の出来事",
+    "title": "宋・元の出来事",
     "card_type": "term",
     "card_ids": [
-      "card_china_emperor_taizong_tang",
-      "card_china_wu_zetian",
-      "card_china_an_lushan",
-      "card_china_wang_anshi"
+      "card_china_song_found",
+      "card_china_chanyuan",
+      "card_china_wang_anshi",
+      "card_china_jingkang",
+      "card_china_mongol_jin",
+      "card_china_kublai_khan",
+      "card_china_yashan"
     ],
     "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
@@ -61,12 +87,13 @@
   {
     "id": "quiz_china_early_modern_detailed",
     "region": "china",
-    "title": "元・明・清の出来事",
+    "title": "明・清の出来事",
     "card_type": "term",
     "card_ids": [
-      "card_china_kublai_khan",
       "card_china_hongwu_emperor",
       "card_china_zheng_he",
+      "card_china_tumu",
+      "card_china_ming_fall",
       "card_china_kangxi",
       "card_china_qianlong"
     ],
@@ -81,7 +108,10 @@
     "card_ids": [
       "card_china_opium_war",
       "card_china_taiping_rebellion",
+      "card_china_self_strengthening",
+      "card_china_boxer",
       "card_china_xinhai_revolution",
+      "card_china_may_fourth",
       "card_china_prc_established"
     ],
     "modes": ["careful", "challenge", "timeline", "era_band"],
@@ -94,14 +124,51 @@
     "card_type": "term",
     "card_ids": [
       "card_china_shang",
+      "card_china_zhou",
       "card_china_qin",
+      "card_china_han",
+      "card_china_three_kingdoms",
+      "card_china_sui",
       "card_china_tang",
+      "card_china_song",
       "card_china_yuan",
       "card_china_ming",
       "card_china_qing",
-      "card_china_roc"
+      "card_china_roc",
+      "card_china_prc"
     ],
     "modes": ["careful", "challenge", "timeline", "era_band"],
     "difficulty": 3
+  },
+  {
+    "id": "quiz_china_medieval_eras",
+    "region": "china",
+    "title": "唐から元までの王朝",
+    "card_type": "term",
+    "card_ids": [
+      "card_china_tang",
+      "card_china_five_dynasties",
+      "card_china_liao",
+      "card_china_song",
+      "card_china_jin_jurchen",
+      "card_china_yuan"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_china_early_modern_eras",
+    "region": "china",
+    "title": "元から現代までの国家",
+    "card_type": "term",
+    "card_ids": [
+      "card_china_yuan",
+      "card_china_ming",
+      "card_china_qing",
+      "card_china_roc",
+      "card_china_prc"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
   }
 ]

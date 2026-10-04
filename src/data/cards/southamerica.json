@@ -37,7 +37,7 @@
     "era_color_key": "independence",
     "category": null,
     "hint": null,
-    "description": "ナポレオン戦争を契機に独立運動が大陸全土に広がり、本国から離脱した多くの新国家が誕生した。",
+    "description": "ヨーロッパの大戦争で本国が揺らいだのを機に独立運動が大陸全土に広がり、本国から離脱した多くの新国家が誕生した。",
     "tags": [],
     "status": "ai_generated"
   },
@@ -219,7 +219,7 @@
     "era_color_key": "independence",
     "category": null,
     "hint": null,
-    "description": "本国がヨーロッパで侵略を受けた混乱の中、植民地のクリオーリョ層が自治政府を立ち上げ独立への道を歩み始めた。",
+    "description": "本国がヨーロッパで侵略を受けた混乱の中、植民地の植民地生まれの白人層が自治政府を立ち上げ独立への道を歩み始めた。",
     "tags": [],
     "status": "ai_generated"
   },
@@ -275,7 +275,7 @@
     "era_color_key": "independence",
     "category": null,
     "hint": null,
-    "description": "独立後の各国では大土地所有のクリオーリョ層と新興の自由主義者が国家の方向をめぐって対立を続けた。",
+    "description": "独立後の各国では大土地所有の植民地生まれの白人層と新興の自由主義者が国家の方向をめぐって対立を続けた。",
     "tags": [],
     "status": "ai_generated"
   },
@@ -566,7 +566,7 @@
     "name": "ハイチ独立",
     "year": 1804,
     "year_end": null,
-    "era_color_key": "independence",
+    "era_color_key": "colonial",
     "category": "event",
     "hint": "サン=ドマング・黒人奴隷蜂起・ラテンアメリカ独立の先駆け",
     "description": "カリブ海のフランス植民地で奴隷たちが蜂起して独立を達成し、ラテンアメリカ独立運動の先駆となった。",
@@ -636,7 +636,7 @@
     "name": "太平洋戦争（チリ・ペルー・ボリビア）",
     "year": 1879,
     "year_end": 1884,
-    "era_color_key": "modern",
+    "era_color_key": "independence",
     "category": "war",
     "hint": "チリ対ペルー・ボリビア・硝石採掘・太平洋への出口",
     "description": "硝石資源をめぐる三国間の戦争でチリが勝利し、ボリビアは太平洋への出口を失った。",
@@ -652,7 +652,7 @@
     "year_end": null,
     "era_color_key": "modern",
     "category": "law",
-    "hint": "皇帝退位・奴隷制廃止後の混乱・軍部主導の共和制",
+    "hint": "皇帝ペドロ2世の退位・軍部のクーデター・共和制",
     "description": "東岸の帝国で皇帝が退位し、軍部主導のクーデターによって連邦共和国が成立した。",
     "tags": [],
     "status": "ai_generated"
@@ -809,6 +809,32 @@
     "hint": "南米南部共同市場・経済統合・関税同盟",
     "description": "民主化を達成した南部諸国が経済統合の枠組みを結成し、共通市場の形成へと進んだ。",
     "tags": [],
+    "status": "ai_generated"
+  },
+  {
+    "id": "card_southamerica_caral",
+    "region": "southamerica",
+    "type": "term",
+    "name": "カラルの神殿都市",
+    "year": -2600,
+    "year_end": null,
+    "era_color_key": "indigenous",
+    "category": "culture",
+    "hint": "ペルー中部海岸・ピラミッド状の神殿・アメリカ大陸最古級の都市",
+    "description": "ペルー中部の海岸近くに大きな神殿をもつ都市が築かれた。アメリカ大陸で最も古い文明の一つ。",
+    "status": "ai_generated"
+  },
+  {
+    "id": "card_southamerica_chimu",
+    "region": "southamerica",
+    "type": "term",
+    "name": "チムー王国の成立",
+    "year": 900,
+    "year_end": null,
+    "era_color_key": "indigenous",
+    "category": "law",
+    "hint": "ペルー北海岸・都チャンチャン・灌漑農業",
+    "description": "ペルー北海岸に都チャンチャンを中心とする王国が成立し、大規模な灌漑で農業を営んだ。",
     "status": "ai_generated"
   }
 ]
