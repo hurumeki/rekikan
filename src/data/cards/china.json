@@ -86,7 +86,7 @@
     "year_end": -256,
     "era_color_key": "ancient",
     "category": "era",
-    "hint": "封建制度・儒教の源流",
+    "hint": "封建制度・宗法・青銅器の銘文",
     "description": "封建制度を敷き、諸子百家が活躍した。",
     "status": "ai_generated"
   },
@@ -138,7 +138,7 @@
     "year_end": 618,
     "era_color_key": "ancient",
     "category": "era",
-    "hint": "大運河・科挙の始まり・統一",
+    "hint": "大運河・科挙・統一",
     "description": "南北を統一し、大運河を建設した短命の王朝。",
     "status": "ai_generated"
   },
@@ -151,7 +151,7 @@
     "year_end": 907,
     "era_color_key": "medieval",
     "category": "era",
-    "hint": "長安・国際都市・詩の黄金期",
+    "hint": "長安・国際都市・律令と唐詩",
     "description": "世界最大級の帝国として繁栄し、文化が花開いた。",
     "status": "ai_generated"
   },
@@ -255,7 +255,7 @@
     "year_end": null,
     "era_color_key": "ancient",
     "category": "person",
-    "hint": "前漢・シルクロード・郷挙里選",
+    "hint": "匈奴との戦い・シルクロード・郷挙里選",
     "description": "前漢の最盛期を築き、儒教を官学化、領域を大きく広げる治世が始まった。",
     "status": "ai_generated"
   },
@@ -333,7 +333,7 @@
     "year_end": null,
     "era_color_key": "early_modern",
     "category": "person",
-    "hint": "清の最盛期・康熙字典・三藩の乱の平定",
+    "hint": "三藩の乱の平定・康熙字典・ネルチンスク条約",
     "description": "清の第4代皇帝として即位し、中国史上最も長い在位で国力を充実させる治世が始まった。",
     "status": "ai_generated"
   },
@@ -359,7 +359,7 @@
     "year_end": null,
     "era_color_key": "modern",
     "category": "event",
-    "hint": "清の滅亡・孫文・中華民国誕生",
+    "hint": "武昌蜂起・孫文・中華民国",
     "description": "清朝を打倒し、2000年以上続いた皇帝政治に終止符を打つ革命が始まった。",
     "status": "ai_generated"
   },
@@ -385,7 +385,7 @@
     "year_end": null,
     "era_color_key": "early_modern",
     "category": "person",
-    "hint": "清の全盛期・最大領域・四庫全書",
+    "hint": "四庫全書・新疆の平定・広州一港の貿易",
     "description": "清の第6代皇帝。外征を繰り返し、中国史上最大の領域を支配した。",
     "status": "ai_generated"
   },
@@ -424,7 +424,7 @@
     "year_end": null,
     "era_color_key": "medieval",
     "category": "war",
-    "hint": "楊貴妃・節度使・唐の衰退",
+    "hint": "楊貴妃・節度使の反乱・安禄山と史思明",
     "description": "唐の玄宗の時代に起きた大反乱。これを機に唐の力は大きく衰退した。",
     "status": "ai_generated"
   },
@@ -437,7 +437,7 @@
     "year_end": null,
     "era_color_key": "medieval",
     "category": "person",
-    "hint": "北宋・富国強兵・旧法党との対立",
+    "hint": "宋の宰相・新法・旧法党との対立",
     "description": "北宋の財政立て直しや軍事力強化を目指して行われた大規模な改革。",
     "status": "ai_generated"
   },
@@ -450,7 +450,7 @@
     "year_end": null,
     "era_color_key": "ancient",
     "category": "culture",
-    "hint": "後漢・白馬寺・西域経由の伝播",
+    "hint": "明帝・白馬寺・西域経由の伝播",
     "description": "西域経由で仏典が伝わり、洛陽に最初の寺院が建てられて中国における仏教受容が始まった。",
     "tags": ["宗教"],
     "status": "ai_generated"
@@ -568,7 +568,7 @@
     "year_end": null,
     "era_color_key": "medieval",
     "category": "person",
-    "hint": "南宋・理気二元論・四書",
+    "hint": "宋の儒学者・理気二元論・四書",
     "description": "儒学を体系化し理気の哲学を組み立てる学派が大成され、東アジア各地の正統学問の基盤となった。",
     "status": "ai_generated"
   },
@@ -698,7 +698,7 @@
     "year_end": null,
     "era_color_key": "ancient",
     "category": "war",
-    "hint": "農民反乱・王侯将相いずくんぞ種あらんや・秦の崩壊",
+    "hint": "農民反乱・王侯将相いずくんぞ種あらんや・秦の圧政",
     "description": "秦の厳しい支配に対して農民の陳勝・呉広が反乱を起こし、秦の滅亡のきっかけとなった。",
     "status": "ai_generated"
   },
@@ -711,7 +711,7 @@
     "year_end": null,
     "era_color_key": "ancient",
     "category": "war",
-    "hint": "太平道・張角・後漢の衰退",
+    "hint": "太平道・張角・宗教結社の反乱",
     "description": "宗教結社の太平道が起こした大反乱で、後漢が衰え群雄が割拠する時代を招いた。",
     "status": "ai_generated"
   },
@@ -724,7 +724,7 @@
     "year_end": null,
     "era_color_key": "ancient",
     "category": "law",
-    "hint": "文帝・陳の滅亡・南北朝の終わり",
+    "hint": "文帝・南朝の陳の征服・中国の統一",
     "description": "隋の文帝が南朝の陳を滅ぼし、約三百年ぶりに中国を再統一した。",
     "status": "ai_generated"
   },
@@ -763,7 +763,7 @@
     "year_end": null,
     "era_color_key": "medieval",
     "category": "war",
-    "hint": "塩の密売商人・長安占領・唐の滅亡への道",
+    "hint": "塩の密売商人・長安の占領・大農民反乱",
     "description": "塩の密売商人黄巣らの大反乱が全国に広がって長安を占領し、唐は滅亡へ向かった。",
     "status": "ai_generated"
   },
@@ -789,7 +789,7 @@
     "year_end": null,
     "era_color_key": "medieval",
     "category": "war",
-    "hint": "北宋と遼・歳幣・和平",
+    "hint": "宋と遼・歳幣・和平",
     "description": "北宋が遼と和平を結び、毎年銀や絹を贈る代わりに北方の安定を得た。",
     "status": "ai_generated"
   },
@@ -802,7 +802,7 @@
     "year_end": null,
     "era_color_key": "medieval",
     "category": "war",
-    "hint": "金の侵攻・北宋の滅亡・江南への移動",
+    "hint": "金の侵攻・開封の陥落・皇帝の連行",
     "description": "金が北宋の都開封を攻め落として皇帝らを連れ去り、宋は江南に移って南宋となった。",
     "status": "ai_generated"
   },
@@ -815,7 +815,7 @@
     "year_end": null,
     "era_color_key": "medieval",
     "category": "war",
-    "hint": "オゴタイ=ハン・華北の支配・南宋との対立",
+    "hint": "オゴタイ=ハン・華北の支配・宋との対立",
     "description": "モンゴル帝国が金を滅ぼして華北を支配し、南宋と国境を接するようになった。",
     "status": "ai_generated"
   },
