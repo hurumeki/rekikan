@@ -107,7 +107,7 @@
     "era_color_key": "ancient",
     "category": null,
     "hint": null,
-    "description": "海岸沿いの諸国がインドの影響を受けてヒンドゥー教と仏教を受け入れ、石碑や王権が築かれた。",
+    "description": "海岸沿いの諸国が西方の文明の影響を受けてヒンドゥー教と仏教を受け入れ、石碑や王権が築かれた。",
     "tags": [],
     "status": "ai_generated"
   },
@@ -121,7 +121,7 @@
     "era_color_key": "ancient",
     "category": null,
     "hint": null,
-    "description": "インドの王権理念や寺院建築の様式が広まり、地域独自のヒンドゥー化された王国が次々に成立した。",
+    "description": "西方から伝わった王権理念や寺院建築の様式が広まり、地域独自のヒンドゥー化された王国が次々に成立した。",
     "tags": [],
     "status": "ai_generated"
   },
@@ -135,7 +135,7 @@
     "era_color_key": "ancient",
     "category": null,
     "hint": null,
-    "description": "メコン川流域で農業生産が拡大し、後の大帝国の母体となる王国が成長した。",
+    "description": "大河の中流域で農業生産が拡大し、後の大帝国の母体となる王国が成長した。",
     "tags": [],
     "status": "ai_generated"
   },
@@ -146,7 +146,7 @@
     "name": null,
     "year": 700,
     "year_end": null,
-    "era_color_key": "medieval",
+    "era_color_key": "ancient",
     "category": null,
     "hint": null,
     "description": "海峡を抑えた港市国家が大乗仏教の中心地として繁栄し、僧侶や商人が広く往来した。",
@@ -286,24 +286,10 @@
     "name": "シュリーヴィジャヤ王国",
     "year": 700,
     "year_end": null,
-    "era_color_key": "medieval",
+    "era_color_key": "ancient",
     "category": "law",
     "hint": "スマトラ・パレンバン・大乗仏教・港市国家連合",
     "description": "海峡を抑えた港市国家連合が大乗仏教を保護し、海上交易の中心として繁栄した。",
-    "tags": [],
-    "status": "ai_generated"
-  },
-  {
-    "id": "card_southeastasia_shailendra",
-    "region": "southeastasia",
-    "type": "term",
-    "name": "シャイレンドラ朝とボロブドゥール",
-    "year": 770,
-    "year_end": null,
-    "era_color_key": "medieval",
-    "category": "culture",
-    "hint": "中部ジャワ・大乗仏教・階段ピラミッド型寺院",
-    "description": "ジャワ島中部の王朝が壮大な階段状の仏教遺跡を造営し、その威光を示した。",
     "tags": [],
     "status": "ai_generated"
   },
@@ -429,7 +415,7 @@
     "era_color_key": "early_modern",
     "category": null,
     "hint": null,
-    "description": "別の西欧勢力が東インド会社を設立し、香辛料の独占交易を進めて拠点都市を築いた。",
+    "description": "別の西欧勢力が貿易会社を設立し、香辛料の独占交易を進めて拠点都市を築いた。",
     "tags": [],
     "status": "ai_generated"
   },
@@ -471,7 +457,7 @@
     "era_color_key": "colonial",
     "category": null,
     "hint": null,
-    "description": "西欧の海洋強国がマレー半島南端に自由貿易港を築き、東西交易の新たな結節点となった。",
+    "description": "西欧の海洋強国が半島の南端に自由貿易港を築き、東西交易の新たな結節点となった。",
     "tags": [],
     "status": "ai_generated"
   },
@@ -680,7 +666,7 @@
     "year_end": null,
     "era_color_key": "colonial",
     "category": "law",
-    "hint": "ベトナム統一・フエ・後にフランスの介入を受ける",
+    "hint": "ベトナム統一・フエ・嘉隆帝",
     "description": "ベトナム全土を統一した王朝が成立したが、やがてヨーロッパ勢力の介入を受けることになった。",
     "tags": [],
     "status": "ai_generated"
@@ -850,6 +836,58 @@
     "category": "culture",
     "hint": "ジャワ島・シャイレーンドラ朝・大乗仏教",
     "description": "ジャワ島中部に巨大な階段状の仏教遺跡が築かれ、東南アジア大乗仏教文化の頂点を示した。",
+    "status": "ai_generated"
+  },
+  {
+    "id": "card_southeastasia_yijing",
+    "region": "southeastasia",
+    "type": "term",
+    "name": "義浄のシュリーヴィジャヤ滞在",
+    "year": 671,
+    "year_end": null,
+    "era_color_key": "ancient",
+    "category": "culture",
+    "hint": "唐の僧・インドへの往復・仏教研究の拠点",
+    "description": "唐の僧義浄がインドへの往復の途中にシュリーヴィジャヤに滞在し、仏教が盛んな様子を記録した。",
+    "status": "ai_generated"
+  },
+  {
+    "id": "card_southeastasia_sukhothai",
+    "region": "southeastasia",
+    "type": "term",
+    "name": "スコータイ朝の成立",
+    "year": 1240,
+    "year_end": null,
+    "era_color_key": "medieval",
+    "category": "law",
+    "hint": "タイ人・上座部仏教・タイ文字",
+    "description": "タイ人が最初の本格的な王朝を開き、上座部仏教を保護してタイ文字が作られた。",
+    "status": "ai_generated"
+  },
+  {
+    "id": "card_southeastasia_tran_mongol",
+    "region": "southeastasia",
+    "type": "term",
+    "name": "陳朝の元軍撃退",
+    "year": 1288,
+    "year_end": null,
+    "era_color_key": "medieval",
+    "category": "war",
+    "hint": "大越・白藤江の戦い・陳興道",
+    "description": "ベトナムの陳朝が白藤江の戦いなどで元の大軍を退け、独立を守った。",
+    "status": "ai_generated"
+  },
+  {
+    "id": "card_southeastasia_asean_vietnam",
+    "region": "southeastasia",
+    "type": "term",
+    "name": "ベトナムのASEAN加盟",
+    "year": 1995,
+    "year_end": null,
+    "era_color_key": "contemporary",
+    "category": "war",
+    "hint": "冷戦後の地域協力・社会主義国の加盟・ASEAN10への拡大",
+    "description": "冷戦の終結を受けてベトナムがASEANに加盟し、東南アジア全域を包む地域協力の枠組みへと広がった。",
     "status": "ai_generated"
   }
 ]

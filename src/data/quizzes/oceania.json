@@ -21,6 +21,8 @@
     "card_type": "term",
     "card_ids": [
       "card_oceania_aboriginal_arrival",
+      "card_oceania_tasmania_isolation",
+      "card_oceania_newguinea_farming",
       "card_oceania_polynesian",
       "card_oceania_moai",
       "card_oceania_maori_settlement"
@@ -50,6 +52,7 @@
     "card_type": "term",
     "card_ids": [
       "card_oceania_magellan",
+      "card_oceania_mendana",
       "card_oceania_janszoon",
       "card_oceania_tasman",
       "card_oceania_cook"

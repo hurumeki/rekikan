@@ -5,11 +5,31 @@
     "emoji": "🇯🇵",
     "color": "#e85d75",
     "era_colors": {
-      "prehistoric_ancient": { "label": "先史・古代", "color": "#4ade80", "year_start": -30000 },
-      "medieval": { "label": "中世", "color": "#60a5fa", "year_start": 1185 },
-      "early_modern": { "label": "近世", "color": "#a78bfa", "year_start": 1603 },
-      "modern": { "label": "近代", "color": "#fb923c", "year_start": 1868 },
-      "contemporary": { "label": "現代", "color": "#f87171", "year_start": 1945 }
+      "prehistoric_ancient": {
+        "label": "先史・古代",
+        "color": "#4ade80",
+        "year_start": -30000
+      },
+      "medieval": {
+        "label": "中世",
+        "color": "#60a5fa",
+        "year_start": 1185
+      },
+      "early_modern": {
+        "label": "近世",
+        "color": "#a78bfa",
+        "year_start": 1603
+      },
+      "modern": {
+        "label": "近代",
+        "color": "#fb923c",
+        "year_start": 1868
+      },
+      "contemporary": {
+        "label": "現代",
+        "color": "#f87171",
+        "year_start": 1945
+      }
     }
   },
   {
@@ -18,11 +38,31 @@
     "emoji": "🏰",
     "color": "#3b82f6",
     "era_colors": {
-      "ancient": { "label": "古代", "color": "#4ade80", "year_start": -800 },
-      "medieval": { "label": "中世", "color": "#60a5fa", "year_start": 476 },
-      "early_modern": { "label": "近世", "color": "#a78bfa", "year_start": 1492 },
-      "modern": { "label": "近代", "color": "#fb923c", "year_start": 1789 },
-      "contemporary": { "label": "現代", "color": "#f87171", "year_start": 1914 }
+      "ancient": {
+        "label": "古代",
+        "color": "#4ade80",
+        "year_start": -800
+      },
+      "medieval": {
+        "label": "中世",
+        "color": "#60a5fa",
+        "year_start": 476
+      },
+      "early_modern": {
+        "label": "近世",
+        "color": "#a78bfa",
+        "year_start": 1492
+      },
+      "modern": {
+        "label": "近代",
+        "color": "#fb923c",
+        "year_start": 1789
+      },
+      "contemporary": {
+        "label": "現代",
+        "color": "#f87171",
+        "year_start": 1914
+      }
     }
   },
   {
@@ -31,11 +71,31 @@
     "emoji": "🐉",
     "color": "#eab308",
     "era_colors": {
-      "ancient": { "label": "古代", "color": "#4ade80", "year_start": -221 },
-      "medieval": { "label": "中世", "color": "#60a5fa", "year_start": 618 },
-      "early_modern": { "label": "近世", "color": "#a78bfa", "year_start": 1368 },
-      "modern": { "label": "近代", "color": "#fb923c", "year_start": 1840 },
-      "contemporary": { "label": "現代", "color": "#f87171", "year_start": 1912 }
+      "ancient": {
+        "label": "古代",
+        "color": "#4ade80",
+        "year_start": -221
+      },
+      "medieval": {
+        "label": "中世",
+        "color": "#60a5fa",
+        "year_start": 618
+      },
+      "early_modern": {
+        "label": "近世",
+        "color": "#a78bfa",
+        "year_start": 1368
+      },
+      "modern": {
+        "label": "近代",
+        "color": "#fb923c",
+        "year_start": 1840
+      },
+      "contemporary": {
+        "label": "現代",
+        "color": "#f87171",
+        "year_start": 1912
+      }
     }
   },
   {
@@ -44,10 +104,26 @@
     "emoji": "🌙",
     "color": "#f59e0b",
     "era_colors": {
-      "ancient": { "label": "古代オリエント", "color": "#4ade80", "year_start": -3500 },
-      "islamic": { "label": "イスラーム世界", "color": "#60a5fa", "year_start": 622 },
-      "ottoman": { "label": "オスマン帝国", "color": "#fb923c", "year_start": 1299 },
-      "modern": { "label": "近現代", "color": "#f87171", "year_start": 1919 }
+      "ancient": {
+        "label": "古代オリエント",
+        "color": "#4ade80",
+        "year_start": -3500
+      },
+      "islamic": {
+        "label": "イスラーム世界",
+        "color": "#60a5fa",
+        "year_start": 610
+      },
+      "ottoman": {
+        "label": "オスマン帝国",
+        "color": "#fb923c",
+        "year_start": 1299
+      },
+      "modern": {
+        "label": "近現代",
+        "color": "#f87171",
+        "year_start": 1919
+      }
     }
   },
   {
@@ -56,10 +132,26 @@
     "emoji": "🐘",
     "color": "#10b981",
     "era_colors": {
-      "ancient": { "label": "古代インド", "color": "#4ade80", "year_start": -2500 },
-      "medieval": { "label": "中世・スルタン朝", "color": "#60a5fa", "year_start": 700 },
-      "mughal": { "label": "ムガル帝国", "color": "#a78bfa", "year_start": 1526 },
-      "modern": { "label": "近現代", "color": "#fb923c", "year_start": 1857 }
+      "ancient": {
+        "label": "古代インド",
+        "color": "#4ade80",
+        "year_start": -2500
+      },
+      "medieval": {
+        "label": "中世・スルタン朝",
+        "color": "#60a5fa",
+        "year_start": 700
+      },
+      "mughal": {
+        "label": "ムガル帝国",
+        "color": "#a78bfa",
+        "year_start": 1526
+      },
+      "modern": {
+        "label": "近現代",
+        "color": "#fb923c",
+        "year_start": 1857
+      }
     }
   },
   {
@@ -68,15 +160,31 @@
     "emoji": "🐎",
     "color": "#a16207",
     "era_colors": {
-      "ancient": { "label": "騎馬遊牧民の世界", "color": "#4ade80", "year_start": -700 },
-      "turkic": { "label": "突厥・ウイグル", "color": "#60a5fa", "year_start": 552 },
-      "islamic": { "label": "イスラーム化", "color": "#a78bfa", "year_start": 875 },
+      "ancient": {
+        "label": "騎馬遊牧民の世界",
+        "color": "#4ade80",
+        "year_start": -700
+      },
+      "turkic": {
+        "label": "突厥・ウイグル",
+        "color": "#60a5fa",
+        "year_start": 552
+      },
+      "islamic": {
+        "label": "イスラーム化",
+        "color": "#a78bfa",
+        "year_start": 875
+      },
       "mongol_timurid": {
         "label": "モンゴル・ティムール朝",
         "color": "#fb923c",
         "year_start": 1206
       },
-      "modern": { "label": "近現代", "color": "#f87171", "year_start": 1865 }
+      "modern": {
+        "label": "近現代",
+        "color": "#f87171",
+        "year_start": 1865
+      }
     }
   },
   {
@@ -85,11 +193,31 @@
     "emoji": "🌴",
     "color": "#14b8a6",
     "era_colors": {
-      "ancient": { "label": "古代諸国", "color": "#4ade80", "year_start": -100 },
-      "medieval": { "label": "港市国家・大陸帝国", "color": "#60a5fa", "year_start": 800 },
-      "early_modern": { "label": "イスラーム化と交易", "color": "#a78bfa", "year_start": 1400 },
-      "colonial": { "label": "植民地時代", "color": "#fb923c", "year_start": 1800 },
-      "contemporary": { "label": "現代", "color": "#f87171", "year_start": 1945 }
+      "ancient": {
+        "label": "古代諸国",
+        "color": "#4ade80",
+        "year_start": -100
+      },
+      "medieval": {
+        "label": "港市国家・大陸帝国",
+        "color": "#60a5fa",
+        "year_start": 800
+      },
+      "early_modern": {
+        "label": "イスラーム化と交易",
+        "color": "#a78bfa",
+        "year_start": 1400
+      },
+      "colonial": {
+        "label": "植民地時代",
+        "color": "#fb923c",
+        "year_start": 1800
+      },
+      "contemporary": {
+        "label": "現代",
+        "color": "#f87171",
+        "year_start": 1945
+      }
     }
   },
   {
@@ -98,11 +226,31 @@
     "emoji": "🏝️",
     "color": "#0ea5e9",
     "era_colors": {
-      "indigenous": { "label": "先住民の世界", "color": "#4ade80", "year_start": -3000 },
-      "exploration": { "label": "ヨーロッパ人の探検", "color": "#60a5fa", "year_start": 1606 },
-      "colonial": { "label": "植民地時代", "color": "#a78bfa", "year_start": 1788 },
-      "modern": { "label": "連邦結成と独立", "color": "#fb923c", "year_start": 1901 },
-      "contemporary": { "label": "現代", "color": "#f87171", "year_start": 1945 }
+      "indigenous": {
+        "label": "先住民の世界",
+        "color": "#4ade80",
+        "year_start": -3000
+      },
+      "exploration": {
+        "label": "ヨーロッパ人の探検",
+        "color": "#60a5fa",
+        "year_start": 1521
+      },
+      "colonial": {
+        "label": "植民地時代",
+        "color": "#a78bfa",
+        "year_start": 1788
+      },
+      "modern": {
+        "label": "連邦結成と独立",
+        "color": "#fb923c",
+        "year_start": 1901
+      },
+      "contemporary": {
+        "label": "現代",
+        "color": "#f87171",
+        "year_start": 1945
+      }
     }
   },
   {
@@ -111,11 +259,31 @@
     "emoji": "🦅",
     "color": "#dc2626",
     "era_colors": {
-      "indigenous": { "label": "先コロンブス期", "color": "#4ade80", "year_start": -10000 },
-      "colonial": { "label": "ヨーロッパ植民地時代", "color": "#60a5fa", "year_start": 1492 },
-      "independence": { "label": "独立と建国", "color": "#a78bfa", "year_start": 1776 },
-      "modern": { "label": "南北戦争と拡張", "color": "#fb923c", "year_start": 1861 },
-      "contemporary": { "label": "現代", "color": "#f87171", "year_start": 1945 }
+      "indigenous": {
+        "label": "先コロンブス期",
+        "color": "#4ade80",
+        "year_start": -10000
+      },
+      "colonial": {
+        "label": "ヨーロッパ植民地時代",
+        "color": "#60a5fa",
+        "year_start": 1492
+      },
+      "independence": {
+        "label": "独立と建国",
+        "color": "#a78bfa",
+        "year_start": 1776
+      },
+      "modern": {
+        "label": "南北戦争と拡張",
+        "color": "#fb923c",
+        "year_start": 1861
+      },
+      "contemporary": {
+        "label": "現代",
+        "color": "#f87171",
+        "year_start": 1945
+      }
     }
   },
   {
@@ -124,11 +292,31 @@
     "emoji": "🦙",
     "color": "#84cc16",
     "era_colors": {
-      "indigenous": { "label": "アンデス文明", "color": "#4ade80", "year_start": -2000 },
-      "colonial": { "label": "植民地時代", "color": "#60a5fa", "year_start": 1492 },
-      "independence": { "label": "独立革命", "color": "#a78bfa", "year_start": 1810 },
-      "modern": { "label": "共和国の発展", "color": "#fb923c", "year_start": 1880 },
-      "contemporary": { "label": "現代", "color": "#f87171", "year_start": 1945 }
+      "indigenous": {
+        "label": "アンデス文明",
+        "color": "#4ade80",
+        "year_start": -2000
+      },
+      "colonial": {
+        "label": "植民地時代",
+        "color": "#60a5fa",
+        "year_start": 1492
+      },
+      "independence": {
+        "label": "独立革命",
+        "color": "#a78bfa",
+        "year_start": 1810
+      },
+      "modern": {
+        "label": "共和国の発展",
+        "color": "#fb923c",
+        "year_start": 1880
+      },
+      "contemporary": {
+        "label": "現代",
+        "color": "#f87171",
+        "year_start": 1945
+      }
     }
   },
   {

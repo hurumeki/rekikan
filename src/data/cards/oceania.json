@@ -163,7 +163,7 @@
     "era_color_key": "exploration",
     "category": null,
     "hint": null,
-    "description": "東インド会社で活動するヨーロッパの航海者が、これまで未知だった南方の大陸の海岸線を確認した。",
+    "description": "貿易会社に属するヨーロッパの航海者が、これまで未知だった南方の大陸の海岸線を確認した。",
     "tags": [],
     "status": "ai_generated"
   },
@@ -692,7 +692,7 @@
     "name": "太平洋戦争",
     "year": 1942,
     "year_end": null,
-    "era_color_key": "contemporary",
+    "era_color_key": "modern",
     "category": "war",
     "hint": "日本軍南進・ダーウィン空襲・米国同盟強化",
     "description": "敵性国の侵攻が首都近くにまで迫り、自治領は本国ではなく対岸の大国に同盟の軸足を移した。",
@@ -736,7 +736,7 @@
     "year_end": null,
     "era_color_key": "contemporary",
     "category": "event",
-    "hint": "太平洋諸島協力機構・地域協力・後の太平洋諸島フォーラム",
+    "hint": "太平洋島嶼国・地域協力・オーストラリアとニュージーランドも参加",
     "description": "太平洋諸国の協力の枠組みが結成され、地域共通の課題に取り組む土台が整えられた。",
     "tags": [],
     "status": "ai_generated"
@@ -767,6 +767,45 @@
     "hint": "オーストラリア委任統治終了・島嶼独立",
     "description": "南方の大陸の隣の大きな島が委任統治を脱して独立を達成し、地域の独立国の数が増えた。",
     "tags": [],
+    "status": "ai_generated"
+  },
+  {
+    "id": "card_oceania_tasmania_isolation",
+    "region": "oceania",
+    "type": "term",
+    "name": "タスマニアの孤立",
+    "year": -10000,
+    "year_end": null,
+    "era_color_key": "indigenous",
+    "category": "event",
+    "hint": "氷河期の終わり・海面上昇・バス海峡",
+    "description": "氷河期が終わって海面が上がり、タスマニアが大陸から切り離されて人々は独自の暮らしを続けた。",
+    "status": "ai_generated"
+  },
+  {
+    "id": "card_oceania_newguinea_farming",
+    "region": "oceania",
+    "type": "term",
+    "name": "ニューギニア高地の農耕の開始",
+    "year": -7000,
+    "year_end": null,
+    "era_color_key": "indigenous",
+    "category": "economy",
+    "hint": "タロイモとバナナ・湿地の排水・世界最古級の農耕",
+    "description": "ニューギニア高地の人々が湿地を排水してタロイモやバナナを栽培し始めた。世界でも最も早い農耕の一つ。",
+    "status": "ai_generated"
+  },
+  {
+    "id": "card_oceania_mendana",
+    "region": "oceania",
+    "type": "term",
+    "name": "メンダーニャのソロモン諸島到達",
+    "year": 1568,
+    "year_end": null,
+    "era_color_key": "exploration",
+    "category": "event",
+    "hint": "スペイン・ペルーからの航海・黄金伝説",
+    "description": "ペルーを出たスペインの航海者メンダーニャがソロモン諸島に到達し、島々の名を名付けた。",
     "status": "ai_generated"
   }
 ]

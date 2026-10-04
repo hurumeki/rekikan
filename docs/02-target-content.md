@@ -8,18 +8,18 @@
 
 Covers major regions in Japanese history and world history.
 
-| Region                                            | Planned for Initial Release                                                                                       |
-| ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| Japanese History (日本史)                         | Era divisions (split + full sequence), Edo-period shoguns, events from the Bakumatsu (幕末) to Meiji (明治), etc. |
-| European History (ヨーロッパ史)                   | Era divisions (split + full sequence)                                                                             |
-| Chinese History (中国史)                          | Dynasty divisions (split + full sequence)                                                                         |
-| West Asia / North Africa (西アジア・北アフリカ史) | Ancient Orient, Islamic world, Ottoman Empire, modern era                                                         |
-| South Asia (南アジア史)                           | Ancient India, medieval sultanates, Mughal Empire, modern era                                                     |
-| Central Asia (中央アジア史)                       | Nomadic peoples, Turkic states, Islamization, Mongol/Timurid, modern era                                          |
-| Southeast Asia (東南アジア史)                     | Ancient states, port-city kingdoms, Islamization, colonial era, contemporary                                      |
-| Oceania (オセアニア史)                            | Indigenous peoples, European exploration, colonial, federation, contemporary                                      |
-| North America (北アメリカ史)                      | Pre-Columbian, colonization, independence, Civil War & expansion, contemporary                                    |
-| South America (南アメリカ史)                      | Andean civilizations, colonial, independence, republican era, contemporary                                        |
+| Region                                            | Planned for Initial Release                                                                                        |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Japanese History (日本史)                         | Era divisions (split + full sequence), Edo-period shoguns, events from the Bakumatsu (幕末) to Meiji (明治), etc.  |
+| European History (ヨーロッパ史)                   | Era divisions (split + full sequence)                                                                              |
+| Chinese History (中国史)                          | Dynasty divisions (split + full sequence), events of each period (ancient, Sui–Tang, Song–Yuan, Ming–Qing, modern) |
+| West Asia / North Africa (西アジア・北アフリカ史) | Ancient Orient, Islamic world, Ottoman Empire, modern era                                                          |
+| South Asia (南アジア史)                           | Ancient India, medieval sultanates, Mughal Empire, modern era                                                      |
+| Central Asia (中央アジア史)                       | Nomadic peoples, Turkic states, Islamization, Mongol/Timurid, modern era                                           |
+| Southeast Asia (東南アジア史)                     | Ancient states, port-city kingdoms, Islamization, colonial era, contemporary                                       |
+| Oceania (オセアニア史)                            | Indigenous peoples, European exploration, colonial, federation, contemporary                                       |
+| North America (北アメリカ史)                      | Pre-Columbian, colonization, independence, Civil War & expansion, contemporary                                     |
+| South America (南アメリカ史)                      | Andean civilizations, colonial, independence, republican era, contemporary                                         |
 
 ## 2.2 Theme Histories (テーマ史・同時代史)
 

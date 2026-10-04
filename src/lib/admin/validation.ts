@@ -9,7 +9,25 @@ export interface ValidationError {
   id: string;
   field?: string;
   message: string;
+  /** 警告の種類。CI で「コンテンツ品質の警告ゼロ」を保証する対象を選ぶのに使う */
+  rule?: QualityRule;
 }
+
+/**
+ * docs/35 の品質ルールに対応する警告の種類。
+ * 同梱コンテンツはこれらの警告がゼロであることを CI で確認する。
+ */
+export type QualityRule =
+  | 'hint_order'
+  | 'hint_mentions_card'
+  | 'description_number'
+  | 'era_color_mismatch'
+  | 'same_year'
+  | 'range_overlap'
+  | 'era_mixed'
+  | 'card_count'
+  | 'duplicate_name'
+  | 'unused_card';
 
 export interface ValidationReport {
   errors: ValidationError[];
@@ -26,10 +44,14 @@ const ORDER_REVEALING_PATTERNS = [
   /\d+代目/,
   /\d+番目/,
   /第\d+/,
-  /最初|最後|初めて|最初の|最後の/,
+  /最初|最後|初めて/,
   /\d{3,4}年/,
   /初代|二代|三代/,
-  /最初に|最後に/,
+  // 「〜後に」「後の〜」など前後関係を示す語（「戦後」「午後」「後漢」は除く）
+  /(?<![戦午背最直前以])後(?:に|の|、)/,
+  /直後|以後|以前|その後|のちの|のちに/,
+  /初期|末期|晩年/,
+  /火種|滅ぼされ|に終わる/,
 ];
 
 export function isHintOrderRevealing(hint: string): boolean {
@@ -170,10 +192,51 @@ export function validateCard(
       id: card.id,
       field: 'hint',
       message: 'ヒントに順序を示す情報が含まれている可能性があります',
+      rule: 'hint_order',
+    });
+  }
+
+  // 説明カードは用語・年号を知らなくても並べられることが前提（docs/35 §6.2）
+  if (card.type === 'description' && card.description && /[0-9０-９]/.test(card.description)) {
+    errors.push({
+      level: 'warning',
+      entity: 'card',
+      id: card.id,
+      field: 'description',
+      message: '説明カードに数字（年号・回数など）が含まれています',
+      rule: 'description_number',
+    });
+  }
+
+  // 時代帯の色はリージョンの区切り年と一致させる。ずれると色が誤った時代帯を教えてしまう
+  const expectedEra = card.region ? expectedEraColorKey(card, state.regions) : null;
+  if (expectedEra && card.era_color_key && expectedEra !== card.era_color_key) {
+    errors.push({
+      level: 'warning',
+      entity: 'card',
+      id: card.id,
+      field: 'era_color_key',
+      message: `${card.year}年は時代帯 "${expectedEra}" の範囲です（現在 "${card.era_color_key}"）`,
+      rule: 'era_color_mismatch',
     });
   }
 
   return errors;
+}
+
+/** リージョンの year_start から、その年が属する時代帯キーを求める */
+export function expectedEraColorKey(card: Pick<Card, 'region' | 'year'>, regions: Region[]) {
+  const region = regions.find((r) => r.id === card.region);
+  if (!region) return null;
+  const bands = Object.entries(region.era_colors)
+    .filter(([, v]) => v.year_start != null)
+    .sort((a, b) => a[1].year_start! - b[1].year_start!);
+  if (bands.length === 0) return null;
+  let key = bands[0]![0];
+  for (const [k, v] of bands) {
+    if (card.year >= v.year_start!) key = k;
+  }
+  return key;
 }
 
 function validateQuiz(quiz: Quiz, cards: Card[]): ValidationError[] {
@@ -282,6 +345,7 @@ function validateQuiz(quiz: Quiz, cards: Card[]): ValidationError[] {
         id: quiz.id,
         field: 'card_ids',
         message: `同じ年のカードが含まれています（"${prev.id}" と "${curr.id}" がともに ${prev.year} 年）`,
+        rule: 'same_year',
       });
     }
   }
@@ -305,6 +369,7 @@ function validateQuiz(quiz: Quiz, cards: Card[]): ValidationError[] {
       id: quiz.id,
       field: 'card_ids',
       message: `カード数が少なすぎます（${quiz.card_ids.length}枚、推奨5〜8枚）`,
+      rule: 'card_count',
     });
   } else if (quiz.card_ids.length > 8) {
     errors.push({
@@ -314,6 +379,57 @@ function validateQuiz(quiz: Quiz, cards: Card[]): ValidationError[] {
       field: 'card_ids',
       message: `カード数が多すぎます（${quiz.card_ids.length}枚、推奨5〜8枚）`,
     });
+  }
+
+  // 期間のあるカードの範囲内に他のカードがあると、どの時点を問うのかが曖昧になる（docs/35 §6.3）。
+  // 時代カード同士は「始まり」で並べる前提なので対象外。
+  for (const a of orderedCards) {
+    if (a.year_end == null) continue;
+    for (const b of orderedCards) {
+      if (b === a || (a.category === 'era' && b.category === 'era')) continue;
+      if (b.year > a.year && b.year < a.year_end) {
+        errors.push({
+          level: 'warning',
+          entity: 'quiz',
+          id: quiz.id,
+          field: 'card_ids',
+          message: `"${a.id}"(${a.year}–${a.year_end}) の期間内に "${b.id}"(${b.year}) があります`,
+          rule: 'range_overlap',
+        });
+      }
+    }
+  }
+
+  // 時代カードは時代の流れを問うクイズ専用（docs/35 §6.3）
+  const termCards = orderedCards.filter((c) => c.type === 'term');
+  const eraCount = termCards.filter((c) => c.category === 'era').length;
+  if (eraCount > 0 && eraCount < termCards.length) {
+    errors.push({
+      level: 'warning',
+      entity: 'quiz',
+      id: quiz.id,
+      field: 'card_ids',
+      message: '時代カード（era）と出来事カードが混在しています',
+      rule: 'era_mixed',
+    });
+  }
+
+  // ヒントが同じクイズの他のカード名を含むと、因果関係から順序が分かってしまう
+  for (const c of termCards) {
+    if (!c.hint) continue;
+    for (const other of termCards) {
+      if (other === c || !other.name || other.name.length < 2) continue;
+      if (c.hint.includes(other.name)) {
+        errors.push({
+          level: 'warning',
+          entity: 'quiz',
+          id: quiz.id,
+          field: 'card_ids',
+          message: `"${c.id}" のヒントが同じクイズのカード「${other.name}」に触れています`,
+          rule: 'hint_mentions_card',
+        });
+      }
+    }
   }
 
   // Non-approved cards
@@ -495,6 +611,38 @@ export function validateDataset(dataset: ValidatableDataset): ValidationReport {
   }
   for (const node of dataset.nodes) {
     all.push(...validateNode(node, dataset.nodes, dataset.quizzes));
+  }
+
+  // 同じリージョンに同名の用語カードが複数あると、カード単位の成績（苦手分析）が分散する
+  const byName = new Map<string, string[]>();
+  for (const card of dataset.cards) {
+    if (card.type !== 'term' || !card.name) continue;
+    const key = `${card.region}\u0000${card.name}`;
+    byName.set(key, [...(byName.get(key) ?? []), card.id]);
+  }
+  for (const [key, ids] of byName) {
+    const name = key.split('\u0000')[1];
+    if (ids.length < 2) continue;
+    all.push({
+      level: 'warning',
+      entity: 'card',
+      id: ids[1]!,
+      field: 'name',
+      message: `用語名「${name}」のカードが複数あります（${ids.join(', ')}）`,
+      rule: 'duplicate_name',
+    });
+  }
+
+  const usedCardIds = new Set(dataset.quizzes.flatMap((q) => q.card_ids));
+  for (const card of dataset.cards) {
+    if (usedCardIds.has(card.id)) continue;
+    all.push({
+      level: 'warning',
+      entity: 'card',
+      id: card.id,
+      message: 'どのクイズからも使われていないカードです',
+      rule: 'unused_card',
+    });
   }
 
   const circularNodeIds = detectCircularRefs(dataset.nodes);

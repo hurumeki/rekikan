@@ -38,34 +38,58 @@
     "parent_id": "node_china_root",
     "label": "中世",
     "sort_order": 2,
-    "quiz_ids": ["quiz_china_medieval_detailed"],
+    "quiz_ids": ["quiz_china_medieval_eras"],
     "unlock_condition": {
       "type": "complete_quizzes",
       "quiz_ids": ["quiz_china_intro_desc"]
+    }
+  },
+  {
+    "id": "node_china_medieval_detailed",
+    "region": "china",
+    "parent_id": "node_china_medieval",
+    "label": "隋・唐・宋・元の出来事",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_china_sui_tang", "quiz_china_medieval_detailed"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_china_medieval_eras"]
     }
   },
   {
     "id": "node_china_early_modern",
     "region": "china",
     "parent_id": "node_china_root",
-    "label": "近世",
+    "label": "近世・近現代",
     "sort_order": 3,
-    "quiz_ids": ["quiz_china_early_modern_detailed"],
+    "quiz_ids": ["quiz_china_early_modern_eras"],
     "unlock_condition": {
       "type": "complete_quizzes",
       "quiz_ids": ["quiz_china_intro_desc"]
     }
   },
   {
+    "id": "node_china_ming_qing",
+    "region": "china",
+    "parent_id": "node_china_early_modern",
+    "label": "明・清の出来事",
+    "sort_order": 1,
+    "quiz_ids": ["quiz_china_early_modern_detailed"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_china_early_modern_eras"]
+    }
+  },
+  {
     "id": "node_china_modern",
     "region": "china",
-    "parent_id": "node_china_root",
-    "label": "近代",
-    "sort_order": 4,
+    "parent_id": "node_china_early_modern",
+    "label": "近代中国の動乱",
+    "sort_order": 2,
     "quiz_ids": ["quiz_china_modern_detailed"],
     "unlock_condition": {
       "type": "complete_quizzes",
-      "quiz_ids": ["quiz_china_intro_desc"]
+      "quiz_ids": ["quiz_china_early_modern_eras"]
     }
   },
   {
