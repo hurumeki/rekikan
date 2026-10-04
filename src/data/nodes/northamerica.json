@@ -145,5 +145,17 @@
         "node_northamerica_contemporary"
       ]
     }
+  },
+  {
+    "id": "node_northamerica_mesoamerica",
+    "region": "northamerica",
+    "parent_id": "node_northamerica_root",
+    "label": "メソアメリカとメキシコ",
+    "sort_order": 7,
+    "quiz_ids": ["quiz_northamerica_meso_desc", "quiz_northamerica_meso_term"],
+    "unlock_condition": {
+      "type": "complete_quizzes",
+      "quiz_ids": ["quiz_northamerica_intro_desc"]
+    }
   }
 ]

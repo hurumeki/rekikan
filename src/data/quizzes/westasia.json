@@ -208,5 +208,54 @@
     ],
     "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
+  },
+  {
+    "id": "quiz_westasia_iran_desc",
+    "region": "westasia",
+    "title": "近世・近代イランの流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_westasia_desc_iran_1",
+      "card_westasia_desc_iran_2",
+      "card_westasia_desc_iran_3",
+      "card_westasia_desc_iran_4",
+      "card_westasia_desc_iran_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_westasia_iran_term",
+    "region": "westasia",
+    "title": "サファヴィー朝と近代イラン",
+    "card_type": "term",
+    "card_ids": [
+      "card_westasia_safavid",
+      "card_westasia_chaldiran",
+      "card_westasia_isfahan",
+      "card_westasia_afsharid",
+      "card_westasia_qajar",
+      "card_westasia_tobacco",
+      "card_westasia_constitutional"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_westasia_middle_east_wars",
+    "region": "westasia",
+    "title": "中東戦争と湾岸戦争",
+    "card_type": "term",
+    "card_ids": [
+      "card_westasia_israel",
+      "card_westasia_suez_war",
+      "card_westasia_six_day",
+      "card_westasia_oil_crisis",
+      "card_westasia_iran_iraq",
+      "card_westasia_gulf_war",
+      "card_westasia_oslo"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
   }
 ]

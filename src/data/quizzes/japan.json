@@ -713,5 +713,103 @@
     ],
     "modes": ["careful", "challenge", "timeline", "era_band"],
     "difficulty": 3
+  },
+  {
+    "id": "quiz_japan_ainu_ryukyu_desc",
+    "region": "japan",
+    "title": "北と南の歴史の流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_jp_desc_ryukyu_1",
+      "card_jp_desc_ryukyu_2",
+      "card_jp_desc_ryukyu_3",
+      "card_jp_desc_ryukyu_4",
+      "card_jp_desc_ryukyu_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_japan_ainu_ryukyu",
+    "region": "japan",
+    "title": "アイヌと琉球の歴史",
+    "card_type": "term",
+    "card_ids": [
+      "card_jp_ryukyu_kingdom",
+      "card_jp_koshamain",
+      "card_jp_shimazu_ryukyu",
+      "card_jp_shakushain",
+      "card_jp_kunashiri",
+      "card_jp_ryukyu_shobun",
+      "card_jp_ainu_protection",
+      "card_jp_ainu_culture"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_japan_medieval_society",
+    "region": "japan",
+    "title": "土一揆と戦国の社会",
+    "card_type": "term",
+    "card_ids": [
+      "card_jp_130",
+      "card_jp_kakitsu",
+      "card_jp_132",
+      "card_jp_kaga",
+      "card_jp_imagawa",
+      "card_jp_rakuichi"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_japan_edo_learning",
+    "region": "japan",
+    "title": "江戸の学問と教育",
+    "card_type": "term",
+    "card_ids": [
+      "card_jp_shizutani",
+      "card_jp_kaitokudo",
+      "card_jp_176",
+      "card_jp_motoori",
+      "card_jp_narutaki",
+      "card_jp_tekijuku"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_japan_modern_society",
+    "region": "japan",
+    "title": "近代の社会運動と大衆文化",
+    "card_type": "term",
+    "card_ids": [
+      "card_jp_railway",
+      "card_jp_chokugo",
+      "card_jp_shakai_minshu",
+      "card_jp_taigyaku",
+      "card_jp_seitosha",
+      "card_jp_shinfujin",
+      "card_jp_radio"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
+  },
+  {
+    "id": "quiz_japan_heisei",
+    "region": "japan",
+    "title": "冷戦後の日本",
+    "card_type": "term",
+    "card_ids": [
+      "card_jp_263",
+      "card_jp_pko",
+      "card_jp_hosokawa",
+      "card_jp_hanshin",
+      "card_jp_nicho",
+      "card_jp_higashinihon"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
   }
 ]

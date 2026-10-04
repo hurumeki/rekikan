@@ -188,5 +188,38 @@
     ],
     "modes": ["careful", "challenge", "timeline", "era_band"],
     "difficulty": 3
+  },
+  {
+    "id": "quiz_northamerica_meso_desc",
+    "region": "northamerica",
+    "title": "メソアメリカとメキシコの流れ",
+    "card_type": "description",
+    "card_ids": [
+      "card_northamerica_desc_meso_1",
+      "card_northamerica_desc_meso_2",
+      "card_northamerica_desc_meso_3",
+      "card_northamerica_desc_meso_4",
+      "card_northamerica_desc_meso_5"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 1
+  },
+  {
+    "id": "quiz_northamerica_meso_term",
+    "region": "northamerica",
+    "title": "メソアメリカ文明とメキシコ",
+    "card_type": "term",
+    "card_ids": [
+      "card_northamerica_olmec",
+      "card_northamerica_maya_classic",
+      "card_northamerica_tenochtitlan",
+      "card_northamerica_cortes",
+      "card_northamerica_mexico_ind",
+      "card_northamerica_mex_us_war",
+      "card_northamerica_mexican_rev",
+      "card_northamerica_nafta"
+    ],
+    "modes": ["careful", "challenge", "timeline"],
+    "difficulty": 2
   }
 ]

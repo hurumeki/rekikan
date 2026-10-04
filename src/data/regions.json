@@ -99,6 +99,39 @@
     }
   },
   {
+    "id": "korea",
+    "label": "朝鮮半島史",
+    "emoji": "🪭",
+    "color": "#8b5cf6",
+    "era_colors": {
+      "ancient": {
+        "label": "古代の王国",
+        "color": "#4ade80",
+        "year_start": -300
+      },
+      "goryeo": {
+        "label": "高麗",
+        "color": "#60a5fa",
+        "year_start": 918
+      },
+      "joseon": {
+        "label": "朝鮮王朝",
+        "color": "#a78bfa",
+        "year_start": 1392
+      },
+      "modern": {
+        "label": "開国と植民地支配",
+        "color": "#fb923c",
+        "year_start": 1876
+      },
+      "contemporary": {
+        "label": "分断と現代",
+        "color": "#f87171",
+        "year_start": 1945
+      }
+    }
+  },
+  {
     "id": "westasia",
     "label": "西アジア・北アフリカ史",
     "emoji": "🌙",
@@ -123,6 +156,39 @@
         "label": "近現代",
         "color": "#f87171",
         "year_start": 1919
+      }
+    }
+  },
+  {
+    "id": "africa",
+    "label": "アフリカ史",
+    "emoji": "🦁",
+    "color": "#ea580c",
+    "era_colors": {
+      "ancient": {
+        "label": "古代の王国",
+        "color": "#4ade80",
+        "year_start": -1000
+      },
+      "trade": {
+        "label": "交易王国の繁栄",
+        "color": "#60a5fa",
+        "year_start": 700
+      },
+      "slave_trade": {
+        "label": "奴隷貿易の時代",
+        "color": "#a78bfa",
+        "year_start": 1482
+      },
+      "colonial": {
+        "label": "植民地支配",
+        "color": "#fb923c",
+        "year_start": 1880
+      },
+      "contemporary": {
+        "label": "独立と現代",
+        "color": "#f87171",
+        "year_start": 1957
       }
     }
   },
