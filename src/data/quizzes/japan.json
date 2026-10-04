@@ -4,7 +4,16 @@
     "region": "japan",
     "title": "日本の歴史の大きな流れ",
     "card_type": "description",
-    "card_ids": ["card_jp_1", "card_jp_2", "card_jp_3", "card_jp_4", "card_jp_5", "card_jp_6"],
+    "card_ids": [
+      "card_jp_1",
+      "card_jp_2",
+      "card_jp_3",
+      "card_jp_4",
+      "card_jp_5",
+      "card_jp_intro_edo",
+      "card_jp_6",
+      "card_jp_intro_postwar"
+    ],
     "modes": ["careful", "challenge", "timeline", "era_band"],
     "difficulty": 1
   },
@@ -13,7 +22,15 @@
     "region": "japan",
     "title": "古代の社会変化の概要",
     "card_type": "description",
-    "card_ids": ["card_jp_7", "card_jp_8", "card_jp_9", "card_jp_10"],
+    "card_ids": [
+      "card_jp_7",
+      "card_jp_8",
+      "card_jp_9",
+      "card_jp_10",
+      "card_jp_desc_asuka",
+      "card_jp_desc_nara",
+      "card_jp_desc_heian"
+    ],
     "modes": ["careful", "challenge", "timeline"],
     "difficulty": 1
   },
@@ -226,12 +243,12 @@
     "title": "源平の争乱から承久の乱",
     "card_type": "term",
     "card_ids": [
+      "card_jp_yoritomo_uprising",
+      "card_jp_kumonjo",
       "card_jp_102",
-      "card_jp_103",
       "card_jp_104",
       "card_jp_105",
-      "card_jp_106",
-      "card_jp_107"
+      "card_jp_106"
     ],
     "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
@@ -241,7 +258,14 @@
     "region": "japan",
     "title": "執権政治の展開と蒙古襲来",
     "card_type": "term",
-    "card_ids": ["card_jp_108", "card_jp_109", "card_jp_110", "card_jp_111", "card_jp_112"],
+    "card_ids": [
+      "card_jp_107",
+      "card_jp_108",
+      "card_jp_109",
+      "card_jp_110",
+      "card_jp_111",
+      "card_jp_112"
+    ],
     "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
@@ -307,7 +331,13 @@
     "region": "japan",
     "title": "北山文化・東山文化",
     "card_type": "term",
-    "card_ids": ["card_jp_136", "card_jp_137", "card_jp_138", "card_jp_139", "card_jp_140"],
+    "card_ids": [
+      "card_jp_136",
+      "card_jp_ashikaga_gakko",
+      "card_jp_yoshizaki",
+      "card_jp_137",
+      "card_jp_139"
+    ],
     "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
@@ -375,7 +405,7 @@
     "region": "japan",
     "title": "鎖国体制と対外関係の変遷",
     "card_type": "term",
-    "card_ids": ["card_jp_168", "card_jp_169", "card_jp_170", "card_jp_171", "card_jp_172"],
+    "card_ids": ["card_jp_dejima", "card_jp_169", "card_jp_170", "card_jp_171", "card_jp_172"],
     "modes": ["careful", "challenge", "timeline"],
     "difficulty": 3
   },
@@ -384,7 +414,13 @@
     "region": "japan",
     "title": "寛永・元禄・化政文化",
     "card_type": "term",
-    "card_ids": ["card_jp_173", "card_jp_174", "card_jp_175", "card_jp_176", "card_jp_177"],
+    "card_ids": [
+      "card_jp_173",
+      "card_jp_basho_oku",
+      "card_jp_174",
+      "card_jp_176",
+      "card_jp_hokusai_fugaku"
+    ],
     "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
@@ -399,7 +435,8 @@
       "card_jp_180",
       "card_jp_181",
       "card_jp_182",
-      "card_jp_183"
+      "card_jp_183",
+      "card_jp_desc_reiwa"
     ],
     "modes": ["careful", "challenge", "timeline", "era_band"],
     "difficulty": 1
@@ -451,7 +488,15 @@
     "region": "japan",
     "title": "明治新政府の成立と富国強兵",
     "card_type": "term",
-    "card_ids": ["card_jp_202", "card_jp_203", "card_jp_204", "card_jp_205", "card_jp_206"],
+    "card_ids": [
+      "card_jp_202",
+      "card_jp_hanseki",
+      "card_jp_203",
+      "card_jp_204",
+      "card_jp_205",
+      "card_jp_chitsuroku",
+      "card_jp_yawata"
+    ],
     "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
@@ -478,7 +523,7 @@
     "card_type": "term",
     "card_ids": [
       "card_jp_213",
-      "card_jp_214",
+      "card_jp_shimonoseki",
       "card_jp_215",
       "card_jp_216",
       "card_jp_217",
@@ -508,14 +553,7 @@
     "region": "japan",
     "title": "第一次世界大戦と大正デモクラシー",
     "card_type": "term",
-    "card_ids": [
-      "card_jp_225",
-      "card_jp_226",
-      "card_jp_227",
-      "card_jp_228",
-      "card_jp_229",
-      "card_jp_230"
-    ],
+    "card_ids": ["card_jp_225", "card_jp_226", "card_jp_227", "card_jp_231", "card_jp_229"],
     "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
@@ -524,7 +562,13 @@
     "region": "japan",
     "title": "昭和恐慌と政党内閣の崩壊",
     "card_type": "term",
-    "card_ids": ["card_jp_231", "card_jp_232", "card_jp_233", "card_jp_234", "card_jp_235"],
+    "card_ids": [
+      "card_jp_kinyu_kyoko",
+      "card_jp_232",
+      "card_jp_london_naval",
+      "card_jp_233",
+      "card_jp_235"
+    ],
     "modes": ["careful", "challenge", "timeline", "era_band"],
     "difficulty": 2
   },
@@ -535,6 +579,7 @@
     "card_type": "term",
     "card_ids": [
       "card_jp_236",
+      "card_jp_234",
       "card_jp_237",
       "card_jp_238",
       "card_jp_239",
@@ -565,7 +610,7 @@
     "region": "japan",
     "title": "GHQの占領政策と日本国憲法",
     "card_type": "term",
-    "card_ids": ["card_jp_248", "card_jp_249", "card_jp_250", "card_jp_251", "card_jp_252"],
+    "card_ids": ["card_jp_248", "card_jp_250", "card_jp_251", "card_jp_dodge", "card_jp_252"],
     "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
@@ -574,7 +619,7 @@
     "region": "japan",
     "title": "サンフランシスコ平和条約と55年体制",
     "card_type": "term",
-    "card_ids": ["card_jp_253", "card_jp_254", "card_jp_255", "card_jp_256", "card_jp_257"],
+    "card_ids": ["card_jp_253", "card_jp_jieitai", "card_jp_255", "card_jp_256", "card_jp_257"],
     "modes": ["careful", "challenge", "timeline"],
     "difficulty": 2
   },
@@ -586,8 +631,8 @@
     "card_ids": [
       "card_jp_258",
       "card_jp_259",
+      "card_jp_expo70",
       "card_jp_260",
-      "card_jp_261",
       "card_jp_262",
       "card_jp_263"
     ],
@@ -600,18 +645,20 @@
     "title": "旧石器から令和までの全時代",
     "card_type": "term",
     "card_ids": [
-      "card_jp_264",
-      "card_jp_265",
-      "card_jp_266",
-      "card_jp_267",
-      "card_jp_268",
-      "card_jp_269",
-      "card_jp_270",
-      "card_jp_271",
-      "card_jp_272",
-      "card_jp_273",
+      "card_jp_12",
+      "card_jp_13",
+      "card_jp_14",
+      "card_jp_15",
+      "card_jp_16",
+      "card_jp_17",
+      "card_jp_91",
+      "card_jp_93",
+      "card_jp_95",
+      "card_jp_96",
+      "card_jp_185",
+      "card_jp_186",
       "card_jp_274",
-      "card_jp_275"
+      "card_jp_189"
     ],
     "modes": ["careful", "challenge", "timeline", "era_band"],
     "difficulty": 3
@@ -624,11 +671,11 @@
     "card_ids": [
       "card_jp_276",
       "card_jp_277",
-      "card_jp_278",
-      "card_jp_279",
+      "card_jp_51",
+      "card_jp_103",
       "card_jp_280",
-      "card_jp_281",
-      "card_jp_282"
+      "card_jp_206",
+      "card_jp_249"
     ],
     "modes": ["careful", "challenge", "timeline", "era_band"],
     "difficulty": 3
@@ -639,13 +686,13 @@
     "title": "日中関係史の変遷",
     "card_type": "term",
     "card_ids": [
-      "card_jp_283",
-      "card_jp_284",
-      "card_jp_285",
+      "card_jp_27",
+      "card_jp_28",
+      "card_jp_41",
       "card_jp_286",
-      "card_jp_287",
-      "card_jp_288",
-      "card_jp_289"
+      "card_jp_129",
+      "card_jp_214",
+      "card_jp_261"
     ],
     "modes": ["careful", "challenge", "timeline", "era_band"],
     "difficulty": 3
@@ -656,8 +703,8 @@
     "title": "都と幕府所在地の変遷",
     "card_type": "term",
     "card_ids": [
-      "card_jp_290",
-      "card_jp_291",
+      "card_jp_46",
+      "card_jp_63",
       "card_jp_292",
       "card_jp_293",
       "card_jp_294",

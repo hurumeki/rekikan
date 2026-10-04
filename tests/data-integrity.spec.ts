@@ -23,6 +23,22 @@ test.describe('同梱コンテンツ (src/data)', () => {
     expect(report.errors, `\n${format(report.errors)}`).toEqual([]);
   });
 
+  test('コンテンツ品質の警告（docs/35）が出ない', async () => {
+    const report = validateDataset({
+      regions: REGIONS,
+      cards: await loadAllCards(),
+      quizzes: ALL_QUIZZES,
+      nodes: ALL_NODES,
+      categories: CATEGORIES,
+    });
+    // 通し問題（まとめテスト）はカード数が多くてよい（docs/04 §4.3）
+    const isFullSequence = (id: string) => /_all_eras_term$|_full$/.test(id);
+    const quality = report.warnings.filter(
+      (w) => w.rule && !(w.rule === 'card_count' && isFullSequence(w.id)),
+    );
+    expect(quality, `\n${format(quality)}`).toEqual([]);
+  });
+
   test('すべてのクイズのカードが年代の昇順に並んでいる', async () => {
     const cardMap = new Map((await loadAllCards()).map((c) => [c.id, c]));
     const broken: string[] = [];
