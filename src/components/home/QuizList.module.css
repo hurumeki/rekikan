@@ -161,6 +161,7 @@
   overflow: hidden;
 }
 .progressFill {
+  display: block;
   height: 100%;
   background: var(--badge-bg);
   border-radius: 2px;
